@@ -1,0 +1,2344 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Hellma PAT">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="theme-color" content="#ffffff">
+<meta name="format-detection" content="telephone=no, email=no, address=no, date=no">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icons/icon-180.png">
+<title>Hellma Process Analytics</title>
+<style>
+/* Hellma PAT kiosk
+   Layout: full-screen touch app. White sheet, Ident Blue banners carrying headlines (brand guide 3.1),
+   product shots on a blue-gradient stage with a light spot (brand guide 3.3). Single light look by design. */
+:root {
+  --blue: #0072b6;          /* Ident Blue: graphic elements */
+  --blue-dark: #00569d;     /* Hellma Blue: logo tone, pressed states */
+  --blue-ink: #0a3a5f;
+  --sky-1: #f4f8fc;
+  --sky-2: #e4eef7;
+  --sky-3: #c9ddef;
+  --paper: #ffffff;
+  --grey-1: #f2f2f2;        /* Light Grey */
+  --grey-2: #e0e0e0;        /* Medium Grey */
+  --grey-5: #878787;        /* Crown Grey */
+  --grey-7: #575756;        /* Dark Grey */
+  --ink: #1e2328;
+  --beam-in: #1a8fd8;
+  --beam-out: #f08a24;
+  --ok: #2e7d4f;
+  --warn: #c2410c;
+  --review: #e07b00;
+  --f-display: "DIN Next LT Pro", "DIN Pro", "DIN 2014", "D-DIN", "Barlow", -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
+  --f-body: "DIN Next LT Pro", "DIN Pro", "D-DIN", "Barlow", -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+  --f-label: "DIN Alternate", "DIN Next LT Pro", "Barlow Semi Condensed", -apple-system, "Helvetica Neue", Arial, sans-serif;
+  --top: 4.25rem;
+  --gut: clamp(16px, 2.6vw, 40px);
+  --radius: 4px;
+  color-scheme: light;
+  font-size: clamp(16px, calc(1.2vmin + 7px), 22px);
+}
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+html, body { height: 100%; overflow: hidden; overscroll-behavior: none; }
+body {
+  margin: 0; background: var(--paper); color: var(--ink);
+  font-family: var(--f-body); font-weight: 400; line-height: 1.45;
+  -webkit-user-select: none; user-select: none; -webkit-touch-callout: none;
+  touch-action: manipulation; -webkit-text-size-adjust: 100%;
+}
+img { max-width: 100%; -webkit-user-drag: none; user-select: none; }
+button { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; touch-action: manipulation; }
+input, textarea, select { font: inherit; -webkit-user-select: text; user-select: text; }
+:focus-visible { outline: 3px solid var(--blue); outline-offset: 2px; }
+[hidden] { display: none !important; }
+h1, h2, h3, h4 { margin: 0; font-family: var(--f-display); text-wrap: balance; }
+p { margin: 0; }
+ul { margin: 0; padding: 0; list-style: none; }
+
+/* ---------- Shared type ---------- */
+.eyebrow { font-family: var(--f-label); font-weight: 700; text-transform: uppercase; letter-spacing: .14em; font-size: .72rem; color: var(--blue); }
+.h1 { font-weight: 300; font-size: 2.3rem; line-height: 1.08; letter-spacing: -.01em; color: var(--ink); }
+.h2 { font-weight: 400; font-size: 1.5rem; line-height: 1.15; }
+.h3 { font-weight: 500; font-size: 1.12rem; line-height: 1.25; }
+.lead { font-size: 1.12rem; color: var(--grey-7); max-width: 60ch; line-height: 1.5; }
+.muted { color: var(--grey-7); }
+.small { font-size: .85rem; }
+.num { font-family: var(--f-label); font-weight: 700; font-variant-numeric: tabular-nums; }
+
+/* ---------- App shell ---------- */
+#app { position: fixed; inset: 0; }
+.shell { position: absolute; inset: 0; display: grid; grid-template-rows: var(--top) 1fr; }
+.topbar {
+  display: flex; align-items: center; gap: .5rem; padding: 0 var(--gut);
+  padding-top: env(safe-area-inset-top, 0px);
+  background: var(--paper); border-bottom: 1px solid var(--grey-2); position: relative; z-index: 5;
+}
+.navbtn {
+  display: inline-flex; align-items: center; gap: .45rem; height: 2.9rem; padding: 0 1rem; border-radius: 999px;
+  font-family: var(--f-label); font-weight: 700; text-transform: uppercase; letter-spacing: .08em; font-size: .78rem;
+  color: var(--blue-ink); background: var(--sky-1); border: 1px solid var(--sky-3);
+}
+.navbtn:active { background: var(--sky-2); }
+.navbtn svg { width: 1.1rem; height: 1.1rem; }
+.crumb { margin-left: .75rem; font-size: 1rem; color: var(--grey-7); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; flex: 1; }
+.crumb b { color: var(--ink); font-weight: 500; }
+.logo-btn { margin-left: auto; height: 100%; display: flex; align-items: center; padding-left: 1rem; }
+.logo { height: 1.85rem; width: auto; display: block; }
+.view { position: relative; overflow-y: auto; overflow-x: hidden; -webkit-overflow-scrolling: touch; overscroll-behavior: contain; }
+.page { padding: 1.6rem var(--gut) 7rem; display: grid; gap: 1.6rem; max-width: 1400px; margin: 0 auto; animation: pagein .35s ease both; }
+@keyframes pagein { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+.cta {
+  position: absolute; right: var(--gut); bottom: calc(1.1rem + env(safe-area-inset-bottom, 0px)); z-index: 6;
+  display: inline-flex; align-items: center; gap: .6rem; height: 3.6rem; padding: 0 1.5rem; border-radius: 999px;
+  background: var(--blue); color: #fff; font-weight: 500; font-size: 1.05rem; box-shadow: 0 8px 24px rgba(0, 60, 110, .28);
+}
+.cta svg { width: 1.3rem; height: 1.3rem; }
+.cta:active { background: var(--blue-dark); }
+
+/* Page header: blue banner carrying the headline (brand guide basics) */
+.banner { display: grid; gap: .5rem; padding: 1.4rem 1.6rem; background: var(--blue); color: #fff; border-radius: var(--radius); position: relative; overflow: hidden; }
+.banner .eyebrow { color: rgba(255,255,255,.82); }
+.banner .h1 { color: #fff; }
+.banner .lead { color: rgba(255,255,255,.92); }
+.banner::after { content: ""; position: absolute; right: -6rem; top: -6rem; width: 18rem; height: 18rem; border-radius: 50%; background: radial-gradient(circle, rgba(255,255,255,.35), rgba(255,255,255,0) 65%); pointer-events: none; }
+.pagehead { display: grid; gap: .55rem; }
+.brandline { display: flex; align-items: center; gap: .75rem; }
+.brandline img { height: 1.6rem; width: auto; }
+
+/* ---------- Buttons, chips, tabs ---------- */
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: .5rem; min-height: 3.2rem; padding: .6rem 1.3rem; border-radius: 999px; font-weight: 500; font-size: 1rem; border: 1.5px solid var(--blue); color: var(--blue); background: #fff; }
+.btn.primary { background: var(--blue); color: #fff; }
+.btn:active { transform: scale(.98); }
+.btn svg { width: 1.15rem; height: 1.15rem; }
+.row { display: flex; flex-wrap: wrap; gap: .75rem; align-items: center; }
+.chip { display: inline-flex; align-items: center; gap: .4rem; min-height: 2.9rem; padding: .45rem 1.05rem; border-radius: 999px; border: 1.5px solid var(--grey-2); background: #fff; font-size: .98rem; color: var(--ink); }
+.chip[aria-pressed="true"], .chip.on { background: var(--blue); border-color: var(--blue); color: #fff; }
+.chip .sub { font-size: .78rem; opacity: .75; }
+.tag { display: inline-flex; align-items: center; padding: .28rem .6rem; border-radius: 3px; font-family: var(--f-label); font-weight: 700; text-transform: uppercase; letter-spacing: .08em; font-size: .66rem; background: var(--sky-2); color: var(--blue-ink); }
+.tag.solid { background: var(--blue); color: #fff; }
+.tabs { display: flex; gap: .4rem; flex-wrap: wrap; border-bottom: 1px solid var(--grey-2); }
+.tab { min-height: 3.2rem; padding: 0 1.15rem; font-size: 1.02rem; color: var(--grey-7); border-bottom: 3px solid transparent; margin-bottom: -1px; }
+.tab[aria-selected="true"] { color: var(--blue); border-bottom-color: var(--blue); font-weight: 500; }
+.linkish { color: var(--blue); font-weight: 500; display: inline-flex; align-items: center; gap: .3rem; min-height: 2.6rem; }
+
+/* ---------- Product stage (light spot) ---------- */
+.stage {
+  position: relative; overflow: hidden; border-radius: var(--radius);
+  background:
+    radial-gradient(ellipse 45% 40% at 58% 42%, rgba(255,255,255,1) 0%, rgba(255,255,255,.85) 35%, rgba(255,255,255,0) 70%),
+    linear-gradient(160deg, #ffffff 0%, var(--sky-1) 30%, var(--sky-2) 70%, var(--sky-3) 100%);
+  display: grid; place-items: center; height: 100%;
+}
+.stage img.prod { mix-blend-mode: multiply; object-fit: contain; width: 86%; height: 86%; }
+.stage.photo img { mix-blend-mode: normal; width: 100%; height: 100%; object-fit: cover; }
+.stage .spark { position: absolute; width: 16%; aspect-ratio: 1; left: 50%; top: 38%; transform: translate(-50%,-50%); border-radius: 50%; background: radial-gradient(circle, rgba(255,255,255,.95), rgba(160,215,255,.35) 35%, rgba(255,255,255,0) 70%); mix-blend-mode: screen; pointer-events: none; animation: spark 5s ease-in-out infinite; }
+@keyframes spark { 0%,100% { opacity: .55; transform: translate(-50%,-50%) scale(.9); } 50% { opacity: 1; transform: translate(-50%,-50%) scale(1.15); } }
+.lowres-note { position: absolute; left: .6rem; bottom: .5rem; font-size: .66rem; color: var(--grey-5); background: rgba(255,255,255,.7); padding: .1rem .35rem; border-radius: 2px; display: none; }
+body.review .lowres-note { display: block; }
+
+/* ---------- Attract ---------- */
+.attract { position: absolute; inset: 0; background: #0b2a44; overflow: hidden; z-index: 20; }
+.attract .slide { position: absolute; inset: 0; opacity: 0; transition: opacity 1.4s ease; }
+.attract .slide.on { opacity: 1; }
+.attract .slide img { width: 100%; height: 100%; object-fit: cover; transform: scale(1.04); }
+.attract .slide.on img { animation: kenburns 12s ease-out both; }
+@keyframes kenburns { from { transform: scale(1.04); } to { transform: scale(1.14); } }
+.attract .shade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(4,30,52,0) 35%, rgba(4,30,52,.45) 100%); }
+.attract .logo-plate { position: absolute; top: calc(env(safe-area-inset-top, 0px) + 1.4rem); right: var(--gut); background: #fff; padding: .9rem 1.3rem; border-radius: 3px; box-shadow: 0 6px 20px rgba(0,0,0,.18); }
+.attract .logo-plate .logo { height: 2.3rem; }
+.attract .copy { position: absolute; left: var(--gut); right: var(--gut); bottom: calc(2rem + env(safe-area-inset-bottom, 0px)); display: grid; gap: 1.1rem; justify-items: start; }
+.attract .card { background: var(--blue); color: #fff; padding: 1.5rem 1.8rem 1.6rem; max-width: 46rem; border-radius: 3px; display: grid; gap: .55rem; box-shadow: 0 10px 40px rgba(0,30,60,.35); }
+.attract .card .eyebrow { color: rgba(255,255,255,.85); }
+.attract .card h1 { font-weight: 300; font-size: 2.9rem; line-height: 1.04; letter-spacing: -.01em; }
+.attract .card p { font-size: 1.15rem; color: rgba(255,255,255,.92); }
+.attract .touch { display: inline-flex; align-items: center; gap: .8rem; background: #fff; color: var(--blue-ink); border-radius: 999px; height: 3.6rem; padding: 0 1.6rem 0 1.2rem; font-weight: 500; font-size: 1.1rem; box-shadow: 0 8px 24px rgba(0,0,0,.2); }
+.attract .touch .ring { width: 1.6rem; height: 1.6rem; border-radius: 50%; border: 2px solid var(--blue); position: relative; }
+.attract .touch .ring::after { content: ""; position: absolute; inset: -2px; border-radius: 50%; border: 2px solid var(--blue); animation: ping 1.8s ease-out infinite; }
+@keyframes ping { from { transform: scale(1); opacity: .8; } to { transform: scale(2.2); opacity: 0; } }
+.attract .dots { position: absolute; right: var(--gut); bottom: calc(2.4rem + env(safe-area-inset-bottom, 0px)); display: flex; gap: .5rem; }
+.attract .dots i { width: .6rem; height: .6rem; border-radius: 50%; background: rgba(255,255,255,.45); }
+.attract .dots i.on { background: #fff; }
+
+/* ---------- Home ---------- */
+.home-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 1rem; }
+.home-grid { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 2fr); gap: 1.4rem; align-items: start; }
+.hero-tile { position: sticky; top: 0; display: grid; grid-template-rows: minmax(0, 1fr) auto; height: min(36rem, calc(100vh - var(--top) - 11rem)); min-height: 24rem; border-radius: var(--radius); overflow: hidden; text-align: left; background: var(--blue); color: #fff; }
+.hero-tile .stage { border-radius: 0; min-height: 0; }
+.hero-tile .txt { padding: 1.3rem 1.5rem 1.5rem; display: grid; gap: .45rem; }
+.hero-tile .txt h2 { font-weight: 300; font-size: 2rem; line-height: 1.05; }
+.hero-tile .txt p { color: rgba(255,255,255,.9); }
+.hero-tile .go { margin-top: .5rem; display: inline-flex; align-items: center; gap: .5rem; font-weight: 500; }
+.groups { display: grid; gap: 1.3rem; }
+.group-h { display: flex; align-items: center; gap: .8rem; margin-bottom: .6rem; }
+.group-h img { height: 1.35rem; width: auto; }
+.group-h .t { font-family: var(--f-label); font-weight: 700; text-transform: uppercase; letter-spacing: .12em; font-size: .72rem; color: var(--grey-7); }
+.tiles { display: grid; grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr)); gap: .8rem; }
+.tile { display: grid; grid-template-rows: 6.4rem auto; text-align: left; border: 1px solid var(--grey-2); border-radius: var(--radius); overflow: hidden; background: #fff; }
+.tile:active { border-color: var(--blue); }
+.tile .stage { border-radius: 0; }
+.tile .stage img.prod { width: 78%; height: 78%; }
+.tile .t { padding: .7rem .85rem .85rem; display: grid; gap: .15rem; }
+.tile .t b { font-weight: 500; font-size: 1.02rem; line-height: 1.2; }
+.tile .t span { font-size: .82rem; color: var(--grey-7); line-height: 1.3; }
+.tile .stage svg { width: 92%; height: 92%; }
+
+/* ---------- Finder ---------- */
+.finder { display: grid; grid-template-columns: minmax(0, 22rem) minmax(0, 1fr); gap: 1.6rem; align-items: start; }
+.filters { display: grid; gap: 1.15rem; position: sticky; top: 0; }
+.fgroup { display: grid; gap: .5rem; }
+.fgroup .lab { font-family: var(--f-label); font-weight: 700; text-transform: uppercase; letter-spacing: .1em; font-size: .7rem; color: var(--grey-7); }
+.fgroup .row { gap: .45rem; }
+.fgroup .chip { min-height: 2.75rem; padding: .35rem .9rem; font-size: .93rem; }
+.results-head { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; flex-wrap: wrap; }
+.results { display: grid; grid-template-columns: repeat(auto-fill, minmax(15.5rem, 1fr)); gap: .9rem; }
+.pcard { display: grid; grid-template-rows: 9.5rem auto; text-align: left; border: 1px solid var(--grey-2); border-radius: var(--radius); overflow: hidden; background: #fff; transition: opacity .25s, transform .25s; }
+.pcard:active { border-color: var(--blue); }
+.pcard .stage { border-radius: 0; }
+.pcard .body { padding: .8rem .95rem 1rem; display: grid; gap: .5rem; }
+.pcard .nm { display: grid; gap: .05rem; }
+.pcard .nm b { font-weight: 500; font-size: 1.15rem; }
+.pcard .nm span { font-size: .8rem; color: var(--grey-7); }
+.meter { display: grid; grid-template-columns: 3.6rem 1fr 4.6rem; gap: .5rem; align-items: center; font-size: .8rem; color: var(--grey-7); }
+.meter .bar { position: relative; height: .42rem; border-radius: 99px; background: var(--grey-1); overflow: visible; }
+.meter .bar i { position: absolute; left: 0; top: 0; bottom: 0; border-radius: 99px; background: linear-gradient(90deg, var(--sky-3), var(--blue)); }
+.meter .bar u { position: absolute; top: -.25rem; bottom: -.25rem; width: 2px; background: var(--warn); text-decoration: none; }
+.meter .v { text-align: right; color: var(--ink); font-variant-numeric: tabular-nums; }
+.empty { border: 1.5px dashed var(--sky-3); border-radius: var(--radius); padding: 1.6rem; display: grid; gap: .8rem; justify-items: start; background: var(--sky-1); }
+
+/* ---------- Product page ---------- */
+.product { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); gap: 2rem; align-items: start; }
+.gallery { display: grid; gap: .7rem; position: sticky; top: 0; }
+.gallery .stage { aspect-ratio: 4 / 3.2; }
+.thumbs { display: flex; gap: .6rem; }
+.thumbs button { width: 5.6rem; height: 4.4rem; border: 1.5px solid var(--grey-2); border-radius: 3px; background: #fff; display: grid; place-items: center; overflow: hidden; }
+.thumbs button[aria-pressed="true"] { border-color: var(--blue); box-shadow: 0 0 0 2px var(--sky-3); }
+.thumbs img { width: 90%; height: 90%; object-fit: contain; mix-blend-mode: multiply; }
+.thumbs .lbl { font-size: .7rem; color: var(--grey-7); }
+.zoomhint { font-size: .8rem; color: var(--grey-7); display: inline-flex; gap: .35rem; align-items: center; }
+.pinfo { display: grid; gap: 1.15rem; }
+.ratings { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .6rem; }
+.rating { background: var(--sky-1); border: 1px solid var(--sky-2); border-radius: var(--radius); padding: .8rem .9rem; display: grid; gap: .1rem; }
+.rating .k { font-family: var(--f-label); font-weight: 700; text-transform: uppercase; letter-spacing: .1em; font-size: .64rem; color: var(--grey-7); }
+.rating .n { font-family: var(--f-label); font-weight: 700; font-size: 1.55rem; color: var(--blue-ink); line-height: 1.1; font-variant-numeric: tabular-nums; }
+.rating .n small { font-size: .9rem; font-weight: 700; color: var(--grey-7); margin-left: .15rem; }
+.specs { width: 100%; border-collapse: collapse; font-size: .98rem; }
+.specs th { text-align: left; font-weight: 400; color: var(--grey-7); padding: .62rem 1rem .62rem 0; width: 34%; vertical-align: top; border-top: 1px solid var(--grey-2); }
+.specs td { padding: .62rem 0; border-top: 1px solid var(--grey-2); font-variant-numeric: tabular-nums; }
+
+/* ---------- Generic blocks ---------- */
+.cols2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.4rem; }
+.cols3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.1rem; }
+.panel { border: 1px solid var(--grey-2); border-radius: var(--radius); padding: 1.3rem 1.4rem; display: grid; gap: .85rem; align-content: start; background: #fff; }
+.panel.sky { background: var(--sky-1); border-color: var(--sky-2); }
+.bul { display: grid; gap: .55rem; }
+.bul li { position: relative; padding-left: 1.3rem; }
+.bul li::before { content: ""; position: absolute; left: 0; top: .62em; width: .5rem; height: .5rem; background: var(--blue); clip-path: polygon(25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%); }
+.bul.minus li::before { background: var(--grey-5); clip-path: none; height: 2px; top: .72em; }
+.bul.plus li::before { background: var(--ok); }
+.stat { display: grid; gap: .1rem; }
+.stat .n { font-family: var(--f-label); font-weight: 700; font-size: 3rem; line-height: 1; color: var(--blue); font-variant-numeric: tabular-nums; }
+.stat .n small { font-size: 1.3rem; color: var(--blue-ink); margin-left: .2rem; }
+.stat .l { font-size: .9rem; color: var(--grey-7); }
+.figure { border: 1px solid var(--grey-2); border-radius: var(--radius); background: #fff; display: grid; place-items: center; padding: 1rem; position: relative; }
+.figure img { max-height: 22rem; object-fit: contain; }
+.figure .zoom { position: absolute; right: .5rem; bottom: .5rem; width: 2.6rem; height: 2.6rem; border-radius: 50%; background: var(--sky-1); border: 1px solid var(--sky-3); display: grid; place-items: center; color: var(--blue); }
+.figure .zoom svg { width: 1.2rem; height: 1.2rem; }
+.credit { font-size: .78rem; color: var(--grey-5); display: flex; align-items: center; gap: .5rem; }
+.credit img { height: 1.1rem; width: auto; }
+.mini { display: grid; grid-template-columns: 4.6rem minmax(0, 1fr); gap: .9rem; align-items: center; text-align: left; border: 1px solid var(--grey-2); border-radius: var(--radius); padding: .5rem .8rem .5rem .5rem; background: #fff; min-height: 4.2rem; }
+.mini .stage { width: 4.6rem; height: 3.6rem; }
+.mini .stage img.prod { width: 88%; height: 88%; }
+.mini b { font-weight: 500; display: block; }
+.mini span { font-size: .82rem; color: var(--grey-7); }
+.minis { display: grid; grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr)); gap: .6rem; }
+
+/* ---------- Principles ---------- */
+.principle { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 1.8rem; align-items: start; }
+.diagram { background: linear-gradient(180deg, #fff, var(--sky-1)); border: 1px solid var(--sky-2); border-radius: var(--radius); padding: .6rem; }
+.diagram svg { width: 100%; height: auto; display: block; }
+.diagram text { font-family: var(--f-body); }
+
+/* ---------- Hexagon benefit grid ---------- */
+.hexes { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: .6rem; max-width: 56rem; }
+.hex { aspect-ratio: 1 / .92; clip-path: polygon(25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%); background: var(--blue); color: #fff; display: grid; place-items: center; text-align: center; padding: 0 16%; font-size: .9rem; line-height: 1.2; font-weight: 500; }
+.hex:nth-child(3n+2) { background: var(--blue-dark); }
+.hex:nth-child(4n) { background: #2a86c4; }
+
+/* ---------- Roadmap ---------- */
+.road { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: .8rem; counter-reset: step; }
+.road button { display: grid; grid-template-rows: auto auto; gap: .5rem; justify-items: center; text-align: center; padding: .7rem .4rem; border-radius: var(--radius); border: 1px solid var(--grey-2); background: #fff; }
+.road .ph { width: 4.4rem; height: 4.4rem; border-radius: 50%; overflow: hidden; border: 3px solid var(--sky-2); }
+.road .ph img { width: 100%; height: 100%; object-fit: cover; }
+.road .n { font-family: var(--f-label); font-weight: 700; color: var(--blue); font-size: .8rem; letter-spacing: .08em; }
+.road b { font-weight: 500; font-size: .95rem; line-height: 1.2; }
+
+/* ---------- Case study ---------- */
+.case { display: grid; grid-template-columns: minmax(0, 15rem) minmax(0, 1fr); gap: 1.6rem; align-items: start; }
+.steps { display: grid; gap: .3rem; position: sticky; top: 0; }
+.steps button { display: grid; grid-template-columns: 2.6rem 1fr; gap: .7rem; align-items: center; text-align: left; min-height: 3.3rem; padding: .3rem .6rem .3rem .3rem; border-radius: 999px; }
+.steps button .ph { width: 2.6rem; height: 2.6rem; border-radius: 50%; overflow: hidden; border: 2px solid var(--sky-2); }
+.steps button .ph img { width: 100%; height: 100%; object-fit: cover; }
+.steps button[aria-current="step"] { background: var(--blue); color: #fff; }
+.steps button[aria-current="step"] .ph { border-color: #fff; }
+.stepbody { display: grid; gap: 1.2rem; }
+.seg { justify-self: start; display: inline-flex; border: 1.5px solid var(--blue); border-radius: 999px; overflow: hidden; }
+.seg button { min-height: 2.9rem; padding: 0 1.3rem; color: var(--blue); font-weight: 500; }
+.seg button[aria-pressed="true"] { background: var(--blue); color: #fff; }
+.pager { display: flex; justify-content: space-between; gap: 1rem; }
+
+/* ---------- Industries ---------- */
+.ind-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .9rem; }
+.ind { position: relative; aspect-ratio: 16 / 10; border-radius: var(--radius); overflow: hidden; text-align: left; }
+.ind img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.ind span { position: absolute; left: 0; bottom: 0; right: 0; padding: 2.5rem 1rem .9rem; color: #fff; font-size: 1.2rem; font-weight: 500; background: linear-gradient(180deg, rgba(0,0,0,0), rgba(0,30,55,.75)); }
+.ind[aria-pressed="true"] { outline: 4px solid var(--blue); outline-offset: 2px; }
+.ind-detail { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); gap: 1.4rem; align-items: start; }
+.ind-detail .ph { border-radius: var(--radius); overflow: hidden; aspect-ratio: 16 / 10; }
+.ind-detail .ph img { width: 100%; height: 100%; object-fit: cover; }
+
+/* ---------- About ---------- */
+.stats { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: .8rem; }
+.stats .stat { border-top: 3px solid var(--blue); padding-top: .6rem; }
+.stats .stat .n { font-size: 2.4rem; }
+.chain { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .8rem; }
+.chain div { display: grid; gap: .5rem; }
+.chain .ph { aspect-ratio: 4 / 3; border-radius: var(--radius); overflow: hidden; }
+.chain .ph img { width: 100%; height: 100%; object-fit: cover; }
+.sites { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .6rem 1.4rem; }
+.sites div { border-top: 1px solid var(--grey-2); padding-top: .6rem; }
+.sites b { font-weight: 500; display: block; }
+
+/* ---------- Form ---------- */
+.form { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 1.1rem 1.4rem; }
+.field { display: grid; gap: .35rem; }
+.field.full { grid-column: 1 / -1; }
+.field label, .field .lab { font-size: .9rem; color: var(--grey-7); }
+.field label b { color: var(--warn); font-weight: 500; }
+.field input, .field textarea {
+  font-size: 1.1rem; min-height: 3.4rem; padding: .6rem .9rem; border-radius: var(--radius);
+  border: 1.5px solid var(--grey-2); background: #fff; color: var(--ink); width: 100%;
+}
+.field textarea { min-height: 6rem; resize: none; line-height: 1.4; }
+.field input:focus, .field textarea:focus { outline: none; border-color: var(--blue); box-shadow: 0 0 0 3px var(--sky-2); }
+.field.err input { border-color: var(--warn); }
+.field .msg { color: var(--warn); font-size: .85rem; min-height: 1.1em; }
+.check { display: grid; grid-template-columns: 2rem 1fr; gap: .8rem; align-items: start; padding: .8rem 1rem; border: 1.5px solid var(--grey-2); border-radius: var(--radius); text-align: left; }
+.check .box { width: 2rem; height: 2rem; border-radius: 4px; border: 2px solid var(--grey-5); display: grid; place-items: center; }
+.check[aria-checked="true"] { border-color: var(--blue); background: var(--sky-1); }
+.check[aria-checked="true"] .box { background: var(--blue); border-color: var(--blue); }
+.check .box svg { width: 1.3rem; height: 1.3rem; color: #fff; opacity: 0; }
+.check[aria-checked="true"] .box svg { opacity: 1; }
+.check.err { border-color: var(--warn); }
+.thanks { min-height: 70vh; display: grid; place-items: center; text-align: center; }
+.thanks .inner { display: grid; gap: 1rem; justify-items: center; max-width: 36rem; }
+.thanks .mark { width: 5rem; height: 5rem; border-radius: 50%; background: var(--blue); color: #fff; display: grid; place-items: center; }
+.thanks .mark svg { width: 2.6rem; height: 2.6rem; }
+
+/* ---------- Overlays ---------- */
+.overlay { position: absolute; inset: 0; z-index: 40; display: grid; place-items: center; background: rgba(6, 30, 50, .55); padding: var(--gut); }
+.sheet { background: #fff; border-radius: 6px; padding: 1.6rem; width: min(100%, 34rem); display: grid; gap: 1rem; box-shadow: 0 20px 60px rgba(0,0,0,.3); }
+.idle .sheet { text-align: center; justify-items: center; }
+.countdown { width: 6rem; height: 6rem; position: relative; }
+.countdown svg { width: 100%; height: 100%; transform: rotate(-90deg); }
+.countdown b { position: absolute; inset: 0; display: grid; place-items: center; font-family: var(--f-label); font-size: 2rem; color: var(--blue); }
+.pinpad { display: grid; grid-template-columns: repeat(3, 4.6rem); gap: .7rem; justify-content: center; }
+.pinpad button { height: 4.6rem; border-radius: 50%; background: var(--sky-1); border: 1px solid var(--sky-3); font-size: 1.6rem; font-family: var(--f-label); color: var(--blue-ink); }
+.pinpad button:active { background: var(--sky-2); }
+.pindots { display: flex; gap: .8rem; justify-content: center; }
+.pindots i { width: 1rem; height: 1rem; border-radius: 50%; border: 2px solid var(--blue); }
+.pindots i.on { background: var(--blue); }
+.shake { animation: shake .4s; }
+@keyframes shake { 20%,60% { transform: translateX(-8px); } 40%,80% { transform: translateX(8px); } }
+.lightbox { background: rgba(6, 20, 35, .92); padding: 0; place-items: stretch; }
+.lightbox .scroller { overflow: auto; -webkit-overflow-scrolling: touch; display: grid; place-items: center; padding: 4.5rem 1.5rem 1.5rem; }
+.lightbox img { background: #fff; max-width: none; width: auto; max-height: calc(100vh - 7rem); border-radius: 3px; }
+.lightbox.zoomed img { max-height: none; width: 220%; }
+.lightbox .bar { position: absolute; top: 0; left: 0; right: 0; display: flex; justify-content: space-between; align-items: center; padding: .8rem 1rem; color: #fff; z-index: 2; }
+.lightbox .bar .btn { background: #fff; }
+
+/* Staff panel */
+.staff { place-items: stretch; padding: 0; background: rgba(6, 30, 50, .6); }
+.staff .sheet { width: 100%; max-width: none; height: 100%; border-radius: 0; overflow: auto; align-content: start; padding: 1.4rem var(--gut) 3rem; }
+.staff table { width: 100%; border-collapse: collapse; font-size: .85rem; }
+.staff th, .staff td { text-align: left; padding: .45rem .6rem .45rem 0; border-top: 1px solid var(--grey-2); vertical-align: top; }
+.staff th { color: var(--grey-7); font-weight: 400; }
+.staff .tablewrap { overflow-x: auto; max-height: 40vh; overflow-y: auto; border: 1px solid var(--grey-2); border-radius: var(--radius); padding: 0 .6rem; }
+.staff textarea { width: 100%; min-height: 10rem; font-family: ui-monospace, Menlo, monospace; font-size: .8rem; }
+.staff select, .staff input[type=text] { min-height: 2.8rem; border: 1.5px solid var(--grey-2); border-radius: var(--radius); padding: 0 .7rem; font-size: 1rem; background: #fff; }
+.hold { position: relative; overflow: hidden; border-color: var(--warn); color: var(--warn); }
+.hold i { position: absolute; left: 0; top: 0; bottom: 0; width: 0; background: rgba(194, 65, 12, .15); }
+.toast { position: absolute; left: 50%; bottom: 6rem; transform: translateX(-50%); background: var(--ink); color: #fff; padding: .8rem 1.2rem; border-radius: 6px; z-index: 60; max-width: min(90vw, 40rem); font-size: .95rem; box-shadow: 0 10px 30px rgba(0,0,0,.25); }
+
+/* Review mode: values still to confirm */
+.chk { }
+body.review .chk { outline: 2px dashed var(--review); outline-offset: 2px; background: #fff4e5; border-radius: 2px; }
+.chk-note { display: none; }
+body.review .chk-note { display: block; border: 2px dashed var(--review); background: #fff4e5; color: #7a3e00; padding: .6rem .8rem; border-radius: var(--radius); font-size: .88rem; }
+body.review .chk-note::before { content: "To confirm: "; font-weight: 600; }
+
+/* ---------- Responsive: portrait and smaller iPads ---------- */
+@media (max-aspect-ratio: 1/1) {
+  .home-grid { grid-template-columns: 1fr; }
+  .hero-tile { position: relative; height: auto; min-height: 0; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); grid-template-rows: auto; }
+  .hero-tile .stage { min-height: 13rem; }
+  .finder { grid-template-columns: 1fr; }
+  .filters { position: static; }
+  .product { grid-template-columns: 1fr; }
+  .gallery { position: static; }
+  .principle { grid-template-columns: 1fr; }
+  .case { grid-template-columns: 1fr; }
+  .steps { position: static; grid-template-columns: repeat(5, minmax(0, 1fr)); }
+  .steps button { grid-template-columns: 1fr; justify-items: center; text-align: center; border-radius: var(--radius); padding: .4rem .2rem; font-size: .8rem; }
+  .ind-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .ind-detail { grid-template-columns: 1fr; }
+  .stats { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .chain { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .road { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .hexes { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .attract .card h1 { font-size: 2.4rem; }
+}
+@media (max-width: 700px) {
+  .cols2, .cols3, .form, .sites { grid-template-columns: 1fr; }
+  .hero-tile { grid-template-columns: 1fr; }
+  .ratings { grid-template-columns: 1fr 1fr; }
+  .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .hexes { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .road { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .steps { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .ind-grid { grid-template-columns: 1fr; }
+  .crumb { display: none; }
+  .h1 { font-size: 1.9rem; }
+  .attract .card h1 { font-size: 2rem; }
+  .cta { height: 3.1rem; padding: 0 1.1rem; font-size: .95rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+
+/* ---------- Diagram internals ---------- */
+.beam { fill: none; stroke-width: 4; stroke-linecap: round; stroke-dasharray: 10 12; animation: flow 1.1s linear infinite; }
+.beam.in { stroke: var(--beam-in); }
+.beam.out { stroke: var(--beam-out); }
+.beam.green { stroke: #2fb36b; }
+.beam.rev { animation-direction: normal; }
+.beam.faint { stroke-width: 2.5; opacity: .45; }
+.beam-halo { fill: none; stroke-width: 12; stroke-linecap: round; opacity: .16; }
+.beam-halo.in { stroke: var(--beam-in); }
+.beam-halo.out { stroke: var(--beam-out); }
+.beam-halo.green { stroke: #2fb36b; }
+@keyframes flow { to { stroke-dashoffset: -22; } }
+.lbl { font-size: 15px; fill: var(--grey-7); }
+.lbl.b { fill: var(--blue-ink); font-weight: 600; }
+.lbl.s { font-size: 13px; }
+.lbl.w { fill: #fff; font-weight: 500; }
+.lbl.xl { font-size: 26px; }
+.lbl.m { font-size: 19px; }
+.leader { stroke: var(--grey-5); stroke-width: 1.2; fill: none; }
+.pulse { animation: pulse 1.6s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+@keyframes pulse { 0%, 100% { opacity: .35; transform: scale(.8); } 50% { opacity: 1; transform: scale(1.2); } }
+.particle { animation: drift 7s ease-in-out infinite; }
+@keyframes drift { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(14px, -8px); } }
+.flowchev { animation: chev 1.4s linear infinite; }
+@keyframes chev { from { transform: translateX(-20px); opacity: 0; } 30% { opacity: 1; } to { transform: translateX(40px); opacity: 0; } }
+.drip { animation: flow 1s linear infinite; }
+.march { animation: flow 1.2s linear infinite; }
+.trace { stroke-dasharray: 200; animation: trace 3s ease-in-out infinite; }
+@keyframes trace { from { stroke-dashoffset: 200; } 60%, to { stroke-dashoffset: 0; } }
+.pop { animation: pop .5s ease-out both; transform-box: fill-box; transform-origin: center; }
+@keyframes pop { from { opacity: 0; } to { opacity: 1; } }
+.pos { cursor: pointer; transition: opacity .3s; }
+.pos.dim { opacity: .5; }
+.pos.sel .lbl.b { fill: var(--blue); }
+.mp, .vst, .wseg { cursor: pointer; }
+.dial { transition: transform .5s cubic-bezier(.5, 0, .2, 1); }
+.wseg path { transition: fill .2s; }
+
+</style>
+</head>
+<body>
+<div id="app"></div>
+<script>
+window.KIOSK_ASSETS={"A1": "assets/A1.jpg", "A2": "assets/A2.jpg", "A3": "assets/A3.jpg", "A4": "assets/A4.jpg", "A5": "assets/A5.jpg", "A6": "assets/A6.jpg", "A7": "assets/A7.jpg", "A8": "assets/A8.jpg", "A9": "assets/A9.jpg", "C1": "assets/C1.jpg", "C2": "assets/C2.jpg", "C3": "assets/C3.jpg", "C4": "assets/C4.jpg", "D10": "assets/D10.png", "D2": "assets/D2.png", "D3": "assets/D3.png", "D4": "assets/D4.png", "D5": "assets/D5.png", "D6": "assets/D6.png", "D7": "assets/D7.png", "D8": "assets/D8.png", "D9": "assets/D9.png", "EX": "assets/EX.png", "I1": "assets/I1.jpg", "I2": "assets/I2.jpg", "I3": "assets/I3.jpg", "I4": "assets/I4.jpg", "I5": "assets/I5.jpg", "I6": "assets/I6.jpg", "K1": "assets/K1.jpg", "K2": "assets/K2.jpg", "K2b": "assets/K2b.jpg", "K3": "assets/K3.jpg", "L1": "assets/L1.svg", "L2": "assets/L2.png", "L3": "assets/L3.png", "L5": "assets/L5.png", "L6": "assets/L6.png", "P1": "assets/P1.jpg", "P10": "assets/P10.jpg", "P10b": "assets/P10b.jpg", "P11": "assets/P11.jpg", "P12": "assets/P12.jpg", "P13": "assets/P13.jpg", "P14": "assets/P14.jpg", "P15": "assets/P15.jpg", "P16": "assets/P16.jpg", "P2": "assets/P2.jpg", "P3": "assets/P3.jpg", "P4": "assets/P4.jpg", "P5": "assets/P5.jpg", "P6": "assets/P6.jpg", "P7": "assets/P7.jpg", "P8": "assets/P8.jpg", "P9": "assets/P9.jpg", "R1": "assets/R1.jpg", "R2": "assets/R2.jpg", "R3": "assets/R3.jpg", "R4": "assets/R4.jpg", "R5": "assets/R5.jpg", "R6": "assets/R6.png", "R7": "assets/R7.jpg", "R8": "assets/R8.jpg", "R9": "assets/R9.png", "S1": "assets/S1.png", "S2": "assets/S2.png", "S3": "assets/S3.png", "S4": "assets/S4.png", "W1": "assets/W1.jpg", "W2": "assets/W2.jpg", "W3": "assets/W3.jpg", "W4": "assets/W4.jpg", "W5": "assets/W5.jpg", "W6": "assets/W6.jpg", "W7": "assets/W7.jpg"};
+window.KIOSK_LOGO_SVG="<svg\n   xmlns:dc=\"http://purl.org/dc/elements/1.1/\"\n   xmlns:cc=\"http://creativecommons.org/ns#\"\n   xmlns:rdf=\"http://www.w3.org/1999/02/22-rdf-syntax-ns#\"\n   xmlns:svg=\"http://www.w3.org/2000/svg\"\n   xmlns=\"http://www.w3.org/2000/svg\"\n   viewBox=\"0 0 216.62666 49.119999\"\n   height=\"49.119999\"\n   width=\"216.62666\"\n   xml:space=\"preserve\"\n   id=\"svg2\"\n   version=\"1.1\"><defs\n     id=\"defs6\" /><g\n     transform=\"matrix(1.3333333,0,0,-1.3333333,0,49.12)\"\n     id=\"g10\"><g\n       transform=\"scale(0.1)\"\n       id=\"g12\"><path\n         id=\"path14\"\n         style=\"fill:#1959a6;fill-opacity:1;fill-rule:nonzero;stroke:none\"\n         d=\"M 351.117,9.08984 H 289.082 V 159.766 H 143.32 V 9.08984 H 83.1055 V 159.344 L 5,159.383 v 58.387 l 78.1055,-0.036 v 144.5 H 143.32 V 217.68 h 145.762 v 144.554 h 62.035 V 9.08984\" /><path\n         id=\"path16\"\n         style=\"fill:none;stroke:#1959a6;stroke-width:10;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1\"\n         d=\"M 351.117,9.08984 H 289.082 V 159.766 H 143.32 V 9.08984 H 83.1055 V 159.344 L 5,159.383 v 58.387 l 78.1055,-0.036 v 144.5 H 143.32 V 217.68 h 145.762 v 144.554 h 62.035 z\" /><path\n         id=\"path18\"\n         style=\"fill:#1959a6;fill-opacity:1;fill-rule:nonzero;stroke:none\"\n         d=\"M 739.043,9.08984 H 679.707 V 362.234 h 59.336 V 9.08984\" /><path\n         id=\"path20\"\n         style=\"fill:none;stroke:#1959a6;stroke-width:10;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1\"\n         d=\"M 739.043,9.08984 H 679.707 V 362.234 h 59.336 z\" /><path\n         id=\"path22\"\n         style=\"fill:#1959a6;fill-opacity:1;fill-rule:nonzero;stroke:none\"\n         d=\"M 857.055,9.08984 H 797.734 V 362.234 h 59.321 V 9.08984\" /><path\n         id=\"path24\"\n         style=\"fill:none;stroke:#1959a6;stroke-width:10;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1\"\n         d=\"M 857.055,9.08984 H 797.734 V 362.234 h 59.321 z\" /><path\n         id=\"path26\"\n         style=\"fill:#1959a6;fill-opacity:1;fill-rule:nonzero;stroke:none\"\n         d=\"m 966.676,256.293 v -35.785 h 1.875 c 13.191,31.547 46.619,38.609 77.699,38.609 31.07,0 66.86,-8.004 73.45,-43.789 h 1.89 c 11.3,34.375 45.19,43.789 78.15,43.789 64.04,0 85.23,-22.129 85.23,-82.879 V 9.08984 h -59.33 V 170.594 c -1.41,31.078 -8.95,43.324 -41.44,43.324 -48.02,0 -57.44,-21.664 -57.44,-65.453 V 9.08984 h -59.32 V 170.594 c -1.42,31.078 -8.95,43.324 -41.44,43.324 -48.027,0 -57.449,-21.664 -57.449,-65.453 V 9.08984 H 909.223 V 256.293 h 57.453\" /><path\n         id=\"path28\"\n         style=\"fill:none;stroke:#1959a6;stroke-width:10;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1\"\n         d=\"m 966.676,256.293 v -35.785 h 1.875 c 13.191,31.547 46.619,38.609 77.699,38.609 31.07,0 66.86,-8.004 73.45,-43.789 h 1.89 c 11.3,34.375 45.19,43.789 78.15,43.789 64.04,0 85.23,-22.129 85.23,-82.879 V 9.08984 h -59.33 V 170.594 c -1.41,31.078 -8.95,43.324 -41.44,43.324 -48.02,0 -57.44,-21.664 -57.44,-65.453 V 9.08984 h -59.32 V 170.594 c -1.42,31.078 -8.95,43.324 -41.44,43.324 -48.027,0 -57.449,-21.664 -57.449,-65.453 V 9.08984 H 909.223 V 256.293 Z\" /><path\n         id=\"path30\"\n         style=\"fill:#1959a6;fill-opacity:1;fill-rule:nonzero;stroke:none\"\n         d=\"m 1493.45,9.08984 h 59.33 V 164.004 c 0,82.871 -32.96,95.113 -112.06,95.113 -56.51,0 -105.95,-2.824 -105.95,-74.871 h 59.34 c 0,32.024 20.71,34.375 46.61,34.375 49.44,0 52.73,-14.117 52.73,-54.148 v -32.024 h -1.88 c -14.12,27.793 -43.79,28.266 -73.93,28.266 -61.21,0 -92.28,-16.488 -92.28,-75.8127 0,-66.8671 36.26,-78.63277 92.28,-78.63277 28.72,0 64.98,0.9375 76.75,33.89457 h 1.42 z M 1438.83,120.215 c 29.19,0 54.62,-0.949 54.62,-35.3127 0,-35.3242 -23.06,-38.1367 -54.62,-38.1367 -40.02,0 -54.15,3.293 -54.15,38.1367 0,35.3127 24.02,35.3127 54.15,35.3127\" /><path\n         id=\"path32\"\n         style=\"fill:none;stroke:#1959a6;stroke-width:10;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1\"\n         d=\"m 1493.45,9.08984 h 59.33 V 164.004 c 0,82.871 -32.96,95.113 -112.06,95.113 -56.51,0 -105.95,-2.824 -105.95,-74.871 h 59.34 c 0,32.024 20.71,34.375 46.61,34.375 49.44,0 52.73,-14.117 52.73,-54.148 v -32.024 h -1.88 c -14.12,27.793 -43.79,28.266 -73.93,28.266 -61.21,0 -92.28,-16.488 -92.28,-75.8127 0,-66.8671 36.26,-78.63277 92.28,-78.63277 28.72,0 64.98,0.9375 76.75,33.89457 h 1.42 z M 1438.83,120.215 c 29.19,0 54.62,-0.949 54.62,-35.3127 0,-35.3242 -23.06,-38.1367 -54.62,-38.1367 -40.02,0 -54.15,3.293 -54.15,38.1367 0,35.3127 24.02,35.3127 54.15,35.3127 z\" /><path\n         id=\"path34\"\n         style=\"fill:#1959a6;fill-opacity:1;fill-rule:evenodd;stroke:none\"\n         d=\"m 1588.79,313.555 c 4.09,0 7.99,-0.625 11.7,-1.918 3.75,-1.258 7.23,-3.114 10.37,-5.535 4.42,-3.391 7.76,-7.598 10.2,-12.563 2.42,-4.969 3.63,-10.258 3.63,-15.875 0,-4.867 -0.88,-9.496 -2.67,-13.832 -1.78,-4.297 -4.38,-8.105 -7.8,-11.406 -3.53,-3.438 -7.52,-6.063 -11.87,-7.918 -4.38,-1.828 -8.91,-2.727 -13.56,-2.727 -4.7,0 -9.25,0.899 -13.67,2.766 -4.39,1.855 -8.28,4.519 -11.74,7.976 -3.36,3.372 -5.97,7.247 -7.77,11.524 -1.82,4.394 -2.69,8.887 -2.69,13.617 0,3.961 0.64,7.84 1.93,11.633 1.35,3.797 3.28,7.332 5.82,10.625 3.44,4.402 7.58,7.797 12.42,10.137 4.83,2.343 10.08,3.496 15.7,3.496 z m 31.14,-36.168 c 0,4.316 -0.78,8.398 -2.29,12.211 -1.54,3.82 -3.77,7.254 -6.68,10.242 -2.91,2.871 -6.31,5.09 -10.13,6.664 -3.81,1.578 -7.84,2.383 -12.04,2.383 -4.21,0 -8.2,-0.766 -11.93,-2.301 -3.71,-1.531 -7.01,-3.715 -9.8,-6.582 -2.99,-3.012 -5.3,-6.465 -6.92,-10.301 -1.66,-3.879 -2.44,-7.879 -2.44,-12.039 0,-4.074 0.78,-8.031 2.32,-11.84 1.59,-3.75 3.83,-7.078 6.72,-9.969 2.97,-2.968 6.35,-5.246 10.12,-6.867 3.83,-1.64 7.68,-2.441 11.66,-2.441 4.22,0 8.26,0.781 12.13,2.324 3.87,1.613 7.3,3.867 10.31,6.817 2.85,2.871 5.06,6.164 6.64,9.902 1.55,3.73 2.33,7.656 2.33,11.797 z m -22.54,-0.789 9.2,-18.567 h -8.73 l -8.27,17.336 h -7.55 v -17.336 h -7.68 v 40.66 h 15.31 c 5.69,0 9.96,-0.914 12.82,-2.808 2.85,-1.86 4.31,-4.649 4.31,-8.34 0,-2.871 -0.86,-5.293 -2.52,-7.25 -1.66,-1.938 -3.94,-3.199 -6.89,-3.695 z m -8.87,3.652 c 3.71,0 6.41,0.508 7.99,1.492 1.6,1.055 2.36,2.711 2.36,4.973 0,2.441 -0.82,4.199 -2.5,5.312 -1.66,1.153 -4.33,1.711 -8.06,1.711 h -6.27 V 280.25 h 6.48 v 0\" /><path\n         id=\"path36\"\n         style=\"fill:#1959a6;fill-opacity:1;fill-rule:nonzero;stroke:none\"\n         d=\"m 571.348,86.4531 c 0,-36.7265 -23.067,-36.25 -56.028,-36.25 -53.211,0 -54.617,16.9453 -54.617,70.1559 h 169.981 c 0,107.825 -13.664,137.489 -115.364,137.489 -99.824,0 -113.941,-38.61 -113.941,-127.133 C 401.379,35.1367 420.676,5 515.32,5 585.945,5 630.684,8.75781 630.684,86.4531 Z M 460.703,158.027 c 0,43.789 3.289,54.618 54.617,54.618 48.496,0 56.028,-3.766 56.028,-54.618 H 460.703\" /><path\n         id=\"path38\"\n         style=\"fill:none;stroke:#1959a6;stroke-width:10;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1\"\n         d=\"m 571.348,86.4531 c 0,-36.7265 -23.067,-36.25 -56.028,-36.25 -53.211,0 -54.617,16.9453 -54.617,70.1559 h 169.981 c 0,107.825 -13.664,137.489 -115.364,137.489 -99.824,0 -113.941,-38.61 -113.941,-127.133 C 401.379,35.1367 420.676,5 515.32,5 585.945,5 630.684,8.75781 630.684,86.4531 Z M 460.703,158.027 c 0,43.789 3.289,54.618 54.617,54.618 48.496,0 56.028,-3.766 56.028,-54.618 z\" /><path\n         id=\"path40\"\n         style=\"fill:#7b7979;fill-opacity:1;fill-rule:nonzero;stroke:none\"\n         d=\"m 535,332.422 -19.684,31.441 v 0.278 L 515.23,364 l -0.089,0.141 v -0.278 l -19.68,-31.441 -52.348,35.937 32.625,-97.554 c 6.992,0.785 14.66,1.281 22.918,1.535 l -13.511,40.082 16.41,-11.563 13.758,20.782 13.593,-20.782 16.407,11.563 -13.512,-40.082 c 8.258,-0.254 15.929,-0.75 22.922,-1.535 L 587.344,368.359 535,332.422\" /><\/g><\/g><\/svg>";
+window.KIOSK_BUILT="2026-10-12 14:44";
+window.KIOSK_PWA=true;
+window.KIOSK_CACHE="hellma-kiosk-aef5bb8ff6";
+window.KIOSK_PRECACHE_COUNT=81;
+
+</script>
+<script>
+/* Hellma PAT kiosk content.
+ *
+ * Everything a visitor reads lives here, separate from the app code.
+ * - Images are referenced by asset ID (the same IDs as the image request list). Drop a better file
+ *   with the same ID into src/assets and rebuild.
+ * - A value written as { v: "text", check: "note" } is shown as "text" and listed in review mode
+ *   (staff panel > Highlight values to confirm) so open questions stay visible until they are settled.
+ * - To add a product line later (cuvettes, microplates, reference materials), add a line under
+ *   `lines`, its families and products, and a tile in `home.groups`. Pages are generated from the data.
+ */
+window.KIOSK = {
+  meta: {
+    title: "Hellma Process Analytics",
+    version: "0.2 (Home Screen web app)",
+    source: "20250428_HellmaUSA_PAT.pptx",
+  },
+
+  settings: {
+    defaultPin: "4815",
+    idleSeconds: 90,
+    warnSeconds: 15,
+    attractSlideSeconds: 8,
+  },
+
+  brands: {
+    hellma: { name: "Hellma", logo: "L1" },
+    analytics: { name: "Hellma Analytics", logo: "L3", tagline: "High precision in spectro-optics" },
+    solutions: { name: "Hellma Solutions", logo: "L2", tagline: "For dedicated spectroscopy applications" },
+    knick: { name: "Knick", logo: "L5" },
+  },
+
+  attract: [
+    { img: "K1", pos: "70% 50%", eyebrow: "Process Analytical Technology", title: "Measure inside your process, in real time.", sub: "Immersion probes, flow cells and complete PAT solutions from Hellma." },
+    { img: "A3", pos: "50% 40%", eyebrow: "Welded metal seals", title: "Rated up to 400 °C and 250 bar.", sub: "Excalibur HD probes and flow cells for harsh process conditions." },
+    { img: "K2", pos: "40% 50%", eyebrow: "Hellma Solutions", title: "From feasibility study to validated method.", sub: "Consulting, sensors, chemometrics, integration and service." },
+    { img: "A4", pos: "50% 60%", eyebrow: "Probe finder", title: "Find the right probe for your process.", sub: "Filter by measurement principle, temperature and pressure." },
+  ],
+
+  home: {
+    eyebrow: "Process Analytical Technology",
+    title: "Spectroscopy, right in your process",
+    sub: "Tap a topic to explore probes, flow cells and PAT solutions.",
+    hero: { route: "finder", img: "P2", title: "Find your probe", sub: "Set your process conditions and see which probes and flow cells fit." },
+    groups: [
+      {
+        brand: "analytics", title: "Process interfaces",
+        tiles: [
+          { route: "line/process-interfaces", img: "P3", title: "Probes & flow cells", sub: "Every model with full specifications" },
+          { route: "principles", svg: "principle", title: "Measurement principles", sub: "How each probe measures, animated" },
+          { route: "sealing", img: "S3", title: "Sealing technology", sub: "Why welded metal seals last" },
+          { route: "retractables", img: "R4", title: "Retractable housings", sub: "Clean and swap probes while running" },
+          { route: "multiplexers", img: "P10", title: "Multiplexers", sub: "One spectrometer, many measuring points" },
+        ],
+      },
+      {
+        brand: "solutions", title: "PAT solutions",
+        tiles: [
+          { route: "solutions", img: "P13", title: "Hellma Solutions", sub: "Sensors, custom systems and services" },
+          { route: "case", img: "K2b", title: "Case study", sub: "Water in solvents, from question to service" },
+        ],
+      },
+      {
+        title: "Learn",
+        tiles: [
+          { route: "pat", img: "K1", title: "What is PAT?", sub: "Inline, online, atline, offline" },
+          { route: "industries", img: "I1", title: "Industries", sub: "Where process spectroscopy pays off" },
+          { route: "about", img: "C1", title: "About Hellma", sub: "Since 1922, family owned" },
+        ],
+      },
+    ],
+  },
+
+  /* ---------- Product lines, families, products ---------- */
+  lines: {
+    "process-interfaces": {
+      brand: "analytics",
+      name: "Probes & flow cells",
+      intro: "Hellma process interfaces bring the light path into the process: immersion probes for vessels and pipes, flow cells for sample streams. Choose by measurement principle first, then by temperature, pressure and materials.",
+      families: ["excalibur", "falcata", "katana", "gladius", "espada"],
+    },
+    /* Example of a later line:
+    "cuvettes": { brand: "analytics", name: "Cuvettes", intro: "...", families: ["macro", "semi-micro"] },
+    */
+  },
+
+  families: {
+    excalibur: { name: "Excalibur", principle: "transmission", desc: "Transmission probes and flow cells. The measuring gap works like the path length of a cuvette.", products: ["excalibur-xp", "excalibur-hd", "excalibur-fcp", "excalibur-fet", "excalibur-ffv"] },
+    falcata: { name: "Falcata", principle: "transflection", desc: "Transflection probes. Light crosses the sample, reflects off a mirror and crosses it again.", products: ["falcata-xp"] },
+    katana: { name: "Katana", principle: "atr", desc: "ATR probes with a three-bounce sapphire element, for an extremely short path length.", products: ["katana-xp"] },
+    gladius: { name: "Gladius", principle: "reflection", desc: "Reflection probes that collect diffusely reflected light, with or without contact.", products: ["gladius-fdr", "gladius-xp"] },
+    espada: { name: "Espada", principle: "fluorescence", desc: "Fluorescence probes.", products: [], empty: "Ask our team for Espada specifications and availability.", check: "The deck names Espada on the measurement-principles slide but has no product slide." },
+  },
+
+  products: {
+    "excalibur-xp": {
+      name: "Excalibur XP", type: "Immersion probe", family: "excalibur", line: "process-interfaces",
+      img: "P1", drawing: "D2", badge: "Extremely precise",
+      summary: "Extremely precise transmission probe for UV-Vis and NIR, sealed with Kalrez O-rings. Installs as an immersion probe or in a flow-through setup.",
+      filter: { format: ["probe", "flow"], ranges: ["uvvis", "nir"], maxT: 260, maxP: 40 },
+      specs: [
+        ["Spectral range", "UV-Vis 210/240–1000 nm · NIR 400–2300 nm"],
+        ["Path length", "1, 2, 5, 10 and 20 mm"],
+        ["Body material", "Stainless steel 1.4571 (316Ti), Hastelloy C-22"],
+        ["Optical material", "Quartz, sapphire"],
+        ["Sealing", { v: "Kalrez O-rings (6230, 6375, 6380, 8085)", check: "Slide 18 marks 6375 with an asterisk but gives no footnote." }],
+        ["Immersion depth", "100–940 mm, or flow-through setup"],
+        ["Temperature", "Up to 260 °C (500 °F)"],
+        ["Pressure", "Up to 40 bar (~580 psi)"],
+      ],
+      fits: ["retractables"],
+    },
+    "excalibur-hd": {
+      name: "Excalibur HD", type: "Immersion probe", family: "excalibur", line: "process-interfaces",
+      img: "P2", drawing: "D3", badge: "Heavy duty",
+      summary: "Heavy-duty transmission probe with welded metal seals for high temperature, high pressure and aggressive media.",
+      filter: { format: ["probe"], ranges: ["uvvis", "nir"], maxT: 400, maxP: 250 },
+      specs: [
+        ["Spectral range", "UV 240–800 nm · VIS 400–2000 nm · NIR 800–2500 nm"],
+        ["Path length", "2, 3, 4, 5 and 10 mm"],
+        ["Body material", "Stainless steel 1.4435/1.4404 (316L), Hastelloy C-22, Hastelloy C-276"],
+        ["Optical material", "Sapphire"],
+        ["Sealing", "Welded metal seals"],
+        ["Immersion depth", "100–940 mm"],
+        ["Temperature", "−30 °C to 400 °C (−22 °F to 750 °F)"],
+        ["Pressure", "Up to 250 bar (~3600 psi)"],
+      ],
+      fits: ["prm"],
+    },
+    "excalibur-fcp": {
+      name: "Excalibur FCP", type: "Flow cell", family: "excalibur", line: "process-interfaces",
+      img: "P3", drawing: "D4", badge: "Welded metal seals",
+      summary: "Inline flow cell with welded metal seals. Path lengths run from 2 mm up to 2 m for weakly absorbing streams.",
+      filter: { format: ["flow"], ranges: ["uvvis", "nir"], maxT: 300, maxP: 250 },
+      specs: [
+        ["Spectral range", "UV 240–800 nm · VIS 400–2000 nm · NIR 800–2500 nm"],
+        ["Path length", "2, 5, 10 mm and 100–2000 mm"],
+        ["Body material", "Stainless steel 1.4435/1.4404 (316L), Hastelloy C-276"],
+        ["Optical material", "Sapphire"],
+        ["Sealing", "Welded metal seals"],
+        ["Temperature", { v: "−30 °C to 300 °C (−22 °F to 750 °F)", check: "300 °C is 572 °F. Slide 20 gives 750 °F, which matches 400 °C. FCP and FET look swapped." }],
+        ["Pressure", "Up to 250 bar (~3600 psi)"],
+      ],
+    },
+    "excalibur-fet": {
+      name: "Excalibur FET", type: "Flow cell", family: "excalibur", line: "process-interfaces",
+      img: "P4", drawing: "D5", badge: "Welded metal seals",
+      summary: "Compact block flow cell with welded metal seals and short path lengths from 0.5 mm.",
+      filter: { format: ["flow"], ranges: ["uvvis", "nir"], maxT: 400, maxP: 200 },
+      specs: [
+        ["Spectral range", "UV 240–800 nm · VIS 400–2000 nm · NIR 800–2500 nm"],
+        ["Path length", "0.5, 1, 2, 3, 5 and 10 mm"],
+        ["Body material", "Stainless steel 1.4435/1.4404 (316L)"],
+        ["Optical material", "Sapphire"],
+        ["Sealing", "Welded metal seals"],
+        ["Temperature", { v: "−30 °C to 400 °C (−22 °F to 570 °F)", check: "400 °C is 752 °F. Slide 21 gives 570 °F, which matches 300 °C. FCP and FET look swapped." }],
+        ["Pressure", "Up to 200 bar (~2900 psi)"],
+      ],
+    },
+    "excalibur-ffv": {
+      name: "Excalibur FFV", type: "Flow cell", family: "excalibur", line: "process-interfaces",
+      img: "P5", drawing: "D6", badge: "Variable path",
+      summary: "Flow cell with fixed or variable path length. A thermocouple and heating cartridge are available.",
+      filter: { format: ["flow"], ranges: ["uvvis", "nir"], maxT: 180, maxP: 30 },
+      specs: [
+        ["Spectral range", "UV 240–800 nm · VIS 400–2000 nm · NIR 800–2500 nm"],
+        ["Path length", "0.5, 1, 2, 3, 5 and 10 mm, or variable"],
+        ["Body material", "Stainless steel 1.4435/1.4404 (316L), Hastelloy C-276 (2.4819)"],
+        ["Optical material", "Sapphire"],
+        ["Sealing", "Kalrez"],
+        ["Temperature", "5 °C to 180 °C (40 °F to 350 °F)"],
+        ["Pressure", "Up to 30 bar (~435 psi)"],
+        ["Options", "Thermocouple and heating cartridge"],
+      ],
+    },
+    "falcata-xp": {
+      name: "Falcata XP", type: "Immersion probe", family: "falcata", line: "process-interfaces",
+      img: "P6", drawing: "D7", badge: "Extremely precise",
+      summary: "Transflection probe with interchangeable inserts for highly reproducible path lengths. Mini versions come in 6, 4 and 3 mm diameters.",
+      filter: { format: ["probe", "flow"], ranges: ["uvvis", "nir"], maxT: 260, maxP: 40 },
+      specs: [
+        ["Spectral range", "UV-Vis 210/240–1000 nm · NIR 400–2300 nm"],
+        ["Path length", "1, 2, 5, 10 and 20 mm"],
+        ["Body material", "Stainless steel 1.4571 (316Ti), Hastelloy C-22"],
+        ["Optical material", "Quartz, sapphire"],
+        ["Sealing", { v: "Kalrez O-rings (4079, 6230, 6375) or hard soldered (Ag, Cu, Ti)", check: "Slide 25 marks 6375 with an asterisk but gives no footnote." }],
+        ["Immersion depth", "100–940 mm, or flow-through setup"],
+        ["Temperature", "Up to 260 °C (500 °F)"],
+        ["Pressure", "Up to 40 bar (~580 psi)"],
+      ],
+      fits: ["retractables"],
+      check: "The Falcata overview (slide 24) claims up to 300 °C and 300 bar. Only the XP model is detailed, and it is rated 260 °C / 40 bar.",
+    },
+    "katana-xp": {
+      name: "Katana XP", type: "Immersion probe", family: "katana", line: "process-interfaces",
+      img: "P7", drawing: "D8", badge: "Extremely precise",
+      summary: "Three-bounce ATR probe for media that absorb too strongly for a transmission gap.",
+      filter: { format: ["probe", "flow"], ranges: ["uvvis", "nir"], maxT: 260, maxP: 40 },
+      specs: [
+        ["Spectral range", "UV-Vis 240–1000 nm · NIR 400–2300 nm"],
+        ["Measuring element", "3-bounce attenuated total reflection (ATR)"],
+        ["Body material", "Stainless steel 1.4571 (316Ti), Titanium Grade 2"],
+        ["Optical material", "Sapphire"],
+        ["Sealing", { v: "Kalrez O-rings (4079, 6375) or hard soldered (Ag, Cu, Ti)", check: "Slide 28 marks 6375 with an asterisk but gives no footnote." }],
+        ["Immersion depth", "100–640 mm, or flow-through setup"],
+        ["Temperature", "Up to 260 °C (500 °F)"],
+        ["Pressure", "Up to 40 bar (~580 psi)"],
+      ],
+      check: "The Katana overview (slide 27) claims up to 300 °C and 100 bar. Only the XP model is detailed, and it is rated 260 °C / 40 bar.",
+    },
+    "gladius-fdr": {
+      name: "Gladius FDR", type: "Immersion probe", family: "gladius", line: "process-interfaces",
+      img: "P8", drawing: "D9", badge: "Contact-free",
+      summary: "Diffuse reflection probe in anodized aluminum. It measures at a distance, without touching the sample.",
+      filter: { format: ["probe"], ranges: ["nir"], maxT: 100, maxP: 0 },
+      specs: [
+        ["Spectral range", { v: "NIR 400–2300 nm", check: "Slide 31 reads “400–2300 mm”. Shown here as nm." }],
+        ["Measuring distance", { v: "25–100 mm", check: "Slide 31 says 25–100 mm; the Gladius overview (slide 30) says 2–100 mm." }],
+        ["Body material", "Anodized aluminum"],
+        ["Optical material", "SF-5"],
+        ["Sealing", "Epoxy glue or hard soldered (Ag, Cu, Ti)"],
+        ["Immersion depth", "100–640 mm"],
+        ["Temperature", "Up to 100 °C (212 °F)"],
+        ["Pressure", "Atmospheric"],
+      ],
+    },
+    "gladius-xp": {
+      name: "Gladius XP", type: "Probe", family: "gladius", line: "process-interfaces",
+      img: "P9", badge: "Extremely precise",
+      summary: "Reflection probe in stainless steel, Hastelloy or titanium, for contact or 2 mm measurement.",
+      filter: { format: ["probe"], ranges: ["uvvis", "nir"], maxT: 120, maxP: 16 },
+      specs: [
+        ["Spectral range", "UV-Vis 240–1000 nm · NIR 400–2300 nm"],
+        ["Measuring distance", "Contact or 2 mm"],
+        ["Body material", "Stainless steel 1.4435/1.4404 (316L), Hastelloy C-22, Titanium Grade 2"],
+        ["Optical material", "Sapphire"],
+        ["Sealing", { v: "EPDM, Kalrez O-ring (6221) or hard soldered (Ag, Cu, Ti)", check: "Slide 32 marks EPDM with an asterisk but gives no footnote." }],
+        ["Temperature", "Up to 120 °C (248 °F)"],
+        ["Pressure", "Up to 16 bar (~230 psi)"],
+      ],
+      check: "The Gladius overview (slide 30) claims up to 300 °C and 100 bar. The two models shown top out at 120 °C / 16 bar.",
+    },
+  },
+
+  /* ---------- Measurement principles ---------- */
+  principles: {
+    transmission: {
+      name: "Transmission", family: "excalibur",
+      how: [
+        "Light travels through an optical fiber to a collimator, either in the measuring head or at the back of the probe.",
+        "It crosses the measuring gap once and interacts with the medium on the way.",
+      ],
+      plus: [
+        "Comparable to measuring in a cuvette: the measuring gap equals the cuvette's path length.",
+        "Low stray light, because the light passes through the sample only once.",
+      ],
+    },
+    transflection: {
+      name: "Transflection", family: "falcata",
+      how: [
+        "Light travels through an optical fiber to the measuring head, is collimated and passes through a window.",
+        "It crosses the measuring gap, reflects off a mirror and crosses the medium a second time.",
+      ],
+      plus: [
+        "Interchangeable inserts give highly reproducible, variable path lengths.",
+        "Mini-diameter probes: 6, 4 and 3 mm.",
+      ],
+    },
+    atr: {
+      name: "ATR", long: "Attenuated total reflection", family: "katana",
+      how: [
+        "Light travels through the fiber to the ATR prism.",
+        "It reflects off the prism surfaces. At each reflection an evanescent field penetrates a tiny distance into the medium, which absorbs specific wavelengths.",
+      ],
+      plus: ["Extremely short path length.", "Sealing by brazing is possible."],
+    },
+    reflection: {
+      name: "Reflection", family: "gladius",
+      how: [
+        "Light travels through a fiber bundle to the probe window.",
+        "It is focused onto the sample, in contact or up to 100 mm away.",
+        "The diffusely reflected part of the light is collected and sent to the spectrometer.",
+      ],
+      plus: ["Hygienic design is possible.", "Sealing by brazing is possible.", "Contact-free measurement."],
+    },
+    fluorescence: {
+      name: "Fluorescence", family: "espada",
+      how: [
+        "Excitation light travels through the fiber to the sample.",
+        "Fluorescent molecules absorb it and emit light at longer wavelengths.",
+        "The probe collects the emitted light and sends it to the spectrometer.",
+      ],
+      plus: ["Very sensitive for substances that fluoresce."],
+      check: "Written for the kiosk. The deck names the principle and the Espada probe but has no slide explaining them.",
+    },
+  },
+
+  /* ---------- Sealing ---------- */
+  sealing: {
+    intro: "The seal between window and body decides how hot, how hard and how long a probe can run. Hellma offers all three approaches.",
+    options: [
+      {
+        name: "Elastomeric seals (O-rings)", img: "S1",
+        plus: ["Allows monolithic measuring heads for higher transmission", "Less expensive"],
+        minus: ["Chemically resistant elastomers deform at high temperatures", "Requires regular servicing", "Limited temperature and pressure capability"],
+      },
+      {
+        name: "Gold or silver alloy braze", img: "S2",
+        plus: ["High temperature and pressure setups"],
+        minus: ["Low-expansion metals are subject to chemical attack", "Chemically resistant brazes use brittle alloys that crack on expansion"],
+      },
+    ],
+    welded: {
+      name: "Welded metal seals", exploded: "S3", section: "S4",
+      parts: ["Sapphire window", "Gold or PTFE coated Waspaloy C-ring", "Hastelloy sleeve", "Electron-beam weld"],
+      stats: [
+        { n: "400", u: "°C", l: "Temperature rating up to" },
+        { n: "250", u: "bar", l: "Pressure rating up to" },
+      ],
+      plus: ["Extreme chemical resistance", "Insensitive to thermal shock", "Virtually indestructible"],
+      used: ["excalibur-hd", "excalibur-fcp", "excalibur-fet"],
+    },
+  },
+
+  /* ---------- Retractables ---------- */
+  retractables: {
+    intro: "A retractable housing lets process engineers replace, clean or calibrate optical and other inline sensors without interrupting production.",
+    why: {
+      title: "Why retract a probe?",
+      points: [
+        "Maintenance is often annual, with a limited time window.",
+        "O-ring seals need regular servicing.",
+        "Fouling builds up on the window.",
+        "New or replacement sensors can be prepared and swapped in.",
+      ],
+    },
+    knick: {
+      title: "Retractable housings with Knick",
+      points: [
+        "Automated cleaning of the spectroscopic system without pulling the probe by hand.",
+        "Exchange or remove the probe while the process is running.",
+        "Lock-gate sealing.",
+        "Works with Excalibur XP and Falcata XP probes.",
+      ],
+      credit: "Images courtesy of Knick",
+    },
+    models: [
+      {
+        id: "ceramat", name: "Ceramat", img: "R4", more: ["R5", "R6"],
+        points: [
+          "Manual, semi-automated and fully automated versions",
+          "Plug-and-play: one central multi-plug carries every connection and check value",
+          "Modular: materials, sensor assemblies, media connections and drive",
+          "Ceramic chambers with rotational sealing: two ceramic discs, no O-rings",
+          "Universal chemical compatibility, high chemical and temperature robustness, extreme hardness, sterilizable",
+          "All chambers can be flushed; wetted parts in stainless steel, Hastelloy or titanium",
+        ],
+      },
+      {
+        id: "sensogate", name: "Sensogate", img: "R2", more: ["R3"],
+        points: [
+          "Plug-and-play: one central multi-plug carries every connection and check value",
+          "Modular: materials, sensor assemblies, media connections and drive",
+          "Hygienic version available",
+          "Drive unit comes off without special tools; immersion tube removes with a bayonet coupling; simple O-ring replacement",
+          "Double seal between calibration chamber and immersion tube, so process medium and compressed air stay separated",
+          "Immersion tube in 1.4571, 1.4435, Hastelloy, PVDF, PVDF HD, PEEK or PEEK HD",
+        ],
+      },
+    ],
+    both: ["Sensor is not fixed to the armature", "Free sight into the process", "Cleaning inside the calibration chamber", "New sensor holder clamp keeps the fibers from twisting during movement"],
+    cyclone: {
+      title: "Cyclone cleaning",
+      text: "Traditional rinsing leaves a shadow on the side of the window facing away from the nozzle. Cyclone rinsing routes the cleaning medium tangentially, so it swirls around the whole sensor.",
+      imgs: ["R7", "R8", "R9"],
+    },
+    prm: {
+      title: "Probe Retraction Mechanism (PRM) for Excalibur HD",
+      img: "P12", drawing: "D10",
+      points: ["Heavy-duty bearing structure", "Lead screw or pneumatic actuation", "Optional clean-out chamber"],
+      labels: ["Lead screw", "Conax fitting", "Flush chamber", "Ball valve", "Pipe flange", "Solvent fitting", "Reaction vessel"],
+    },
+  },
+
+  /* ---------- Multiplexers ---------- */
+  multiplexers: {
+    intro: "A multiplexer connects one spectrometer to several probes or flow cells and switches between them, so one analyzer covers many measuring points.",
+    setup: [
+      { k: "Factory control room", t: "The process control system (PCS) receives results over TCP/IP or a fieldbus." },
+      { k: "Analyzer cabinet", t: "Spectrometer, spectrometer PC and multiplexer sit in a shelter with air conditioning and purging where needed." },
+      { k: "Process", t: "Optical fibers run from the multiplexer channels to the probes and flow cells in the plant." },
+    ],
+    fmx: {
+      name: "FMX multiplexer", imgs: ["P10", "P10b", "P11"],
+      double: "Double-sided: the light from the lamp and the signal returning from the probe to the detector are switched at the same time.",
+      parts: [
+        "“Double side” fiber optical connectors",
+        "SMA or FC connectors for probes or cells (channels)",
+        "Power supply connector",
+        "Data interfaces: RS-232, RS-422/485",
+      ],
+    },
+  },
+
+  /* ---------- Hellma Solutions ---------- */
+  solutions: {
+    intro: "Hellma Solutions provides spectroscopic process analytical technology. Smart sensors and analysis give a detailed view into complex manufacturing processes, for more efficient production across many industries.",
+    benefits: ["Better process control", "Higher product quality", "Higher output", "Improved production efficiency", "Less scrap and by-products", "Reduced energy use", "Increased process safety", "Higher process transparency", "Analysis of reaction processes", "Time saving"],
+    sensors: [
+      { id: "nir-xp", name: "NIR XP", img: "P13", text: "NIR miniature spectrometer combined with a probe for precise measurements, for example in the chemical and pharmaceutical industries, or with a hygienic probe for the food industry." },
+      { id: "nir-hd", name: "NIR HD", img: "P14", text: "NIR miniature spectrometer combined with a probe for harsh conditions: chemical resistance, pressure, temperature and optional ATEX. For the chemical and petrochemical industries." },
+      { id: "mir-atr", name: "MIR ATR", img: "P15", text: "MIR sensor combined with an ATR probe for dedicated applications with strongly absorbing media, for example in petrochemicals and paints and coatings." },
+    ],
+    custom: {
+      img: "P16",
+      q: "How can Hellma Solutions tailor technology to your needs?",
+      ways: [
+        { name: "Customized solutions", text: "We develop a specific solution and adapt the sensor, instrumentation or software where necessary." },
+        { name: "Technology adaption", text: "Starting from existing technology, we develop and adapt every component the application requires." },
+      ],
+      phases: ["Application analysis", "Quick check", "Consulting", "Solution development", "Integration"],
+    },
+    portfolio: [
+      { name: "PAT consulting", text: "From the analytical need to a plan: which measurement, where in the process, and what it takes to qualify it." },
+      { name: "Feasibility studies", text: "Instrument performance is tested in advance with your process samples, including interfering factors and sample handling." },
+      { name: "Chemometric service", text: "Calibration models are developed, validated and updated over the life of the method." },
+      { name: "Solution integration", text: "Spectrometer, measuring cell, software and plant interfaces are brought together in your process." },
+      { name: "Spectroscopy sensors", text: "NIR and MIR sensors that combine a miniature spectrometer with a Hellma probe." },
+      { name: "Custom solution development", text: "Dedicated systems developed for a specific application." },
+    ],
+    portfolioCheck: "Portfolio descriptions are summarized from the roadmap and case-study slides; the portfolio slide itself only names the six services.",
+  },
+
+  /* ---------- PAT primer ---------- */
+  pat: {
+    what: "PAT stands for Process Analytical Technology: the tools and methods manufacturers use to monitor and control production in real time. Instead of checking quality only at the end, PAT checks it throughout production so you can adjust immediately.",
+    positions: [
+      { id: "inline", name: "Inline", speed: 4, text: "The probe sits directly in the process stream. Nothing is removed, and results arrive continuously." },
+      { id: "online", name: "Online", speed: 3, text: "Part of the stream is diverted through a bypass, measured automatically and can be returned to the process." },
+      { id: "atline", name: "Atline", speed: 2, text: "A sample is taken and measured on an analyzer next to the line." },
+      { id: "offline", name: "Offline", speed: 1, text: "A sample is taken to a laboratory. Results arrive after the process has moved on." },
+    ],
+    positionsCheck: "The deck's diagram shows the four positions without definitions. These follow the usual PAT definitions.",
+    why: [
+      { name: "Process understanding", text: "Real-time data on critical process parameters (CPPs) and their effect on critical quality attributes (CQAs) shows where problems come from." },
+      { name: "Quality control", text: "Deviations are detected early and corrected immediately, reducing errors and rejects." },
+      { name: "Lower production costs", text: "Optimized processes use resources better and reduce rework, scrap and waste." },
+      { name: "Faster development", text: "Rapid feedback on process and product quality shortens development and time to market." },
+      { name: "Continuous production", text: "Real-time monitoring keeps quality consistent and the process running reliably without interruption." },
+      { name: "Regulatory compliance", text: "Regulators such as the FDA promote PAT. It helps demonstrate consistently high product quality." },
+      { name: "Risk reduction", text: "Variations that threaten quality or safety are caught in real time, reducing the risk of quality issues, recalls and penalties." },
+    ],
+    challenges: [
+      { name: "Interferences", text: "Vibration, temperature swings and dirt can affect the spectroscopic measurement." },
+      { name: "Process complexity", text: "Many processes have a large number of variables and interactions." },
+      { name: "Choice of method", text: "UV, VIS, NIR, MIR and Raman each suit different measurement tasks." },
+      { name: "Cost and investment", text: "Implementing spectroscopic methods in industrial processes can involve considerable cost." },
+      { name: "Calibration", text: "Accurate spectra need the right reference data to build a reliable model." },
+      { name: "Safety and compliance", text: "Industries such as pharma and food have special safety and compliance requirements." },
+    ],
+  },
+
+  /* ---------- Case study ---------- */
+  caseStudy: {
+    title: "Water in solvents",
+    sub: "How a PAT project runs, using a real example: measuring water impurities in a solvent after distillation, in a GMP and ATEX environment.",
+    steps: [
+      { id: "consulting", name: "Consulting", img: "W1", kind: "beforeafter",
+        title: "Start with the analytical need",
+        text: "Solvent leaves a distillation process and collects in a tank. Water content must be checked before the batch can be released." },
+      { id: "feasibility", name: "Feasibility", img: "W2",
+        title: "Test it before you buy it",
+        points: [
+          "Instrument performance is tested in advance.",
+          "Spectroscopy sees the whole matrix (the process sample), not only the analyte.",
+          "Interfering factors, matrix effects, sample handling and preparation are investigated.",
+          "Suitable chemometric methods are selected.",
+          "Outliers can be synthesized if needed and built into the models.",
+          "The reference analysis and its overall error strongly influence the accuracy of the spectroscopic method.",
+        ] },
+      { id: "hardware", name: "Hardware", img: "W5", kind: "hardware",
+        title: "Choose spectrometer and measuring cell",
+        cols: [
+          { h: "Spectrometer", points: ["21 CFR Part 11 software", "Works with the chosen chemometric software", "Connects to higher-level process software that links all PAT analyzers", "Accurate enough to measure the impurity in the process"] },
+          { h: "Measuring cell: Excalibur HD flow cell", img: "P3", product: "excalibur-fcp", points: ["ATEX Zone 1", { v: "FDA certified materials", check: "Deck wording. FDA does not certify materials; “FDA-compliant materials” may be meant." }] },
+        ] },
+      { id: "software", name: "Software", img: "W6",
+        title: "Connect the data",
+        points: ["Spectrometer software runs the chemometric model.", "Higher-level process software links all PAT analyzers.", "Results go to the programmable logic controller (PLC).", "FDA 21 CFR Part 11 compliant."] },
+      { id: "interfaces", name: "Interfaces", img: "W3", kind: "chips",
+        title: "Talk to the plant",
+        chips: ["Analog 4–20 mA (e.g. Beckhoff)", "Modbus TCP", "PROFIBUS", "PROFINET", "OPC UA"] },
+      { id: "integration", name: "Integration", img: "W3", kind: "atex",
+        title: "Install across the ATEX boundary",
+        text: "The Excalibur HD flow cell sits on the collection tank inside the ATEX area. Optical fibers carry the light to the spectrometer outside it." },
+      { id: "model", name: "Model development", img: "W7", kind: "model",
+        title: "Build and maintain the calibration",
+        phases: [
+          { name: "Calibration", text: "Method development with internal validation." },
+          { name: "External validation", text: "Independent samples confirm the model." },
+          { name: "Revalidation", text: "Additional calibration and validation samples test the model over time and update it when needed." },
+        ] },
+      { id: "training", name: "Training", img: "W4",
+        title: "Train the people who run it",
+        cols: [
+          { h: "Spectrometer software", points: ["Training during implementation of the solution"] },
+          { h: "Chemometric software", points: ["In-house training", "Online training"] },
+        ] },
+      { id: "service", name: "Service", img: "K3",
+        title: "Keep it running",
+        points: ["Annual spectrometer maintenance", "Chemometric adjustment at different times of the year", "Support with GMP documentation, URS and validation concept"],
+        note: "The measuring cell itself is maintenance-free." },
+      { id: "vmodel", name: "Qualification", img: "W1", kind: "vmodel",
+        title: "Qualify it step by step",
+        text: "The V-model pairs each design step on the left with a test on the right. Tap a stage." },
+    ],
+    vmodel: [
+      { id: "urs", name: "User requirement specification (URS)", side: "L", lvl: 0, text: "The user's requirements and wishes are described." },
+      { id: "ds", name: "Design specification (DS)", side: "L", lvl: 1, text: "Requirements are translated into functions, then into technical designs and plans." },
+      { id: "dq", name: "Design qualification (DQ)", side: "L", lvl: 2, text: "Confirms the design meets every requirement before anything is built or installed, avoiding costly changes later." },
+      { id: "fat", name: "Factory acceptance test (FAT)", side: "L", lvl: 3, text: "The system is tested at the factory before shipping." },
+      { id: "sat", name: "Site acceptance test (SAT)", side: "R", lvl: 3, text: "The system is tested again after delivery, on site." },
+      { id: "iq", name: "Installation qualification (IQ)", side: "R", lvl: 2, text: "Verifies the system is installed correctly and meets the technical specifications." },
+      { id: "oq", name: "Operational qualification (OQ)", side: "R", lvl: 1, text: "Tests that the system performs its specified functions correctly in operation." },
+      { id: "pq", name: "Performance qualification (PQ)", side: "R", lvl: 0, text: "Checks that the system delivers the required performance under real operating conditions." },
+    ],
+    vmodelCheck: "FAT and SAT definitions are written for the kiosk; the deck's notes define URS, DS, DQ, IQ, OQ and PQ only.",
+  },
+
+  /* ---------- Industries / application areas ---------- */
+  industries: {
+    intro: "Inline spectroscopy pays off wherever quality has to be known while the product is still being made.",
+    check: "Industry texts are drafts written for the kiosk. The deck lists the six industries without detail.",
+    items: [
+      { id: "pharma", name: "Pharma & biotech", img: "I1", text: "Measure in real time under GMP, support real-time batch release and keep the validation paperwork in order.", related: ["sensor:nir-xp", "excalibur-xp", "case"] },
+      { id: "chemistry", name: "Chemistry & petrochemistry", img: "I3", text: "High temperatures, high pressures and aggressive media call for welded metal seals and ATEX-ready sensors.", related: ["excalibur-hd", "excalibur-fcp", "sensor:nir-hd", "sensor:mir-atr"] },
+      { id: "food", name: "Food & beverages", img: "I2", text: "Hygienic probe designs let you measure directly in the line instead of pulling samples.", related: ["sensor:nir-xp", "gladius-xp", "retractables"] },
+      { id: "plastics", name: "Plastics & polymers", img: "I4", text: "Follow reactions and product properties inline instead of waiting for lab results.", related: ["finder"] },
+      { id: "agriculture", name: "Agriculture", img: "I5", text: "NIR spectroscopy is widely used to measure composition, such as moisture and protein, quickly and without chemicals.", related: ["gladius-fdr", "finder"] },
+      { id: "cosmetics", name: "Cosmetics", img: "I6", text: "Check consistency during mixing and filling so every batch matches the formula.", related: ["finder"] },
+    ],
+  },
+
+  /* ---------- About ---------- */
+  about: {
+    promise: "Hellma enables you to perform molecular spectroscopy in the laboratory and in the process, efficiently and at the highest level.",
+    group: [
+      { n: "1922", l: "Founded" },
+      { n: "500", l: "Employees" },
+      { n: "5", l: "Production sites" },
+      { n: "8", l: "Sales subsidiaries" },
+      { n: "3rd", l: "Generation family ownership" },
+    ],
+    usa: [
+      { n: "1963", l: "Hellma USA founded" },
+      { n: "Plainview, NY", l: "Office" },
+    ],
+    sites: [
+      { place: "Müllheim, Germany", co: "Hellma GmbH & Co. KG", area: "Analytics and Solutions" },
+      { place: "Jena & Eisenach, Germany", co: "Hellma Materials GmbH", area: "Photonics" },
+      { place: "Trollhättan, Sweden", co: "Hellma Materials Sweden AB", area: "Photonics" },
+      { place: "New Iberia, Louisiana, USA", co: "CVD Ceramics Inc.", area: "Photonics" },
+    ],
+    subsidiaries: ["Germany", "Benelux", "France", "Italy", "Switzerland", "UK", "Asia", "USA / Canada"],
+    chain: [
+      { name: "Raw materials", img: "C2" },
+      { name: "Components", img: "C3" },
+      { name: "Laboratory & process spectroscopy", img: "C4" },
+      { name: "Spectroscopy solutions", img: "P13" },
+    ],
+    check: "Annual revenue (slide 3) is left out on purpose.",
+  },
+
+  contact: {
+    name: "Stacey Carrier",
+    role: "Technical Sales Manager",
+    phone: "(516) 274-8918",
+    email: "stacey.carrier@hellma.com",
+    web: "www.hellma.com",
+    check: "Contact from the deck's closing slide. Confirm this is the contact to show at the show.",
+  },
+
+  /* ---------- Lead form ---------- */
+  leadForm: {
+    title: "Request information",
+    sub: "Leave your details and our team will follow up after the show.",
+    interests: [
+      { id: "excalibur", label: "Excalibur transmission probes & flow cells" },
+      { id: "falcata", label: "Falcata transflection probes" },
+      { id: "katana", label: "Katana ATR probes" },
+      { id: "gladius", label: "Gladius reflection probes" },
+      { id: "espada", label: "Espada fluorescence probes" },
+      { id: "retractables", label: "Retractable housings" },
+      { id: "multiplexers", label: "Multiplexers" },
+      { id: "sensors", label: "Spectroscopy sensors (NIR, MIR)" },
+      { id: "custom", label: "Custom solution development" },
+      { id: "services", label: "PAT consulting, feasibility & chemometrics" },
+    ],
+    requests: ["Datasheet", "Quotation", "Call from a specialist", "Feasibility study", "Visit or demo"],
+    consent: "Hellma USA may contact me about this request.",
+    privacy: "Your details are stored on this device only until our team collects them after the show.",
+  },
+};
+
+</script>
+<script>
+/* Hand-drawn SVG diagrams for the kiosk. Each builder returns an SVG string.
+   Light paths animate with CSS (see .beam in diagrams.css). IDs are prefixed so several can share a page. */
+(function () {
+  var uid = 0;
+  function P() { uid += 1; return "d" + uid; }
+
+  function defs(p) {
+    return '<defs>' +
+      '<linearGradient id="' + p + 'm" x1="0" x2="1"><stop offset="0" stop-color="#9aa6b1"/><stop offset=".35" stop-color="#eef2f5"/><stop offset=".6" stop-color="#cfd7de"/><stop offset="1" stop-color="#8d99a5"/></linearGradient>' +
+      '<linearGradient id="' + p + 'l" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#cfe6f6"/><stop offset="1" stop-color="#8fc0e3"/></linearGradient>' +
+      '<linearGradient id="' + p + 's" x1="0" x2="1"><stop offset="0" stop-color="#d9f1ff"/><stop offset=".5" stop-color="#ffffff"/><stop offset="1" stop-color="#bfe3fb"/></linearGradient>' +
+      '<radialGradient id="' + p + 'g"><stop offset="0" stop-color="#7fe0a8" stop-opacity=".95"/><stop offset="1" stop-color="#7fe0a8" stop-opacity="0"/></radialGradient>' +
+      '<radialGradient id="' + p + 'w"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#ffffff" stop-opacity="0"/></radialGradient>' +
+      '</defs>';
+  }
+  function liquid(p, y) {
+    var w = 'M0 ' + y + ' C 80 ' + (y - 10) + ', 160 ' + (y + 10) + ', 260 ' + y + ' S 440 ' + (y - 10) + ', 520 ' + y + ' V380 H0 Z';
+    var parts = '';
+    var pts = [[60, y + 60], [120, y + 140], [400, y + 90], [460, y + 170], [90, y + 200], [350, y + 190], [180, y + 110], [430, y + 40]];
+    pts.forEach(function (q, i) { parts += '<circle class="particle" style="animation-delay:' + (-i * 0.8) + 's" cx="' + q[0] + '" cy="' + q[1] + '" r="' + (3 + (i % 3)) + '" fill="#ffffff" opacity=".55"/>'; });
+    return '<path d="' + w + '" fill="url(#' + p + 'l)"/>' + parts;
+  }
+  function beam(d, cls) {
+    return '<path class="beam-halo ' + cls + '" d="' + d + '"/><path class="beam ' + cls + '" d="' + d + '"/>';
+  }
+  function label(x, y, text, tx, ty, anchor) {
+    var a = anchor || "start";
+    return '<path class="leader" d="M' + x + ' ' + y + ' L' + tx + ' ' + ty + '"/><circle cx="' + x + '" cy="' + y + '" r="3" fill="#575756"/>' +
+      '<text class="lbl" x="' + (a === "end" ? tx - 6 : tx + 6) + '" y="' + (ty + 5) + '" text-anchor="' + a + '">' + text + '</text>';
+  }
+  function fiber() { return '<rect x="226" y="-6" width="80" height="50" rx="8" fill="#39434d"/><rect x="226" y="34" width="80" height="10" fill="#2a323a"/>'; }
+  function wrap(p, body, title) {
+    return '<svg viewBox="0 0 520 380" role="img" aria-label="' + title + '">' + defs(p) + body + '</svg>';
+  }
+
+  var D = {};
+
+  D.transmission = function () {
+    var p = P();
+    var b = liquid(p, 150) +
+      fiber(260) +
+      '<rect x="215" y="40" width="90" height="170" rx="6" fill="url(#' + p + 'm)" stroke="#7d8893"/>' +
+      '<rect x="290" y="205" width="15" height="62" fill="url(#' + p + 'm)" stroke="#7d8893"/>' +
+      '<rect x="215" y="262" width="90" height="46" rx="6" fill="url(#' + p + 'm)" stroke="#7d8893"/>' +
+      '<rect x="222" y="204" width="64" height="6" fill="url(#' + p + 's)" stroke="#8cc7ea"/>' +
+      '<rect x="222" y="262" width="64" height="6" fill="url(#' + p + 's)" stroke="#8cc7ea"/>' +
+      '<path d="M228 272 L302 272 L302 302 Z" fill="#e8f6ff" stroke="#8cc7ea"/>' +
+      '<rect x="226" y="211" width="62" height="50" fill="#ffffff" opacity=".25"/>' +
+      beam("M240 0 V286 H297", "in") + beam("M297 286 V0", "out") +
+      '<path d="M196 212 V260 M190 212 H202 M190 260 H202" stroke="#0a3a5f" stroke-width="2" fill="none"/>' +
+      '<text class="lbl b" x="184" y="232" text-anchor="end">Measuring gap</text><text class="lbl" x="184" y="252" text-anchor="end">= path length</text>' +
+      label(286, 207, "Window", 336, 186) + label(282, 290, "Prism turns the light", 336, 330) + label(268, 22, "Optical fibers", 336, 26);
+    return wrap(p, b, "Transmission: light crosses the measuring gap once");
+  };
+
+  D.transflection = function () {
+    var p = P();
+    var b = liquid(p, 150) + fiber(260) +
+      '<rect x="215" y="40" width="90" height="160" rx="6" fill="url(#' + p + 'm)" stroke="#7d8893"/>' +
+      '<rect x="215" y="196" width="12" height="60" fill="url(#' + p + 'm)" stroke="#7d8893"/>' +
+      '<rect x="293" y="196" width="12" height="60" fill="url(#' + p + 'm)" stroke="#7d8893"/>' +
+      '<rect x="215" y="252" width="90" height="44" rx="6" fill="url(#' + p + 'm)" stroke="#7d8893"/>' +
+      '<rect x="230" y="194" width="60" height="6" fill="url(#' + p + 's)" stroke="#8cc7ea"/>' +
+      '<rect x="230" y="250" width="60" height="5" fill="#f4f8fb" stroke="#5e6b77"/>' +
+      beam("M250 0 V196 L257 250", "in") + beam("M263 250 L270 196 V0", "out") +
+      '<path d="M196 200 V250 M190 200 H202 M190 250 H202" stroke="#0a3a5f" stroke-width="2" fill="none"/>' +
+      '<text class="lbl b" x="184" y="222" text-anchor="end">Light crosses</text><text class="lbl" x="184" y="242" text-anchor="end">the gap twice</text>' +
+      label(290, 197, "Window", 336, 176) + label(290, 252, "Mirror", 336, 300) + label(268, 22, "Optical fiber", 336, 26);
+    return wrap(p, b, "Transflection: light crosses the gap, reflects off a mirror and crosses again");
+  };
+
+  D.atr = function () {
+    var p = P();
+    var glow = function (x, y, d) { return '<circle class="pulse" style="animation-delay:' + d + 's" cx="' + x + '" cy="' + y + '" r="16" fill="url(#' + p + 'g)"/>'; };
+    var b = liquid(p, 140) + fiber(260) +
+      '<rect x="215" y="40" width="90" height="176" rx="6" fill="url(#' + p + 'm)" stroke="#7d8893"/>' +
+      '<path d="M220 214 L300 214 L275 300 L245 300 Z" fill="url(#' + p + 's)" stroke="#6fb6e3" stroke-width="1.5"/>' +
+      glow(226, 258, 0) + glow(260, 306, .5) + glow(294, 258, 1) +
+      beam("M232 0 L232.5 257.5 L260 300", "in") + beam("M260 300 L287.5 257.5 L287.5 0", "out") +
+      label(276, 236, "Sapphire ATR element", 336, 196) + label(296, 262, "Evanescent field at", 336, 300) +
+      '<text class="lbl" x="342" y="325">each of 3 bounces</text>' + label(268, 22, "Optical fibers", 336, 26);
+    return wrap(p, b, "ATR: light reflects three times inside a sapphire element touching the medium");
+  };
+
+  D.reflection = function () {
+    var p = P();
+    var bed = '';
+    for (var i = 0; i < 70; i++) {
+      var x = (i * 37) % 520, y = 296 + ((i * 53) % 80);
+      bed += '<circle cx="' + x + '" cy="' + y + '" r="' + (6 + (i % 4) * 2) + '" fill="' + (i % 3 ? "#d9dfe4" : "#c3ccd4") + '"/>';
+    }
+    var b = '<rect x="0" y="290" width="520" height="90" fill="#e9edf0"/>' + bed + fiber(260) +
+      '<rect x="215" y="40" width="90" height="120" rx="6" fill="url(#' + p + 'm)" stroke="#7d8893"/>' +
+      '<rect x="225" y="156" width="70" height="7" fill="url(#' + p + 's)" stroke="#8cc7ea"/>' +
+      '<circle cx="260" cy="296" r="22" fill="url(#' + p + 'w)"/>' +
+      beam("M240 0 V160 L260 294", "in") + beam("M280 0 V160 L260 294", "in") +
+      beam("M260 294 L236 163 V0", "out") + beam("M260 294 L284 163 V0", "out") +
+      '<path class="beam out faint" d="M260 294 L170 200"/><path class="beam out faint" d="M260 294 L350 200"/><path class="beam out faint" d="M260 294 L140 250"/><path class="beam out faint" d="M260 294 L380 250"/>' +
+      '<path d="M372 163 V292 M366 163 H378 M366 292 H378" stroke="#0a3a5f" stroke-width="2" fill="none"/>' +
+      '<text class="lbl b" x="384" y="222">Contact or</text><text class="lbl" x="384" y="242">up to 100 mm</text>' +
+      label(226, 160, "Window", 150, 130, "end") + label(262, 300, "Diffuse reflection", 150, 330, "end") + label(268, 22, "Fiber bundle", 336, 26);
+    return wrap(p, b, "Reflection: light is focused on the sample and the diffusely reflected light is collected");
+  };
+
+  D.fluorescence = function () {
+    var p = P();
+    var mol = [[245, 250], [270, 285], [252, 318], [285, 240], [238, 290]];
+    var m = '';
+    mol.forEach(function (q, i) { m += '<circle class="pulse" style="animation-delay:' + (i * .35) + 's" cx="' + q[0] + '" cy="' + q[1] + '" r="14" fill="url(#' + p + 'g)"/><circle cx="' + q[0] + '" cy="' + q[1] + '" r="4" fill="#2fb36b"/>'; });
+    var b = liquid(p, 150) + fiber(260) +
+      '<rect x="215" y="40" width="90" height="160" rx="6" fill="url(#' + p + 'm)" stroke="#7d8893"/>' +
+      '<rect x="225" y="196" width="70" height="7" fill="url(#' + p + 's)" stroke="#8cc7ea"/>' +
+      beam("M250 0 V330", "in") + m +
+      beam("M245 250 L240 203 V0", "green") + beam("M285 240 L280 203 V0", "green") +
+      '<path class="beam green faint" d="M270 285 L340 330"/><path class="beam green faint" d="M252 318 L190 350"/>' +
+      label(250, 300, "Excitation light", 150, 300, "end") + label(287, 238, "Emitted light,", 336, 230) +
+      '<text class="lbl" x="342" y="255">longer wavelength</text>' + label(268, 22, "Optical fibers", 336, 26);
+    return wrap(p, b, "Fluorescence: excitation light makes the sample emit light at longer wavelengths");
+  };
+
+  /* Multiplexer: lamp and detector switched together to one of four measuring points */
+  D.multiplexer = function (active) {
+    var a = active || 0;
+    var ys = [70, 160, 250, 340];
+    var ports = [158, 192, 226, 260];
+    var fibers = '';
+    ys.forEach(function (y, i) {
+      var on = i === a;
+      var d = 'M452 ' + ports[i] + ' C 560 ' + ports[i] + ', 600 ' + y + ', 700 ' + y;
+      fibers += '<path d="' + d + '" fill="none" stroke="' + (on ? "#9cc9e8" : "#d5dbe0") + '" stroke-width="' + (on ? 8 : 5) + '" stroke-linecap="round"/>';
+      if (on) fibers += '<path class="beam in" d="' + d + '"/>' + '<path class="beam out rev" d="M700 ' + (y + 8) + ' C 600 ' + (y + 8) + ', 560 ' + (ports[i] + 8) + ', 452 ' + (ports[i] + 8) + '"/>';
+      fibers += '<g class="mp' + (on ? ' on' : '') + '" data-ch="' + i + '"><rect x="700" y="' + (y - 26) + '" width="180" height="52" rx="6" fill="' + (on ? "#0072b6" : "#ffffff") + '" stroke="' + (on ? "#0072b6" : "#c9d1d8") + '"/>' +
+        '<rect x="712" y="' + (y - 6) + '" width="46" height="12" rx="6" fill="' + (on ? "#ffffff" : "#aab4bd") + '"/>' +
+        '<text x="770" y="' + (y + 6) + '" class="lbl' + (on ? ' w' : '') + '">Point ' + (i + 1) + '</text></g>';
+    });
+    var ang = [-50, -17, 17, 50][a];
+    return '<svg viewBox="0 0 900 420" role="img" aria-label="Multiplexer switching between four measuring points">' +
+      '<rect x="14" y="150" width="150" height="120" rx="6" fill="#f2f2f2" stroke="#c9d1d8"/>' +
+      '<rect x="44" y="172" width="90" height="56" rx="3" fill="#0a3a5f"/><path d="M52 214 L70 200 L84 208 L100 190 L126 196" stroke="#7fd1ff" stroke-width="3" fill="none"/>' +
+      '<text x="89" y="252" text-anchor="middle" class="lbl b">Control room</text>' +
+      '<path d="M164 210 H200" stroke="#878787" stroke-width="2" stroke-dasharray="5 5"/>' +
+      '<text x="89" y="296" text-anchor="middle" class="lbl s">TCP/IP · fieldbus</text>' +
+      '<rect x="200" y="40" width="270" height="340" rx="8" fill="#f4f8fc" stroke="#c9ddef" stroke-width="2"/>' +
+      '<text x="214" y="66" class="lbl b">Analyzer cabinet</text>' +
+      '<circle cx="262" cy="130" r="22" fill="#ffd34d" stroke="#e3a800"/><circle cx="262" cy="130" r="34" fill="#ffd34d" opacity=".25" class="pulse"/>' +
+      '<text x="262" y="182" text-anchor="middle" class="lbl s">Lamp</text>' +
+      '<rect x="222" y="236" width="88" height="62" rx="4" fill="#ffffff" stroke="#9aa6b1"/><path d="M232 284 Q 246 250 258 276 T 284 262 T 300 270" stroke="#0072b6" stroke-width="2.5" fill="none"/>' +
+      '<text x="266" y="318" text-anchor="middle" class="lbl s">Spectrometer</text>' +
+      '<rect x="352" y="130" width="100" height="160" rx="6" fill="#1f2a33"/>' +
+      '<circle cx="402" cy="210" r="36" fill="#c5ccd2" stroke="#8d99a5" stroke-width="2"/>' +
+      '<g class="dial" style="transform: rotate(' + ang + 'deg); transform-origin: 402px 210px"><path d="M402 210 L436 210" stroke="#0072b6" stroke-width="6" stroke-linecap="round"/><circle cx="402" cy="210" r="7" fill="#0072b6"/></g>' +
+      '<text x="402" y="312" text-anchor="middle" class="lbl s">Multiplexer</text>' +
+      ports.map(function (y) { return '<circle cx="452" cy="' + y + '" r="6" fill="#8d99a5"/>'; }).join('') +
+      '<path class="beam in" d="M284 130 C 320 130, 330 170, 352 176"/>' +
+      '<path class="beam out" d="M352 250 C 335 256, 324 262, 310 266"/>' +
+      fibers + '</svg>';
+  };
+
+  /* PAT measuring positions */
+  D.positions = function (sel) {
+    function g(id, inner) { return '<g class="pos' + (sel && sel !== id ? ' dim' : '') + (sel === id ? ' sel' : '') + '" data-pos="' + id + '">' + inner + '</g>'; }
+    var chev = '';
+    for (var x = 70; x < 860; x += 70) chev += '<path class="flowchev" d="M' + x + ' 92 l10 8 l-10 8" stroke="#ffffff" stroke-width="3" fill="none"/>';
+    return '<svg viewBox="0 0 900 400" role="img" aria-label="Inline, online, atline and offline measuring positions">' +
+      '<rect x="20" y="78" width="860" height="44" rx="22" fill="#e9a36a"/><rect x="20" y="78" width="860" height="14" rx="7" fill="#f2c39c"/>' + chev +
+      '<text x="30" y="60" class="lbl b m">Production line</text>' +
+      g("inline", '<rect x="690" y="20" width="200" height="140" fill="transparent"/><rect x="738" y="20" width="16" height="84" rx="4" fill="#9aa6b1"/><rect x="734" y="98" width="24" height="10" rx="3" fill="#0072b6"/><circle cx="746" cy="100" r="16" fill="#7fd1ff" opacity=".45" class="pulse"/>' +
+        '<text x="770" y="44" class="lbl b xl">Inline</text><text x="770" y="64" class="lbl m">in the stream</text>') +
+      g("online", '<rect x="440" y="120" width="220" height="150" fill="transparent"/><path d="M480 122 V210 H620 V122" stroke="#e9a36a" stroke-width="14" fill="none" stroke-linejoin="round"/>' +
+        '<rect x="530" y="196" width="40" height="28" rx="4" fill="#0072b6"/><path d="M550 224 V250" stroke="#39434d" stroke-width="4"/><rect x="518" y="250" width="64" height="30" rx="3" fill="#1f2a33"/>' +
+        '<text x="640" y="222" class="lbl b xl">Online</text><text x="640" y="242" class="lbl m">bypass loop</text>') +
+      g("atline", '<rect x="220" y="120" width="200" height="200" fill="transparent"/><path d="M270 122 V150" stroke="#9aa6b1" stroke-width="8"/><rect x="262" y="148" width="16" height="10" fill="#0072b6"/>' +
+        '<path d="M270 162 v14" stroke="#e9a36a" stroke-width="3" stroke-dasharray="3 5" class="drip"/>' +
+        '<rect x="236" y="250" width="170" height="10" rx="3" fill="#c9d1d8"/><rect x="262" y="214" width="16" height="36" rx="3" fill="#ffffff" stroke="#878787"/><rect x="264" y="230" width="12" height="18" fill="#e9a36a"/>' +
+        '<rect x="312" y="214" width="66" height="36" rx="3" fill="#1f2a33"/><rect x="320" y="222" width="30" height="10" fill="#7fd1ff"/>' +
+        '<text x="240" y="290" class="lbl b xl">Atline</text><text x="240" y="310" class="lbl m">next to the line</text>') +
+      g("offline", '<rect x="10" y="120" width="210" height="270" fill="transparent"/><path d="M110 122 V150" stroke="#9aa6b1" stroke-width="8"/><rect x="102" y="148" width="16" height="10" fill="#0072b6"/>' +
+        '<path d="M110 165 C 110 230, 70 250, 70 300" stroke="#878787" stroke-width="2.5" stroke-dasharray="6 6" fill="none"/>' +
+        '<rect x="30" y="300" width="150" height="74" rx="4" fill="#f4f8fc" stroke="#c9ddef" stroke-width="2"/><path d="M58 352 L70 328 V316 H82 V328 L94 352 Z" fill="#ffffff" stroke="#0072b6" stroke-width="2"/><text x="104" y="344" class="lbl m">Lab</text>' +
+        '<text x="128" y="230" class="lbl b xl">Offline</text><text x="128" y="250" class="lbl m">sample to the lab</text>') +
+      '</svg>';
+  };
+
+  /* Case study: before / after */
+  D.beforeAfter = function (after) {
+    var col = '<rect x="60" y="40" width="60" height="230" rx="28" fill="url(#cbm)" stroke="#8d99a5"/><path d="M70 90 H110 M70 130 H110 M70 170 H110 M70 210 H110" stroke="#aab4bd" stroke-width="2"/>' +
+      '<path d="M90 40 V20 H300 V150" stroke="#9aa6b1" stroke-width="10" fill="none" stroke-linejoin="round"/>' +
+      '<path d="M250 150 H350 V250 Q 350 290 300 290 Q 250 290 250 250 Z" fill="url(#cbm)" stroke="#8d99a5"/>' +
+      '<path d="M253 205 H347 V250 Q 347 287 300 287 Q 253 287 253 250 Z" fill="#f6b45a" opacity=".85"/>' +
+      '<text x="90" y="300" text-anchor="middle" class="lbl s">Distillation</text><text x="300" y="320" text-anchor="middle" class="lbl s">Collection tank</text>' +
+      '<g transform="translate(150 210)"><path d="M0 -26 L23 -13 V13 L0 26 L-23 13 V-13 Z" fill="#ffd400" stroke="#1e2328" stroke-width="2"/><text x="0" y="7" text-anchor="middle" style="font: 700 18px sans-serif" fill="#1e2328">Ex</text></g>';
+    var before = '<path d="M300 290 V308" stroke="#9aa6b1" stroke-width="6"/><rect x="292" y="300" width="16" height="8" fill="#0072b6"/>' +
+      '<path d="M320 312 C 420 312, 440 250, 520 250" stroke="#878787" stroke-width="2.5" stroke-dasharray="7 7" fill="none" class="march"/>' +
+      '<circle cx="470" cy="210" r="10" fill="#0a3a5f"/><path d="M470 222 V258 M470 232 L456 248 M470 232 L486 244 M470 258 L458 284 M470 258 L482 284" stroke="#0a3a5f" stroke-width="5" stroke-linecap="round"/>' +
+      '<rect x="540" y="200" width="180" height="100" rx="6" fill="#f4f8fc" stroke="#c9ddef" stroke-width="2"/><path d="M574 270 L588 240 V226 H602 V240 L616 270 Z" fill="#fff" stroke="#0072b6" stroke-width="2"/>' +
+      '<circle cx="676" cy="246" r="20" fill="#fff" stroke="#c2410c" stroke-width="3"/><path d="M676 246 V232 M676 246 L686 252" stroke="#c2410c" stroke-width="3" stroke-linecap="round"/>' +
+      '<text x="630" y="190" text-anchor="middle" class="lbl b">Offline: sample to the lab</text><text x="630" y="328" text-anchor="middle" class="lbl s">Batch waits for the result</text>';
+    var aft = '<path d="M350 250 H420" stroke="#9aa6b1" stroke-width="8"/><rect x="404" y="238" width="30" height="24" rx="4" fill="#0072b6"/><circle cx="419" cy="250" r="20" fill="#7fd1ff" opacity=".45" class="pulse"/>' +
+      '<path d="M434 250 C 490 250, 500 150, 560 150" stroke="#9cc9e8" stroke-width="6" fill="none"/><path class="beam in" d="M434 250 C 490 250, 500 150, 560 150"/>' +
+      '<rect x="560" y="110" width="160" height="80" rx="6" fill="#1f2a33"/><rect x="574" y="124" width="132" height="40" fill="#0a3a5f"/><path class="trace" d="M578 154 L600 150 L620 152 L640 140 L660 146 L680 138 L702 142" stroke="#7fd1ff" stroke-width="2.5" fill="none"/>' +
+      '<text x="640" y="92" text-anchor="middle" class="lbl b">Online: Excalibur flow cell</text><text x="640" y="214" text-anchor="middle" class="lbl s">Real-time batch release</text>' +
+      '<g transform="translate(640 262)"><circle r="22" fill="#2e7d4f"/><path d="M-10 0 L-3 8 L11 -8" stroke="#fff" stroke-width="4" fill="none" stroke-linecap="round"/></g>';
+    return '<svg viewBox="0 0 760 340" role="img" aria-label="' + (after ? "Online measurement on the collection tank" : "Offline lab sample from the collection tank") + '">' +
+      '<defs><linearGradient id="cbm" x1="0" x2="1"><stop offset="0" stop-color="#b8c2cb"/><stop offset=".4" stop-color="#f1f4f6"/><stop offset="1" stop-color="#a8b3bd"/></linearGradient></defs>' +
+      col + (after ? aft : before) + '</svg>';
+  };
+
+  D.atex = function () {
+    return '<svg viewBox="0 0 760 330" role="img" aria-label="Flow cell in the ATEX area, spectrometer outside it">' +
+      '<defs><linearGradient id="axm" x1="0" x2="1"><stop offset="0" stop-color="#b8c2cb"/><stop offset=".4" stop-color="#f1f4f6"/><stop offset="1" stop-color="#a8b3bd"/></linearGradient></defs>' +
+      '<rect x="10" y="20" width="450" height="295" rx="6" fill="#fff5f4" stroke="#d64032" stroke-width="3" stroke-dasharray="10 6"/><text x="26" y="300" class="lbl b" fill="#b42318">ATEX area</text>' +
+      '<rect x="468" y="10" width="16" height="315" fill="#878787"/>' +
+      '<rect x="492" y="20" width="258" height="295" rx="6" fill="#f4f8fc" stroke="#0072b6" stroke-width="3"/><text x="508" y="300" class="lbl b" fill="#0a3a5f">Non-ATEX area</text>' +
+      '<rect x="50" y="50" width="56" height="200" rx="26" fill="url(#axm)" stroke="#8d99a5"/><path d="M78 50 V34 H260 V120" stroke="#9aa6b1" stroke-width="9" fill="none"/>' +
+      '<path d="M210 120 H310 V220 Q 310 256 260 256 Q 210 256 210 220 Z" fill="url(#axm)" stroke="#8d99a5"/><path d="M213 175 H307 V220 Q 307 253 260 253 Q 213 253 213 220 Z" fill="#f6b45a" opacity=".85"/>' +
+      '<path d="M310 220 H380" stroke="#9aa6b1" stroke-width="8"/><rect x="366" y="208" width="30" height="24" rx="4" fill="#0072b6"/>' +
+      '<text x="381" y="180" text-anchor="middle" class="lbl s">Excalibur HD</text><text x="381" y="196" text-anchor="middle" class="lbl s">flow cell</text>' +
+      '<g transform="translate(150 280)"><path d="M0 -20 L18 -10 V10 L0 20 L-18 10 V-10 Z" fill="#ffd400" stroke="#1e2328" stroke-width="2"/><text x="0" y="6" text-anchor="middle" style="font: 700 14px sans-serif" fill="#1e2328">Ex</text></g>' +
+      '<path d="M396 220 C 440 220, 440 150, 476 150 H 560" stroke="#9cc9e8" stroke-width="6" fill="none"/><path class="beam in" d="M396 220 C 440 220, 440 150, 476 150 H 560"/>' +
+      '<rect x="560" y="110" width="150" height="76" rx="6" fill="#1f2a33"/><rect x="572" y="122" width="126" height="36" fill="#0a3a5f"/><path class="trace" d="M576 150 L598 146 L618 148 L638 136 L658 142 L678 134 L694 138" stroke="#7fd1ff" stroke-width="2.5" fill="none"/>' +
+      '<text x="635" y="208" text-anchor="middle" class="lbl s">Spectrometer</text>' +
+      '<text x="520" y="84" class="lbl s">Optical fiber through the wall</text></svg>';
+  };
+
+  D.model = function () {
+    var pts = '';
+    var seed = 7;
+    function rnd() { seed = (seed * 9301 + 49297) % 233280; return seed / 233280; }
+    var phases = [[60, 330, "#1f6fb2", 34], [340, 500, "#36c26b", 16], [560, 720, "#9a8a2a", 12]];
+    phases.forEach(function (ph, k) {
+      for (var i = 0; i < ph[3]; i++) {
+        var x = ph[0] + rnd() * (ph[1] - ph[0]); var y = 60 + rnd() * 70;
+        var c = (k === 0 && i % 3 === 2) ? "#2aa65b" : ph[2];
+        pts += '<rect class="pop" style="animation-delay:' + (k * .6 + i * .03).toFixed(2) + 's" x="' + x.toFixed(1) + '" y="' + y.toFixed(1) + '" width="9" height="9" transform="rotate(45 ' + (x + 4.5).toFixed(1) + ' ' + (y + 4.5).toFixed(1) + ')" fill="' + c + '"/>';
+      }
+    });
+    return '<svg viewBox="0 0 760 260" role="img" aria-label="Calibration, external validation and revalidation over time">' +
+      '<path d="M40 30 V170 H740" stroke="#575756" stroke-width="2" fill="none"/><path d="M732 164 L742 170 L732 176" stroke="#575756" stroke-width="2" fill="none"/>' +
+      '<text x="30" y="110" class="lbl s" transform="rotate(-90 30 110)" text-anchor="middle">concentration</text><text x="740" y="194" class="lbl s" text-anchor="end">time</text>' +
+      pts +
+      '<path d="M60 186 V196 H330 V186 M340 186 V196 H500 V186 M560 186 V196 H720 V186" stroke="#878787" fill="none"/>' +
+      '<text x="195" y="220" text-anchor="middle" class="lbl b">Calibration</text><text x="420" y="220" text-anchor="middle" class="lbl b">External validation</text><text x="640" y="220" text-anchor="middle" class="lbl b">Revalidation</text>' +
+      '</svg>';
+  };
+
+  D.vmodel = function (sel, stages) {
+    var yc = [64, 130, 196, 262];
+    function xc(side, lvl) { var off = (yc[lvl] - 60) * 1.11; return side === "L" ? 80 + off : 680 - off; }
+    var out = '<svg viewBox="0 0 760 380" role="img" aria-label="V-model of qualification">' +
+      '<path d="M80 60 L380 330 L680 60" stroke="#c9ddef" stroke-width="40" fill="none" stroke-linejoin="round" stroke-linecap="round"/>';
+    stages.forEach(function (s) {
+      var x = xc(s.side, s.lvl), y = yc[s.lvl];
+      var short = s.name.match(/\(([^)]+)\)/);
+      var t = short ? short[1] : s.name;
+      var on = sel === s.id;
+      out += '<g class="vst" data-v="' + s.id + '"><rect x="' + (x - 66) + '" y="' + (y - 24) + '" width="132" height="48" rx="24" fill="' + (on ? "#00569d" : "#0072b6") + '" stroke="' + (on ? "#0a3a5f" : "#ffffff") + '" stroke-width="3"/>' +
+        '<text x="' + x + '" y="' + (y + 7) + '" text-anchor="middle" class="lbl w m">' + t + '</text></g>';
+    });
+    out += '<rect x="300" y="318" width="160" height="48" rx="24" fill="#575756"/><text x="380" y="348" text-anchor="middle" class="lbl w">Implementation</text>';
+    out += '<text x="20" y="24" class="lbl m">Specify and design</text><text x="740" y="24" class="lbl m" text-anchor="end">Test and qualify</text>';
+    return out + '</svg>';
+  };
+
+  D.wheel = function (sel, items) {
+    var cx = 210, cy = 210, r1 = 92, r2 = 196, n = items.length, out = '';
+    function pt(r, a) { return [cx + r * Math.cos(a), cy + r * Math.sin(a)]; }
+    items.forEach(function (it, i) {
+      var a0 = -Math.PI / 2 + i * 2 * Math.PI / n + 0.015, a1 = -Math.PI / 2 + (i + 1) * 2 * Math.PI / n - 0.015;
+      var p0 = pt(r2, a0), p1 = pt(r2, a1), p2 = pt(r1, a1), p3 = pt(r1, a0);
+      var d = 'M' + p0 + ' A' + r2 + ' ' + r2 + ' 0 0 1 ' + p1 + ' L' + p2 + ' A' + r1 + ' ' + r1 + ' 0 0 0 ' + p3 + ' Z';
+      var am = (a0 + a1) / 2, lp = pt((r1 + r2) / 2, am);
+      var words = it.name.split(" "), lines = words.length > 2 ? [words.slice(0, 2).join(" "), words.slice(2).join(" ")] : (words.length === 2 ? words : [it.name]);
+      var on = sel === i;
+      out += '<g class="wseg' + (on ? ' on' : '') + '" data-seg="' + i + '"><path d="' + d + '" fill="' + (on ? "#00569d" : (i % 2 ? "#0a6aa8" : "#0072b6")) + '" stroke="#fff" stroke-width="2"/>';
+      lines.forEach(function (ln, k) { out += '<text x="' + lp[0].toFixed(1) + '" y="' + (lp[1] + (k - (lines.length - 1) / 2) * 18 + 5).toFixed(1) + '" text-anchor="middle" class="lbl w s">' + ln + '</text>'; });
+      out += '</g>';
+    });
+    out += '<circle cx="210" cy="210" r="86" fill="#ffffff" stroke="#c9ddef" stroke-width="2"/><text x="210" y="222" text-anchor="middle" style="font-size:38px;font-weight:300;fill:#0072b6">PAT</text>';
+    return '<svg viewBox="0 0 420 420" role="img" aria-label="Hellma Solutions portfolio">' + out + '</svg>';
+  };
+
+  window.DIAGRAMS = D;
+})();
+
+</script>
+<script>
+/* Hellma PAT kiosk app. Vanilla JS, no network, no external links. */
+(function () {
+  "use strict";
+  var C = window.KIOSK;
+  var ASSETS = window.KIOSK_ASSETS || {};
+  var DG = window.DIAGRAMS;
+  var app = document.getElementById("app");
+
+  /* ---------------- Utilities ---------------- */
+  function $(s, r) { return (r || document).querySelector(s); }
+  function $$(s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); }
+  function esc(s) { return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); }
+  /* Text that may carry a review note: { v, check } */
+  function T(v) {
+    if (v && typeof v === "object") return '<span class="chk" data-note="' + esc(v.check) + '">' + esc(v.v) + "</span>";
+    return esc(v);
+  }
+  function plain(v) { return v && typeof v === "object" ? v.v : v; }
+  function note(check) { return check ? '<div class="chk-note">' + esc(check) + "</div>" : ""; }
+  var PLACEHOLDER = "data:image/svg+xml;charset=utf-8," + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300"><rect width="400" height="300" fill="#f2f2f2"/><text x="200" y="158" text-anchor="middle" font-family="sans-serif" font-size="18" fill="#878787">Image coming</text></svg>');
+  function src(id) { return ASSETS[id] || PLACEHOLDER; }
+  var PHOTO = /^(K|A|I|C|W)\d|^(P12|R1|R8)$/;
+  function isPhoto(id) { return PHOTO.test(id); }
+  function stage(id, cls, alt) {
+    if (!id) return '<div class="stage ' + (cls || "") + '"></div>';
+    if (isPhoto(id)) return '<div class="stage photo ' + (cls || "") + '"><img src="' + src(id) + '" alt="' + esc(alt || "") + '" draggable="false"></div>';
+    return '<div class="stage ' + (cls || "") + '"><img class="prod" src="' + src(id) + '" alt="' + esc(alt || "") + '" draggable="false"><span class="spark"></span><span class="lowres-note">Image ' + esc(id) + "</span></div>";
+  }
+  function img(id, alt, cls) { return '<img ' + (cls ? 'class="' + cls + '" ' : "") + 'src="' + src(id) + '" alt="' + esc(alt || "") + '" draggable="false">'; }
+  var I = {
+    back: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg>',
+    home: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg>',
+    mail: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>',
+    arrow: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>',
+    zoom: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5M11 8v6M8 11h6"/></svg>',
+    check: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>',
+    close: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>',
+  };
+  function brandLogo(key, h) {
+    var b = C.brands[key]; if (!b) return "";
+    return '<img src="' + src(b.logo) + '" alt="' + esc(b.name) + '" style="height:' + (h || 1.6) + 'rem;width:auto" draggable="false">';
+  }
+  function toast(msg, ms) {
+    var t = document.createElement("div"); t.className = "toast"; t.textContent = msg; app.appendChild(t);
+    setTimeout(function () { t.remove(); }, ms || 3200);
+  }
+  function fmtT(n) { return n + " °C"; }
+  function fmtP(n) { return n > 0 ? n + " bar" : "Atm."; }
+  var RANGE_LABEL = { uvvis: "UV-Vis", nir: "NIR" };
+
+  /* ---------------- Settings and storage ---------------- */
+  var LS = {
+    get: function (k, d) { try { var v = localStorage.getItem(k); return v == null ? d : JSON.parse(v); } catch (e) { return d; } },
+    set: function (k, v) { try { localStorage.setItem(k, JSON.stringify(v)); return true; } catch (e) { return false; } },
+    del: function (k) { try { localStorage.removeItem(k); } catch (e) { } },
+  };
+  var settings = Object.assign({ pin: C.settings.defaultPin, idle: C.settings.idleSeconds, event: "", review: false }, LS.get("hk.settings", {}));
+  function saveSettings() { return LS.set("hk.settings", settings); }
+
+  /* ---------------- Home Screen web app support ---------------- */
+  var PWA = { reg: null, updateReady: false };
+  function standalone() { return (window.matchMedia && matchMedia("(display-mode: standalone)").matches) || window.navigator.standalone === true; }
+  function initPwa() {
+    try { if (navigator.storage && navigator.storage.persist) navigator.storage.persist(); } catch (e) { }
+    if (!window.KIOSK_PWA || !("serviceWorker" in navigator) || !window.isSecureContext) return;
+    var had = !!navigator.serviceWorker.controller;
+    navigator.serviceWorker.addEventListener("controllerchange", function () { if (had) PWA.updateReady = true; had = true; });
+    navigator.serviceWorker.register("sw.js").then(function (reg) {
+      PWA.reg = reg;
+      /* A kiosk page never navigates, so look for a new version every 30 minutes while online.
+         A new version installs in the background and takes over at the next start-over. */
+      setInterval(function () { if (navigator.onLine) reg.update().catch(function () { }); }, 30 * 60 * 1000);
+    }).catch(function () { });
+  }
+  function offlineStatus() {
+    if (!window.KIOSK_PWA) return Promise.resolve("Single-file version, works offline as is");
+    if (!("caches" in window) || !window.isSecureContext) return Promise.resolve("Not available: open the kiosk from its https address");
+    return caches.open(window.KIOSK_CACHE).then(function (c) { return c.keys(); }).then(function (keys) {
+      var n = keys.length, need = window.KIOSK_PRECACHE_COUNT || 0;
+      return n >= need ? "Ready offline (" + n + " files saved on this iPad)" : "Still saving for offline: " + n + " of " + need + " files. Keep Wi-Fi on.";
+    }).catch(function () { return "Unknown"; });
+  }
+  function storageStatus() {
+    if (!navigator.storage || !navigator.storage.persisted) return Promise.resolve("Standard");
+    return navigator.storage.persisted().then(function (p) { return p ? "Protected from automatic clean-up" : "Standard (export leads daily)"; }, function () { return "Standard"; });
+  }
+  var CAN_SHARE_FILES = false;
+  try { CAN_SHARE_FILES = !!(navigator.canShare && window.File && navigator.canShare({ files: [new File(["x"], "t.csv", { type: "text/csv" })] })); } catch (e) { }
+
+  var Store = {
+    db: null, ok: false,
+    init: function () {
+      return new Promise(function (res) {
+        try {
+          if (!window.indexedDB) return res();
+          var rq = indexedDB.open("hellma-kiosk", 1);
+          rq.onupgradeneeded = function () { rq.result.createObjectStore("leads", { keyPath: "id" }); };
+          rq.onsuccess = function () { Store.db = rq.result; Store.ok = true; res(); };
+          rq.onerror = function () { res(); };
+          setTimeout(res, 1500);
+        } catch (e) { res(); }
+      });
+    },
+    add: function (lead) {
+      var mirror = LS.get("hk.leads", []); mirror.push(lead); var lsOk = LS.set("hk.leads", mirror);
+      return new Promise(function (res) {
+        if (!Store.db) return res(lsOk);
+        try {
+          var tx = Store.db.transaction("leads", "readwrite"); tx.objectStore("leads").put(lead);
+          tx.oncomplete = function () { res(true); }; tx.onerror = function () { res(lsOk); };
+        } catch (e) { res(lsOk); }
+      });
+    },
+    all: function () {
+      var byId = {};
+      LS.get("hk.leads", []).forEach(function (l) { byId[l.id] = l; });
+      return new Promise(function (res) {
+        if (!Store.db) return res(byId);
+        try {
+          var rq = Store.db.transaction("leads", "readonly").objectStore("leads").getAll();
+          rq.onsuccess = function () { (rq.result || []).forEach(function (l) { byId[l.id] = l; }); res(byId); };
+          rq.onerror = function () { res(byId); };
+        } catch (e) { res(byId); }
+      }).then(function (m) { return Object.keys(m).map(function (k) { return m[k]; }).sort(function (a, b) { return b.ts - a.ts; }); });
+    },
+    clear: function () {
+      LS.del("hk.leads");
+      return new Promise(function (res) {
+        if (!Store.db) return res();
+        try { var tx = Store.db.transaction("leads", "readwrite"); tx.objectStore("leads").clear(); tx.oncomplete = res; tx.onerror = res; } catch (e) { res(); }
+      });
+    },
+  };
+
+  /* ---------------- Session state ---------------- */
+  var S;
+  function freshSession() {
+    S = {
+      stack: [], viewed: [], form: null,
+      finder: { principle: "any", format: "any", range: "any", temp: 0, pres: 0 },
+      mux: { ch: 0, auto: true },
+    };
+  }
+  freshSession();
+
+  /* ---------------- Shell ---------------- */
+  var LOGO = (window.KIOSK_LOGO_SVG || "").replace("<svg", '<svg class="logo" role="img" aria-label="Hellma"');
+  app.innerHTML =
+    '<div class="shell" id="shell" hidden>' +
+    '<header class="topbar">' +
+    '<button class="navbtn" id="btn-back" type="button">' + I.back + "Back</button>" +
+    '<button class="navbtn" id="btn-home" type="button">' + I.home + "Home</button>" +
+    '<div class="crumb" id="crumb"></div>' +
+    '<button class="logo-btn" id="logo-btn" type="button" aria-label="Hellma">' + LOGO + "</button>" +
+    "</header>" +
+    '<main class="view" id="view"></main>' +
+    '<button class="cta" id="cta" type="button">' + I.mail + "Request information</button>" +
+    "</div>" +
+    '<div class="attract" id="attract"></div>' +
+    '<div class="overlay idle" id="idle" hidden></div>' +
+    '<div class="overlay" id="pin" hidden></div>' +
+    '<div class="overlay staff" id="staff" hidden></div>' +
+    '<div class="overlay lightbox" id="lightbox" hidden></div>';
+  var view = $("#view"), shell = $("#shell"), attractEl = $("#attract");
+
+  /* ---------------- Router ---------------- */
+  var current = null;
+  function go(route, opts) {
+    opts = opts || {};
+    if (route === "attract") return showAttract();
+    hideAttract();
+    if (opts.replace && S.stack.length) S.stack[S.stack.length - 1] = route;
+    else if (route === "home") S.stack = ["home"];
+    else S.stack.push(route);
+    render(route, opts);
+  }
+  function back() {
+    if (S.stack.length > 1) S.stack.pop();
+    render(S.stack[S.stack.length - 1] || "home", {});
+  }
+  function render(route, opts) {
+    var parts = route.split("/");
+    var fn = SCREENS[parts[0]] || SCREENS.home;
+    var keep = opts.keepScroll ? view.scrollTop : 0;
+    var out = fn(parts[1], parts[2]);
+    current = route;
+    view.innerHTML = '<div class="page">' + out.html + "</div>";
+    if (opts.keepScroll) { var pg = view.firstChild; pg.style.animation = "none"; }
+    view.scrollTop = keep;
+    $("#crumb").innerHTML = out.crumb ? out.crumb : "";
+    $("#btn-back").hidden = route === "home";
+    $("#btn-home").hidden = route === "home";
+    $("#cta").hidden = !!out.noCta;
+    if (out.init) out.init(view.firstChild);
+  }
+  function crumb(a, b) { return b ? esc(a) + " · <b>" + esc(b) + "</b>" : "<b>" + esc(a) + "</b>"; }
+
+  /* ---------------- Attract ---------------- */
+  var attractTimer = null, attractIdx = 0;
+  function buildAttract() {
+    var slides = C.attract.map(function (s, i) {
+      return '<div class="slide' + (i === 0 ? " on" : "") + '"><img src="' + src(s.img) + '" alt="" style="object-position:' + (s.pos || "50% 50%") + '" draggable="false"></div>';
+    }).join("");
+    attractEl.innerHTML = slides + '<div class="shade"></div>' +
+      '<div class="logo-plate">' + LOGO + "</div>" +
+      '<div class="copy"><div class="card" id="attract-card"></div>' +
+      '<div class="touch"><span class="ring"></span>Touch to explore</div></div>' +
+      '<div class="dots">' + C.attract.map(function (_, i) { return "<i" + (i === 0 ? ' class="on"' : "") + "></i>"; }).join("") + "</div>";
+    setAttractCopy(0);
+  }
+  function setAttractCopy(i) {
+    var s = C.attract[i];
+    $("#attract-card").innerHTML = '<div class="eyebrow">' + esc(s.eyebrow) + "</div><h1>" + esc(s.title) + "</h1><p>" + esc(s.sub) + "</p>";
+  }
+  function nextSlide() {
+    var sl = $$(".slide", attractEl), dots = $$(".dots i", attractEl);
+    sl[attractIdx].classList.remove("on"); dots[attractIdx].classList.remove("on");
+    attractIdx = (attractIdx + 1) % sl.length;
+    sl[attractIdx].classList.add("on"); dots[attractIdx].classList.add("on");
+    setAttractCopy(attractIdx);
+  }
+  function showAttract() {
+    if (PWA.updateReady) { location.reload(); return; }
+    closeOverlays();
+    freshSession();
+    shell.hidden = true; attractEl.hidden = false;
+    clearInterval(attractTimer);
+    attractTimer = setInterval(nextSlide, (C.settings.attractSlideSeconds || 8) * 1000);
+    current = "attract";
+  }
+  function hideAttract() {
+    if (attractEl.hidden) return;
+    clearInterval(attractTimer); attractEl.hidden = true; shell.hidden = false;
+  }
+  attractEl.addEventListener("click", function () { go("home"); });
+
+  /* ---------------- Shared blocks ---------------- */
+  function pageHead(eyebrow, title, lead, brand) {
+    return '<header class="pagehead">' + (brand ? '<div class="brandline">' + brandLogo(brand, 1.5) + "</div>" : "") +
+      '<div class="eyebrow">' + esc(eyebrow) + '</div><h1 class="h1">' + esc(title) + "</h1>" + (lead ? '<p class="lead">' + lead + "</p>" : "") + "</header>";
+  }
+  function banner(eyebrow, title, lead) {
+    return '<header class="banner"><div class="eyebrow">' + esc(eyebrow) + '</div><h1 class="h1">' + esc(title) + "</h1>" + (lead ? '<p class="lead">' + lead + "</p>" : "") + "</header>";
+  }
+  function bullets(arr, cls) { return '<ul class="bul ' + (cls || "") + '">' + arr.map(function (x) { return "<li>" + T(x) + "</li>"; }).join("") + "</ul>"; }
+  function figure(id, alt) {
+    return '<div class="figure">' + img(id, alt) + '<button class="zoom" type="button" data-zoom="' + id + '" data-cap="' + esc(alt || "") + '" aria-label="Enlarge">' + I.zoom + "</button></div>";
+  }
+  function productOf(id) { return C.products[id]; }
+  function principleOf(p) { return C.principles[C.families[p.family].principle]; }
+  function pcard(id) {
+    var p = productOf(id), f = p.filter, pr = principleOf(p);
+    var tw = Math.max(4, Math.round(f.maxT / 400 * 100)), pw = Math.max(3, Math.round(f.maxP / 250 * 100));
+    var req = S.finder;
+    return '<button class="pcard" type="button" data-go="product/' + id + '">' + stage(p.img, "", p.name) +
+      '<div class="body"><div class="nm"><b>' + esc(p.name) + "</b><span>" + esc(p.type) + "</span></div>" +
+      '<div class="row" style="gap:.35rem"><span class="tag">' + esc(pr.name) + "</span>" + f.ranges.map(function (r) { return '<span class="tag">' + RANGE_LABEL[r] + "</span>"; }).join("") + "</div>" +
+      '<div class="meter"><span>Temp.</span><span class="bar"><i style="width:' + tw + '%"></i>' + (req.temp ? '<u style="left:' + Math.round(req.temp / 400 * 100) + '%"></u>' : "") + '</span><span class="v">' + fmtT(f.maxT) + "</span></div>" +
+      '<div class="meter"><span>Pressure</span><span class="bar"><i style="width:' + pw + '%"></i>' + (req.pres ? '<u style="left:' + Math.round(req.pres / 250 * 100) + '%"></u>' : "") + '</span><span class="v">' + fmtP(f.maxP) + "</span></div>" +
+      "</div></button>";
+  }
+  function mini(o) {
+    return '<button class="mini" type="button" data-go="' + o.route + '">' + stage(o.img, "", o.title) + '<div><b>' + esc(o.title) + "</b><span>" + esc(o.sub || "") + "</span></div></button>";
+  }
+  function relItem(key) {
+    if (C.products[key]) { var p = C.products[key]; return { route: "product/" + key, img: p.img, title: p.name, sub: p.type }; }
+    if (key.indexOf("sensor:") === 0) { var s = C.solutions.sensors.filter(function (x) { return x.id === key.slice(7); })[0]; return { route: "solutions/sensors", img: s.img, title: s.name + " sensor", sub: "Hellma Solutions" }; }
+    var map = {
+      case: { route: "case", img: "K2b", title: "Case study", sub: "Water in solvents" },
+      retractables: { route: "retractables", img: "R4", title: "Retractable housings", sub: "Ceramat and Sensogate" },
+      prm: { route: "retractables/prm", img: "P12", title: "Probe Retraction Mechanism", sub: "For Excalibur HD" },
+      finder: { route: "finder", img: "P2", title: "Probe finder", sub: "Match a probe to your process" },
+    };
+    return map[key];
+  }
+  function allProcessProducts() {
+    var out = [];
+    C.lines["process-interfaces"].families.forEach(function (f) { out = out.concat(C.families[f].products); });
+    return out;
+  }
+  function tabs(items, sel, base) {
+    return '<div class="tabs" role="tablist">' + items.map(function (t) {
+      return '<button class="tab" type="button" role="tab" aria-selected="' + (t[0] === sel) + '" data-tab="' + base + "/" + t[0] + '">' + esc(t[1]) + "</button>";
+    }).join("") + "</div>";
+  }
+
+  /* ---------------- Screens ---------------- */
+  var SCREENS = {};
+
+  SCREENS.home = function () {
+    var h = C.home;
+    var hero = '<button class="hero-tile" type="button" data-go="' + h.hero.route + '">' + stage(h.hero.img, "", h.hero.title) +
+      '<div class="txt"><div class="eyebrow" style="color:rgba(255,255,255,.8)">Probe finder</div><h2>' + esc(h.hero.title) + "</h2><p>" + esc(h.hero.sub) + '</p><span class="go">Start ' + I.arrow.replace("<svg", '<svg style="width:1.2rem;height:1.2rem"') + "</span></div></button>";
+    var groups = h.groups.map(function (g) {
+      var head = g.brand ? brandLogo(g.brand, 1.35) + '<span class="t">' + esc(g.title) + "</span>" : '<span class="t">' + esc(g.title) + "</span>";
+      var tiles = g.tiles.map(function (t) {
+        var vis = t.svg ? '<div class="stage">' + DG.transmission() + "</div>" : stage(t.img, "", t.title);
+        return '<button class="tile" type="button" data-go="' + t.route + '">' + vis + '<div class="t"><b>' + esc(t.title) + "</b><span>" + esc(t.sub) + "</span></div></button>";
+      }).join("");
+      return '<section><div class="group-h">' + head + '</div><div class="tiles">' + tiles + "</div></section>";
+    }).join("");
+    return {
+      crumb: "",
+      html: '<div class="home-head">' + pageHead(h.eyebrow, h.title, esc(h.sub)) + "</div>" +
+        '<div class="home-grid">' + hero + '<div class="groups">' + groups + "</div></div>",
+    };
+  };
+
+  SCREENS.line = function (id) {
+    var L = C.lines[id];
+    var fams = L.families.map(function (fid) {
+      var f = C.families[fid], pr = C.principles[f.principle];
+      var body = f.products.length ? '<div class="results">' + f.products.map(pcard).join("") + "</div>"
+        : '<div class="empty"><p>' + esc(f.empty) + '</p><button class="btn primary" type="button" data-req="' + fid + '">' + I.mail + "Request information</button></div>";
+      return '<section style="display:grid;gap:.9rem"><div class="row" style="justify-content:space-between"><div style="display:grid;gap:.3rem"><h2 class="h2">' + esc(f.name) + '</h2><p class="muted">' + esc(f.desc) + "</p></div>" +
+        '<button class="linkish" type="button" data-go="principles/' + f.principle + '">How ' + esc(pr.name.toLowerCase()) + " works " + I.arrow.replace("<svg", '<svg style="width:1rem;height:1rem"') + "</button></div>" + note(f.check) + body + "</section>";
+    }).join("");
+    return {
+      crumb: crumb(L.name),
+      html: pageHead(C.brands[L.brand].name, L.name, esc(L.intro), L.brand) +
+        '<div class="row"><button class="btn primary" type="button" data-go="finder">Filter with the probe finder ' + I.arrow + "</button></div>" + fams,
+    };
+  };
+
+  var TEMP_OPTS = [[0, "Any"], [100, "100 °C", "212 °F"], [150, "150 °C", "302 °F"], [250, "250 °C", "482 °F"], [300, "300 °C", "572 °F"], [400, "400 °C", "752 °F"]];
+  var PRES_OPTS = [[0, "Any"], [10, "10 bar", "145 psi"], [30, "30 bar", "435 psi"], [100, "100 bar", "1450 psi"], [250, "250 bar", "3626 psi"]];
+  SCREENS.finder = function () {
+    function chips(key, opts) {
+      return '<div class="row">' + opts.map(function (o) {
+        return '<button class="chip" type="button" data-f="' + key + '" data-val="' + o[0] + '" aria-pressed="' + (String(S.finder[key]) === String(o[0])) + '">' + esc(o[1]) + (o[2] ? ' <span class="sub">' + esc(o[2]) + "</span>" : "") + "</button>";
+      }).join("") + "</div>";
+    }
+    var pOpts = [["any", "Any"]].concat(["transmission", "transflection", "atr", "reflection"].map(function (k) { return [k, C.principles[k].name]; }));
+    var filters = '<aside class="filters">' +
+      '<div class="fgroup"><div class="lab">Measurement principle</div>' + chips("principle", pOpts) +
+      '<button class="linkish small" type="button" data-go="principles">Not sure? See how each principle works</button></div>' +
+      '<div class="fgroup"><div class="lab">Installation</div>' + chips("format", [["any", "Any"], ["probe", "Probe in a vessel or pipe"], ["flow", "Flow cell"]]) + "</div>" +
+      '<div class="fgroup"><div class="lab">Spectral range</div>' + chips("range", [["any", "Any"], ["uvvis", "UV-Vis"], ["nir", "NIR"]]) + "</div>" +
+      '<div class="fgroup"><div class="lab">Process temperature up to</div>' + chips("temp", TEMP_OPTS) + "</div>" +
+      '<div class="fgroup"><div class="lab">Process pressure up to</div>' + chips("pres", PRES_OPTS) + "</div>" +
+      '<button class="btn" type="button" id="f-reset">Clear all filters</button></aside>';
+    return {
+      crumb: crumb("Probe finder"),
+      html: pageHead("Probe finder", "Find your probe", "Tell us about your process. Probes and flow cells that can't handle it drop out.", "analytics") +
+        '<div class="finder">' + filters + '<section style="display:grid;gap:1rem"><div class="results-head"><h2 class="h2" id="f-count"></h2><span class="muted small">Ratings are maximum values per model.</span></div><div id="f-results"></div></section></div>',
+      init: function (root) {
+        function apply() {
+          var f = S.finder;
+          var all = allProcessProducts();
+          var hit = all.filter(function (id) {
+            var p = C.products[id], q = p.filter;
+            if (f.principle !== "any" && C.families[p.family].principle !== f.principle) return false;
+            if (f.format !== "any" && q.format.indexOf(f.format) < 0) return false;
+            if (f.range !== "any" && q.ranges.indexOf(f.range) < 0) return false;
+            if (f.temp && q.maxT < f.temp) return false;
+            if (f.pres && q.maxP < f.pres) return false;
+            return true;
+          });
+          $("#f-count", root).textContent = hit.length === all.length ? "All " + all.length + " probes and flow cells" : hit.length + " of " + all.length + " match";
+          $("#f-results", root).innerHTML = hit.length ? '<div class="results">' + hit.map(pcard).join("") + "</div>" :
+            '<div class="empty"><h3 class="h3">No standard model covers all of that.</h3><p>Hellma Solutions develops custom process interfaces. Tell us about your process and a specialist will follow up.</p>' +
+            '<div class="row"><button class="btn primary" type="button" data-req="custom">' + I.mail + 'Ask about a custom solution</button><button class="btn" type="button" id="f-reset2">Clear filters</button></div></div>';
+          var r2 = $("#f-reset2", root); if (r2) r2.onclick = reset;
+        }
+        function reset() { S.finder = { principle: "any", format: "any", range: "any", temp: 0, pres: 0 }; $$(".chip[data-f]", root).forEach(function (c) { c.setAttribute("aria-pressed", String(S.finder[c.dataset.f]) === c.dataset.val); }); apply(); }
+        $$(".chip[data-f]", root).forEach(function (c) {
+          c.addEventListener("click", function () {
+            var k = c.dataset.f, v = c.dataset.val;
+            S.finder[k] = (k === "temp" || k === "pres") ? Number(v) : v;
+            $$('.chip[data-f="' + k + '"]', root).forEach(function (o) { o.setAttribute("aria-pressed", o === c); });
+            apply();
+          });
+        });
+        $("#f-reset", root).onclick = reset;
+        apply();
+      },
+    };
+  };
+
+  SCREENS.product = function (id) {
+    var p = productOf(id), fam = C.families[p.family], pr = C.principles[fam.principle], f = p.filter;
+    if (S.viewed.indexOf(p.name) < 0) S.viewed.push(p.name);
+    var thumbs = '<div class="thumbs"><button type="button" data-view="photo" aria-pressed="true">' + img(p.img, "") + "</button>" +
+      (p.drawing ? '<button type="button" data-view="drawing" aria-pressed="false">' + img(p.drawing, "") + "</button>" : "") + "</div>";
+    var specs = '<table class="specs"><tbody>' + p.specs.map(function (r) { return "<tr><th>" + esc(r[0]) + "</th><td>" + T(r[1]) + "</td></tr>"; }).join("") + "</tbody></table>";
+    var fits = (p.fits || []).map(relItem).map(mini).join("");
+    return {
+      crumb: crumb(fam.name, p.name),
+      html: '<div class="product"><div class="gallery"><div id="pstage">' + stage(p.img, "", p.name) + "</div>" + thumbs +
+        (p.drawing ? '<span class="zoomhint">' + I.zoom.replace("<svg", '<svg style="width:1rem;height:1rem"') + "Tap the drawing to enlarge it</span>" : "") + "</div>" +
+        '<div class="pinfo"><div class="row" style="gap:.5rem"><span class="eyebrow">' + esc(fam.name) + " · " + esc(pr.name) + "</span></div>" +
+        '<h1 class="h1">' + esc(p.name) + '</h1><div class="row" style="gap:.4rem"><span class="tag solid">' + esc(p.type) + "</span>" + (p.badge ? '<span class="tag">' + esc(p.badge) + "</span>" : "") + "</div>" +
+        '<p class="lead">' + esc(p.summary) + "</p>" + note(p.check) +
+        '<div class="ratings"><div class="rating"><span class="k">Max. temperature</span><span class="n">' + f.maxT + "<small>°C</small></span></div>" +
+        '<div class="rating"><span class="k">Max. pressure</span><span class="n">' + (f.maxP ? f.maxP + "<small>bar</small>" : "Atm.") + "</span></div>" +
+        '<div class="rating"><span class="k">Spectral range</span><span class="n" style="font-size:1.2rem">' + f.ranges.map(function (r) { return RANGE_LABEL[r]; }).join(" · ") + "</span></div></div>" +
+        specs +
+        '<div class="row"><button class="btn primary" type="button" data-req="' + p.family + '">' + I.mail + "Request information</button>" +
+        '<button class="btn" type="button" data-go="principles/' + fam.principle + '">How ' + esc(pr.name.toLowerCase()) + " works</button></div>" +
+        (fits ? '<div style="display:grid;gap:.6rem"><div class="eyebrow">Works with</div><div class="minis">' + fits + "</div></div>" : "") +
+        "</div></div>",
+      init: function (root) {
+        $$(".thumbs button", root).forEach(function (b) {
+          b.addEventListener("click", function () {
+            $$(".thumbs button", root).forEach(function (o) { o.setAttribute("aria-pressed", o === b); });
+            var dr = b.dataset.view === "drawing";
+            $("#pstage", root).innerHTML = dr ? '<div class="stage" style="background:#fff" data-zoom="' + p.drawing + '" data-cap="' + esc(p.name + " drawing") + '">' + img(p.drawing, p.name + " drawing", "prod") + "</div>" : stage(p.img, "", p.name);
+          });
+        });
+      },
+    };
+  };
+
+  SCREENS.principles = function (sel) {
+    var keys = Object.keys(C.principles); sel = sel || "transmission";
+    var pr = C.principles[sel], fam = C.families[pr.family];
+    var prods = fam.products.map(function (id) { var p = C.products[id]; return mini({ route: "product/" + id, img: p.img, title: p.name, sub: p.type }); }).join("");
+    return {
+      crumb: crumb("Measurement principles", pr.name),
+      html: pageHead("Measurement principles", "How the light meets your sample", "Every Hellma probe sends light into the process and returns it to the spectrometer. What differs is the path the light takes.", "analytics") +
+        tabs(keys.map(function (k) { return [k, C.principles[k].name]; }), sel, "principles") +
+        '<div class="principle"><div class="diagram">' + DG[sel]() + "</div>" +
+        '<div style="display:grid;gap:1.1rem;align-content:start"><div><div class="eyebrow">' + esc(fam.name) + " probes</div>" + '<h2 class="h2" style="margin-top:.3rem">' + esc(pr.long || pr.name) + "</h2></div>" +
+        '<div style="display:grid;gap:.5rem"><div class="eyebrow" style="color:var(--grey-7)">How it works</div>' + bullets(pr.how) + "</div>" +
+        '<div style="display:grid;gap:.5rem"><div class="eyebrow" style="color:var(--grey-7)">Advantages</div>' + bullets(pr.plus, "plus") + "</div>" + note(pr.check) +
+        (prods ? '<div class="minis">' + prods + "</div>" : '<div class="empty"><p>' + esc(fam.empty || "") + '</p><button class="btn primary" type="button" data-req="' + pr.family + '">' + I.mail + "Request information</button></div>") +
+        "</div></div>",
+    };
+  };
+
+  SCREENS.sealing = function () {
+    var s = C.sealing, w = s.welded;
+    var opts = s.options.map(function (o) {
+      return '<div class="panel"><h2 class="h3">' + esc(o.name) + '</h2><div style="display:grid;grid-template-columns:minmax(0,7rem) minmax(0,1fr);gap:1rem;align-items:start">' +
+        '<div class="figure" style="padding:.4rem">' + img(o.img, o.name) + '<button class="zoom" type="button" data-zoom="' + o.img + '" data-cap="' + esc(o.name) + '" aria-label="Enlarge">' + I.zoom + "</button></div>" +
+        '<div style="display:grid;gap:.8rem">' + bullets(o.plus, "plus") + bullets(o.minus, "minus") + "</div></div></div>";
+    }).join("");
+    var used = w.used.map(function (id) { var p = C.products[id]; return mini({ route: "product/" + id, img: p.img, title: p.name, sub: p.type }); }).join("");
+    return {
+      crumb: crumb("Sealing technology"),
+      html: pageHead("Sealing technology", "The seal decides how hard a probe can work", esc(s.intro), "analytics") +
+        '<div class="cols2">' + opts + "</div>" +
+        '<section class="panel sky" style="gap:1.2rem"><div class="row" style="justify-content:space-between;align-items:end"><div><div class="eyebrow">Hellma Excalibur HD</div><h2 class="h2" style="margin-top:.2rem">' + esc(w.name) + "</h2></div>" +
+        '<div class="row" style="gap:2rem">' + w.stats.map(function (x) { return '<div class="stat"><span class="l">' + esc(x.l) + '</span><span class="n">' + esc(x.n) + "<small>" + esc(x.u) + "</small></span></div>"; }).join("") + "</div></div>" +
+        '<div class="cols2">' + figure(w.exploded, "Welded metal seal, exploded view") + figure(w.section, "Welded metal seal, section") + "</div>" +
+        '<div class="cols2"><div style="display:grid;gap:.5rem"><div class="eyebrow" style="color:var(--grey-7)">Parts</div>' + bullets(w.parts) + '</div><div style="display:grid;gap:.5rem"><div class="eyebrow" style="color:var(--grey-7)">Advantages</div>' + bullets(w.plus, "plus") + "</div></div>" +
+        '<div style="display:grid;gap:.6rem"><div class="eyebrow" style="color:var(--grey-7)">Used in</div><div class="minis">' + used + "</div></div></section>",
+    };
+  };
+
+  SCREENS.retractables = function (sel) {
+    var R = C.retractables; sel = sel || "ceramat";
+    var isPrm = sel === "prm";
+    var m = R.models.filter(function (x) { return x.id === sel; })[0] || R.models[0];
+    var model = '<div class="cols2" style="align-items:start"><div style="display:grid;gap:.6rem">' + '<div class="figure" style="min-height:20rem">' + img(m.img, m.name) + '<button class="zoom" type="button" data-zoom="' + m.img + '" data-cap="' + esc(m.name) + '">' + I.zoom + "</button></div>" +
+      '<div class="row">' + m.more.map(function (id) { return '<button type="button" class="figure" style="width:8rem;height:6rem;padding:.3rem" data-zoom="' + id + '" data-cap="' + esc(m.name) + '">' + img(id, "") + "</button>"; }).join("") + "</div></div>" +
+      '<div style="display:grid;gap:1rem;align-content:start"><h2 class="h2">' + esc(m.name) + "</h2>" + bullets(m.points) + "</div></div>";
+    var prm = R.prm;
+    var prmBlock = '<div class="cols2" style="align-items:start"><div style="display:grid;gap:.8rem">' + '<div class="figure" style="padding:0;overflow:hidden">' + img(prm.img, prm.title) + '<button class="zoom" type="button" data-zoom="' + prm.img + '" data-cap="' + esc(prm.title) + '">' + I.zoom + "</button></div>" + bullets(prm.points) +
+      '<div class="minis">' + mini(relItem("excalibur-hd")) + "</div></div>" + figure(prm.drawing, "PRM installed on a reaction vessel") + "</div>";
+    return {
+      crumb: crumb("Retractable housings", isPrm ? "PRM" : m.name),
+      html: pageHead("Retractable housings", "Clean, calibrate and swap probes while the process runs", esc(R.intro)) +
+        '<div class="cols2"><div class="panel"><h2 class="h3">' + esc(R.why.title) + "</h2>" + bullets(R.why.points) + "</div>" +
+        '<div class="panel sky"><div class="row" style="justify-content:space-between"><h2 class="h3">' + esc(R.knick.title) + "</h2>" + brandLogo("knick", 2.4) + "</div>" + bullets(R.knick.points) + "</div></div>" +
+        tabs([["ceramat", "Ceramat"], ["sensogate", "Sensogate"], ["cyclone", "Cyclone cleaning"], ["prm", "PRM for Excalibur HD"]], sel, "retractables") +
+        (sel === "cyclone" ? '<div class="cols2" style="align-items:start"><div style="display:grid;gap:1rem"><h2 class="h2">' + esc(R.cyclone.title) + '</h2><p class="lead">' + esc(R.cyclone.text) + "</p></div>" +
+          '<div class="cols2">' + R.cyclone.imgs.map(function (id) { return figure(id, R.cyclone.title); }).join("") + "</div></div>" :
+          isPrm ? prmBlock : model + '<div class="panel"><h2 class="h3">Both Ceramat and Sensogate</h2>' + bullets(R.both) + "</div>") +
+        (isPrm ? "" : '<p class="credit">' + brandLogo("knick", 1) + esc(R.knick.credit) + "</p>"),
+    };
+  };
+
+  var muxTimer = null;
+  SCREENS.multiplexers = function () {
+    var M = C.multiplexers;
+    return {
+      crumb: crumb("Multiplexers"),
+      html: pageHead("Multiplexers", "One spectrometer, many measuring points", esc(M.intro), "analytics") +
+        '<section class="panel" style="gap:1rem"><div class="diagram" id="mux">' + DG.multiplexer(S.mux.ch) + "</div>" +
+        '<div class="row" style="justify-content:space-between"><div class="row" id="mux-ch">' + [0, 1, 2, 3].map(function (i) { return '<button class="chip" type="button" data-ch="' + i + '" aria-pressed="' + (S.mux.ch === i) + '">Point ' + (i + 1) + "</button>"; }).join("") +
+        '<button class="chip" type="button" id="mux-auto" aria-pressed="' + S.mux.auto + '">Auto-cycle</button></div><p class="muted small" style="max-width:34rem">' + esc(M.fmx.double) + "</p></div></section>" +
+        '<div class="cols3">' + M.setup.map(function (s) { return '<div class="panel"><h2 class="h3">' + esc(s.k) + "</h2><p>" + esc(s.t) + "</p></div>"; }).join("") + "</div>" +
+        '<section class="panel sky" style="gap:1.1rem"><h2 class="h2">' + esc(M.fmx.name) + "</h2>" +
+        '<div class="cols3">' + M.fmx.imgs.map(function (id) { return '<div class="stage" style="aspect-ratio:4/3" data-zoom="' + id + '" data-cap="FMX multiplexer">' + img(id, "FMX multiplexer", "prod") + "</div>"; }).join("") + "</div>" +
+        '<div class="cols2"><div style="display:grid;gap:.5rem"><div class="eyebrow" style="color:var(--grey-7)">Connections</div>' + bullets(M.fmx.parts) + "</div>" +
+        '<div style="display:grid;gap:.8rem;align-content:start"><p>' + esc(M.fmx.double) + '</p><div class="row"><button class="btn primary" type="button" data-req="multiplexers">' + I.mail + "Request information</button></div></div></div></section>",
+      init: function (root) {
+        function set(ch) {
+          S.mux.ch = ch; $("#mux", root).innerHTML = DG.multiplexer(ch);
+          $$("#mux-ch .chip[data-ch]", root).forEach(function (b) { b.setAttribute("aria-pressed", Number(b.dataset.ch) === ch); });
+        }
+        function auto(on) {
+          S.mux.auto = on; $("#mux-auto", root).setAttribute("aria-pressed", on);
+          clearInterval(muxTimer); if (on) muxTimer = setInterval(function () { if (!root.isConnected) return clearInterval(muxTimer); set((S.mux.ch + 1) % 4); }, 2600);
+        }
+        $$("#mux-ch .chip[data-ch]", root).forEach(function (b) { b.onclick = function () { auto(false); set(Number(b.dataset.ch)); }; });
+        $("#mux", root).addEventListener("click", function (e) { var g = e.target.closest(".mp"); if (g) { auto(false); set(Number(g.dataset.ch)); } });
+        $("#mux-auto", root).onclick = function () { auto(!S.mux.auto); };
+        auto(S.mux.auto);
+      },
+    };
+  };
+
+  SCREENS.solutions = function (sel) {
+    var X = C.solutions; sel = sel || "overview";
+    var body = "";
+    if (sel === "overview") {
+      body = '<p class="lead">' + esc(X.intro) + '</p><div class="hexes">' + X.benefits.map(function (b) { return '<div class="hex">' + esc(b) + "</div>"; }).join("") + "</div>" +
+        '<div class="row"><button class="btn primary" type="button" data-go="case">See a full project: water in solvents ' + I.arrow + "</button></div>";
+    } else if (sel === "sensors") {
+      body = '<p class="lead">Spectroscopy sensors that combine a miniature spectrometer with a Hellma probe, ready for system integrators.</p><div class="cols3">' + X.sensors.map(function (s) {
+        return '<div class="panel" style="padding:0;overflow:hidden">' + '<div style="aspect-ratio:4/3">' + stage(s.img, "", s.name) + '</div><div style="padding:0 1.2rem 1.2rem;display:grid;gap:.6rem"><h2 class="h2">' + esc(s.name) + "</h2><p>" + esc(s.text) + '</p><button class="btn" type="button" data-req="sensors">' + I.mail + "Request information</button></div></div>";
+      }).join("") + "</div>";
+    } else if (sel === "custom") {
+      var cu = X.custom;
+      body = '<div class="cols2" style="align-items:start"><div style="display:grid;gap:1rem"><h2 class="h2">' + esc(cu.q) + "</h2>" + cu.ways.map(function (w) { return '<div class="panel"><h3 class="h3">' + esc(w.name) + "</h3><p>" + esc(w.text) + "</p></div>"; }).join("") + "</div>" +
+        '<div style="display:grid;gap:.8rem"><div style="aspect-ratio:4/3">' + stage(cu.img, "", "Dedicated system") + '</div><p class="muted small">A dedicated system developed for a specific application.</p></div></div>' +
+        '<div style="display:grid;gap:.6rem"><div class="eyebrow" style="color:var(--grey-7)">Project phases</div><div class="road" style="grid-template-columns:repeat(5,minmax(0,1fr))">' + cu.phases.map(function (ph, i) { return '<div class="panel" style="text-align:center;padding:.9rem .5rem"><span class="n num" style="color:var(--blue)">' + (i + 1) + "</span><b style=\"font-weight:500\">" + esc(ph) + "</b></div>"; }).join("") + "</div></div>" +
+        '<div class="row"><button class="btn primary" type="button" data-req="custom">' + I.mail + "Talk to us about a custom solution</button></div>";
+    } else if (sel === "services") {
+      body = '<div class="cols2" style="align-items:center"><div class="diagram" id="wheel" style="max-width:30rem;justify-self:center;width:100%">' + DG.wheel(0, X.portfolio) + "</div>" +
+        '<div class="panel" id="wheel-detail" style="min-height:12rem"></div></div>' + note(X.portfolioCheck);
+    } else if (sel === "roadmap") {
+      var steps = [{ id: null, name: "Start: analytical need", img: "W2" }].concat(C.caseStudy.steps.filter(function (s) { return s.id !== "vmodel"; }));
+      body = '<p class="lead">Every PAT project follows the same road. Tap a step to see it in the case study.</p><div class="road">' + steps.map(function (s, i) {
+        return '<button type="button" ' + (s.id ? 'data-go="case/' + s.id + '"' : 'data-go="case"') + '><span class="ph">' + img(s.img, "") + '</span><span class="n">STEP ' + (i + 1) + "</span><b>" + esc(s.name) + "</b></button>";
+      }).join("") + "</div>";
+    }
+    return {
+      crumb: crumb("Hellma Solutions"),
+      html: pageHead("Hellma Solutions", "PAT from first question to service", null, "solutions") +
+        tabs([["overview", "Overview"], ["sensors", "Sensors"], ["custom", "Custom development"], ["services", "Services"], ["roadmap", "Roadmap"]], sel, "solutions") + body,
+      init: function (root) {
+        var w = $("#wheel", root);
+        if (w) {
+          var show = function (i) {
+            w.innerHTML = DG.wheel(i, X.portfolio);
+            var it = X.portfolio[i];
+            $("#wheel-detail", root).innerHTML = '<div class="eyebrow">Hellma Solutions portfolio</div><h2 class="h2">' + esc(it.name) + '</h2><p class="lead">' + esc(it.text) + '</p><div class="row"><button class="btn primary" type="button" data-req="services">' + I.mail + "Request information</button></div>";
+          };
+          w.addEventListener("click", function (e) { var g = e.target.closest(".wseg"); if (g) show(Number(g.dataset.seg)); });
+          show(0);
+        }
+      },
+    };
+  };
+
+  SCREENS.pat = function (sel) {
+    var X = C.pat; sel = sel || "what";
+    var body = "";
+    if (sel === "what") {
+      body = '<p class="lead">' + esc(X.what) + "</p>" +
+        '<div class="principle" style="grid-template-columns:minmax(0,1.6fr) minmax(0,1fr)"><div class="diagram" id="pos">' + DG.positions("inline") + '</div><div class="panel" id="pos-detail"></div></div>' +
+        '<div class="row" id="pos-btns">' + X.positions.map(function (p) { return '<button class="chip" type="button" data-pos="' + p.id + '">' + esc(p.name) + "</button>"; }).join("") + "</div>" + note(X.positionsCheck);
+    } else if (sel === "why") {
+      body = '<div class="cols3">' + X.why.map(function (w) { return '<div class="panel"><h2 class="h3">' + esc(w.name) + "</h2><p>" + esc(w.text) + "</p></div>"; }).join("") + "</div>";
+    } else {
+      body = '<div class="cols3">' + X.challenges.map(function (w) { return '<div class="panel"><h2 class="h3">' + esc(w.name) + "</h2><p>" + esc(w.text) + "</p></div>"; }).join("") + "</div>" +
+        '<div class="panel sky"><h2 class="h3">Hellma Solutions helps with each of these</h2><p>Feasibility studies, chemometric service and integration support take the risk out of a PAT project.</p><div class="row"><button class="btn primary" type="button" data-go="solutions">Explore Hellma Solutions ' + I.arrow + "</button></div></div>";
+    }
+    return {
+      crumb: crumb("What is PAT?"),
+      html: pageHead("Process Analytical Technology", "What is PAT?", null) +
+        tabs([["what", "Where to measure"], ["why", "Why it matters"], ["challenges", "Challenges"]], sel, "pat") + body,
+      init: function (root) {
+        var d = $("#pos", root); if (!d) return;
+        function show(id) {
+          d.innerHTML = DG.positions(id);
+          var p = X.positions.filter(function (x) { return x.id === id; })[0];
+          var meter = '<div style="display:flex;gap:.3rem;align-items:center"><span class="small muted" style="margin-right:.4rem">Speed of result</span>' + [1, 2, 3, 4].map(function (k) { return '<i style="width:1.6rem;height:.55rem;border-radius:3px;background:' + (k <= p.speed ? "var(--blue)" : "var(--grey-2)") + '"></i>'; }).join("") + "</div>";
+          $("#pos-detail", root).innerHTML = '<div class="eyebrow">Measuring position</div><h2 class="h2">' + esc(p.name) + "</h2><p>" + esc(p.text) + "</p>" + meter;
+          $$("#pos-btns .chip", root).forEach(function (b) { b.setAttribute("aria-pressed", b.dataset.pos === id); });
+        }
+        d.addEventListener("click", function (e) { var g = e.target.closest(".pos"); if (g) show(g.dataset.pos); });
+        $$("#pos-btns .chip", root).forEach(function (b) { b.onclick = function () { show(b.dataset.pos); }; });
+        show("inline");
+      },
+    };
+  };
+
+  SCREENS.case = function (sel) {
+    var X = C.caseStudy, steps = X.steps; sel = sel || steps[0].id;
+    var idx = steps.findIndex(function (s) { return s.id === sel; }); if (idx < 0) idx = 0;
+    var s = steps[idx];
+    var list = '<nav class="steps" aria-label="Project steps">' + steps.map(function (st) {
+      return '<button type="button" data-tab="case/' + st.id + '"' + (st.id === s.id ? ' aria-current="step"' : "") + '><span class="ph">' + img(st.img, "") + "</span><span>" + esc(st.name) + "</span></button>";
+    }).join("") + "</nav>";
+    var b = '<div><div class="eyebrow">Step ' + (idx + 1) + " of " + steps.length + " · " + esc(s.name) + '</div><h2 class="h2" style="margin-top:.3rem">' + esc(s.title) + "</h2></div>";
+    if (s.text) b += '<p class="lead">' + esc(s.text) + "</p>";
+    if (s.kind === "beforeafter") {
+      b += '<div class="seg" role="group"><button type="button" data-ba="0" aria-pressed="false">Before: offline</button><button type="button" data-ba="1" aria-pressed="true">After: online</button></div><div class="diagram" id="ba">' + DG.beforeAfter(true) + "</div>";
+    }
+    if (s.kind === "atex") b += '<div class="diagram">' + DG.atex() + "</div>";
+    if (s.kind === "model") b += '<div class="diagram">' + DG.model() + '</div><div class="cols3">' + s.phases.map(function (p) { return '<div class="panel"><h3 class="h3">' + esc(p.name) + "</h3><p>" + esc(p.text) + "</p></div>"; }).join("") + "</div>";
+    if (s.kind === "chips") b += '<div class="row">' + s.chips.map(function (c) { return '<span class="chip" style="cursor:default">' + esc(c) + "</span>"; }).join("") + "</div>";
+    if (s.kind === "vmodel") b += '<div class="diagram" id="vm">' + DG.vmodel("urs", X.vmodel) + '</div><div class="panel" id="vm-detail"></div>' + note(X.vmodelCheck);
+    if (s.points) b += bullets(s.points);
+    if (s.cols) b += '<div class="cols2">' + s.cols.map(function (c) {
+      return '<div class="panel">' + (c.img ? '<div style="aspect-ratio:16/9">' + stage(c.img, "", c.h) + "</div>" : "") + '<h3 class="h3">' + esc(c.h) + "</h3>" + bullets(c.points) +
+        (c.product ? '<button class="linkish" type="button" data-go="product/' + c.product + '">View the flow cell ' + I.arrow.replace("<svg", '<svg style="width:1rem;height:1rem"') + "</button>" : "") + "</div>";
+    }).join("") + "</div>";
+    if (s.note) b += '<div class="panel sky"><p><b style="font-weight:500">' + esc(s.note) + "</b></p></div>";
+    b += '<div class="pager">' + (idx > 0 ? '<button class="btn" type="button" data-tab="case/' + steps[idx - 1].id + '">' + I.back + esc(steps[idx - 1].name) + "</button>" : "<span></span>") +
+      (idx < steps.length - 1 ? '<button class="btn primary" type="button" data-tab="case/' + steps[idx + 1].id + '">' + esc(steps[idx + 1].name) + I.arrow + "</button>" : '<button class="btn primary" type="button" data-req="services">' + I.mail + "Talk to us about your project</button>") + "</div>";
+    return {
+      crumb: crumb("Case study", s.name),
+      html: pageHead("Case study · Hellma Solutions", X.title, esc(X.sub), "solutions") + '<div class="case">' + list + '<div class="stepbody">' + b + "</div></div>",
+      init: function (root) {
+        $$("[data-ba]", root).forEach(function (btn) {
+          btn.onclick = function () { $$("[data-ba]", root).forEach(function (o) { o.setAttribute("aria-pressed", o === btn); }); $("#ba", root).innerHTML = DG.beforeAfter(btn.dataset.ba === "1"); };
+        });
+        var vm = $("#vm", root);
+        if (vm) {
+          var show = function (id) {
+            vm.innerHTML = DG.vmodel(id, X.vmodel);
+            var st = X.vmodel.filter(function (v) { return v.id === id; })[0];
+            $("#vm-detail", root).innerHTML = '<h3 class="h3">' + esc(st.name) + "</h3><p>" + esc(st.text) + "</p>";
+          };
+          vm.addEventListener("click", function (e) { var g = e.target.closest(".vst"); if (g) show(g.dataset.v); });
+          show("urs");
+        }
+      },
+    };
+  };
+
+  SCREENS.industries = function (sel) {
+    var X = C.industries;
+    var grid = '<div class="ind-grid">' + X.items.map(function (it) {
+      return '<button class="ind" type="button" data-tab="industries/' + it.id + '" aria-pressed="' + (it.id === sel) + '">' + img(it.img, "") + "<span>" + esc(it.name) + "</span></button>";
+    }).join("") + "</div>";
+    var det = "";
+    if (sel) {
+      var it = X.items.filter(function (x) { return x.id === sel; })[0];
+      det = '<section class="panel sky ind-detail" id="ind-detail"><div class="ph">' + img(it.img, it.name) + '</div><div style="display:grid;gap:1rem;align-content:start"><h2 class="h2">' + esc(it.name) + '</h2><p class="lead">' + esc(it.text) + "</p>" +
+        '<div class="minis">' + it.related.map(relItem).map(mini).join("") + '</div><div class="row"><button class="btn primary" type="button" data-req="services">' + I.mail + "Discuss your application</button></div></div></section>";
+    }
+    return {
+      crumb: crumb("Industries", sel ? X.items.filter(function (x) { return x.id === sel; })[0].name : null),
+      html: pageHead("Fields of application", "Where process spectroscopy pays off", esc(X.intro)) + note(X.check) + det + grid,
+    };
+  };
+
+  SCREENS.about = function () {
+    var X = C.about;
+    return {
+      crumb: crumb("About Hellma"),
+      html: banner("About Hellma", "Molecular spectroscopy, in the lab and in the process", esc(X.promise)) + note(X.check) +
+        '<section style="display:grid;gap:.8rem"><div class="eyebrow">Hellma worldwide</div><div class="stats">' + X.group.map(function (s) { return '<div class="stat"><span class="n">' + esc(s.n) + '</span><span class="l">' + esc(s.l) + "</span></div>"; }).join("") + "</div></section>" +
+        '<section style="display:grid;gap:.8rem"><div class="eyebrow">From raw material to complete solution</div><div class="chain">' + X.chain.map(function (c) { return '<div><div class="ph">' + (isPhoto(c.img) ? img(c.img, c.name) : stage(c.img, "", c.name)) + '</div><b style="font-weight:500">' + esc(c.name) + "</b></div>"; }).join("") + "</div></section>" +
+        '<div class="cols2" style="align-items:start"><section class="panel"><div class="eyebrow">Production sites</div><div class="sites">' + X.sites.map(function (s) { return "<div><b>" + esc(s.place) + '</b><span class="muted small">' + esc(s.co) + " · " + esc(s.area) + "</span></div>"; }).join("") + "</div></section>" +
+        '<section class="panel sky"><div class="eyebrow">Hellma USA</div><div class="row" style="gap:2rem">' + X.usa.map(function (s) { return '<div class="stat"><span class="n" style="font-size:2rem">' + esc(s.n) + '</span><span class="l">' + esc(s.l) + "</span></div>"; }).join("") + "</div>" +
+        '<div class="eyebrow" style="color:var(--grey-7)">Sales subsidiaries</div><div class="row" style="gap:.4rem">' + X.subsidiaries.map(function (s) { return '<span class="tag">' + esc(s) + "</span>"; }).join("") + "</div></section></div>",
+    };
+  };
+
+  /* ---------------- Lead form ---------------- */
+  var FIELDS = [
+    ["first", "First name", true, "given-name"], ["last", "Last name", true, "family-name"],
+    ["company", "Company", true, "organization"], ["title", "Job title", false, "organization-title"],
+    ["email", "Email", true, "email"], ["phone", "Phone", false, "tel"],
+    ["loc", "City, state or country", false, "address-level1"],
+  ];
+  function contextInterests() {
+    var set = {};
+    var fam = {};
+    Object.keys(C.products).forEach(function (k) { fam[C.products[k].name] = C.products[k].family; });
+    S.viewed.forEach(function (n) { if (fam[n]) set[fam[n]] = 1; });
+    var r = current || "";
+    if (r.indexOf("retractables") === 0) set.retractables = 1;
+    if (r.indexOf("multiplexers") === 0) set.multiplexers = 1;
+    if (r.indexOf("solutions/sensors") === 0) set.sensors = 1;
+    if (r.indexOf("solutions/custom") === 0) set.custom = 1;
+    if (r.indexOf("case") === 0 || r.indexOf("solutions/services") === 0) set.services = 1;
+    if (r.indexOf("product/") === 0) set[C.products[r.split("/")[1]].family] = 1;
+    return Object.keys(set);
+  }
+  function openForm(extra) {
+    if (!S.form) S.form = { v: {}, interests: [], requests: [], consent: false };
+    var add = contextInterests().concat(extra ? [extra] : []);
+    add.forEach(function (k) { if (S.form.interests.indexOf(k) < 0) S.form.interests.push(k); });
+    go("contact");
+  }
+  SCREENS.contact = function () {
+    if (!S.form) S.form = { v: {}, interests: contextInterests(), requests: [], consent: false };
+    var F = S.form, L = C.leadForm, ct = C.contact;
+    var fields = FIELDS.map(function (f) {
+      return '<div class="field' + (f[0] === "loc" ? " full" : "") + '" data-field="' + f[0] + '"><label for="f-' + f[0] + '">' + esc(f[1]) + (f[2] ? " <b>*</b>" : "") + "</label>" +
+        '<input id="f-' + f[0] + '" name="' + f[0] + '" type="' + (f[0] === "email" ? "email" : f[0] === "phone" ? "tel" : "text") + '" autocomplete="off" autocorrect="off" spellcheck="false" ' + (f[0] === "email" ? 'autocapitalize="off" inputmode="email"' : 'autocapitalize="words"') + ' value="' + esc(F.v[f[0]] || "") + '"><span class="msg"></span></div>';
+    }).join("");
+    var ints = '<div class="field full"><span class="lab">I\'m interested in</span><div class="row" style="gap:.45rem">' + L.interests.map(function (i) { return '<button class="chip" type="button" data-int="' + i.id + '" aria-pressed="' + (F.interests.indexOf(i.id) >= 0) + '">' + esc(i.label) + "</button>"; }).join("") + "</div></div>";
+    var reqs = '<div class="field full"><span class="lab">What would help?</span><div class="row" style="gap:.45rem">' + L.requests.map(function (r) { return '<button class="chip" type="button" data-rq="' + esc(r) + '" aria-pressed="' + (F.requests.indexOf(r) >= 0) + '">' + esc(r) + "</button>"; }).join("") + "</div></div>";
+    return {
+      crumb: crumb("Request information"), noCta: true,
+      html: pageHead("Hellma USA", L.title, esc(L.sub)) +
+        '<form class="form" id="lead" novalidate autocomplete="off">' + fields + ints + reqs +
+        '<div class="field full"><label for="f-msg">Tell us about your process (optional)</label><textarea id="f-msg" name="msg" placeholder="Medium, temperature, pressure, what you want to measure">' + esc(F.v.msg || "") + "</textarea></div>" +
+        '<div class="field full"><button class="check" type="button" id="f-consent" role="checkbox" aria-checked="' + F.consent + '"><span class="box">' + I.check + "</span><span>" + esc(L.consent) + '<br><span class="muted small">' + esc(L.privacy) + '</span></span></button><span class="msg" id="consent-msg"></span></div>' +
+        '<div class="field full"><div class="row"><button class="btn primary" type="submit" style="min-width:14rem">' + I.mail + 'Send request</button><span class="muted small">* Required</span></div></div></form>' +
+        '<section class="panel sky" style="max-width:34rem"><div class="eyebrow">Your contact at Hellma USA</div><h2 class="h3">' + esc(ct.name) + '</h2><p class="muted">' + esc(ct.role) + "</p><p>" + esc(ct.phone) + "<br>" + esc(ct.email) + "<br>" + esc(ct.web) + "</p>" + note(ct.check) + "</section>",
+      init: function (root) {
+        var form = $("#lead", root);
+        $$("input, textarea", form).forEach(function (el) {
+          el.addEventListener("input", function () { F.v[el.name] = el.value; var fd = el.closest(".field"); fd.classList.remove("err"); var m = $(".msg", fd); if (m) m.textContent = ""; });
+          el.addEventListener("focus", function () { setTimeout(function () { el.scrollIntoView({ block: "center", behavior: "smooth" }); }, 300); });
+        });
+        $$("[data-int]", form).forEach(function (b) { b.onclick = function () { var k = b.dataset.int, i = F.interests.indexOf(k); if (i >= 0) F.interests.splice(i, 1); else F.interests.push(k); b.setAttribute("aria-pressed", i < 0); }; });
+        $$("[data-rq]", form).forEach(function (b) { b.onclick = function () { var k = b.dataset.rq, i = F.requests.indexOf(k); if (i >= 0) F.requests.splice(i, 1); else F.requests.push(k); b.setAttribute("aria-pressed", i < 0); }; });
+        var cons = $("#f-consent", form);
+        cons.onclick = function () { F.consent = !F.consent; cons.setAttribute("aria-checked", F.consent); cons.classList.remove("err"); $("#consent-msg", form).textContent = ""; };
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          var bad = null;
+          FIELDS.forEach(function (f) {
+            var el = $("#f-" + f[0], form), v = (el.value || "").trim(), fd = el.closest(".field"), msg = "";
+            if (f[2] && !v) msg = f[1] + " is required.";
+            else if (f[0] === "email" && v && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v)) msg = "Check the email address. It needs an @ and a domain, like name@company.com.";
+            if (msg) { fd.classList.add("err"); $(".msg", fd).textContent = msg; if (!bad) bad = el; }
+          });
+          if (!F.consent) { cons.classList.add("err"); $("#consent-msg", form).textContent = "Please tick the box so our team may contact you."; if (!bad) bad = cons; }
+          if (bad) { bad.scrollIntoView({ block: "center", behavior: "smooth" }); return; }
+          var v = {}; FIELDS.forEach(function (f) { v[f[0]] = ($("#f-" + f[0], form).value || "").trim(); });
+          var lead = {
+            id: Date.now().toString(36) + Math.random().toString(36).slice(2, 7), ts: Date.now(), event: settings.event || "",
+            first: v.first, last: v.last, company: v.company, title: v.title, email: v.email, phone: v.phone, location: v.loc,
+            interests: F.interests.map(function (k) { var o = C.leadForm.interests.filter(function (i) { return i.id === k; })[0]; return o ? o.label : k; }),
+            requests: F.requests.slice(), message: ($("#f-msg", form).value || "").trim(), consent: true, viewed: S.viewed.slice(),
+          };
+          Store.add(lead).then(function (ok) {
+            if (!ok) toast("This request could not be saved on the device. Please tell a member of staff.", 6000);
+            var first = lead.first; S.form = null; go("thanks/" + encodeURIComponent(first), { replace: true });
+          });
+        });
+      },
+    };
+  };
+  var thanksTimer = null;
+  SCREENS.thanks = function (name) {
+    return {
+      crumb: crumb("Request sent"), noCta: true,
+      html: '<div class="thanks"><div class="inner"><div class="mark">' + I.check + '</div><h1 class="h1">Thank you, ' + esc(decodeURIComponent(name || "")) + '.</h1><p class="lead">Your request is saved. Our team will be in touch after the show.</p>' +
+        '<div class="row" style="justify-content:center"><button class="btn primary" type="button" id="done">Done</button><button class="btn" type="button" data-go="home">Keep exploring</button></div></div></div>',
+      init: function (root) {
+        clearTimeout(thanksTimer);
+        thanksTimer = setTimeout(function () { if (current && current.indexOf("thanks") === 0) go("attract"); }, 12000);
+        $("#done", root).onclick = function () { clearTimeout(thanksTimer); go("attract"); };
+      },
+    };
+  };
+
+  /* ---------------- Global taps ---------------- */
+  app.addEventListener("click", function (e) {
+    var t = e.target;
+    if (document.body.classList.contains("review")) {
+      var chk = t.closest(".chk"); if (chk) { toast("To confirm: " + chk.dataset.note, 6000); }
+    }
+    var z = t.closest("[data-zoom]"); if (z) { lightbox(z.dataset.zoom, z.dataset.cap); return; }
+    var g = t.closest("[data-go]"); if (g) { go(g.dataset.go); return; }
+    var tb = t.closest("[data-tab]"); if (tb) { go(tb.dataset.tab, { replace: true, keepScroll: true }); return; }
+    var r = t.closest("[data-req]"); if (r) { openForm(r.dataset.req); return; }
+  });
+  $("#btn-back").onclick = back;
+  $("#btn-home").onclick = function () { go("home"); };
+  $("#cta").onclick = function () { openForm(); };
+
+  /* ---------------- Lightbox ---------------- */
+  var lb = $("#lightbox");
+  function lightbox(id, cap) {
+    lb.innerHTML = '<div class="bar"><span>' + esc(cap || "") + '</span><div class="row"><button class="btn" type="button" id="lb-zoom">' + I.zoom + 'Zoom</button><button class="btn" type="button" id="lb-close">' + I.close + "Close</button></div></div>" +
+      '<div class="scroller">' + img(id, cap || "") + "</div>";
+    lb.hidden = false; lb.classList.remove("zoomed");
+    $("#lb-close").onclick = function () { lb.hidden = true; };
+    $("#lb-zoom").onclick = function () { lb.classList.toggle("zoomed"); };
+    $("img", lb).onclick = function () { lb.classList.toggle("zoomed"); };
+  }
+
+  /* ---------------- Idle reset ---------------- */
+  var lastTouch = Date.now(), idleOn = false, idleTick = null;
+  var idleEl = $("#idle");
+  function touched() { lastTouch = Date.now(); if (idleOn) hideIdle(); }
+  ["pointerdown", "touchstart", "keydown", "input", "wheel"].forEach(function (ev) { document.addEventListener(ev, touched, { capture: true, passive: true }); });
+  view.addEventListener("scroll", touched, { passive: true });
+  function hideIdle() { idleOn = false; idleEl.hidden = true; clearInterval(idleTick); }
+  function showIdle() {
+    idleOn = true; idleEl.hidden = false;
+    var left = C.settings.warnSeconds, total = left, R = 44, L = 2 * Math.PI * R;
+    function draw() {
+      idleEl.innerHTML = '<div class="sheet"><div class="countdown"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="' + R + '" fill="none" stroke="#e4eef7" stroke-width="8"/><circle cx="50" cy="50" r="' + R + '" fill="none" stroke="#0072b6" stroke-width="8" stroke-linecap="round" stroke-dasharray="' + L + '" stroke-dashoffset="' + (L * (1 - left / total)) + '"/></svg><b>' + left + "</b></div>" +
+        '<h2 class="h2">Still exploring?</h2><p class="muted">The kiosk will start over for the next visitor, and anything you typed will be cleared.</p><button class="btn primary" type="button">Keep exploring</button></div>';
+    }
+    draw();
+    idleTick = setInterval(function () {
+      left -= 1;
+      if (left <= 0) { hideIdle(); go("attract"); return; }
+      draw();
+    }, 1000);
+  }
+  setInterval(function () {
+    if (current === "attract" || idleOn || !$("#staff").hidden || !$("#pin").hidden) return;
+    if (Date.now() - lastTouch > settings.idle * 1000) showIdle();
+  }, 1000);
+  function closeOverlays() { hideIdle(); lb.hidden = true; $("#pin").hidden = true; $("#staff").hidden = true; clearInterval(muxTimer); clearTimeout(thanksTimer); }
+
+  /* ---------------- Staff access: 5 taps on the logo, then PIN ---------------- */
+  var taps = [];
+  $("#logo-btn").addEventListener("click", function () {
+    var now = Date.now(); taps = taps.filter(function (t) { return now - t < 3000; }); taps.push(now);
+    if (taps.length >= 5) { taps = []; openPin(); }
+  });
+  function openPin() {
+    var pin = $("#pin"), entered = "";
+    function draw(err) {
+      pin.innerHTML = '<div class="sheet' + (err ? " shake" : "") + '" style="width:min(100%,24rem);justify-items:center;text-align:center"><h2 class="h2">Staff access</h2><p class="muted small">Enter the 4-digit PIN.</p>' +
+        '<div class="pindots">' + [0, 1, 2, 3].map(function (i) { return "<i" + (i < entered.length ? ' class="on"' : "") + "></i>"; }).join("") + "</div>" +
+        '<div class="pinpad">' + [1, 2, 3, 4, 5, 6, 7, 8, 9, "", 0, "×"].map(function (k) { return k === "" ? "<span></span>" : '<button type="button" data-k="' + k + '">' + k + "</button>"; }).join("") + "</div>" +
+        '<button class="btn" type="button" id="pin-cancel">Cancel</button></div>';
+      $$("[data-k]", pin).forEach(function (b) {
+        b.onclick = function () {
+          var k = b.dataset.k;
+          if (k === "×") entered = entered.slice(0, -1); else if (entered.length < 4) entered += k;
+          if (entered.length === 4) {
+            if (entered === String(settings.pin)) { pin.hidden = true; openStaff(); return; }
+            entered = ""; draw(true); return;
+          }
+          draw();
+        };
+      });
+      $("#pin-cancel", pin).onclick = function () { pin.hidden = true; };
+    }
+    pin.hidden = false; draw();
+  }
+
+  function csvOf(leads) {
+    var cols = ["Date", "Time", "Event", "First name", "Last name", "Company", "Job title", "Email", "Phone", "Location", "Interested in", "Requests", "Message", "Products viewed", "Consent"];
+    function q(v) { v = String(v == null ? "" : v); return /[",\n;]/.test(v) ? '"' + v.replace(/"/g, '""') + '"' : v; }
+    var rows = leads.slice().sort(function (a, b) { return a.ts - b.ts; }).map(function (l) {
+      var d = new Date(l.ts);
+      var date = d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0");
+      var time = String(d.getHours()).padStart(2, "0") + ":" + String(d.getMinutes()).padStart(2, "0");
+      return [date, time, l.event, l.first, l.last, l.company, l.title, l.email, l.phone, l.location, (l.interests || []).join("; "), (l.requests || []).join("; "), l.message, (l.viewed || []).join("; "), l.consent ? "Yes" : "No"].map(q).join(",");
+    });
+    return "﻿" + cols.join(",") + "\n" + rows.join("\n") + "\n";
+  }
+  function copyText(text) {
+    function fallback() {
+      var ta = document.createElement("textarea"); ta.value = text; ta.style.position = "fixed"; ta.style.opacity = "0"; document.body.appendChild(ta);
+      ta.focus(); ta.select(); ta.setSelectionRange(0, text.length);
+      var ok = false; try { ok = document.execCommand("copy"); } catch (e) { }
+      ta.remove(); return ok;
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      return navigator.clipboard.writeText(text).then(function () { return true; }, function () { return fallback(); });
+    }
+    return Promise.resolve(fallback());
+  }
+  function collectChecks() {
+    var out = [];
+    (function walk(o, path) {
+      if (!o || typeof o !== "object") return;
+      if (typeof o.check === "string") out.push({ path: path, note: o.check, v: o.v });
+      Object.keys(o).forEach(function (k) {
+        if (k === "check") return;
+        if (/Check$/.test(k) && typeof o[k] === "string") out.push({ path: path + " › " + k.replace(/Check$/, ""), note: o[k] });
+        walk(o[k], path ? path + " › " + k : k);
+      });
+    })(C, "");
+    return out;
+  }
+
+  function openStaff() {
+    var st = $("#staff");
+    Store.all().then(function (leads) {
+      var rows = leads.map(function (l) {
+        var d = new Date(l.ts);
+        return "<tr><td>" + d.toLocaleDateString() + " " + d.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }) + "</td><td>" + esc(l.first + " " + l.last) + "</td><td>" + esc(l.company) + "</td><td>" + esc(l.email) + "</td><td>" + esc((l.interests || []).join(", ")) + "</td><td>" + esc((l.requests || []).join(", ")) + "</td></tr>";
+      }).join("");
+      var checks = collectChecks();
+      st.innerHTML = '<div class="sheet">' +
+        '<div class="row" style="justify-content:space-between"><div><div class="eyebrow">Staff only</div><h1 class="h1" style="font-size:2rem">Kiosk settings and leads</h1></div><button class="btn" type="button" id="st-close">' + I.close + "Close</button></div>" +
+        '<div class="cols3"><div class="stat"><span class="n">' + leads.length + '</span><span class="l">Leads stored on this iPad</span></div>' +
+        '<div class="stat"><span class="n" style="font-size:1.4rem">' + (leads[0] ? new Date(leads[0].ts).toLocaleString() : "None yet") + '</span><span class="l">Latest lead</span></div>' +
+        '<div class="stat"><span class="n" style="font-size:1.4rem">' + (Store.ok ? "IndexedDB + backup" : "Backup storage only") + '</span><span class="l">Storage</span></div></div>' +
+        '<section class="panel"><h2 class="h3">Export leads</h2><p class="muted small">Export at the end of each day. Leads stay on this iPad until you delete them.</p>' +
+        '<div class="row">' + (CAN_SHARE_FILES ? '<button class="btn primary" type="button" id="st-share">Share CSV (Mail, AirDrop, Files)</button>' : "") + '<button class="btn' + (CAN_SHARE_FILES ? "" : " primary") + '" type="button" id="st-dl">Download CSV</button><button class="btn" type="button" id="st-copy">Copy CSV</button><button class="btn" type="button" id="st-show">Show as text</button>' +
+        '<button class="btn hold" type="button" id="st-del"><i></i>Hold 3 s to delete all leads</button></div><textarea id="st-text" hidden readonly></textarea>' +
+        '<div class="tablewrap"><table><thead><tr><th>When</th><th>Name</th><th>Company</th><th>Email</th><th>Interested in</th><th>Requests</th></tr></thead><tbody>' + (rows || '<tr><td colspan="6" class="muted">No leads yet.</td></tr>') + "</tbody></table></div></section>" +
+        '<section class="panel"><h2 class="h3">Settings</h2><div class="cols2">' +
+        '<label class="field"><span class="lab">Event name (saved with each lead)</span><input type="text" id="st-event" value="' + esc(settings.event) + '" placeholder="e.g. IFPAC 2027"></label>' +
+        '<label class="field"><span class="lab">Start over after no touch for</span><select id="st-idle">' + [60, 90, 120, 180, 300].map(function (s) { return '<option value="' + s + '"' + (s === settings.idle ? " selected" : "") + ">" + s + " seconds</option>"; }).join("") + "</select></label>" +
+        '<label class="field"><span class="lab">New 4-digit PIN</span><input type="text" id="st-pin" inputmode="numeric" maxlength="4" placeholder="Leave empty to keep the current PIN"></label>' +
+        '<div class="field"><span class="lab">Review mode</span><button class="check" type="button" id="st-review" role="checkbox" aria-checked="' + settings.review + '"><span class="box">' + I.check + "</span><span>Highlight values to confirm (" + checks.length + ")</span></button></div>" +
+        '</div><div class="row"><button class="btn primary" type="button" id="st-save">Save settings</button><button class="btn" type="button" id="st-attract">Start attract screen</button></div></section>' +
+        '<section class="panel"><h2 class="h3">This iPad</h2><div class="cols3">' +
+        '<div class="stat"><span class="l">Opened as</span><span class="n" style="font-size:1.15rem">' + (standalone() ? "Home Screen app" : "Browser tab") + "</span></div>" +
+        '<div class="stat"><span class="l">Offline</span><span class="n" style="font-size:1.15rem" id="st-offline">Checking…</span></div>' +
+        '<div class="stat"><span class="l">Lead storage</span><span class="n" style="font-size:1.15rem" id="st-persist">Checking…</span></div></div>' +
+        (window.KIOSK_PWA ? '<div class="row"><button class="btn" type="button" id="st-update">Check for update</button><span class="muted small">Updates also install on their own when the iPad is online, at the next start-over.</span></div>' : "") + "</section>" +
+        '<section class="panel"><h2 class="h3">Open questions in the content (' + checks.length + ')</h2><p class="muted small">These values are shown on the kiosk but still need confirming. With review mode on they are outlined in orange; tap one to read its note.</p>' +
+        '<div class="tablewrap" style="max-height:none"><table><tbody>' + checks.map(function (c) { return '<tr><td style="width:30%">' + esc(c.path.replace(/^(\w+) › /, "$1 › ")) + "</td><td>" + (c.v ? "<b style=\"font-weight:500\">" + esc(c.v) + "</b><br>" : "") + esc(c.note) + "</td></tr>"; }).join("") + "</tbody></table></div></section>" +
+        '<p class="muted small">' + esc(C.meta.title) + " kiosk · version " + esc(C.meta.version) + " · built " + esc(window.KIOSK_BUILT || "") + "</p></div>";
+      st.hidden = false;
+      offlineStatus().then(function (t) { var e = $("#st-offline", st); if (e) e.textContent = t; });
+      storageStatus().then(function (t) { var e = $("#st-persist", st); if (e) e.textContent = t; });
+      var upd = $("#st-update", st);
+      if (upd) upd.onclick = function () {
+        if (!PWA.reg) { toast("Updates work when the kiosk is opened from its web address."); return; }
+        toast("Checking for an update…");
+        if (PWA.updateReady) { toast("Update installed. Restarting…"); setTimeout(function () { location.reload(); }, 800); return; }
+        var t0 = Date.now();
+        PWA.reg.update().then(function () {
+          if (PWA.reg.installing || PWA.reg.waiting) toast("Downloading the update. The kiosk restarts when it's ready.", 8000);
+          var poll = setInterval(function () {
+            if (PWA.updateReady) { clearInterval(poll); toast("Update installed. Restarting…"); setTimeout(function () { location.reload(); }, 800); return; }
+            if (!(PWA.reg.installing || PWA.reg.waiting) && Date.now() - t0 > 5000) { clearInterval(poll); toast("This is the latest version."); }
+          }, 300);
+        }, function () { toast("Couldn't reach the server. Check the Wi-Fi and try again."); });
+      };
+      var sh = $("#st-share", st);
+      if (sh) sh.onclick = function () {
+        var name = "hellma-leads-" + new Date().toISOString().slice(0, 16).replace(/[:T]/g, "-") + ".csv";
+        var file = new File([csvOf(leads)], name, { type: "text/csv" });
+        navigator.share({ files: [file], title: "Hellma kiosk leads" }).catch(function (e) { if (e && e.name !== "AbortError") toast("Sharing didn't work here. Use Copy CSV instead."); });
+      };
+      $("#st-close", st).onclick = function () { st.hidden = true; };
+      $("#st-attract", st).onclick = function () { st.hidden = true; go("attract"); };
+      $("#st-review", st).onclick = function () { var b = $("#st-review", st), on = b.getAttribute("aria-checked") !== "true"; b.setAttribute("aria-checked", on); settings.review = on; saveSettings(); document.body.classList.toggle("review", on); };
+      $("#st-save", st).onclick = function () {
+        settings.event = $("#st-event", st).value.trim(); settings.idle = Number($("#st-idle", st).value);
+        var np = $("#st-pin", st).value.trim();
+        if (np && !/^\d{4}$/.test(np)) { toast("The PIN must be exactly 4 digits."); return; }
+        if (np) settings.pin = np;
+        var ok = saveSettings(); toast(np ? "Settings saved. New PIN is active." : "Settings saved.");
+      };
+      $("#st-dl", st).onclick = function () {
+        var csv = csvOf(leads), name = "hellma-leads-" + new Date().toISOString().slice(0, 16).replace(/[:T]/g, "-") + ".csv";
+        try {
+          var blob = new Blob([csv], { type: "text/csv;charset=utf-8" }), url = URL.createObjectURL(blob);
+          var a = document.createElement("a"); a.href = url; a.download = name; document.body.appendChild(a); a.click(); a.remove();
+          setTimeout(function () { URL.revokeObjectURL(url); }, 4000);
+          toast("Download started. If nothing happens, use Copy CSV or Show as text.", 5000);
+        } catch (e) { toast("Download isn't available here. Use Copy CSV or Show as text.", 5000); }
+      };
+      $("#st-copy", st).onclick = function () { copyText(csvOf(leads)).then(function (ok) { toast(ok ? "Copied " + leads.length + " leads. Paste into Mail, Notes or Excel." : "Copy was blocked here. Use Show as text, then select all and copy."); }); };
+      $("#st-show", st).onclick = function () { var ta = $("#st-text", st); ta.hidden = !ta.hidden; ta.value = csvOf(leads); if (!ta.hidden) { ta.focus(); ta.select(); } };
+      var del = $("#st-del", st), holdT = null, holdStart = 0;
+      function holdEnd() { clearInterval(holdT); $("i", del).style.width = "0"; }
+      del.addEventListener("pointerdown", function () {
+        holdStart = Date.now(); clearInterval(holdT);
+        holdT = setInterval(function () {
+          var p = Math.min(1, (Date.now() - holdStart) / 3000); $("i", del).style.width = (p * 100) + "%";
+          if (p >= 1) { holdEnd(); Store.clear().then(function () { toast("All leads deleted from this iPad."); openStaff(); }); }
+        }, 50);
+      });
+      ["pointerup", "pointerleave", "pointercancel"].forEach(function (ev) { del.addEventListener(ev, holdEnd); });
+    });
+  }
+
+  /* ---------------- Kiosk hardening ---------------- */
+  document.addEventListener("contextmenu", function (e) { e.preventDefault(); });
+  document.addEventListener("gesturestart", function (e) { e.preventDefault(); });
+  document.addEventListener("dblclick", function (e) { e.preventDefault(); }, { passive: false });
+  document.addEventListener("touchmove", function (e) { if (e.touches && e.touches.length > 1 && !e.target.closest("#lightbox")) e.preventDefault(); }, { passive: false });
+  document.addEventListener("dragstart", function (e) { e.preventDefault(); });
+  document.addEventListener("click", function (e) { var a = e.target.closest("a[href]"); if (a) e.preventDefault(); }, true);
+  window.addEventListener("submit", function (e) { e.preventDefault(); }, true);
+
+  /* ---------------- Start ---------------- */
+  document.body.classList.toggle("review", !!settings.review);
+  buildAttract();
+  initPwa();
+  Store.init().then(function () { });
+  var start = (location.hash || "").replace(/^#/, "");
+  if (start && /^[a-z]/.test(start) && SCREENS[start.split("/")[0]]) go(start.replace(/~/g, "/")); else showAttract();
+  window.KIOSK_APP = { go: go, store: Store, settings: settings, openStaff: openStaff };
+})();
+
+</script>
+</body>
+</html>
