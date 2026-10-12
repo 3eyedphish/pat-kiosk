@@ -458,17 +458,156 @@ body.review .chk-note::before { content: "To confirm: "; font-weight: 600; }
 .dial { transition: transform .5s cubic-bezier(.5, 0, .2, 1); }
 .wseg path { transition: fill .2s; }
 
+/* ================= Revision 0.3 ================= */
+.foot { font-size: .8rem; color: var(--grey-7); line-height: 1.4; }
+.attract .card .foot { font-size: .8rem; color: rgba(255,255,255,.82); }
+.pnote { font-size: .74rem; color: var(--grey-7); }
+.rating .nt { font-size: .74rem; color: var(--grey-7); }
+.svgthumb { background: linear-gradient(180deg, #fff, var(--sky-1)); }
+.mini .svgthumb svg { width: 100%; height: 100%; }
+/* Pager stays on the left so the floating request button never covers it */
+.pager { justify-content: flex-start; flex-wrap: wrap; gap: .75rem; padding-right: 15rem; }
+
+/* Multiplexer: every channel drawn once, the selected one lights up */
+.muxsvg .fib { fill: none; stroke: #c9d1d8; stroke-width: 3; }
+.muxsvg .act { opacity: 0; transition: opacity .3s; }
+.muxsvg .mpc.on .act { opacity: 1; }
+.muxsvg .box { fill: #fff; stroke: #c9d1d8; stroke-width: 2; transition: fill .3s, stroke .3s; }
+.muxsvg .mpc.on .box { fill: var(--sky-2); stroke: var(--blue); }
+.muxsvg .led { fill: #c9d1d8; transition: fill .3s; }
+.muxsvg .mpc.on .led { fill: #2fb36b; }
+.muxsvg .mpc.on .lbl.pt { fill: var(--blue-ink); font-weight: 600; }
+.dial { transform-box: view-box; transform-origin: 402px 210px; }
+
+/* Case study: before / after, model phases, V-model */
+.basvg .ba-before, .basvg .ba-after { transition: opacity .4s; }
+.basvg[data-after="1"] .ba-before, .basvg[data-after="0"] .ba-after { opacity: 0; pointer-events: none; }
+.modelsvg .ph { transition: opacity .45s; }
+.modelsvg[data-show="0"] .ph1, .modelsvg[data-show="0"] .ph2, .modelsvg[data-show="1"] .ph2 { opacity: 0; }
+.modelsvg .phl { cursor: pointer; transition: opacity .3s; }
+.modelsvg[data-show="0"] .phl1, .modelsvg[data-show="0"] .phl2, .modelsvg[data-show="1"] .phl2 { opacity: .45; }
+.modelsvg[data-show="0"] .phl0 text, .modelsvg[data-show="1"] .phl1 text, .modelsvg[data-show="2"] .phl2 text { fill: var(--blue); }
+.phase { text-align: left; cursor: pointer; transition: border-color .2s, background .2s; }
+.phase[aria-pressed="true"] { border-color: var(--blue); background: var(--sky-1); box-shadow: inset 0 0 0 1px var(--blue); }
+.vst rect { fill: #4f97cf; transition: fill .2s; }
+.vst.on rect { fill: var(--blue-ink); }
+.wseg path { fill: var(--blue); }
+.wseg.alt path { fill: #2a86c4; }
+.wseg.on path { fill: var(--blue-ink); }
+
+/* Speed of result */
+.speed { display: grid; gap: .4rem; margin-top: .3rem; }
+.speed .bars { display: flex; gap: .3rem; max-width: 16rem; }
+.speed .bars i { flex: 1; height: .6rem; border-radius: 99px; background: var(--grey-2); transition: background .3s; }
+.speed .bars i.on { background: var(--blue); }
+.speed b { font-weight: 500; font-size: 1.2rem; color: var(--blue-ink); }
+
+/* Diagram extras */
+.beam.thin { stroke-width: 2.5; }
+.chartsvg .draw { stroke-dasharray: 4000; stroke-dashoffset: 4000; animation: drawin 1.8s ease-out forwards; }
+@keyframes drawin { to { stroke-dashoffset: 0; } }
+.grow { transform-box: fill-box; transform-origin: left center; animation: growx .8s ease-out both; }
+@keyframes growx { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+
+/* Applications */
+.ind small { display: block; font-size: .78rem; font-weight: 400; opacity: .88; margin-top: .1rem; }
+.ind .gfx, .ind-hero .gfx { position: absolute; inset: 0; padding: 0; background-color: var(--sky-2); background-size: cover; background-position: center; }
+.gfx.gfx-paint { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 160 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%23ffffff'/%3E%3Cstop offset='1' stop-color='%23c9ddef'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='160' height='100' fill='url(%23g)'/%3E%3Cg transform='translate(80 96)'%3E%3Crect x='-8' y='-84' width='16' height='70' rx='3' fill='%233b6fb6' transform='rotate(-52)'/%3E%3Crect x='-8' y='-84' width='16' height='70' rx='3' fill='%2337a37a' transform='rotate(-30)'/%3E%3Crect x='-8' y='-84' width='16' height='70' rx='3' fill='%23e8c547' transform='rotate(-8)'/%3E%3Crect x='-8' y='-84' width='16' height='70' rx='3' fill='%23ee8f2f' transform='rotate(14)'/%3E%3Crect x='-8' y='-84' width='16' height='70' rx='3' fill='%23d4473a' transform='rotate(36)'/%3E%3Crect x='-8' y='-84' width='16' height='70' rx='3' fill='%23874aa6' transform='rotate(58)'/%3E%3Ccircle r='5' fill='%23ffffff' stroke='%23878787'/%3E%3C/g%3E%3C/svg%3E"); }
+.gfx.gfx-food { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 160 100'%3E%3Crect width='160' height='100' fill='%23fbf3e4'/%3E%3Cpath d='M0 76 H160 V100 H0Z' fill='%23e9d7b5'/%3E%3Ccircle cx='52' cy='58' r='20' fill='%23d4473a'/%3E%3Ccircle cx='46' cy='52' r='5' fill='%23ffffff' opacity='.35'/%3E%3Cpath d='M52 38 q2 -8 8 -10' stroke='%235b4630' stroke-width='2.5' fill='none'/%3E%3Cpath d='M58 32 q10 -6 16 2 q-10 6 -16 -2Z' fill='%2337a37a'/%3E%3Ccircle cx='92' cy='62' r='16' fill='%23ee8f2f'/%3E%3Ccircle cx='87' cy='57' r='4' fill='%23ffffff' opacity='.35'/%3E%3Ccircle cx='122' cy='66' r='12' fill='%23e8c547'/%3E%3Ccircle cx='119' cy='62' r='3' fill='%23ffffff' opacity='.4'/%3E%3C/svg%3E"); }
+.gfx.gfx-water { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 160 100'%3E%3Cdefs%3E%3ClinearGradient id='w' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%23e4eef7'/%3E%3Cstop offset='1' stop-color='%230072b6'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='160' height='100' fill='url(%23w)'/%3E%3Cpath d='M0 62 q20 -8 40 0 t40 0 t40 0 t40 0 V100 H0Z' fill='%2300569d' opacity='.55'/%3E%3Cpath d='M0 76 q20 -8 40 0 t40 0 t40 0 t40 0 V100 H0Z' fill='%230a3a5f' opacity='.55'/%3E%3Cpath d='M80 14 C 92 30, 98 38, 98 46 a18 18 0 0 1 -36 0 c0 -8 6 -16 18 -32Z' fill='%23ffffff' opacity='.92'/%3E%3Cpath d='M71 46 a9 9 0 0 0 9 9' stroke='%230072b6' stroke-width='3' fill='none' stroke-linecap='round'/%3E%3C/svg%3E"); }
+.scards { display: grid; grid-template-columns: repeat(auto-fill, minmax(16.5rem, 1fr)); gap: .9rem; }
+.scard { display: grid; gap: .45rem; align-content: start; text-align: left; border: 1px solid var(--grey-2); border-radius: var(--radius); padding: 1rem 1.1rem 1.05rem; background: #fff; }
+.scard:active { border-color: var(--blue); }
+.scard .tag { justify-self: start; }
+.scard b { font-weight: 500; font-size: 1.12rem; line-height: 1.25; }
+.scard > span:not(.tag):not(.go) { font-size: .9rem; color: var(--grey-7); line-height: 1.4; }
+.scard .go { color: var(--blue); font-weight: 500; display: inline-flex; gap: .3rem; align-items: center; margin-top: .15rem; }
+.ccard { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr); text-align: left; border: 1px solid var(--grey-2); border-radius: var(--radius); overflow: hidden; background: #fff; min-height: 11.5rem; }
+.ccard:active { border-color: var(--blue); }
+.ccard .stage { border-radius: 0; }
+.ccard .t { padding: 1.1rem 1.25rem; display: grid; gap: .35rem; align-content: center; }
+.ccard .t b { font-size: 1.28rem; font-weight: 500; line-height: 1.2; }
+.ccard .t > span:last-child { color: var(--grey-7); font-size: .92rem; }
+.tcard { text-align: left; }
+.tcard:active { border-color: var(--blue); }
+.ind-hero { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr); gap: 1.6rem; align-items: stretch; }
+.ind-hero .ph { position: relative; border-radius: var(--radius); overflow: hidden; aspect-ratio: 16 / 10; }
+.ind-hero .ph img { width: 100%; height: 100%; object-fit: cover; }
+.story { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 1.8rem; align-items: start; }
+.sbody { display: grid; gap: 1.15rem; }
+.sblock { display: grid; gap: .35rem; }
+.sblock p { color: var(--ink); }
+.svis { display: grid; gap: 1rem; position: sticky; top: 0; }
+.svis:empty { display: none; }
+.params { display: grid; grid-template-columns: repeat(auto-fill, minmax(10.5rem, 1fr)); gap: .5rem; }
+.params div { background: var(--sky-1); border: 1px solid var(--sky-2); border-radius: var(--radius); padding: .6rem .75rem; display: grid; gap: .1rem; }
+.params b { font-weight: 500; }
+.params span { font-size: .82rem; color: var(--grey-7); }
+.chartfig { margin: 0; display: grid; gap: .5rem; }
+.chartfig figcaption { font-size: .8rem; color: var(--grey-7); }
+.labx { display: grid; grid-template-columns: minmax(0, 10rem) minmax(0, 1fr); gap: 1.3rem; align-items: center; padding: 1.2rem; border: 1px solid var(--sky-2); border-radius: var(--radius); background: linear-gradient(180deg, #fff, var(--sky-1)); }
+.labx .swatch { aspect-ratio: 1; border-radius: 6px; box-shadow: inset 0 0 0 1px rgba(0,0,0,.08), 0 8px 22px rgba(0,30,60,.16); }
+.labx .sliders { display: grid; gap: 1rem; }
+.sl { display: grid; grid-template-columns: 2.2rem minmax(0, 1fr) 2.6rem; column-gap: .6rem; row-gap: .1rem; align-items: center; }
+.sl .k { grid-row: 1 / span 2; font-family: var(--f-label); font-weight: 700; color: var(--blue-ink); font-size: 1.05rem; }
+.sl input { grid-column: 2; grid-row: 1; width: 100%; margin: 0; height: 2.6rem; background: transparent; -webkit-appearance: none; appearance: none; touch-action: none; }
+.sl .ends { grid-column: 2; grid-row: 2; display: flex; justify-content: space-between; font-size: .72rem; color: var(--grey-7); }
+.sl .ends i { font-style: normal; }
+.sl output { grid-column: 3; grid-row: 1 / span 2; text-align: right; font-family: var(--f-label); font-weight: 700; font-variant-numeric: tabular-nums; }
+.sl input::-webkit-slider-runnable-track { height: .9rem; border-radius: 99px; box-shadow: inset 0 0 0 1px rgba(0,0,0,.1); }
+.sl input::-moz-range-track { height: .9rem; border-radius: 99px; }
+.sl input::-webkit-slider-thumb { -webkit-appearance: none; width: 2rem; height: 2rem; margin-top: -.55rem; border-radius: 50%; background: #fff; border: 3px solid var(--blue); box-shadow: 0 2px 8px rgba(0,0,0,.2); }
+.sl input::-moz-range-thumb { width: 1.7rem; height: 1.7rem; border-radius: 50%; background: #fff; border: 3px solid var(--blue); }
+#lab-L::-webkit-slider-runnable-track { background: linear-gradient(90deg, #111, #fff); }
+#lab-a::-webkit-slider-runnable-track { background: linear-gradient(90deg, #2e9b5a, #ccc, #d4473a); }
+#lab-b::-webkit-slider-runnable-track { background: linear-gradient(90deg, #2a6fd0, #ccc, #e8c547); }
+#lab-L::-moz-range-track { background: linear-gradient(90deg, #111, #fff); }
+#lab-a::-moz-range-track { background: linear-gradient(90deg, #2e9b5a, #ccc, #d4473a); }
+#lab-b::-moz-range-track { background: linear-gradient(90deg, #2a6fd0, #ccc, #e8c547); }
+.tablewrap2 { overflow-x: auto; display: grid; gap: .5rem; }
+.datatable { border-collapse: collapse; width: 100%; font-size: .9rem; font-variant-numeric: tabular-nums; }
+.datatable caption { text-align: left; font-weight: 500; padding-bottom: .5rem; }
+.datatable th, .datatable td { padding: .45rem .6rem; border-top: 1px solid var(--grey-2); text-align: right; }
+.datatable thead th { color: var(--grey-7); font-weight: 400; font-size: .8rem; }
+.datatable tbody th { text-align: left; font-weight: 500; }
+.datatable td:nth-child(2) { text-align: center; }
+.datatable .sw { display: inline-block; width: 1.8rem; height: 1.1rem; border-radius: 3px; box-shadow: inset 0 0 0 1px rgba(0,0,0,.12); vertical-align: middle; }
+button.tag { cursor: pointer; }
+
+@media (max-aspect-ratio: 1/1) {
+  .ind-hero, .story { grid-template-columns: 1fr; }
+  .svis { position: static; }
+  .pager { padding-right: 0; }
+}
+@media (max-width: 700px) {
+  .ccard, .labx { grid-template-columns: 1fr; }
+  .labx .swatch { max-width: 8rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .chartsvg .draw { stroke-dasharray: none !important; stroke-dashoffset: 0 !important; }
+  .grow { transform: none !important; }
+}
+.pill { display: inline-flex; align-items: center; padding: .35rem .85rem; border-radius: 999px; background: var(--sky-1); border: 1px solid var(--sky-2); font-size: .92rem; color: var(--blue-ink); }
+/* Chart text stays readable when the 760-unit charts render at half width */
+.chartsvg .lbl { font-size: 20px; }
+.chartsvg .lbl.s { font-size: 18px; }
+.pos-layout { grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); }
+@media (max-aspect-ratio: 1/1) {
+  .pos-layout { grid-template-columns: 1fr; }
+  .ccard { grid-template-columns: 1fr; grid-template-rows: 10rem auto; }
+}
+
 </style>
 </head>
 <body>
 <div id="app"></div>
 <script>
-window.KIOSK_ASSETS={"A1": "assets/A1.jpg", "A2": "assets/A2.jpg", "A3": "assets/A3.jpg", "A4": "assets/A4.jpg", "A5": "assets/A5.jpg", "A6": "assets/A6.jpg", "A7": "assets/A7.jpg", "A8": "assets/A8.jpg", "A9": "assets/A9.jpg", "C1": "assets/C1.jpg", "C2": "assets/C2.jpg", "C3": "assets/C3.jpg", "C4": "assets/C4.jpg", "D10": "assets/D10.png", "D2": "assets/D2.png", "D3": "assets/D3.png", "D4": "assets/D4.png", "D5": "assets/D5.png", "D6": "assets/D6.png", "D7": "assets/D7.png", "D8": "assets/D8.png", "D9": "assets/D9.png", "EX": "assets/EX.png", "I1": "assets/I1.jpg", "I2": "assets/I2.jpg", "I3": "assets/I3.jpg", "I4": "assets/I4.jpg", "I5": "assets/I5.jpg", "I6": "assets/I6.jpg", "K1": "assets/K1.jpg", "K2": "assets/K2.jpg", "K2b": "assets/K2b.jpg", "K3": "assets/K3.jpg", "L1": "assets/L1.svg", "L2": "assets/L2.png", "L3": "assets/L3.png", "L5": "assets/L5.png", "L6": "assets/L6.png", "P1": "assets/P1.jpg", "P10": "assets/P10.jpg", "P10b": "assets/P10b.jpg", "P11": "assets/P11.jpg", "P12": "assets/P12.jpg", "P13": "assets/P13.jpg", "P14": "assets/P14.jpg", "P15": "assets/P15.jpg", "P16": "assets/P16.jpg", "P2": "assets/P2.jpg", "P3": "assets/P3.jpg", "P4": "assets/P4.jpg", "P5": "assets/P5.jpg", "P6": "assets/P6.jpg", "P7": "assets/P7.jpg", "P8": "assets/P8.jpg", "P9": "assets/P9.jpg", "R1": "assets/R1.jpg", "R2": "assets/R2.jpg", "R3": "assets/R3.jpg", "R4": "assets/R4.jpg", "R5": "assets/R5.jpg", "R6": "assets/R6.png", "R7": "assets/R7.jpg", "R8": "assets/R8.jpg", "R9": "assets/R9.png", "S1": "assets/S1.png", "S2": "assets/S2.png", "S3": "assets/S3.png", "S4": "assets/S4.png", "W1": "assets/W1.jpg", "W2": "assets/W2.jpg", "W3": "assets/W3.jpg", "W4": "assets/W4.jpg", "W5": "assets/W5.jpg", "W6": "assets/W6.jpg", "W7": "assets/W7.jpg"};
+window.KIOSK_ASSETS={"A1": "assets/A1.jpg", "A2": "assets/A2.jpg", "A3": "assets/A3.jpg", "A4": "assets/A4.jpg", "A5": "assets/A5.jpg", "A6": "assets/A6.jpg", "A7": "assets/A7.jpg", "A8": "assets/A8.jpg", "A9": "assets/A9.jpg", "C1": "assets/C1.jpg", "C2": "assets/C2.jpg", "C3": "assets/C3.jpg", "C4": "assets/C4.jpg", "D10": "assets/D10.png", "D2": "assets/D2.png", "D3": "assets/D3.png", "D4": "assets/D4.png", "D5": "assets/D5.png", "D6": "assets/D6.png", "D7": "assets/D7.png", "D8": "assets/D8.png", "D9": "assets/D9.png", "EX": "assets/EX.png", "I1": "assets/I1.jpg", "I2": "assets/I2.jpg", "I3": "assets/I3.jpg", "I4": "assets/I4.jpg", "I5": "assets/I5.jpg", "I6": "assets/I6.jpg", "K1": "assets/K1.jpg", "K2": "assets/K2.jpg", "K2b": "assets/K2b.jpg", "K3": "assets/K3.jpg", "L1": "assets/L1.svg", "L2": "assets/L2.png", "L3": "assets/L3.png", "L5": "assets/L5.png", "L6": "assets/L6.png", "P1": "assets/P1.jpg", "P10": "assets/P10.jpg", "P10b": "assets/P10b.jpg", "P11": "assets/P11.jpg", "P12": "assets/P12.jpg", "P13": "assets/P13.jpg", "P14": "assets/P14.jpg", "P15": "assets/P15.jpg", "P16": "assets/P16.jpg", "P17": "assets/P17.jpg", "P17b": "assets/P17b.jpg", "P2": "assets/P2.jpg", "P3": "assets/P3.jpg", "P4": "assets/P4.jpg", "P5": "assets/P5.jpg", "P6": "assets/P6.jpg", "P7": "assets/P7.jpg", "P8": "assets/P8.jpg", "P9": "assets/P9.jpg", "R1": "assets/R1.jpg", "R2": "assets/R2.jpg", "R3": "assets/R3.jpg", "R4": "assets/R4.jpg", "R5": "assets/R5.jpg", "R6": "assets/R6.png", "R7": "assets/R7.jpg", "R8": "assets/R8.jpg", "R9": "assets/R9.png", "S1": "assets/S1.png", "S2": "assets/S2.png", "S3": "assets/S3.png", "S4": "assets/S4.png", "W1": "assets/W1.jpg", "W2": "assets/W2.jpg", "W3": "assets/W3.jpg", "W4": "assets/W4.jpg", "W5": "assets/W5.jpg", "W6": "assets/W6.jpg", "W7": "assets/W7.jpg"};
 window.KIOSK_LOGO_SVG="<svg\n   xmlns:dc=\"http://purl.org/dc/elements/1.1/\"\n   xmlns:cc=\"http://creativecommons.org/ns#\"\n   xmlns:rdf=\"http://www.w3.org/1999/02/22-rdf-syntax-ns#\"\n   xmlns:svg=\"http://www.w3.org/2000/svg\"\n   xmlns=\"http://www.w3.org/2000/svg\"\n   viewBox=\"0 0 216.62666 49.119999\"\n   height=\"49.119999\"\n   width=\"216.62666\"\n   xml:space=\"preserve\"\n   id=\"svg2\"\n   version=\"1.1\"><defs\n     id=\"defs6\" /><g\n     transform=\"matrix(1.3333333,0,0,-1.3333333,0,49.12)\"\n     id=\"g10\"><g\n       transform=\"scale(0.1)\"\n       id=\"g12\"><path\n         id=\"path14\"\n         style=\"fill:#1959a6;fill-opacity:1;fill-rule:nonzero;stroke:none\"\n         d=\"M 351.117,9.08984 H 289.082 V 159.766 H 143.32 V 9.08984 H 83.1055 V 159.344 L 5,159.383 v 58.387 l 78.1055,-0.036 v 144.5 H 143.32 V 217.68 h 145.762 v 144.554 h 62.035 V 9.08984\" /><path\n         id=\"path16\"\n         style=\"fill:none;stroke:#1959a6;stroke-width:10;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1\"\n         d=\"M 351.117,9.08984 H 289.082 V 159.766 H 143.32 V 9.08984 H 83.1055 V 159.344 L 5,159.383 v 58.387 l 78.1055,-0.036 v 144.5 H 143.32 V 217.68 h 145.762 v 144.554 h 62.035 z\" /><path\n         id=\"path18\"\n         style=\"fill:#1959a6;fill-opacity:1;fill-rule:nonzero;stroke:none\"\n         d=\"M 739.043,9.08984 H 679.707 V 362.234 h 59.336 V 9.08984\" /><path\n         id=\"path20\"\n         style=\"fill:none;stroke:#1959a6;stroke-width:10;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1\"\n         d=\"M 739.043,9.08984 H 679.707 V 362.234 h 59.336 z\" /><path\n         id=\"path22\"\n         style=\"fill:#1959a6;fill-opacity:1;fill-rule:nonzero;stroke:none\"\n         d=\"M 857.055,9.08984 H 797.734 V 362.234 h 59.321 V 9.08984\" /><path\n         id=\"path24\"\n         style=\"fill:none;stroke:#1959a6;stroke-width:10;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1\"\n         d=\"M 857.055,9.08984 H 797.734 V 362.234 h 59.321 z\" /><path\n         id=\"path26\"\n         style=\"fill:#1959a6;fill-opacity:1;fill-rule:nonzero;stroke:none\"\n         d=\"m 966.676,256.293 v -35.785 h 1.875 c 13.191,31.547 46.619,38.609 77.699,38.609 31.07,0 66.86,-8.004 73.45,-43.789 h 1.89 c 11.3,34.375 45.19,43.789 78.15,43.789 64.04,0 85.23,-22.129 85.23,-82.879 V 9.08984 h -59.33 V 170.594 c -1.41,31.078 -8.95,43.324 -41.44,43.324 -48.02,0 -57.44,-21.664 -57.44,-65.453 V 9.08984 h -59.32 V 170.594 c -1.42,31.078 -8.95,43.324 -41.44,43.324 -48.027,0 -57.449,-21.664 -57.449,-65.453 V 9.08984 H 909.223 V 256.293 h 57.453\" /><path\n         id=\"path28\"\n         style=\"fill:none;stroke:#1959a6;stroke-width:10;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1\"\n         d=\"m 966.676,256.293 v -35.785 h 1.875 c 13.191,31.547 46.619,38.609 77.699,38.609 31.07,0 66.86,-8.004 73.45,-43.789 h 1.89 c 11.3,34.375 45.19,43.789 78.15,43.789 64.04,0 85.23,-22.129 85.23,-82.879 V 9.08984 h -59.33 V 170.594 c -1.41,31.078 -8.95,43.324 -41.44,43.324 -48.02,0 -57.44,-21.664 -57.44,-65.453 V 9.08984 h -59.32 V 170.594 c -1.42,31.078 -8.95,43.324 -41.44,43.324 -48.027,0 -57.449,-21.664 -57.449,-65.453 V 9.08984 H 909.223 V 256.293 Z\" /><path\n         id=\"path30\"\n         style=\"fill:#1959a6;fill-opacity:1;fill-rule:nonzero;stroke:none\"\n         d=\"m 1493.45,9.08984 h 59.33 V 164.004 c 0,82.871 -32.96,95.113 -112.06,95.113 -56.51,0 -105.95,-2.824 -105.95,-74.871 h 59.34 c 0,32.024 20.71,34.375 46.61,34.375 49.44,0 52.73,-14.117 52.73,-54.148 v -32.024 h -1.88 c -14.12,27.793 -43.79,28.266 -73.93,28.266 -61.21,0 -92.28,-16.488 -92.28,-75.8127 0,-66.8671 36.26,-78.63277 92.28,-78.63277 28.72,0 64.98,0.9375 76.75,33.89457 h 1.42 z M 1438.83,120.215 c 29.19,0 54.62,-0.949 54.62,-35.3127 0,-35.3242 -23.06,-38.1367 -54.62,-38.1367 -40.02,0 -54.15,3.293 -54.15,38.1367 0,35.3127 24.02,35.3127 54.15,35.3127\" /><path\n         id=\"path32\"\n         style=\"fill:none;stroke:#1959a6;stroke-width:10;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1\"\n         d=\"m 1493.45,9.08984 h 59.33 V 164.004 c 0,82.871 -32.96,95.113 -112.06,95.113 -56.51,0 -105.95,-2.824 -105.95,-74.871 h 59.34 c 0,32.024 20.71,34.375 46.61,34.375 49.44,0 52.73,-14.117 52.73,-54.148 v -32.024 h -1.88 c -14.12,27.793 -43.79,28.266 -73.93,28.266 -61.21,0 -92.28,-16.488 -92.28,-75.8127 0,-66.8671 36.26,-78.63277 92.28,-78.63277 28.72,0 64.98,0.9375 76.75,33.89457 h 1.42 z M 1438.83,120.215 c 29.19,0 54.62,-0.949 54.62,-35.3127 0,-35.3242 -23.06,-38.1367 -54.62,-38.1367 -40.02,0 -54.15,3.293 -54.15,38.1367 0,35.3127 24.02,35.3127 54.15,35.3127 z\" /><path\n         id=\"path34\"\n         style=\"fill:#1959a6;fill-opacity:1;fill-rule:evenodd;stroke:none\"\n         d=\"m 1588.79,313.555 c 4.09,0 7.99,-0.625 11.7,-1.918 3.75,-1.258 7.23,-3.114 10.37,-5.535 4.42,-3.391 7.76,-7.598 10.2,-12.563 2.42,-4.969 3.63,-10.258 3.63,-15.875 0,-4.867 -0.88,-9.496 -2.67,-13.832 -1.78,-4.297 -4.38,-8.105 -7.8,-11.406 -3.53,-3.438 -7.52,-6.063 -11.87,-7.918 -4.38,-1.828 -8.91,-2.727 -13.56,-2.727 -4.7,0 -9.25,0.899 -13.67,2.766 -4.39,1.855 -8.28,4.519 -11.74,7.976 -3.36,3.372 -5.97,7.247 -7.77,11.524 -1.82,4.394 -2.69,8.887 -2.69,13.617 0,3.961 0.64,7.84 1.93,11.633 1.35,3.797 3.28,7.332 5.82,10.625 3.44,4.402 7.58,7.797 12.42,10.137 4.83,2.343 10.08,3.496 15.7,3.496 z m 31.14,-36.168 c 0,4.316 -0.78,8.398 -2.29,12.211 -1.54,3.82 -3.77,7.254 -6.68,10.242 -2.91,2.871 -6.31,5.09 -10.13,6.664 -3.81,1.578 -7.84,2.383 -12.04,2.383 -4.21,0 -8.2,-0.766 -11.93,-2.301 -3.71,-1.531 -7.01,-3.715 -9.8,-6.582 -2.99,-3.012 -5.3,-6.465 -6.92,-10.301 -1.66,-3.879 -2.44,-7.879 -2.44,-12.039 0,-4.074 0.78,-8.031 2.32,-11.84 1.59,-3.75 3.83,-7.078 6.72,-9.969 2.97,-2.968 6.35,-5.246 10.12,-6.867 3.83,-1.64 7.68,-2.441 11.66,-2.441 4.22,0 8.26,0.781 12.13,2.324 3.87,1.613 7.3,3.867 10.31,6.817 2.85,2.871 5.06,6.164 6.64,9.902 1.55,3.73 2.33,7.656 2.33,11.797 z m -22.54,-0.789 9.2,-18.567 h -8.73 l -8.27,17.336 h -7.55 v -17.336 h -7.68 v 40.66 h 15.31 c 5.69,0 9.96,-0.914 12.82,-2.808 2.85,-1.86 4.31,-4.649 4.31,-8.34 0,-2.871 -0.86,-5.293 -2.52,-7.25 -1.66,-1.938 -3.94,-3.199 -6.89,-3.695 z m -8.87,3.652 c 3.71,0 6.41,0.508 7.99,1.492 1.6,1.055 2.36,2.711 2.36,4.973 0,2.441 -0.82,4.199 -2.5,5.312 -1.66,1.153 -4.33,1.711 -8.06,1.711 h -6.27 V 280.25 h 6.48 v 0\" /><path\n         id=\"path36\"\n         style=\"fill:#1959a6;fill-opacity:1;fill-rule:nonzero;stroke:none\"\n         d=\"m 571.348,86.4531 c 0,-36.7265 -23.067,-36.25 -56.028,-36.25 -53.211,0 -54.617,16.9453 -54.617,70.1559 h 169.981 c 0,107.825 -13.664,137.489 -115.364,137.489 -99.824,0 -113.941,-38.61 -113.941,-127.133 C 401.379,35.1367 420.676,5 515.32,5 585.945,5 630.684,8.75781 630.684,86.4531 Z M 460.703,158.027 c 0,43.789 3.289,54.618 54.617,54.618 48.496,0 56.028,-3.766 56.028,-54.618 H 460.703\" /><path\n         id=\"path38\"\n         style=\"fill:none;stroke:#1959a6;stroke-width:10;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1\"\n         d=\"m 571.348,86.4531 c 0,-36.7265 -23.067,-36.25 -56.028,-36.25 -53.211,0 -54.617,16.9453 -54.617,70.1559 h 169.981 c 0,107.825 -13.664,137.489 -115.364,137.489 -99.824,0 -113.941,-38.61 -113.941,-127.133 C 401.379,35.1367 420.676,5 515.32,5 585.945,5 630.684,8.75781 630.684,86.4531 Z M 460.703,158.027 c 0,43.789 3.289,54.618 54.617,54.618 48.496,0 56.028,-3.766 56.028,-54.618 z\" /><path\n         id=\"path40\"\n         style=\"fill:#7b7979;fill-opacity:1;fill-rule:nonzero;stroke:none\"\n         d=\"m 535,332.422 -19.684,31.441 v 0.278 L 515.23,364 l -0.089,0.141 v -0.278 l -19.68,-31.441 -52.348,35.937 32.625,-97.554 c 6.992,0.785 14.66,1.281 22.918,1.535 l -13.511,40.082 16.41,-11.563 13.758,20.782 13.593,-20.782 16.407,11.563 -13.512,-40.082 c 8.258,-0.254 15.929,-0.75 22.922,-1.535 L 587.344,368.359 535,332.422\" /><\/g><\/g><\/svg>";
-window.KIOSK_BUILT="2026-10-12 14:44";
+window.KIOSK_BUILT="2026-10-12 19:32";
 window.KIOSK_PWA=true;
-window.KIOSK_CACHE="hellma-kiosk-aef5bb8ff6";
-window.KIOSK_PRECACHE_COUNT=81;
+window.KIOSK_CACHE="hellma-kiosk-5279fc5e3e";
+window.KIOSK_PRECACHE_COUNT=83;
 
 </script>
 <script>
@@ -481,12 +620,13 @@ window.KIOSK_PRECACHE_COUNT=81;
  *   (staff panel > Highlight values to confirm) so open questions stay visible until they are settled.
  * - To add a product line later (cuvettes, microplates, reference materials), add a line under
  *   `lines`, its families and products, and a tile in `home.groups`. Pages are generated from the data.
+ * - Application areas live under `applications`: add a field, a story or a case study there.
  */
 window.KIOSK = {
   meta: {
     title: "Hellma Process Analytics",
-    version: "0.2 (Home Screen web app)",
-    source: "20250428_HellmaUSA_PAT.pptx",
+    version: "0.3 (feedback round 1, CPACT applications)",
+    source: "20250428_HellmaUSA_PAT.pptx; HellmaUSA_2025_Applications_for_CPACT_webinar.pptx; 661.920 information sheet",
   },
 
   settings: {
@@ -494,6 +634,10 @@ window.KIOSK = {
     idleSeconds: 90,
     warnSeconds: 15,
     attractSlideSeconds: 8,
+  },
+
+  footnotes: {
+    weld: "*Higher pressures are possible but cannot be certified because of testing limitations.",
   },
 
   brands: {
@@ -505,8 +649,9 @@ window.KIOSK = {
 
   attract: [
     { img: "K1", pos: "70% 50%", eyebrow: "Process Analytical Technology", title: "Measure inside your process, in real time.", sub: "Immersion probes, flow cells and complete PAT solutions from Hellma." },
-    { img: "A3", pos: "50% 40%", eyebrow: "Welded metal seals", title: "Rated up to 400 °C and 250 bar.", sub: "Excalibur HD probes and flow cells for harsh process conditions." },
+    { img: "A3", pos: "50% 40%", eyebrow: "Welded metal seals", title: "Rated up to 400 °C and 250 bar*.", sub: "Excalibur HD probes and flow cells for harsh process conditions.", foot: "weld" },
     { img: "K2", pos: "40% 50%", eyebrow: "Hellma Solutions", title: "From feasibility study to validated method.", sub: "Consulting, sensors, chemometrics, integration and service." },
+    { img: "I4", pos: "50% 50%", eyebrow: "Applications", title: "From whiskey barrels to polymer extruders.", sub: "See where Hellma probes measure, industry by industry." },
     { img: "A4", pos: "50% 60%", eyebrow: "Probe finder", title: "Find the right probe for your process.", sub: "Filter by measurement principle, temperature and pressure." },
   ],
 
@@ -530,14 +675,14 @@ window.KIOSK = {
         brand: "solutions", title: "PAT solutions",
         tiles: [
           { route: "solutions", img: "P13", title: "Hellma Solutions", sub: "Sensors, custom systems and services" },
-          { route: "case", img: "K2b", title: "Case study", sub: "Water in solvents, from question to service" },
+          { route: "applications/cases", img: "K2b", title: "Case studies", sub: "Water in solvents, precious-metals refining" },
         ],
       },
       {
         title: "Learn",
         tiles: [
-          { route: "pat", img: "K1", title: "What is PAT?", sub: "Inline, online, atline, offline" },
-          { route: "industries", img: "I1", title: "Industries", sub: "Where process spectroscopy pays off" },
+          { route: "pat", img: "K1", title: "What is PAT?", sub: "Offline, atline, online, inline" },
+          { route: "applications", img: "I3", title: "Applications", sub: "Industries, techniques and examples" },
           { route: "about", img: "C1", title: "About Hellma", sub: "Since 1922, family owned" },
         ],
       },
@@ -550,7 +695,7 @@ window.KIOSK = {
       brand: "analytics",
       name: "Probes & flow cells",
       intro: "Hellma process interfaces bring the light path into the process: immersion probes for vessels and pipes, flow cells for sample streams. Choose by measurement principle first, then by temperature, pressure and materials.",
-      families: ["excalibur", "falcata", "katana", "gladius", "espada"],
+      families: ["excalibur", "falcata", "katana", "gladius", "polymer", "espada", "tidus"],
     },
     /* Example of a later line:
     "cuvettes": { brand: "analytics", name: "Cuvettes", intro: "...", families: ["macro", "semi-micro"] },
@@ -558,11 +703,13 @@ window.KIOSK = {
   },
 
   families: {
-    excalibur: { name: "Excalibur", principle: "transmission", desc: "Transmission probes and flow cells. The measuring gap works like the path length of a cuvette.", products: ["excalibur-xp", "excalibur-hd", "excalibur-fcp", "excalibur-fet", "excalibur-ffv"] },
-    falcata: { name: "Falcata", principle: "transflection", desc: "Transflection probes. Light crosses the sample, reflects off a mirror and crosses it again.", products: ["falcata-xp"] },
-    katana: { name: "Katana", principle: "atr", desc: "ATR probes with a three-bounce sapphire element, for an extremely short path length.", products: ["katana-xp"] },
-    gladius: { name: "Gladius", principle: "reflection", desc: "Reflection probes that collect diffusely reflected light, with or without contact.", products: ["gladius-fdr", "gladius-xp"] },
-    espada: { name: "Espada", principle: "fluorescence", desc: "Fluorescence probes.", products: [], empty: "Ask our team for Espada specifications and availability.", check: "The deck names Espada on the measurement-principles slide but has no product slide." },
+    excalibur: { name: "Excalibur", principle: "transmission", desc: "Transmission probes and flow cells. The measuring gap works like the path length of a cuvette. Standard ratings reach 400 °C and 250 bar*; custom polymer-extruder versions go to 750 bar.", foot: "weld", products: ["excalibur-xp", "excalibur-hd", "excalibur-fcp", "excalibur-fet", "excalibur-ffv"] },
+    falcata: { name: "Falcata", principle: "transflection", desc: "Transflection probes. Light crosses the sample, reflects off a mirror and crosses it again. Brazed versions reach 300 °C and 300 bar.", products: ["falcata-xp"] },
+    katana: { name: "Katana", principle: "atr", desc: "ATR probes with a three-bounce sapphire element, for an extremely short path length. Brazed versions reach 300 °C and 100 bar.", products: ["katana-xp"] },
+    gladius: { name: "Gladius", principle: "reflection", desc: "Reflection probes that collect diffusely reflected light, in contact or at a distance. Brazed versions reach 300 °C and 100 bar.", products: ["gladius-fdr", "gladius-xp"] },
+    polymer: { name: "Polymer extruder probes", principle: "transmission", desc: "Custom probe pairs that thread into standard melt-pressure ports on polymer extruders, for transmission or diffuse reflection.", products: ["polymer-probe"] },
+    espada: { name: "Espada", principle: "fluorescence", desc: "Fluorescence probes for liquids in the UV/VIS range, with quartz glass optics.", products: [], empty: "Ask our team for Espada specifications and availability." },
+    tidus: { name: "Tidus", principle: "raman", desc: "Raman probes with exchangeable optics and filters, optimized for maximum Raman signal.", products: [], empty: "Ask our team for Tidus specifications and availability.", check: "From the Hellma Analytics optical probes brochure; no Tidus specs or photo yet." },
   },
 
   products: {
@@ -587,7 +734,7 @@ window.KIOSK = {
       name: "Excalibur HD", type: "Immersion probe", family: "excalibur", line: "process-interfaces",
       img: "P2", drawing: "D3", badge: "Heavy duty",
       summary: "Heavy-duty transmission probe with welded metal seals for high temperature, high pressure and aggressive media.",
-      filter: { format: ["probe"], ranges: ["uvvis", "nir"], maxT: 400, maxP: 250 },
+      filter: { format: ["probe"], ranges: ["uvvis", "nir"], maxT: 400, maxP: 250, pStar: true },
       specs: [
         ["Spectral range", "UV 240–800 nm · VIS 400–2000 nm · NIR 800–2500 nm"],
         ["Path length", "2, 3, 4, 5 and 10 mm"],
@@ -596,37 +743,39 @@ window.KIOSK = {
         ["Sealing", "Welded metal seals"],
         ["Immersion depth", "100–940 mm"],
         ["Temperature", "−30 °C to 400 °C (−22 °F to 750 °F)"],
-        ["Pressure", "Up to 250 bar (~3600 psi)"],
+        ["Pressure", "Up to 250 bar* (~3600 psi)"],
       ],
+      foot: "weld",
       fits: ["prm"],
     },
     "excalibur-fcp": {
       name: "Excalibur FCP", type: "Flow cell", family: "excalibur", line: "process-interfaces",
       img: "P3", drawing: "D4", badge: "Welded metal seals",
       summary: "Inline flow cell with welded metal seals. Path lengths run from 2 mm up to 2 m for weakly absorbing streams.",
-      filter: { format: ["flow"], ranges: ["uvvis", "nir"], maxT: 300, maxP: 250 },
+      filter: { format: ["flow"], ranges: ["uvvis", "nir"], maxT: 400, maxP: 250, pStar: true },
       specs: [
         ["Spectral range", "UV 240–800 nm · VIS 400–2000 nm · NIR 800–2500 nm"],
         ["Path length", "2, 5, 10 mm and 100–2000 mm"],
         ["Body material", "Stainless steel 1.4435/1.4404 (316L), Hastelloy C-276"],
         ["Optical material", "Sapphire"],
         ["Sealing", "Welded metal seals"],
-        ["Temperature", { v: "−30 °C to 300 °C (−22 °F to 750 °F)", check: "300 °C is 572 °F. Slide 20 gives 750 °F, which matches 400 °C. FCP and FET look swapped." }],
-        ["Pressure", "Up to 250 bar (~3600 psi)"],
+        ["Temperature", { v: "−30 °C to 400 °C (−22 °F to 750 °F)", check: "Corrected from slide 20, assuming the °C values of FCP and FET were swapped." }],
+        ["Pressure", "Up to 250 bar* (~3600 psi)"],
       ],
+      foot: "weld",
     },
     "excalibur-fet": {
       name: "Excalibur FET", type: "Flow cell", family: "excalibur", line: "process-interfaces",
       img: "P4", drawing: "D5", badge: "Welded metal seals",
       summary: "Compact block flow cell with welded metal seals and short path lengths from 0.5 mm.",
-      filter: { format: ["flow"], ranges: ["uvvis", "nir"], maxT: 400, maxP: 200 },
+      filter: { format: ["flow"], ranges: ["uvvis", "nir"], maxT: 300, maxP: 200 },
       specs: [
         ["Spectral range", "UV 240–800 nm · VIS 400–2000 nm · NIR 800–2500 nm"],
         ["Path length", "0.5, 1, 2, 3, 5 and 10 mm"],
         ["Body material", "Stainless steel 1.4435/1.4404 (316L)"],
         ["Optical material", "Sapphire"],
         ["Sealing", "Welded metal seals"],
-        ["Temperature", { v: "−30 °C to 400 °C (−22 °F to 570 °F)", check: "400 °C is 752 °F. Slide 21 gives 570 °F, which matches 300 °C. FCP and FET look swapped." }],
+        ["Temperature", { v: "−30 °C to 300 °C (−22 °F to 570 °F)", check: "Corrected from slide 21, assuming the °C values of FCP and FET were swapped." }],
         ["Pressure", "Up to 200 bar (~2900 psi)"],
       ],
     },
@@ -650,45 +799,43 @@ window.KIOSK = {
       name: "Falcata XP", type: "Immersion probe", family: "falcata", line: "process-interfaces",
       img: "P6", drawing: "D7", badge: "Extremely precise",
       summary: "Transflection probe with interchangeable inserts for highly reproducible path lengths. Mini versions come in 6, 4 and 3 mm diameters.",
-      filter: { format: ["probe", "flow"], ranges: ["uvvis", "nir"], maxT: 260, maxP: 40 },
+      filter: { format: ["probe", "flow"], ranges: ["uvvis", "nir"], maxT: 300, maxP: 300, brazed: true },
       specs: [
         ["Spectral range", "UV-Vis 210/240–1000 nm · NIR 400–2300 nm"],
         ["Path length", "1, 2, 5, 10 and 20 mm"],
         ["Body material", "Stainless steel 1.4571 (316Ti), Hastelloy C-22"],
         ["Optical material", "Quartz, sapphire"],
-        ["Sealing", { v: "Kalrez O-rings (4079, 6230, 6375) or hard soldered (Ag, Cu, Ti)", check: "Slide 25 marks 6375 with an asterisk but gives no footnote." }],
+        ["Sealing", { v: "Kalrez O-rings (4079, 6230, 6375) or brazed (hard soldered: Ag, Cu, Ti)", check: "Slide 25 marks 6375 with an asterisk but gives no footnote." }],
         ["Immersion depth", "100–940 mm, or flow-through setup"],
-        ["Temperature", "Up to 260 °C (500 °F)"],
-        ["Pressure", "Up to 40 bar (~580 psi)"],
+        ["Rating with O-rings", "Up to 260 °C (500 °F) · 40 bar (~580 psi)"],
+        ["Rating, brazed", "Up to 300 °C (572 °F) · 300 bar (~4350 psi)"],
       ],
       fits: ["retractables"],
-      check: "The Falcata overview (slide 24) claims up to 300 °C and 300 bar. Only the XP model is detailed, and it is rated 260 °C / 40 bar.",
     },
     "katana-xp": {
       name: "Katana XP", type: "Immersion probe", family: "katana", line: "process-interfaces",
       img: "P7", drawing: "D8", badge: "Extremely precise",
       summary: "Three-bounce ATR probe for media that absorb too strongly for a transmission gap.",
-      filter: { format: ["probe", "flow"], ranges: ["uvvis", "nir"], maxT: 260, maxP: 40 },
+      filter: { format: ["probe", "flow"], ranges: ["uvvis", "nir"], maxT: 300, maxP: 100, brazed: true },
       specs: [
         ["Spectral range", "UV-Vis 240–1000 nm · NIR 400–2300 nm"],
         ["Measuring element", "3-bounce attenuated total reflection (ATR)"],
         ["Body material", "Stainless steel 1.4571 (316Ti), Titanium Grade 2"],
         ["Optical material", "Sapphire"],
-        ["Sealing", { v: "Kalrez O-rings (4079, 6375) or hard soldered (Ag, Cu, Ti)", check: "Slide 28 marks 6375 with an asterisk but gives no footnote." }],
+        ["Sealing", { v: "Kalrez O-rings (4079, 6375) or brazed (hard soldered: Ag, Cu, Ti)", check: "Slide 28 marks 6375 with an asterisk but gives no footnote." }],
         ["Immersion depth", "100–640 mm, or flow-through setup"],
-        ["Temperature", "Up to 260 °C (500 °F)"],
-        ["Pressure", "Up to 40 bar (~580 psi)"],
+        ["Rating with O-rings", "Up to 260 °C (500 °F) · 40 bar (~580 psi)"],
+        ["Rating, brazed", "Up to 300 °C (572 °F) · 100 bar (~1450 psi)"],
       ],
-      check: "The Katana overview (slide 27) claims up to 300 °C and 100 bar. Only the XP model is detailed, and it is rated 260 °C / 40 bar.",
     },
     "gladius-fdr": {
       name: "Gladius FDR", type: "Immersion probe", family: "gladius", line: "process-interfaces",
       img: "P8", drawing: "D9", badge: "Contact-free",
-      summary: "Diffuse reflection probe in anodized aluminum. It measures at a distance, without touching the sample.",
+      summary: "Diffuse reflection probe in anodized aluminum. It measures from 25 to 100 mm away, without touching the sample.",
       filter: { format: ["probe"], ranges: ["nir"], maxT: 100, maxP: 0 },
       specs: [
-        ["Spectral range", { v: "NIR 400–2300 nm", check: "Slide 31 reads “400–2300 mm”. Shown here as nm." }],
-        ["Measuring distance", { v: "25–100 mm", check: "Slide 31 says 25–100 mm; the Gladius overview (slide 30) says 2–100 mm." }],
+        ["Spectral range", "NIR 400–2300 nm"],
+        ["Working distance", "25–100 mm"],
         ["Body material", "Anodized aluminum"],
         ["Optical material", "SF-5"],
         ["Sealing", "Epoxy glue or hard soldered (Ag, Cu, Ti)"],
@@ -700,18 +847,33 @@ window.KIOSK = {
     "gladius-xp": {
       name: "Gladius XP", type: "Probe", family: "gladius", line: "process-interfaces",
       img: "P9", badge: "Extremely precise",
-      summary: "Reflection probe in stainless steel, Hastelloy or titanium, for contact or 2 mm measurement.",
-      filter: { format: ["probe"], ranges: ["uvvis", "nir"], maxT: 120, maxP: 16 },
+      summary: "Reflection probe in stainless steel, Hastelloy or titanium, measuring in contact or at 2 mm.",
+      filter: { format: ["probe"], ranges: ["uvvis", "nir"], maxT: 300, maxP: 100, brazed: true },
       specs: [
         ["Spectral range", "UV-Vis 240–1000 nm · NIR 400–2300 nm"],
-        ["Measuring distance", "Contact or 2 mm"],
+        ["Working distance", "Contact or 2 mm"],
         ["Body material", "Stainless steel 1.4435/1.4404 (316L), Hastelloy C-22, Titanium Grade 2"],
         ["Optical material", "Sapphire"],
-        ["Sealing", { v: "EPDM, Kalrez O-ring (6221) or hard soldered (Ag, Cu, Ti)", check: "Slide 32 marks EPDM with an asterisk but gives no footnote." }],
-        ["Temperature", "Up to 120 °C (248 °F)"],
-        ["Pressure", "Up to 16 bar (~230 psi)"],
+        ["Sealing", { v: "EPDM, Kalrez O-ring (6221) or brazed (hard soldered: Ag, Cu, Ti)", check: "Slide 32 marks EPDM with an asterisk but gives no footnote." }],
+        ["Rating with O-rings", "Up to 120 °C (248 °F) · 16 bar (~230 psi)"],
+        ["Rating, brazed", { v: "Up to 300 °C (572 °F) · 100 bar (~1450 psi)", check: "Assumes the brazed Gladius version is the XP and the FDR stays epoxy-sealed." }],
       ],
-      check: "The Gladius overview (slide 30) claims up to 300 °C and 100 bar. The two models shown top out at 120 °C / 16 bar.",
+    },
+    "polymer-probe": {
+      name: "Polymer extruder probe", type: "Custom probe pair", family: "polymer", line: "process-interfaces",
+      img: "P17", img2: "P17b", badge: "Fits melt-pressure ports",
+      summary: "For in-line measurement in polymer extruders under extreme conditions. The probes have the same dimensions as standard melt-pressure sensors (for example Dynisco), so they thread into existing ports.",
+      filter: { format: ["probe"], ranges: [], maxT: 300, maxP: 750, custom: true },
+      specs: [
+        ["Measuring principle", "Transmission with two opposed heads, or diffuse reflection"],
+        ["Path length", "1, 2, 5 or 10 mm, set by head length and bore"],
+        ["Barrel material", "Titanium"],
+        ["Optical material", "Sapphire"],
+        ["Sealing", "Sapphire windows soldered into the barrel"],
+        ["Temperature", "Up to 300 °C (572 °F)"],
+        ["Pressure", { v: "Up to 300 bar standard; custom versions up to 750 bar", check: "Information sheet 661.920 gives 300 bar; 750 bar is the custom range for Dynisco-threaded extruder probes." }],
+        ["Fits", "Threaded ports for melt-pressure sensors, also in rheometers"],
+      ],
     },
   },
 
@@ -745,32 +907,42 @@ window.KIOSK = {
         "Light travels through the fiber to the ATR prism.",
         "It reflects off the prism surfaces. At each reflection an evanescent field penetrates a tiny distance into the medium, which absorbs specific wavelengths.",
       ],
-      plus: ["Extremely short path length.", "Sealing by brazing is possible."],
+      plus: ["Extremely short path length, for strongly absorbing liquids and pastes.", "Sealing by brazing is possible."],
     },
     reflection: {
       name: "Reflection", family: "gladius",
       how: [
-        "Light travels through a fiber bundle to the probe window.",
-        "It is focused onto the sample, in contact or up to 100 mm away.",
-        "The diffusely reflected part of the light is collected and sent to the spectrometer.",
+        "Light travels down the outer fibers of a bundle and is focused onto the sample, in contact or up to 100 mm away.",
+        "The sample scatters the light in all directions: diffuse reflection.",
+        "The center fiber collects part of that light and carries it to the spectrometer.",
       ],
       plus: ["Hygienic design is possible.", "Sealing by brazing is possible.", "Contact-free measurement."],
     },
     fluorescence: {
       name: "Fluorescence", family: "espada",
       how: [
-        "Excitation light travels through the fiber to the sample.",
-        "Fluorescent molecules absorb it and emit light at longer wavelengths.",
-        "The probe collects the emitted light and sends it to the spectrometer.",
+        "Excitation light travels down one fiber. A prism turns it 90° so it crosses the measuring gap.",
+        "Fluorescent molecules in the sample absorb it and emit light at longer wavelengths, in all directions.",
+        "A second fiber collects the emitted light at a right angle to the excitation beam and carries it to the spectrometer.",
       ],
-      plus: ["Very sensitive for substances that fluoresce."],
-      check: "Written for the kiosk. The deck names the principle and the Espada probe but has no slide explaining them.",
+      plus: ["The right-angle geometry keeps excitation light out of the detection path, so the background stays low.", "Very sensitive for substances that fluoresce.", "Quartz glass optics for the UV/VIS range."],
+      check: "Geometry follows the Espada graphic. Its mirror at the far end of the gap and the downward emission arrow are not drawn; confirm what they show.",
+    },
+    raman: {
+      name: "Raman", family: "tidus",
+      how: [
+        "A laser sends excitation light through the probe and focuses it on the sample.",
+        "Almost all of the scattered light comes back at the laser wavelength. A tiny fraction is shifted by the molecules' vibrations: the Raman signal.",
+        "Filters in the probe block the laser line and pass the shifted light to the spectrometer.",
+      ],
+      plus: ["Exchangeable optics and filters.", "Optics optimized for maximum Raman signal.", "A large measuring spot focused on the sample from several centimeters away."],
+      check: "Principle text written for the kiosk; advantages from the Hellma Analytics optical probes brochure (Tidus).",
     },
   },
 
   /* ---------- Sealing ---------- */
   sealing: {
-    intro: "The seal between window and body decides how hot, how hard and how long a probe can run. Hellma offers all three approaches.",
+    intro: "The seal between window and body decides the temperature, pressure and chemicals a probe can handle, and how long it lasts. Hellma offers all three approaches.",
     options: [
       {
         name: "Elastomeric seals (O-rings)", img: "S1",
@@ -788,8 +960,9 @@ window.KIOSK = {
       parts: ["Sapphire window", "Gold or PTFE coated Waspaloy C-ring", "Hastelloy sleeve", "Electron-beam weld"],
       stats: [
         { n: "400", u: "°C", l: "Temperature rating up to" },
-        { n: "250", u: "bar", l: "Pressure rating up to" },
+        { n: "250", u: "bar*", l: "Pressure rating up to" },
       ],
+      foot: "weld",
       plus: ["Extreme chemical resistance", "Insensitive to thermal shock", "Virtually indestructible"],
       used: ["excalibur-hd", "excalibur-fcp", "excalibur-fet"],
     },
@@ -841,7 +1014,7 @@ window.KIOSK = {
         ],
       },
     ],
-    both: ["Sensor is not fixed to the armature", "Free sight into the process", "Cleaning inside the calibration chamber", "New sensor holder clamp keeps the fibers from twisting during movement"],
+    both: ["Sensor is not fixed to the armature", "Cleaning inside the calibration chamber", "New sensor holder clamp keeps the fibers from twisting during movement"],
     cyclone: {
       title: "Cyclone cleaning",
       text: "Traditional rinsing leaves a shadow on the side of the window facing away from the nozzle. Cyclone rinsing routes the cleaning medium tangentially, so it swirls around the whole sensor.",
@@ -908,10 +1081,10 @@ window.KIOSK = {
   pat: {
     what: "PAT stands for Process Analytical Technology: the tools and methods manufacturers use to monitor and control production in real time. Instead of checking quality only at the end, PAT checks it throughout production so you can adjust immediately.",
     positions: [
-      { id: "inline", name: "Inline", speed: 4, text: "The probe sits directly in the process stream. Nothing is removed, and results arrive continuously." },
-      { id: "online", name: "Online", speed: 3, text: "Part of the stream is diverted through a bypass, measured automatically and can be returned to the process." },
-      { id: "atline", name: "Atline", speed: 2, text: "A sample is taken and measured on an analyzer next to the line." },
-      { id: "offline", name: "Offline", speed: 1, text: "A sample is taken to a laboratory. Results arrive after the process has moved on." },
+      { id: "offline", name: "Offline", speed: 1, speedLabel: "Hours to days", text: "A sample is taken to a laboratory. Results arrive after the process has moved on." },
+      { id: "atline", name: "Atline", speed: 2, speedLabel: "Minutes to hours", text: "A sample is taken and measured on an analyzer next to the line." },
+      { id: "online", name: "Online", speed: 3, speedLabel: "Seconds to minutes", text: "Part of the stream is diverted through a bypass, measured automatically and can be returned to the process." },
+      { id: "inline", name: "Inline", speed: 4, speedLabel: "Seconds", text: "The probe sits directly in the process stream. Nothing is removed, and results arrive continuously." },
     ],
     positionsCheck: "The deck's diagram shows the four positions without definitions. These follow the usual PAT definitions.",
     why: [
@@ -933,7 +1106,7 @@ window.KIOSK = {
     ],
   },
 
-  /* ---------- Case study ---------- */
+  /* ---------- Case study: step-by-step PAT project ---------- */
   caseStudy: {
     title: "Water in solvents",
     sub: "How a PAT project runs, using a real example: measuring water impurities in a solvent after distillation, in a GMP and ATEX environment.",
@@ -960,7 +1133,7 @@ window.KIOSK = {
       { id: "software", name: "Software", img: "W6",
         title: "Connect the data",
         points: ["Spectrometer software runs the chemometric model.", "Higher-level process software links all PAT analyzers.", "Results go to the programmable logic controller (PLC).", "FDA 21 CFR Part 11 compliant."] },
-      { id: "interfaces", name: "Interfaces", img: "W3", kind: "chips",
+      { id: "interfaces", name: "Data Connection Protocols", img: "W3", kind: "chips",
         title: "Talk to the plant",
         chips: ["Analog 4–20 mA (e.g. Beckhoff)", "Modbus TCP", "PROFIBUS", "PROFINET", "OPC UA"] },
       { id: "integration", name: "Integration", img: "W3", kind: "atex",
@@ -968,6 +1141,7 @@ window.KIOSK = {
         text: "The Excalibur HD flow cell sits on the collection tank inside the ATEX area. Optical fibers carry the light to the spectrometer outside it." },
       { id: "model", name: "Model development", img: "W7", kind: "model",
         title: "Build and maintain the calibration",
+        text: "Tap each phase to see how the calibration grows over time.",
         phases: [
           { name: "Calibration", text: "Method development with internal validation." },
           { name: "External validation", text: "Independent samples confirm the model." },
@@ -1000,18 +1174,187 @@ window.KIOSK = {
     vmodelCheck: "FAT and SAT definitions are written for the kiosk; the deck's notes define URS, DS, DQ, IQ, OQ and PQ only.",
   },
 
-  /* ---------- Industries / application areas ---------- */
-  industries: {
-    intro: "Inline spectroscopy pays off wherever quality has to be known while the product is still being made.",
-    check: "Industry texts are drafts written for the kiosk. The deck lists the six industries without detail.",
-    items: [
-      { id: "pharma", name: "Pharma & biotech", img: "I1", text: "Measure in real time under GMP, support real-time batch release and keep the validation paperwork in order.", related: ["sensor:nir-xp", "excalibur-xp", "case"] },
-      { id: "chemistry", name: "Chemistry & petrochemistry", img: "I3", text: "High temperatures, high pressures and aggressive media call for welded metal seals and ATEX-ready sensors.", related: ["excalibur-hd", "excalibur-fcp", "sensor:nir-hd", "sensor:mir-atr"] },
-      { id: "food", name: "Food & beverages", img: "I2", text: "Hygienic probe designs let you measure directly in the line instead of pulling samples.", related: ["sensor:nir-xp", "gladius-xp", "retractables"] },
-      { id: "plastics", name: "Plastics & polymers", img: "I4", text: "Follow reactions and product properties inline instead of waiting for lab results.", related: ["finder"] },
-      { id: "agriculture", name: "Agriculture", img: "I5", text: "NIR spectroscopy is widely used to measure composition, such as moisture and protein, quickly and without chemicals.", related: ["gladius-fdr", "finder"] },
-      { id: "cosmetics", name: "Cosmetics", img: "I6", text: "Check consistency during mixing and filling so every batch matches the formula.", related: ["finder"] },
+  /* ---------- Applications (CPACT webinar 2025 + PAT deck) ---------- */
+  applications: {
+    intro: "Metrological solutions using atline, online or inline spectroscopy pay off in many industries. Browse by industry or by technique, or open a case study.",
+    relatedCheck: "Product suggestions on the application pages are picks made for the kiosk; the webinar deck does not name probes except for the precious-metals example.",
+    fields: [
+      { id: "pharma", name: "Pharmaceutical", img: "I1", text: "Follow drug release in dissolution tests and release batches on real-time data under GMP.", stories: ["tablet-dissolution"], cases: ["water-solvents"] },
+      { id: "biotech", name: "Biotechnology", img: "K2", text: { v: "Hygienic probe designs measure in bioprocesses without pulling samples.", check: "Draft: the deck lists biotechnology without an example." }, stories: [], related: ["gladius-xp", "retractables"] },
+      { id: "chemistry", name: "Chemistry", img: "I3", text: "Follow reactions, purity and composition directly in the line, from polyols to precious metals.", stories: ["precious-metals", "polyol", "oleochemicals"], cases: ["water-solvents"] },
+      { id: "petro", name: "Petrochemistry", img: "A9", text: "Measure gas and hydrocarbon composition under pressure, with ATEX-ready sensors.", stories: ["natural-gas"] },
+      { id: "polymers", name: "Polymers", img: "I4", text: "Follow polymerization from monomer to polymer, right in the extruder.", stories: ["polymerization"], related: ["polymer-probe"] },
+      { id: "paint", name: "Paint & pigment", graphic: "paint", text: "Turn spectra into L*a*b* color values and catch pigment deviations.", stories: ["paint-color"] },
+      { id: "food", name: "Food", graphic: "food", text: "Sort produce and check composition without touching the product.", stories: ["fruit-sorting", "agriculture-dairy"] },
+      { id: "beverages", name: "Beverages", img: "I2", text: "Follow what the barrel adds while the spirit matures.", stories: ["whiskey"] },
+      { id: "agriculture", name: "Agriculture", img: "I5", text: "Measure moisture, protein, starch and ash for precision farming.", stories: ["agriculture-dairy", "fruit-sorting"] },
+      { id: "cosmetics", name: "Cosmetics", img: "I6", text: { v: "Check consistency during mixing and filling so every batch matches the formula.", check: "Draft: the deck lists cosmetics without an example." }, stories: [] },
+      { id: "water", name: "Water & wastewater", graphic: "water", text: "Monitor nitrates, sulfates and H₂S, and spot impurities by fluorescence.", stories: ["water"] },
     ],
+    techniques: {
+      uvvis: {
+        name: "UV-Vis", long: "Ultraviolet and visible spectroscopy", chart: "uvvis",
+        points: [
+          "Useful for molecules with double or triple bonds.",
+          "Conjugated double bonds shift absorption toward the visible. That is what makes a solution colored.",
+          "Transition metals absorb light very strongly.",
+          "Color can be calculated from the spectrum as L*a*b* values.",
+          "HPLC-UV and HPLC-DAD are the most common UV-Vis applications overall, mostly in the lab.",
+        ],
+        chartNote: "Schematic: acetone and toluene, after NIST Chemistry WebBook spectra.",
+        stories: ["precious-metals", "paint-color", "tablet-dissolution", "whiskey", "fruit-sorting", "water", "polymerization"],
+      },
+      nirmir: {
+        name: "NIR / MIR", long: "Near- and mid-infrared spectroscopy", chart: "nirbands",
+        points: [
+          "Vibrational spectra give each molecule a unique fingerprint.",
+          "NIR is the more widely used in process.",
+          "Overtones and combinations of C–H, O–H and N–H vibrations fall in the NIR.",
+        ],
+        chartNote: { v: "Schematic: approximate NIR band regions.", check: "Band positions are textbook approximations drawn for the kiosk, not taken from the deck's chart." },
+        stories: ["natural-gas", "polymerization", "polyol", "oleochemicals", "agriculture-dairy"],
+      },
+      fluorescence: {
+        name: "Fluorescence", long: "Fluorescence spectroscopy", chart: "fluor",
+        points: [
+          "A molecule absorbs light at one wavelength (excitation) and emits light at a longer one (emission).",
+          "Very sensitive, so traces show up, for example impurities in wastewater.",
+        ],
+        chartNote: "Schematic excitation and emission spectra.",
+        example: {
+          title: "A vivid example: scheelite",
+          text: "The mineral scheelite (CaWO₄) fluoresces blue, with a maximum near 440 nm from tungstate. Where molybdenum replaces tungsten, a yellow band near 540 nm appears; a shoulder near 570 nm comes from Dy³⁺. Other common impurities are Tb³⁺, Sm³⁺ and Pr³⁺. Not a process application, but it shows how sensitive fluorescence is.",
+          chart: "scheelite",
+        },
+        stories: ["water"],
+      },
+    },
+    cases: [
+      { id: "water-solvents", route: "case", img: "K2b", title: "Water in solvents", sub: "A complete PAT project, from analytical need to service, in ten steps." },
+      { id: "precious-metals", route: "app/precious-metals", img: "P7", title: "Precious-metals refining", sub: "Why a strongly absorbing process moved from transflection to ATR." },
+    ],
+    stories: {
+      "precious-metals": {
+        title: "Precious-metals refining: from dilution to ATR", short: "Transflection needed a million-fold dilution. ATR did not.",
+        fields: ["chemistry"], technique: "uvvis", img: "P7", isCase: true,
+        lead: "Transition metals absorb UV-Vis light very strongly. For one refiner, that made a standard measurement almost unworkable until the probe changed.",
+        blocks: [
+          { h: "The problem", t: "A precious-metals refining company measured with a Falcata transflection probe with a 1 mm light path. The samples absorbed so strongly that they had to be diluted by a factor of one million to bring the absorbance into a usable range." },
+          { h: "The fix", t: "They moved to an ATR probe. ATR has an extremely short path length, so strongly absorbing liquids stay in range, and it worked beautifully." },
+          { h: "Why metals are hard", t: "Transition metals such as copper, nickel, cobalt, iron, manganese and zinc absorb light very strongly, with bands spread from the UV into the near infrared." },
+        ],
+        chart: "dilution",
+        measured: ["Transition-metal concentration"],
+        related: ["falcata-xp", "katana-xp", "principle:atr"],
+      },
+      "paint-color": {
+        title: "Paint color from the spectrum", short: "L*a*b* values calculated from UV-Vis spectra.",
+        fields: ["paint"], technique: "uvvis",
+        lead: "A UV-Vis spectrum holds everything needed to calculate a paint's color as L*a*b* values.",
+        blocks: [
+          { h: "Reading L*a*b*", t: "L* runs from dark (0) to light (100). a* runs from green (negative) to red (positive). b* runs from blue (negative) to yellow (positive). Try it with the sliders." },
+          { h: "When TiO₂ takes over", t: "TiO₂, a common white additive, takes over the signal at low dye concentrations. A blue paint with four times less pigment reads almost white: L* rises from 91.0 to 99.6." },
+        ],
+        chart: "lab",
+        tables: [
+          { caption: "Paints, measured", rows: [["Blue", 99.59, 0.11, -1.72, 0.28, -1.62, 0.53], ["Red", 97.51, 1.43, 0.32, 0.08, -3.03, 0.36], ["Yellow", 100.00, 1.15, 0.42, 0.20, 0.27, 0.76]], check: "The Blue row on slide 14 repeats the “Blue – std2” values (4× less pigment) from slide 15." },
+          { caption: "Blue, standard vs. 4× less pigment", rows: [["Blue, standard", 91.00, 6.76, -1.02, 0.50, -5.75, 2.62], ["Blue, 4× less pigment", 99.59, 0.11, -1.72, 0.28, -1.62, 0.53]] },
+        ],
+        credit: "Measured in cooperation with Mettler Toledo",
+        measured: ["L* lightness", "a* green–red", "b* blue–yellow", "Pigment level"],
+        related: ["principle:transmission", "line:process-interfaces"],
+      },
+      "tablet-dissolution": {
+        title: "Tablet dissolution testing", short: "Follow drug release as it happens.",
+        fields: ["pharma"], technique: "uvvis",
+        lead: "Dissolution tests show how fast and how completely a drug dissolves, to establish its release profile.",
+        blocks: [
+          { h: "How UV-Vis follows it", t: "UV-Vis records the absorption spectrum of the active ingredient as the tablet releases it. As the absorption rises, so does the concentration of the active ingredient in the buffer." },
+        ],
+        chart: "dissolution", chartNote: "Schematic: spectra recorded during drug release.",
+        measured: ["Active-ingredient concentration", "Release profile"],
+        related: ["principle:transmission"],
+      },
+      whiskey: {
+        title: "Whiskey maturing in the barrel", short: "Measure what the wood adds, right in the barrel.",
+        fields: ["beverages"], technique: "uvvis",
+        lead: "Wood dissolving into the spirit adds impurities that show up in the UV-Vis signal.",
+        blocks: [{ h: "Measured in place", t: "The concentration of those impurities can be measured directly in the barrel." }],
+        measured: ["Impurities from dissolved wood"],
+        related: ["principle:transmission", "principle:transflection"],
+      },
+      "fruit-sorting": {
+        title: "Fruit sorting", short: "Light scattered off the fruit reveals what the eye can't see.",
+        fields: ["food", "agriculture"], technique: "uvvis",
+        lead: "Light scattered off the fruit tells a sorter about its inside as well as its surface.",
+        blocks: [{ h: "One scan, five answers", t: "The scattered light determines sugar content, bruising, dryness, acidity and blight." }],
+        measured: ["Sugar", "Bruising", "Dryness", "Acidity", "Blight"],
+        related: ["gladius-fdr", "principle:reflection"],
+      },
+      water: {
+        title: "Water and wastewater monitoring", short: "Nitrates, sulfates, H₂S and impurities.",
+        fields: ["water"], technique: "uvvis", techniques: ["uvvis", "fluorescence"],
+        lead: "UV-Vis watches dissolved nitrates, sulfates and H₂S. Fluorescence picks up impurities in wastewater.",
+        blocks: [],
+        measured: ["Nitrates", "Sulfates", "H₂S", "Impurities (fluorescence)"],
+        related: ["principle:transmission", "principle:fluorescence"],
+      },
+      "natural-gas": {
+        title: "Natural gas composition", short: "NIR resolves the mixture; Raman adds O₂ and N₂.",
+        fields: ["petro"], technique: "nirmir",
+        lead: "Natural gas is a characteristic mixture. NIR absorption resolves its components; oxygen and nitrogen need Raman.",
+        blocks: [],
+        chart: "gas", chartNote: "Schematic NIR absorption of natural gas, 1000–2200 nm.",
+        ranges: [["Methane", 70, 90], ["Ethane, propane, butane", 0, 20], ["CO₂", 0, 8], ["H₂S", 0, 5], ["O₂", 0, 0.2, "Raman only"], ["N₂", 0, 0.2, "Raman only"], ["Ar, He, Ne, Xe", null, null, "Trace"]],
+        measured: ["Methane", "Ethane, propane, butane", "CO₂", "H₂S", "O₂ and N₂ (Raman)"],
+        related: ["sensor:nir-hd", "principle:raman"],
+      },
+      polymerization: {
+        title: "Polymerization: styrene to polystyrene", short: "Watch monomer turn into polymer.",
+        fields: ["polymers"], technique: "nirmir",
+        lead: "Many monomers have a UV signal from their double bonds, and the NIR spectrum follows the conversion from monomer to polymer.",
+        blocks: [
+          { h: "Examples", t: "PMMA, a lightweight, shatter-resistant alternative to glass. PET, for beverage, food and liquid containers." },
+          { h: "In the spectrum", t: "The spectra change from the start of polymerization, through the reaction, to its end." },
+        ],
+        chart: "polymer", chartNote: "Schematic NIR spectra: start (blue), during (green) and end (red) of polymerization.",
+        measured: ["Monomer conversion", "Reaction end point"],
+        related: ["polymer-probe", "principle:transmission"],
+      },
+      polyol: {
+        title: "Polyol production", short: "Water, viscosity, acid and hydroxyl number by NIR.",
+        fields: ["chemistry"], technique: "nirmir",
+        lead: "Most industrial polyols are made by chemical hydrogenation of sugars. NIR follows the properties that matter.",
+        blocks: [{ h: "Control in real time", t: "NIR spectra of polyol samples change with each of these parameters. Deviations show up directly, so the process can be controlled." }],
+        params: [["Water", ""], ["Viscosity", "Shapes the processing properties"], ["Acid number", "The share of acidic impurities"], ["Hydroxyl number", "Crucial for the product's reactivity"]],
+        chart: "polyol", chartNote: "Schematic NIR spectra of polyol samples with varying parameters.",
+        measured: ["Water", "Viscosity", "Acid number", "Hydroxyl number"],
+        related: ["sensor:nir-xp", "principle:transmission"],
+      },
+      oleochemicals: {
+        title: "Oleochemicals: catching contamination", short: "Keep contaminated oil out of the end product.",
+        fields: ["chemistry"], technique: "nirmir",
+        lead: "Natural oils and fats react when exposed to the atmosphere.",
+        blocks: [
+          { h: "Why monitor", t: "To keep the end product consistent even when raw-material quality varies, the process has to be watched at several steps." },
+          { h: "What it prevents", t: "Knowing the state of the reaction keeps contaminated material out of the end product." },
+        ],
+        chart: "oil", chartNote: "Schematic NIR spectra of coconut oil: pure (green) and contaminated (yellow, red).",
+        measured: ["State of reaction", "Contamination"],
+        related: ["sensor:nir-xp"],
+      },
+      "agriculture-dairy": {
+        title: "Agriculture and dairy", short: "Moisture, protein, starch, ash, fats and sugars.",
+        fields: ["agriculture", "food"], technique: "nirmir",
+        lead: "NIR measures the composition of crops and dairy products quickly, without chemicals.",
+        blocks: [
+          { h: "Precision farming", t: "Moisture, protein, starch and ash." },
+          { h: "Dairy", t: "Fats and sugars." },
+        ],
+        measured: ["Moisture", "Protein", "Starch", "Ash", "Fats", "Sugars"],
+        related: ["gladius-fdr", "sensor:nir-xp"],
+      },
+    },
   },
 
   /* ---------- About ---------- */
@@ -1041,7 +1384,6 @@ window.KIOSK = {
       { name: "Laboratory & process spectroscopy", img: "C4" },
       { name: "Spectroscopy solutions", img: "P13" },
     ],
-    check: "Annual revenue (slide 3) is left out on purpose.",
   },
 
   contact: {
@@ -1062,12 +1404,15 @@ window.KIOSK = {
       { id: "falcata", label: "Falcata transflection probes" },
       { id: "katana", label: "Katana ATR probes" },
       { id: "gladius", label: "Gladius reflection probes" },
+      { id: "polymer", label: "Polymer extruder probes" },
       { id: "espada", label: "Espada fluorescence probes" },
+      { id: "tidus", label: "Tidus Raman probes" },
       { id: "retractables", label: "Retractable housings" },
       { id: "multiplexers", label: "Multiplexers" },
       { id: "sensors", label: "Spectroscopy sensors (NIR, MIR)" },
       { id: "custom", label: "Custom solution development" },
       { id: "services", label: "PAT consulting, feasibility & chemometrics" },
+      { id: "applications", label: "Help with an application" },
     ],
     requests: ["Datasheet", "Quotation", "Call from a specialist", "Feasibility study", "Visit or demo"],
     consent: "Hellma USA may contact me about this request.",
@@ -1078,7 +1423,8 @@ window.KIOSK = {
 </script>
 <script>
 /* Hand-drawn SVG diagrams for the kiosk. Each builder returns an SVG string.
-   Light paths animate with CSS (see .beam in diagrams.css). IDs are prefixed so several can share a page. */
+   Interactive diagrams are drawn once with every state present; the app switches states by toggling
+   classes or attributes, so nothing is rebuilt and the page never jumps. */
 (function () {
   var uid = 0;
   function P() { uid += 1; return "d" + uid; }
@@ -1090,6 +1436,7 @@ window.KIOSK = {
       '<linearGradient id="' + p + 's" x1="0" x2="1"><stop offset="0" stop-color="#d9f1ff"/><stop offset=".5" stop-color="#ffffff"/><stop offset="1" stop-color="#bfe3fb"/></linearGradient>' +
       '<radialGradient id="' + p + 'g"><stop offset="0" stop-color="#7fe0a8" stop-opacity=".95"/><stop offset="1" stop-color="#7fe0a8" stop-opacity="0"/></radialGradient>' +
       '<radialGradient id="' + p + 'w"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#ffffff" stop-opacity="0"/></radialGradient>' +
+      '<radialGradient id="' + p + 'b"><stop offset="0" stop-color="#8fd0ff" stop-opacity=".9"/><stop offset="1" stop-color="#8fd0ff" stop-opacity="0"/></radialGradient>' +
       '</defs>';
   }
   function liquid(p, y) {
@@ -1099,25 +1446,26 @@ window.KIOSK = {
     pts.forEach(function (q, i) { parts += '<circle class="particle" style="animation-delay:' + (-i * 0.8) + 's" cx="' + q[0] + '" cy="' + q[1] + '" r="' + (3 + (i % 3)) + '" fill="#ffffff" opacity=".55"/>'; });
     return '<path d="' + w + '" fill="url(#' + p + 'l)"/>' + parts;
   }
-  function beam(d, cls) {
-    return '<path class="beam-halo ' + cls + '" d="' + d + '"/><path class="beam ' + cls + '" d="' + d + '"/>';
-  }
+  function beam(d, cls) { return '<path class="beam-halo ' + cls + '" d="' + d + '"/><path class="beam ' + cls + '" d="' + d + '"/>'; }
   function label(x, y, text, tx, ty, anchor) {
     var a = anchor || "start";
     return '<path class="leader" d="M' + x + ' ' + y + ' L' + tx + ' ' + ty + '"/><circle cx="' + x + '" cy="' + y + '" r="3" fill="#575756"/>' +
       '<text class="lbl" x="' + (a === "end" ? tx - 6 : tx + 6) + '" y="' + (ty + 5) + '" text-anchor="' + a + '">' + text + '</text>';
   }
-  function fiber() { return '<rect x="226" y="-6" width="80" height="50" rx="8" fill="#39434d"/><rect x="226" y="34" width="80" height="10" fill="#2a323a"/>'; }
-  function wrap(p, body, title) {
-    return '<svg viewBox="0 0 520 380" role="img" aria-label="' + title + '">' + defs(p) + body + '</svg>';
+  /* Two-line label for longer captions that would run past the edge */
+  function label2(x, y, t1, t2, tx, ty, anchor) {
+    var a = anchor || "start", lx = a === "end" ? tx - 6 : tx + 6;
+    return '<path class="leader" d="M' + x + ' ' + y + ' L' + tx + ' ' + ty + '"/><circle cx="' + x + '" cy="' + y + '" r="3" fill="#575756"/>' +
+      '<text class="lbl" x="' + lx + '" y="' + (ty + 5) + '" text-anchor="' + a + '">' + t1 + '</text><text class="lbl" x="' + lx + '" y="' + (ty + 23) + '" text-anchor="' + a + '">' + t2 + '</text>';
   }
+  function fiber(x0, w) { x0 = x0 || 226; w = w || 80; return '<rect x="' + x0 + '" y="-6" width="' + w + '" height="50" rx="8" fill="#39434d"/><rect x="' + x0 + '" y="34" width="' + w + '" height="10" fill="#2a323a"/>'; }
+  function wrap(p, body, title) { return '<svg viewBox="0 0 520 380" role="img" aria-label="' + title + '">' + defs(p) + body + '</svg>'; }
 
   var D = {};
 
   D.transmission = function () {
     var p = P();
-    var b = liquid(p, 150) +
-      fiber(260) +
+    var b = liquid(p, 150) + fiber() +
       '<rect x="215" y="40" width="90" height="170" rx="6" fill="url(#' + p + 'm)" stroke="#7d8893"/>' +
       '<rect x="290" y="205" width="15" height="62" fill="url(#' + p + 'm)" stroke="#7d8893"/>' +
       '<rect x="215" y="262" width="90" height="46" rx="6" fill="url(#' + p + 'm)" stroke="#7d8893"/>' +
@@ -1134,7 +1482,7 @@ window.KIOSK = {
 
   D.transflection = function () {
     var p = P();
-    var b = liquid(p, 150) + fiber(260) +
+    var b = liquid(p, 150) + fiber() +
       '<rect x="215" y="40" width="90" height="160" rx="6" fill="url(#' + p + 'm)" stroke="#7d8893"/>' +
       '<rect x="215" y="196" width="12" height="60" fill="url(#' + p + 'm)" stroke="#7d8893"/>' +
       '<rect x="293" y="196" width="12" height="60" fill="url(#' + p + 'm)" stroke="#7d8893"/>' +
@@ -1144,14 +1492,14 @@ window.KIOSK = {
       beam("M250 0 V196 L257 250", "in") + beam("M263 250 L270 196 V0", "out") +
       '<path d="M196 200 V250 M190 200 H202 M190 250 H202" stroke="#0a3a5f" stroke-width="2" fill="none"/>' +
       '<text class="lbl b" x="184" y="222" text-anchor="end">Light crosses</text><text class="lbl" x="184" y="242" text-anchor="end">the gap twice</text>' +
-      label(290, 197, "Window", 336, 176) + label(290, 252, "Mirror", 336, 300) + label(268, 22, "Optical fiber", 336, 26);
+      label(290, 197, "Window", 336, 176) + label(290, 252, "Mirror", 336, 300) + label(268, 22, "Optical fibers", 336, 26);
     return wrap(p, b, "Transflection: light crosses the gap, reflects off a mirror and crosses again");
   };
 
   D.atr = function () {
     var p = P();
     var glow = function (x, y, d) { return '<circle class="pulse" style="animation-delay:' + d + 's" cx="' + x + '" cy="' + y + '" r="16" fill="url(#' + p + 'g)"/>'; };
-    var b = liquid(p, 140) + fiber(260) +
+    var b = liquid(p, 140) + fiber() +
       '<rect x="215" y="40" width="90" height="176" rx="6" fill="url(#' + p + 'm)" stroke="#7d8893"/>' +
       '<path d="M220 214 L300 214 L275 300 L245 300 Z" fill="url(#' + p + 's)" stroke="#6fb6e3" stroke-width="1.5"/>' +
       glow(226, 258, 0) + glow(260, 306, .5) + glow(294, 258, 1) +
@@ -1161,59 +1509,80 @@ window.KIOSK = {
     return wrap(p, b, "ATR: light reflects three times inside a sapphire element touching the medium");
   };
 
+  /* Reflection: illumination down the outer fibers, focused on the sample; diffuse light back up the center */
   D.reflection = function () {
     var p = P();
     var bed = '';
     for (var i = 0; i < 70; i++) {
-      var x = (i * 37) % 520, y = 296 + ((i * 53) % 80);
+      var x = (i * 37) % 520, y = 300 + ((i * 53) % 80);
       bed += '<circle cx="' + x + '" cy="' + y + '" r="' + (6 + (i % 4) * 2) + '" fill="' + (i % 3 ? "#d9dfe4" : "#c3ccd4") + '"/>';
     }
-    var b = '<rect x="0" y="290" width="520" height="90" fill="#e9edf0"/>' + bed + fiber(260) +
+    var b = '<rect x="0" y="294" width="520" height="86" fill="#e9edf0"/>' + bed + fiber() +
       '<rect x="215" y="40" width="90" height="120" rx="6" fill="url(#' + p + 'm)" stroke="#7d8893"/>' +
       '<rect x="225" y="156" width="70" height="7" fill="url(#' + p + 's)" stroke="#8cc7ea"/>' +
-      '<circle cx="260" cy="296" r="22" fill="url(#' + p + 'w)"/>' +
-      beam("M240 0 V160 L260 294", "in") + beam("M280 0 V160 L260 294", "in") +
-      beam("M260 294 L236 163 V0", "out") + beam("M260 294 L284 163 V0", "out") +
-      '<path class="beam out faint" d="M260 294 L170 200"/><path class="beam out faint" d="M260 294 L350 200"/><path class="beam out faint" d="M260 294 L140 250"/><path class="beam out faint" d="M260 294 L380 250"/>' +
+      '<circle cx="260" cy="296" r="24" fill="url(#' + p + 'w)"/>' +
+      beam("M232 0 V160 L258 294", "in") + beam("M288 0 V160 L262 294", "in") +
+      '<path class="beam out faint" d="M260 294 L196 262"/><path class="beam out faint" d="M260 294 L324 262"/>' +
+      '<path class="beam out faint" d="M260 294 L176 284"/><path class="beam out faint" d="M260 294 L344 284"/>' +
+      '<path class="beam out faint" d="M260 294 L214 232"/><path class="beam out faint" d="M260 294 L306 232"/>' +
+      beam("M260 294 V0", "out") +
       '<path d="M372 163 V292 M366 163 H378 M366 292 H378" stroke="#0a3a5f" stroke-width="2" fill="none"/>' +
       '<text class="lbl b" x="384" y="222">Contact or</text><text class="lbl" x="384" y="242">up to 100 mm</text>' +
-      label(226, 160, "Window", 150, 130, "end") + label(262, 300, "Diffuse reflection", 150, 330, "end") + label(268, 22, "Fiber bundle", 336, 26);
-    return wrap(p, b, "Reflection: light is focused on the sample and the diffusely reflected light is collected");
+      label(232, 100, "Illumination fibers", 150, 92, "end") + label(260, 120, "Collection fiber", 336, 112) +
+      label(226, 160, "Window", 150, 150, "end") + label(262, 300, "Diffuse reflection", 150, 330, "end");
+    return wrap(p, b, "Reflection: light from the outer fibers is focused on the sample; the center fiber collects the diffusely reflected light");
   };
 
+  /* Fluorescence, Espada geometry: excitation turned 90° by a prism across the gap, emission collected at 90° */
   D.fluorescence = function () {
     var p = P();
-    var mol = [[245, 250], [270, 285], [252, 318], [285, 240], [238, 290]];
+    var mol = [[268, 226], [298, 220], [326, 230], [284, 236], [314, 214]];
     var m = '';
-    mol.forEach(function (q, i) { m += '<circle class="pulse" style="animation-delay:' + (i * .35) + 's" cx="' + q[0] + '" cy="' + q[1] + '" r="14" fill="url(#' + p + 'g)"/><circle cx="' + q[0] + '" cy="' + q[1] + '" r="4" fill="#2fb36b"/>'; });
-    var b = liquid(p, 150) + fiber(260) +
-      '<rect x="215" y="40" width="90" height="160" rx="6" fill="url(#' + p + 'm)" stroke="#7d8893"/>' +
-      '<rect x="225" y="196" width="70" height="7" fill="url(#' + p + 's)" stroke="#8cc7ea"/>' +
-      beam("M250 0 V330", "in") + m +
-      beam("M245 250 L240 203 V0", "green") + beam("M285 240 L280 203 V0", "green") +
-      '<path class="beam green faint" d="M270 285 L340 330"/><path class="beam green faint" d="M252 318 L190 350"/>' +
-      label(250, 300, "Excitation light", 150, 300, "end") + label(287, 238, "Emitted light,", 336, 230) +
-      '<text class="lbl" x="342" y="255">longer wavelength</text>' + label(268, 22, "Optical fibers", 336, 26);
-    return wrap(p, b, "Fluorescence: excitation light makes the sample emit light at longer wavelengths");
+    mol.forEach(function (q, i) { m += '<circle class="pulse" style="animation-delay:' + (i * .35) + 's" cx="' + q[0] + '" cy="' + q[1] + '" r="13" fill="url(#' + p + 'g)"/><circle cx="' + q[0] + '" cy="' + q[1] + '" r="3.5" fill="#2fb36b"/>'; });
+    var b = liquid(p, 120) + fiber(176, 150) +
+      '<rect x="170" y="40" width="200" height="156" rx="6" fill="url(#' + p + 'm)" stroke="#7d8893"/>' +
+      '<rect x="170" y="196" width="66" height="60" fill="url(#' + p + 'm)" stroke="#7d8893"/>' +
+      '<rect x="364" y="196" width="16" height="60" fill="#aab4bd" stroke="#7d8893"/>' +
+      '<rect x="170" y="256" width="210" height="46" rx="6" fill="url(#' + p + 'm)" stroke="#7d8893"/>' +
+      '<path d="M184 208 L224 208 L184 248 Z" fill="#e8f6ff" stroke="#8cc7ea"/>' +
+      '<rect x="234" y="200" width="5" height="52" fill="url(#' + p + 's)" stroke="#8cc7ea"/>' +
+      '<rect x="270" y="192" width="60" height="5" fill="url(#' + p + 's)" stroke="#8cc7ea"/>' +
+      beam("M200 0 V226 H362", "in") + m +
+      beam("M300 226 V0", "green") + '<path class="beam green faint" d="M300 232 V254"/>' +
+      label(200, 120, "Excitation fiber", 150, 112, "end") + label2(198, 236, "Prism turns", "the light 90°", 150, 300, "end") +
+      label2(300, 120, "Emission", "collected at 90°", 392, 104) + label2(332, 240, "Sample in the", "measuring gap", 392, 322);
+    return wrap(p, b, "Fluorescence: excitation crosses the measuring gap; emitted light is collected at a right angle");
   };
 
-  /* Multiplexer: lamp and detector switched together to one of four measuring points */
-  D.multiplexer = function (active) {
-    var a = active || 0;
-    var ys = [70, 160, 250, 340];
-    var ports = [158, 192, 226, 260];
-    var fibers = '';
+  /* Raman: laser focused into the sample; filter blocks the laser line, shifted light returns */
+  D.raman = function () {
+    var p = P();
+    var b = liquid(p, 150) + fiber() +
+      '<rect x="215" y="40" width="90" height="160" rx="6" fill="url(#' + p + 'm)" stroke="#7d8893"/>' +
+      '<rect x="225" y="196" width="70" height="7" fill="url(#' + p + 's)" stroke="#8cc7ea"/>' +
+      '<rect x="268" y="150" width="30" height="10" fill="#2b3640"/>' +
+      '<circle cx="258" cy="290" r="26" fill="url(#' + p + 'b)" class="pulse"/>' +
+      beam("M244 0 V200 L258 290", "in") +
+      '<path class="beam in faint" d="M258 290 L200 250"/><path class="beam in faint" d="M258 290 L320 250"/><path class="beam in faint" d="M258 290 L190 300"/><path class="beam in faint" d="M258 290 L330 304"/>' +
+      '<path class="beam in faint" d="M258 290 L282 200 V162"/>' +
+      beam("M262 290 L284 200 V0", "out thin") +
+      label(244, 100, "Laser", 150, 92, "end") + label2(296, 155, "Filter blocks", "the laser line", 336, 150) +
+      label(284, 80, "Raman-shifted light", 336, 60) + label2(258, 300, "Focused", "measuring spot", 150, 322, "end");
+    return wrap(p, b, "Raman: a laser excites the sample and a filter passes only the weak, wavelength-shifted light");
+  };
+
+  /* Multiplexer: all four channels drawn once; the app sets data-ch on the svg */
+  D.multiplexer = function () {
+    var ys = [70, 160, 250, 340], ports = [158, 192, 226, 260];
+    var ch = '';
     ys.forEach(function (y, i) {
-      var on = i === a;
       var d = 'M452 ' + ports[i] + ' C 560 ' + ports[i] + ', 600 ' + y + ', 700 ' + y;
-      fibers += '<path d="' + d + '" fill="none" stroke="' + (on ? "#9cc9e8" : "#d5dbe0") + '" stroke-width="' + (on ? 8 : 5) + '" stroke-linecap="round"/>';
-      if (on) fibers += '<path class="beam in" d="' + d + '"/>' + '<path class="beam out rev" d="M700 ' + (y + 8) + ' C 600 ' + (y + 8) + ', 560 ' + (ports[i] + 8) + ', 452 ' + (ports[i] + 8) + '"/>';
-      fibers += '<g class="mp' + (on ? ' on' : '') + '" data-ch="' + i + '"><rect x="700" y="' + (y - 26) + '" width="180" height="52" rx="6" fill="' + (on ? "#0072b6" : "#ffffff") + '" stroke="' + (on ? "#0072b6" : "#c9d1d8") + '"/>' +
-        '<rect x="712" y="' + (y - 6) + '" width="46" height="12" rx="6" fill="' + (on ? "#ffffff" : "#aab4bd") + '"/>' +
-        '<text x="770" y="' + (y + 6) + '" class="lbl' + (on ? ' w' : '') + '">Point ' + (i + 1) + '</text></g>';
+      var r = 'M700 ' + (y + 8) + ' C 600 ' + (y + 8) + ', 560 ' + (ports[i] + 8) + ', 452 ' + (ports[i] + 8);
+      ch += '<g class="mpc" data-ch="' + i + '"><path class="fib" d="' + d + '"/><g class="act"><path class="beam in" d="' + d + '"/><path class="beam out" d="' + r + '"/></g>' +
+        '<g class="mp" data-ch="' + i + '"><rect class="box" x="700" y="' + (y - 26) + '" width="180" height="52" rx="6"/><rect class="led" x="712" y="' + (y - 6) + '" width="46" height="12" rx="6"/>' +
+        '<text x="770" y="' + (y + 6) + '" class="lbl pt">Point ' + (i + 1) + '</text></g></g>';
     });
-    var ang = [-50, -17, 17, 50][a];
-    return '<svg viewBox="0 0 900 420" role="img" aria-label="Multiplexer switching between four measuring points">' +
+    return '<svg viewBox="0 0 900 420" role="img" aria-label="Multiplexer switching between four measuring points" class="muxsvg" data-ch="0">' +
       '<rect x="14" y="150" width="150" height="120" rx="6" fill="#f2f2f2" stroke="#c9d1d8"/>' +
       '<rect x="44" y="172" width="90" height="56" rx="3" fill="#0a3a5f"/><path d="M52 214 L70 200 L84 208 L100 190 L126 196" stroke="#7fd1ff" stroke-width="3" fill="none"/>' +
       '<text x="89" y="252" text-anchor="middle" class="lbl b">Control room</text>' +
@@ -1227,61 +1596,61 @@ window.KIOSK = {
       '<text x="266" y="318" text-anchor="middle" class="lbl s">Spectrometer</text>' +
       '<rect x="352" y="130" width="100" height="160" rx="6" fill="#1f2a33"/>' +
       '<circle cx="402" cy="210" r="36" fill="#c5ccd2" stroke="#8d99a5" stroke-width="2"/>' +
-      '<g class="dial" style="transform: rotate(' + ang + 'deg); transform-origin: 402px 210px"><path d="M402 210 L436 210" stroke="#0072b6" stroke-width="6" stroke-linecap="round"/><circle cx="402" cy="210" r="7" fill="#0072b6"/></g>' +
+      '<g class="dial"><path d="M402 210 L436 210" stroke="#0072b6" stroke-width="6" stroke-linecap="round"/><circle cx="402" cy="210" r="7" fill="#0072b6"/></g>' +
       '<text x="402" y="312" text-anchor="middle" class="lbl s">Multiplexer</text>' +
       ports.map(function (y) { return '<circle cx="452" cy="' + y + '" r="6" fill="#8d99a5"/>'; }).join('') +
       '<path class="beam in" d="M284 130 C 320 130, 330 170, 352 176"/>' +
-      '<path class="beam out" d="M352 250 C 335 256, 324 262, 310 266"/>' +
-      fibers + '</svg>';
+      '<path class="beam out" d="M352 250 C 335 256, 324 262, 310 266"/>' + ch + '</svg>';
   };
+  D.MUX_ANGLES = [-50, -17, 17, 50];
 
-  /* PAT measuring positions */
-  D.positions = function (sel) {
-    function g(id, inner) { return '<g class="pos' + (sel && sel !== id ? ' dim' : '') + (sel === id ? ' sel' : '') + '" data-pos="' + id + '">' + inner + '</g>'; }
+  /* PAT measuring positions: drawn once; the app sets data-sel on the svg */
+  D.positions = function () {
+    function g(id, inner) { return '<g class="pos" data-pos="' + id + '">' + inner + '</g>'; }
     var chev = '';
     for (var x = 70; x < 860; x += 70) chev += '<path class="flowchev" d="M' + x + ' 92 l10 8 l-10 8" stroke="#ffffff" stroke-width="3" fill="none"/>';
-    return '<svg viewBox="0 0 900 400" role="img" aria-label="Inline, online, atline and offline measuring positions">' +
+    return '<svg viewBox="0 0 900 400" role="img" aria-label="Offline, atline, online and inline measuring positions" class="possvg" data-sel="offline">' +
       '<rect x="20" y="78" width="860" height="44" rx="22" fill="#e9a36a"/><rect x="20" y="78" width="860" height="14" rx="7" fill="#f2c39c"/>' + chev +
       '<text x="30" y="60" class="lbl b m">Production line</text>' +
-      g("inline", '<rect x="690" y="20" width="200" height="140" fill="transparent"/><rect x="738" y="20" width="16" height="84" rx="4" fill="#9aa6b1"/><rect x="734" y="98" width="24" height="10" rx="3" fill="#0072b6"/><circle cx="746" cy="100" r="16" fill="#7fd1ff" opacity=".45" class="pulse"/>' +
-        '<text x="770" y="44" class="lbl b xl">Inline</text><text x="770" y="64" class="lbl m">in the stream</text>') +
-      g("online", '<rect x="440" y="120" width="220" height="150" fill="transparent"/><path d="M480 122 V210 H620 V122" stroke="#e9a36a" stroke-width="14" fill="none" stroke-linejoin="round"/>' +
-        '<rect x="530" y="196" width="40" height="28" rx="4" fill="#0072b6"/><path d="M550 224 V250" stroke="#39434d" stroke-width="4"/><rect x="518" y="250" width="64" height="30" rx="3" fill="#1f2a33"/>' +
-        '<text x="640" y="222" class="lbl b xl">Online</text><text x="640" y="242" class="lbl m">bypass loop</text>') +
-      g("atline", '<rect x="220" y="120" width="200" height="200" fill="transparent"/><path d="M270 122 V150" stroke="#9aa6b1" stroke-width="8"/><rect x="262" y="148" width="16" height="10" fill="#0072b6"/>' +
+      g("offline", '<rect x="10" y="120" width="210" height="270" fill="transparent"/><path d="M110 122 V150" stroke="#9aa6b1" stroke-width="8"/><rect x="102" y="148" width="16" height="10" fill="#0072b6"/>' +
+        '<path d="M110 165 C 110 230, 70 250, 70 300" stroke="#878787" stroke-width="2.5" stroke-dasharray="6 6" fill="none"/>' +
+        '<rect x="30" y="300" width="150" height="74" rx="4" fill="#f4f8fc" stroke="#c9ddef" stroke-width="2"/><path d="M58 352 L70 328 V316 H82 V328 L94 352 Z" fill="#ffffff" stroke="#0072b6" stroke-width="2"/><text x="104" y="344" class="lbl s">Lab</text>' +
+        '<text x="196" y="338" class="lbl b xl">Offline</text><text x="196" y="362" class="lbl m">sample to the lab</text>') +
+      g("atline", '<rect x="220" y="120" width="200" height="180" fill="transparent"/><path d="M270 122 V150" stroke="#9aa6b1" stroke-width="8"/><rect x="262" y="148" width="16" height="10" fill="#0072b6"/>' +
         '<path d="M270 162 v14" stroke="#e9a36a" stroke-width="3" stroke-dasharray="3 5" class="drip"/>' +
         '<rect x="236" y="250" width="170" height="10" rx="3" fill="#c9d1d8"/><rect x="262" y="214" width="16" height="36" rx="3" fill="#ffffff" stroke="#878787"/><rect x="264" y="230" width="12" height="18" fill="#e9a36a"/>' +
         '<rect x="312" y="214" width="66" height="36" rx="3" fill="#1f2a33"/><rect x="320" y="222" width="30" height="10" fill="#7fd1ff"/>' +
-        '<text x="240" y="290" class="lbl b xl">Atline</text><text x="240" y="310" class="lbl m">next to the line</text>') +
-      g("offline", '<rect x="10" y="120" width="210" height="270" fill="transparent"/><path d="M110 122 V150" stroke="#9aa6b1" stroke-width="8"/><rect x="102" y="148" width="16" height="10" fill="#0072b6"/>' +
-        '<path d="M110 165 C 110 230, 70 250, 70 300" stroke="#878787" stroke-width="2.5" stroke-dasharray="6 6" fill="none"/>' +
-        '<rect x="30" y="300" width="150" height="74" rx="4" fill="#f4f8fc" stroke="#c9ddef" stroke-width="2"/><path d="M58 352 L70 328 V316 H82 V328 L94 352 Z" fill="#ffffff" stroke="#0072b6" stroke-width="2"/><text x="104" y="344" class="lbl m">Lab</text>' +
-        '<text x="128" y="230" class="lbl b xl">Offline</text><text x="128" y="250" class="lbl m">sample to the lab</text>') +
+        '<text x="300" y="186" class="lbl b xl">Atline</text><text x="300" y="206" class="lbl m">next to the line</text>') +
+      g("online", '<rect x="440" y="120" width="230" height="170" fill="transparent"/><path d="M480 122 V210 H620 V122" stroke="#e9a36a" stroke-width="14" fill="none" stroke-linejoin="round"/>' +
+        '<rect x="530" y="196" width="40" height="28" rx="4" fill="#0072b6"/><path d="M550 224 V250" stroke="#39434d" stroke-width="4"/><rect x="518" y="250" width="64" height="30" rx="3" fill="#1f2a33"/>' +
+        '<text x="640" y="222" class="lbl b xl">Online</text><text x="640" y="246" class="lbl m">bypass loop</text>') +
+      g("inline", '<rect x="690" y="10" width="200" height="150" fill="transparent"/><rect x="738" y="20" width="16" height="84" rx="4" fill="#9aa6b1"/><rect x="734" y="98" width="24" height="10" rx="3" fill="#0072b6"/><circle cx="746" cy="100" r="16" fill="#7fd1ff" opacity=".45" class="pulse"/>' +
+        '<text x="770" y="44" class="lbl b xl">Inline</text><text x="770" y="66" class="lbl m">in the stream</text>') +
       '</svg>';
   };
 
-  /* Case study: before / after */
-  D.beforeAfter = function (after) {
+  /* Case study: before and after drawn together; the app sets data-after on the svg */
+  D.beforeAfter = function () {
     var col = '<rect x="60" y="40" width="60" height="230" rx="28" fill="url(#cbm)" stroke="#8d99a5"/><path d="M70 90 H110 M70 130 H110 M70 170 H110 M70 210 H110" stroke="#aab4bd" stroke-width="2"/>' +
       '<path d="M90 40 V20 H300 V150" stroke="#9aa6b1" stroke-width="10" fill="none" stroke-linejoin="round"/>' +
       '<path d="M250 150 H350 V250 Q 350 290 300 290 Q 250 290 250 250 Z" fill="url(#cbm)" stroke="#8d99a5"/>' +
       '<path d="M253 205 H347 V250 Q 347 287 300 287 Q 253 287 253 250 Z" fill="#f6b45a" opacity=".85"/>' +
       '<text x="90" y="300" text-anchor="middle" class="lbl s">Distillation</text><text x="300" y="320" text-anchor="middle" class="lbl s">Collection tank</text>' +
       '<g transform="translate(150 210)"><path d="M0 -26 L23 -13 V13 L0 26 L-23 13 V-13 Z" fill="#ffd400" stroke="#1e2328" stroke-width="2"/><text x="0" y="7" text-anchor="middle" style="font: 700 18px sans-serif" fill="#1e2328">Ex</text></g>';
-    var before = '<path d="M300 290 V308" stroke="#9aa6b1" stroke-width="6"/><rect x="292" y="300" width="16" height="8" fill="#0072b6"/>' +
+    var before = '<g class="ba-before"><path d="M300 290 V308" stroke="#9aa6b1" stroke-width="6"/><rect x="292" y="300" width="16" height="8" fill="#0072b6"/>' +
       '<path d="M320 312 C 420 312, 440 250, 520 250" stroke="#878787" stroke-width="2.5" stroke-dasharray="7 7" fill="none" class="march"/>' +
       '<circle cx="470" cy="210" r="10" fill="#0a3a5f"/><path d="M470 222 V258 M470 232 L456 248 M470 232 L486 244 M470 258 L458 284 M470 258 L482 284" stroke="#0a3a5f" stroke-width="5" stroke-linecap="round"/>' +
       '<rect x="540" y="200" width="180" height="100" rx="6" fill="#f4f8fc" stroke="#c9ddef" stroke-width="2"/><path d="M574 270 L588 240 V226 H602 V240 L616 270 Z" fill="#fff" stroke="#0072b6" stroke-width="2"/>' +
       '<circle cx="676" cy="246" r="20" fill="#fff" stroke="#c2410c" stroke-width="3"/><path d="M676 246 V232 M676 246 L686 252" stroke="#c2410c" stroke-width="3" stroke-linecap="round"/>' +
-      '<text x="630" y="190" text-anchor="middle" class="lbl b">Offline: sample to the lab</text><text x="630" y="328" text-anchor="middle" class="lbl s">Batch waits for the result</text>';
-    var aft = '<path d="M350 250 H420" stroke="#9aa6b1" stroke-width="8"/><rect x="404" y="238" width="30" height="24" rx="4" fill="#0072b6"/><circle cx="419" cy="250" r="20" fill="#7fd1ff" opacity=".45" class="pulse"/>' +
+      '<text x="630" y="190" text-anchor="middle" class="lbl b">Offline: sample to the lab</text><text x="630" y="328" text-anchor="middle" class="lbl s">Batch waits for the result</text></g>';
+    var aft = '<g class="ba-after"><path d="M350 250 H420" stroke="#9aa6b1" stroke-width="8"/><rect x="404" y="238" width="30" height="24" rx="4" fill="#0072b6"/><circle cx="419" cy="250" r="20" fill="#7fd1ff" opacity=".45" class="pulse"/>' +
       '<path d="M434 250 C 490 250, 500 150, 560 150" stroke="#9cc9e8" stroke-width="6" fill="none"/><path class="beam in" d="M434 250 C 490 250, 500 150, 560 150"/>' +
       '<rect x="560" y="110" width="160" height="80" rx="6" fill="#1f2a33"/><rect x="574" y="124" width="132" height="40" fill="#0a3a5f"/><path class="trace" d="M578 154 L600 150 L620 152 L640 140 L660 146 L680 138 L702 142" stroke="#7fd1ff" stroke-width="2.5" fill="none"/>' +
       '<text x="640" y="92" text-anchor="middle" class="lbl b">Online: Excalibur flow cell</text><text x="640" y="214" text-anchor="middle" class="lbl s">Real-time batch release</text>' +
-      '<g transform="translate(640 262)"><circle r="22" fill="#2e7d4f"/><path d="M-10 0 L-3 8 L11 -8" stroke="#fff" stroke-width="4" fill="none" stroke-linecap="round"/></g>';
-    return '<svg viewBox="0 0 760 340" role="img" aria-label="' + (after ? "Online measurement on the collection tank" : "Offline lab sample from the collection tank") + '">' +
+      '<g transform="translate(640 262)"><circle r="22" fill="#2e7d4f"/><path d="M-10 0 L-3 8 L11 -8" stroke="#fff" stroke-width="4" fill="none" stroke-linecap="round"/></g></g>';
+    return '<svg viewBox="0 0 760 340" role="img" aria-label="Offline lab sample versus online measurement on the collection tank" class="basvg" data-after="1">' +
       '<defs><linearGradient id="cbm" x1="0" x2="1"><stop offset="0" stop-color="#b8c2cb"/><stop offset=".4" stop-color="#f1f4f6"/><stop offset="1" stop-color="#a8b3bd"/></linearGradient></defs>' +
-      col + (after ? aft : before) + '</svg>';
+      col + before + aft + '</svg>';
   };
 
   D.atex = function () {
@@ -1301,46 +1670,53 @@ window.KIOSK = {
       '<text x="520" y="84" class="lbl s">Optical fiber through the wall</text></svg>';
   };
 
+  /* Calibration timeline: points grouped by phase; the app sets data-show = 0, 1 or 2 */
   D.model = function () {
-    var pts = '';
     var seed = 7;
     function rnd() { seed = (seed * 9301 + 49297) % 233280; return seed / 233280; }
-    var phases = [[60, 330, "#1f6fb2", 34], [340, 500, "#36c26b", 16], [560, 720, "#9a8a2a", 12]];
-    phases.forEach(function (ph, k) {
-      for (var i = 0; i < ph[3]; i++) {
-        var x = ph[0] + rnd() * (ph[1] - ph[0]); var y = 60 + rnd() * 70;
-        var c = (k === 0 && i % 3 === 2) ? "#2aa65b" : ph[2];
-        pts += '<rect class="pop" style="animation-delay:' + (k * .6 + i * .03).toFixed(2) + 's" x="' + x.toFixed(1) + '" y="' + y.toFixed(1) + '" width="9" height="9" transform="rotate(45 ' + (x + 4.5).toFixed(1) + ' ' + (y + 4.5).toFixed(1) + ')" fill="' + c + '"/>';
+    function diamond(x, y, c) { return '<path d="M' + x.toFixed(1) + ' ' + (y - 6).toFixed(1) + ' l6 6 l-6 6 l-6 -6 Z" fill="' + c + '"/>'; }
+    var phases = [
+      { x0: 70, x1: 330, n: 30, c: "#1f6fb2", c2: "#2aa65b" },
+      { x0: 360, x1: 520, n: 14, c: "#36c26b" },
+      { x0: 560, x1: 720, n: 12, c: "#9a8a2a" },
+    ];
+    var groups = phases.map(function (ph, k) {
+      var pts = '';
+      for (var i = 0; i < ph.n; i++) {
+        var x = ph.x0 + rnd() * (ph.x1 - ph.x0), y = 50 + rnd() * 100;
+        pts += diamond(x, y, (k === 0 && i % 3 === 2) ? ph.c2 : ph.c);
       }
-    });
-    return '<svg viewBox="0 0 760 260" role="img" aria-label="Calibration, external validation and revalidation over time">' +
-      '<path d="M40 30 V170 H740" stroke="#575756" stroke-width="2" fill="none"/><path d="M732 164 L742 170 L732 176" stroke="#575756" stroke-width="2" fill="none"/>' +
-      '<text x="30" y="110" class="lbl s" transform="rotate(-90 30 110)" text-anchor="middle">concentration</text><text x="740" y="194" class="lbl s" text-anchor="end">time</text>' +
-      pts +
-      '<path d="M60 186 V196 H330 V186 M340 186 V196 H500 V186 M560 186 V196 H720 V186" stroke="#878787" fill="none"/>' +
-      '<text x="195" y="220" text-anchor="middle" class="lbl b">Calibration</text><text x="420" y="220" text-anchor="middle" class="lbl b">External validation</text><text x="640" y="220" text-anchor="middle" class="lbl b">Revalidation</text>' +
-      '</svg>';
+      return '<g class="ph ph' + k + '">' + pts + '</g>';
+    }).join('');
+    var lab = [["Calibration", 70, 330], ["External validation", 360, 520], ["Revalidation", 560, 720]].map(function (l, k) {
+      return '<g class="phl phl' + k + '" data-phase="' + k + '"><rect x="' + (l[1] - 6) + '" y="176" width="' + (l[2] - l[1] + 12) + '" height="58" fill="transparent"/>' +
+        '<path d="M' + l[1] + ' 186 V196 H' + l[2] + ' V186" stroke="#878787" fill="none"/><text x="' + ((l[1] + l[2]) / 2) + '" y="222" text-anchor="middle" class="lbl b">' + l[0] + '</text></g>';
+    }).join('');
+    return '<svg viewBox="0 0 760 250" role="img" aria-label="Calibration, external validation and revalidation over time" class="modelsvg" data-show="0">' +
+      '<path d="M50 30 V170 H740" stroke="#575756" stroke-width="2" fill="none"/><path d="M732 164 L742 170 L732 176" stroke="#575756" stroke-width="2" fill="none"/>' +
+      '<text x="36" y="100" class="lbl s" transform="rotate(-90 36 100)" text-anchor="middle">concentration</text><text x="740" y="160" class="lbl s" text-anchor="end">time</text>' +
+      groups + lab + '</svg>';
   };
 
-  D.vmodel = function (sel, stages) {
+  /* V-model: drawn once; the app sets data-sel on the svg */
+  D.vmodel = function (stages) {
     var yc = [64, 130, 196, 262];
     function xc(side, lvl) { var off = (yc[lvl] - 60) * 1.11; return side === "L" ? 80 + off : 680 - off; }
-    var out = '<svg viewBox="0 0 760 380" role="img" aria-label="V-model of qualification">' +
+    var out = '<svg viewBox="0 0 760 380" role="img" aria-label="V-model of qualification" class="vsvg" data-sel="urs">' +
       '<path d="M80 60 L380 330 L680 60" stroke="#c9ddef" stroke-width="40" fill="none" stroke-linejoin="round" stroke-linecap="round"/>';
     stages.forEach(function (s) {
       var x = xc(s.side, s.lvl), y = yc[s.lvl];
       var short = s.name.match(/\(([^)]+)\)/);
-      var t = short ? short[1] : s.name;
-      var on = sel === s.id;
-      out += '<g class="vst" data-v="' + s.id + '"><rect x="' + (x - 66) + '" y="' + (y - 24) + '" width="132" height="48" rx="24" fill="' + (on ? "#00569d" : "#0072b6") + '" stroke="' + (on ? "#0a3a5f" : "#ffffff") + '" stroke-width="3"/>' +
-        '<text x="' + x + '" y="' + (y + 7) + '" text-anchor="middle" class="lbl w m">' + t + '</text></g>';
+      out += '<g class="vst" data-v="' + s.id + '"><rect x="' + (x - 66) + '" y="' + (y - 24) + '" width="132" height="48" rx="24"/>' +
+        '<text x="' + x + '" y="' + (y + 7) + '" text-anchor="middle" class="lbl w m">' + (short ? short[1] : s.name) + '</text></g>';
     });
     out += '<rect x="300" y="318" width="160" height="48" rx="24" fill="#575756"/><text x="380" y="348" text-anchor="middle" class="lbl w">Implementation</text>';
     out += '<text x="20" y="24" class="lbl m">Specify and design</text><text x="740" y="24" class="lbl m" text-anchor="end">Test and qualify</text>';
     return out + '</svg>';
   };
 
-  D.wheel = function (sel, items) {
+  /* Portfolio wheel: drawn once; the app toggles .on on the selected segment */
+  D.wheel = function (items) {
     var cx = 210, cy = 210, r1 = 92, r2 = 196, n = items.length, out = '';
     function pt(r, a) { return [cx + r * Math.cos(a), cy + r * Math.sin(a)]; }
     items.forEach(function (it, i) {
@@ -1349,13 +1725,144 @@ window.KIOSK = {
       var d = 'M' + p0 + ' A' + r2 + ' ' + r2 + ' 0 0 1 ' + p1 + ' L' + p2 + ' A' + r1 + ' ' + r1 + ' 0 0 0 ' + p3 + ' Z';
       var am = (a0 + a1) / 2, lp = pt((r1 + r2) / 2, am);
       var words = it.name.split(" "), lines = words.length > 2 ? [words.slice(0, 2).join(" "), words.slice(2).join(" ")] : (words.length === 2 ? words : [it.name]);
-      var on = sel === i;
-      out += '<g class="wseg' + (on ? ' on' : '') + '" data-seg="' + i + '"><path d="' + d + '" fill="' + (on ? "#00569d" : (i % 2 ? "#0a6aa8" : "#0072b6")) + '" stroke="#fff" stroke-width="2"/>';
+      out += '<g class="wseg' + (i % 2 ? ' alt' : '') + '" data-seg="' + i + '"><path d="' + d + '" stroke="#fff" stroke-width="2"/>';
       lines.forEach(function (ln, k) { out += '<text x="' + lp[0].toFixed(1) + '" y="' + (lp[1] + (k - (lines.length - 1) / 2) * 18 + 5).toFixed(1) + '" text-anchor="middle" class="lbl w s">' + ln + '</text>'; });
       out += '</g>';
     });
     out += '<circle cx="210" cy="210" r="86" fill="#ffffff" stroke="#c9ddef" stroke-width="2"/><text x="210" y="222" text-anchor="middle" style="font-size:38px;font-weight:300;fill:#0072b6">PAT</text>';
     return '<svg viewBox="0 0 420 420" role="img" aria-label="Hellma Solutions portfolio">' + out + '</svg>';
+  };
+
+  /* ---------- Application charts (schematic, redrawn from the webinar deck) ---------- */
+  function gauss(x, mu, s, a) { return a * Math.exp(-0.5 * Math.pow((x - mu) / s, 2)); }
+  function chart(o) {
+    // o: { x0, x1, xlab, ylab, series:[{name,color,f, w}], ticks:[...], legend:true, h }
+    var W = 760, H = o.h || 300, L = 60, R = 20, T = 20, B = 50;
+    var iw = W - L - R, ih = H - T - B;
+    var ymax = 0;
+    o.series.forEach(function (s) { for (var x = o.x0; x <= o.x1; x += (o.x1 - o.x0) / 300) ymax = Math.max(ymax, s.f(x)); });
+    ymax *= 1.1;
+    function X(x) { return L + (x - o.x0) / (o.x1 - o.x0) * iw; }
+    function Y(y) { return T + ih - y / ymax * ih; }
+    var paths = o.series.map(function (s, k) {
+      var d = '', step = (o.x1 - o.x0) / 300;
+      for (var x = o.x0, i = 0; x <= o.x1 + 1e-9; x += step, i++) d += (i ? ' L' : 'M') + X(x).toFixed(1) + ' ' + Y(s.f(x)).toFixed(1);
+      return '<path class="draw" style="animation-delay:' + (k * 0.25) + 's" d="' + d + '" stroke="' + s.color + '" stroke-width="' + (s.w || 2.6) + '" fill="none" stroke-linejoin="round"/>';
+    }).join('');
+    var ticks = (o.ticks || []).map(function (t) { return '<path d="M' + X(t) + ' ' + (T + ih) + ' v6" stroke="#878787"/><text x="' + X(t) + '" y="' + (T + ih + 22) + '" text-anchor="middle" class="lbl s">' + t + '</text>'; }).join('');
+    var marks = (o.marks || []).map(function (m) { return '<path d="M' + X(m[0]) + ' ' + T + ' V' + (T + ih) + '" stroke="#c9ddef" stroke-dasharray="4 4"/><text x="' + (X(m[0]) + 6) + '" y="' + (T + 14) + '" class="lbl s">' + m[1] + '</text>'; }).join('');
+    var legend = o.legend === false ? '' : o.series.map(function (s, k) { return '<g transform="translate(' + (L + 10 + k * 190) + ' ' + (T + 4) + ')"><rect width="18" height="4" y="6" fill="' + s.color + '"/><text x="26" y="12" class="lbl s">' + s.name + '</text></g>'; }).join('');
+    return '<svg viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="' + (o.title || 'Spectra') + '" class="chartsvg">' +
+      '<path d="M' + L + ' ' + T + ' V' + (T + ih) + ' H' + (W - R) + '" stroke="#575756" stroke-width="1.6" fill="none"/>' + marks + ticks + paths + legend +
+      '<text x="' + (L + iw / 2) + '" y="' + (H - 6) + '" text-anchor="middle" class="lbl s">' + o.xlab + '</text>' +
+      '<text x="18" y="' + (T + ih / 2) + '" text-anchor="middle" class="lbl s" transform="rotate(-90 18 ' + (T + ih / 2) + ')">' + (o.ylab || 'Absorbance') + '</text></svg>';
+  }
+  D.charts = {
+    uvvis: function () {
+      return chart({ x0: 200, x1: 320, xlab: "Wavelength (nm)", ticks: [200, 240, 280, 320], title: "Acetone and toluene UV spectra",
+        series: [
+          { name: "Acetone", color: "#0072b6", f: function (x) { return gauss(x, 272, 22, 1); } },
+          { name: "Toluene", color: "#e07b00", f: function (x) { return gauss(x, 210, 9, 1.4) + gauss(x, 254, 3, .45) + gauss(x, 261, 3, .55) + gauss(x, 268, 2.6, .4) + gauss(x, 262, 9, .25); } },
+        ] });
+    },
+    dissolution: function () {
+      var s = [];
+      for (var k = 1; k <= 6; k++) (function (k) { s.push({ name: k === 1 ? "Early" : (k === 6 ? "Late" : ""), color: "hsl(205," + (40 + k * 8) + "%," + (70 - k * 7) + "%)", w: 2, f: function (x) { return k / 6 * (gauss(x, 232, 14, 1) + gauss(x, 282, 16, .45)); } }); })(k);
+      return chart({ x0: 200, x1: 360, xlab: "Wavelength (nm)", ticks: [200, 240, 280, 320, 360], series: s, legend: false, title: "Rising absorbance during drug release" });
+    },
+    gas: function () {
+      return chart({ x0: 1000, x1: 2200, xlab: "Wavelength (nm)", ticks: [1000, 1200, 1400, 1600, 1800, 2000, 2200], title: "Natural gas NIR absorption", legend: false,
+        series: [{ name: "Natural gas", color: "#0072b6", f: function (x) { return .3 + gauss(x, 1165, 18, .35) + gauss(x, 1385, 22, .35) + gauss(x, 1640, 10, .95) + gauss(x, 1670, 9, .7) + gauss(x, 1700, 14, 1.1) + gauss(x, 1725, 10, .8) + gauss(x, 1790, 10, .35) + gauss(x, 1810, 8, .3) + gauss(x, 2180, 18, .6); } }] });
+    },
+    polymer: function () {
+      function base(x, a) { return a * (1 - 0.15 * Math.exp(-0.5 * Math.pow((x - 1145) / 8, 2)) + 0.12 * Math.exp(-0.5 * Math.pow((x - 1260) / 60, 2))) * (x < 1380 ? 1 : Math.max(.08, 1 - (x - 1380) / 40)) + (x > 1440 ? a * 0.22 * gauss(x, 1560, 40, 1) : 0); }
+      return chart({ x0: 1050, x1: 1650, xlab: "Wavelength (nm)", ticks: [1100, 1200, 1300, 1400, 1500, 1600], ylab: "Signal", title: "Styrene to polystyrene",
+        series: [
+          { name: "Start", color: "#2f3e9e", f: function (x) { return base(x, 1); } },
+          { name: "During", color: "#2e8b57", f: function (x) { return base(x, .66); } },
+          { name: "End", color: "#c0392b", f: function (x) { return base(x, .4); } },
+        ] });
+    },
+    polyol: function () {
+      var cols = ["#2a9d8f", "#3aa6c4", "#9bbf3b", "#e9c46a", "#7aa6d6"];
+      return chart({ x0: 1000, x1: 2200, xlab: "Wavelength (nm)", ticks: [1000, 1200, 1400, 1600, 1800, 2000, 2200], legend: false, title: "Polyol NIR spectra",
+        series: cols.map(function (c, k) { return { name: "", color: c, w: 2, f: function (x) { return .15 + gauss(x, 1450, 40, .35 + k * .04) + gauss(x, 1720, 30, .25) + gauss(x, 1940, 40, .8 + k * .12) + gauss(x, 2080, 30, .5) + (x > 2100 ? (x - 2100) / 400 * (1 + k * .2) : 0); } }; }) });
+    },
+    oil: function () {
+      function base(x) { return .1 + gauss(x, 1210, 14, .3) + gauss(x, 1390, 18, .12) + gauss(x, 1725, 14, 1) + gauss(x, 1765, 12, .9) + gauss(x, 2140, 20, .35) + gauss(x, 2310, 18, .4); }
+      return chart({ x0: 1100, x1: 2400, xlab: "Wavelength (nm)", ticks: [1200, 1400, 1600, 1800, 2000, 2200, 2400], title: "Coconut oil NIR spectra",
+        series: [
+          { name: "Pure", color: "#2e8b57", f: base },
+          { name: "Contaminated", color: "#e9b200", f: function (x) { return base(x) + gauss(x, 1410, 30, .18) + gauss(x, 1930, 40, .25); } },
+          { name: "More contaminated", color: "#c0392b", f: function (x) { return base(x) + gauss(x, 1410, 30, .35) + gauss(x, 1930, 40, .5); } },
+        ] });
+    },
+    fluor: function () {
+      return chart({ x0: 250, x1: 600, xlab: "Wavelength (nm)", ticks: [250, 300, 350, 400, 450, 500, 550, 600], ylab: "Intensity", title: "Excitation and emission spectra",
+        series: [
+          { name: "Excitation", color: "#3b4cc0", f: function (x) { return gauss(x, 360, 22, 1) + gauss(x, 300, 14, .25); } },
+          { name: "Emission", color: "#b2186b", f: function (x) { return gauss(x, 440, 30, .92); } },
+        ] });
+    },
+    scheelite: function () {
+      return chart({ x0: 360, x1: 650, xlab: "Wavelength (nm)", ticks: [360, 410, 460, 510, 560, 610], ylab: "Intensity", title: "Scheelite fluorescence",
+        marks: [[440, "WO₄ ~440"], [540, "MoO₄ ~540"], [570, "Dy³⁺ ~570"]],
+        series: [
+          { name: "Blue sample", color: "#6b7280", f: function (x) { return gauss(x, 440, 55, .55); } },
+          { name: "Yellow sample", color: "#0072b6", f: function (x) { return gauss(x, 540, 50, .8) + gauss(x, 572, 12, .12); } },
+          { name: "Both", color: "#7cb342", f: function (x) { return gauss(x, 440, 55, .4) + gauss(x, 540, 50, .78) + gauss(x, 572, 12, .14); } },
+        ] });
+    },
+  };
+
+  /* NIR band regions (approximate) */
+  D.nirBands = function () {
+    var L = 110, R = 740, x0 = 800, x1 = 2500;
+    function X(v) { return L + (v - x0) / (x1 - x0) * (R - L); }
+    var rows = [["C–H", "#0072b6", [[1100, 1250, "2nd overtone"], [1650, 1800, "1st overtone"], [2200, 2450, "combination"]]],
+                ["O–H", "#e07b00", [[950, 1000, ""], [1400, 1450, "1st overtone"], [1900, 1950, "combination"]]],
+                ["N–H", "#2e8b57", [[1000, 1060, ""], [1450, 1550, "1st overtone"], [2000, 2100, "combination"]]]];
+    var out = '<svg viewBox="0 0 760 230" role="img" aria-label="Approximate NIR band regions" class="chartsvg">';
+    rows.forEach(function (r, i) {
+      var y = 30 + i * 52;
+      out += '<text x="20" y="' + (y + 18) + '" class="lbl b">' + r[0] + '</text><path d="M' + L + ' ' + (y + 13) + ' H' + R + '" stroke="#e0e0e0"/>';
+      r[2].forEach(function (b, k) { out += '<rect class="grow" style="animation-delay:' + (i * .2 + k * .1) + 's" x="' + X(b[0]) + '" y="' + y + '" width="' + (X(b[1]) - X(b[0])) + '" height="26" rx="4" fill="' + r[1] + '"/>' + (b[2] && i === 0 ? '' : ''); });
+    });
+    [800, 1200, 1600, 2000, 2400].forEach(function (t) { out += '<path d="M' + X(t) + ' 186 v6" stroke="#878787"/><text x="' + X(t) + '" y="210" text-anchor="middle" class="lbl s">' + t + '</text>'; });
+    out += '<path d="M' + L + ' 186 H' + R + '" stroke="#575756"/><text x="' + ((L + R) / 2) + '" y="228" text-anchor="middle" class="lbl s">Wavelength (nm)</text>';
+    out += '<text x="' + X(1175) + '" y="24" text-anchor="middle" class="lbl s">2nd overtones</text><text x="' + X(1600) + '" y="24" text-anchor="middle" class="lbl s">1st overtones</text><text x="' + X(2200) + '" y="24" text-anchor="middle" class="lbl s">combinations</text>';
+    return out + '</svg>';
+  };
+
+  /* Natural gas composition ranges */
+  D.ranges = function (items) {
+    var L = 272, R = 640, out = '<svg viewBox="0 0 760 ' + (40 + items.length * 40) + '" role="img" aria-label="Natural gas composition ranges" class="chartsvg">';
+    function X(v) { return L + v / 100 * (R - L); }
+    items.forEach(function (it, i) {
+      var y = 20 + i * 40, raman = it[3] === "Raman only";
+      out += '<text x="' + (L - 14) + '" y="' + (y + 17) + '" text-anchor="end" class="lbl">' + it[0] + '</text><rect x="' + L + '" y="' + (y + 4) + '" width="' + (R - L) + '" height="18" rx="9" fill="#f2f2f2"/>';
+      if (it[1] != null) {
+        var w = Math.max(6, X(it[2]) - X(it[1]));
+        out += '<rect class="grow" style="animation-delay:' + (i * .08) + 's" x="' + X(it[1]) + '" y="' + (y + 4) + '" width="' + w + '" height="18" rx="9" fill="' + (raman ? "#e07b00" : "#0072b6") + '"/>' +
+          '<text x="' + (X(it[1]) + w + 10) + '" y="' + (y + 17) + '" class="lbl s">' + it[1] + '–' + it[2] + ' %' + (it[3] ? '  ·  ' + it[3] : '') + '</text>';
+      } else out += '<text x="' + (L + 10) + '" y="' + (y + 17) + '" class="lbl s">' + (it[3] || '') + '</text>';
+    });
+    [0, 25, 50, 75, 100].forEach(function (t) { out += '<text x="' + X(t) + '" y="' + (32 + items.length * 40) + '" text-anchor="middle" class="lbl s">' + t + ' %</text>'; });
+    return out + '</svg>';
+  };
+
+  /* Dilution vs ATR: why strongly absorbing samples need a short path */
+  D.dilution = function () {
+    return '<svg viewBox="0 0 760 270" role="img" aria-label="Transflection needed a million-fold dilution; ATR stays in range" class="chartsvg">' +
+      '<text x="20" y="34" class="lbl b">Absorbance</text><rect x="250" y="20" width="160" height="230" fill="#e4eef7"/>' +
+      '<text x="330" y="262" text-anchor="middle" class="lbl s">usable</text>' +
+      '<text x="20" y="96" class="lbl b">Transflection</text><text x="20" y="116" class="lbl s">1 mm light path</text>' +
+      '<rect class="grow" x="250" y="82" width="480" height="26" rx="13" fill="#c0392b"/><text x="740" y="74" text-anchor="end" class="lbl s">far off scale</text>' +
+      '<path d="M720 128 C 640 150, 470 150, 400 142" stroke="#c0392b" stroke-width="2.5" fill="none" stroke-dasharray="6 6" class="march"/><path d="M402 136 l-10 6 l10 6" stroke="#c0392b" stroke-width="2.5" fill="none"/>' +
+      '<text x="560" y="170" text-anchor="middle" class="lbl b" fill="#c0392b">dilute 1 : 1,000,000</text>' +
+      '<text x="20" y="214" class="lbl b">ATR</text><text x="20" y="234" class="lbl s">tiny penetration depth</text>' +
+      '<rect class="grow" style="animation-delay:.4s" x="250" y="200" width="120" height="26" rx="13" fill="#2e8b57"/><text x="384" y="218" class="lbl b" fill="#2e8b57">in range</text>' +
+      '</svg>';
   };
 
   window.DIAGRAMS = D;
@@ -1376,15 +1883,17 @@ window.KIOSK = {
   function $$(s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); }
   function esc(s) { return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); }
   /* Text that may carry a review note: { v, check } */
+  /* Keep a number with its unit on one line: 400 °C, 250 bar, 2300 nm */
+  function nb(s) { return String(s).replace(/(\d) (°C|°F|bar|psi|mm|nm|µm|%)/g, "$1\u00a0$2"); }
   function T(v) {
-    if (v && typeof v === "object") return '<span class="chk" data-note="' + esc(v.check) + '">' + esc(v.v) + "</span>";
-    return esc(v);
+    if (v && typeof v === "object") return '<span class="chk" data-note="' + esc(v.check) + '">' + nb(esc(v.v)) + "</span>";
+    return nb(esc(v));
   }
   function plain(v) { return v && typeof v === "object" ? v.v : v; }
   function note(check) { return check ? '<div class="chk-note">' + esc(check) + "</div>" : ""; }
   var PLACEHOLDER = "data:image/svg+xml;charset=utf-8," + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300"><rect width="400" height="300" fill="#f2f2f2"/><text x="200" y="158" text-anchor="middle" font-family="sans-serif" font-size="18" fill="#878787">Image coming</text></svg>');
   function src(id) { return ASSETS[id] || PLACEHOLDER; }
-  var PHOTO = /^(K|A|I|C|W)\d|^(P12|R1|R8)$/;
+  var PHOTO = /^(K|A|I|C|W)\d|^(P12|P17b|R1|R8)$/;
   function isPhoto(id) { return PHOTO.test(id); }
   function stage(id, cls, alt) {
     if (!id) return '<div class="stage ' + (cls || "") + '"></div>';
@@ -1575,7 +2084,8 @@ window.KIOSK = {
   }
   function setAttractCopy(i) {
     var s = C.attract[i];
-    $("#attract-card").innerHTML = '<div class="eyebrow">' + esc(s.eyebrow) + "</div><h1>" + esc(s.title) + "</h1><p>" + esc(s.sub) + "</p>";
+    $("#attract-card").innerHTML = '<div class="eyebrow">' + esc(s.eyebrow) + "</div><h1>" + nb(esc(s.title)) + "</h1><p>" + nb(esc(s.sub)) + "</p>" +
+      (s.foot && C.footnotes[s.foot] ? '<p class="foot">' + esc(C.footnotes[s.foot]) + "</p>" : "");
   }
   function nextSlide() {
     var sl = $$(".slide", attractEl), dots = $$(".dots i", attractEl);
@@ -1615,20 +2125,28 @@ window.KIOSK = {
   function principleOf(p) { return C.principles[C.families[p.family].principle]; }
   function pcard(id) {
     var p = productOf(id), f = p.filter, pr = principleOf(p);
-    var tw = Math.max(4, Math.round(f.maxT / 400 * 100)), pw = Math.max(3, Math.round(f.maxP / 250 * 100));
+    var tw = Math.max(4, Math.min(100, Math.round(f.maxT / 400 * 100))), pw = Math.max(3, Math.min(100, Math.round(f.maxP / 250 * 100)));
+    var pn = f.brazed ? "Highest ratings with brazed seals" : f.custom ? "Pressure rating of custom versions" : "";
     var req = S.finder;
     return '<button class="pcard" type="button" data-go="product/' + id + '">' + stage(p.img, "", p.name) +
       '<div class="body"><div class="nm"><b>' + esc(p.name) + "</b><span>" + esc(p.type) + "</span></div>" +
-      '<div class="row" style="gap:.35rem"><span class="tag">' + esc(pr.name) + "</span>" + f.ranges.map(function (r) { return '<span class="tag">' + RANGE_LABEL[r] + "</span>"; }).join("") + "</div>" +
+      '<div class="row" style="gap:.35rem"><span class="tag">' + esc(pr.name) + "</span>" + (f.custom ? '<span class="tag">Custom</span>' : "") + f.ranges.map(function (r) { return '<span class="tag">' + RANGE_LABEL[r] + "</span>"; }).join("") + "</div>" +
       '<div class="meter"><span>Temp.</span><span class="bar"><i style="width:' + tw + '%"></i>' + (req.temp ? '<u style="left:' + Math.round(req.temp / 400 * 100) + '%"></u>' : "") + '</span><span class="v">' + fmtT(f.maxT) + "</span></div>" +
-      '<div class="meter"><span>Pressure</span><span class="bar"><i style="width:' + pw + '%"></i>' + (req.pres ? '<u style="left:' + Math.round(req.pres / 250 * 100) + '%"></u>' : "") + '</span><span class="v">' + fmtP(f.maxP) + "</span></div>" +
-      "</div></button>";
+      '<div class="meter"><span>Pressure</span><span class="bar"><i style="width:' + pw + '%"></i>' + (req.pres ? '<u style="left:' + Math.round(req.pres / 250 * 100) + '%"></u>' : "") + '</span><span class="v">' + fmtP(f.maxP) + (f.pStar ? "*" : "") + "</span></div>" +
+      (pn ? '<span class="pnote">' + pn + "</span>" : "") + "</div></button>";
   }
   function mini(o) {
-    return '<button class="mini" type="button" data-go="' + o.route + '">' + stage(o.img, "", o.title) + '<div><b>' + esc(o.title) + "</b><span>" + esc(o.sub || "") + "</span></div></button>";
+    var vis = o.svg ? '<div class="stage svgthumb">' + o.svg + "</div>" : stage(o.img, "", o.title);
+    return '<button class="mini" type="button" data-go="' + o.route + '">' + vis + '<div><b>' + esc(o.title) + "</b><span>" + esc(o.sub || "") + "</span></div></button>";
   }
   function relItem(key) {
     if (C.products[key]) { var p = C.products[key]; return { route: "product/" + key, img: p.img, title: p.name, sub: p.type }; }
+    if (key.indexOf("principle:") === 0) {
+      var pk = key.slice(10), pp = C.principles[pk]; if (!pp) return null;
+      var pf = C.families[pp.family], first = pf && pf.products[0];
+      return { route: "principles/" + pk, img: first ? C.products[first].img : null, svg: first ? null : DG[pk](), title: pp.name + " principle", sub: pf ? pf.name + " probes" : "Measurement principle" };
+    }
+    if (key.indexOf("line:") === 0) { var ln = C.lines[key.slice(5)]; return ln ? { route: "line/" + key.slice(5), img: "P2", title: ln.name, sub: "All probes and flow cells" } : null; }
     if (key.indexOf("sensor:") === 0) { var s = C.solutions.sensors.filter(function (x) { return x.id === key.slice(7); })[0]; return { route: "solutions/sensors", img: s.img, title: s.name + " sensor", sub: "Hellma Solutions" }; }
     var map = {
       case: { route: "case", img: "K2b", title: "Case study", sub: "Water in solvents" },
@@ -1651,6 +2169,15 @@ window.KIOSK = {
 
   /* ---------------- Screens ---------------- */
   var SCREENS = {};
+  /* Keep the reader where they are while a diagram changes state */
+  function steady(fn) {
+    var top = view.scrollTop;
+    fn();
+    if (view.scrollTop !== top) view.scrollTop = top;
+    requestAnimationFrame(function () { if (view.scrollTop !== top) view.scrollTop = top; });
+  }
+  function foot(key) { return key && C.footnotes[key] ? '<p class="foot">' + esc(C.footnotes[key]) + "</p>" : ""; }
+  function arrowSm() { return I.arrow.replace("<svg", '<svg style="width:1rem;height:1rem"'); }
 
   SCREENS.home = function () {
     var h = C.home;
@@ -1677,8 +2204,8 @@ window.KIOSK = {
       var f = C.families[fid], pr = C.principles[f.principle];
       var body = f.products.length ? '<div class="results">' + f.products.map(pcard).join("") + "</div>"
         : '<div class="empty"><p>' + esc(f.empty) + '</p><button class="btn primary" type="button" data-req="' + fid + '">' + I.mail + "Request information</button></div>";
-      return '<section style="display:grid;gap:.9rem"><div class="row" style="justify-content:space-between"><div style="display:grid;gap:.3rem"><h2 class="h2">' + esc(f.name) + '</h2><p class="muted">' + esc(f.desc) + "</p></div>" +
-        '<button class="linkish" type="button" data-go="principles/' + f.principle + '">How ' + esc(pr.name.toLowerCase()) + " works " + I.arrow.replace("<svg", '<svg style="width:1rem;height:1rem"') + "</button></div>" + note(f.check) + body + "</section>";
+      return '<section style="display:grid;gap:.9rem"><div class="row" style="justify-content:space-between"><div style="display:grid;gap:.3rem"><h2 class="h2">' + esc(f.name) + '</h2><p class="muted">' + esc(f.desc) + "</p>" + foot(f.foot) + "</div>" +
+        '<button class="linkish" type="button" data-go="principles/' + f.principle + '">How ' + esc(pr.name.toLowerCase()) + " works " + arrowSm() + "</button></div>" + note(f.check) + body + "</section>";
     }).join("");
     return {
       crumb: crumb(L.name),
@@ -1707,7 +2234,7 @@ window.KIOSK = {
     return {
       crumb: crumb("Probe finder"),
       html: pageHead("Probe finder", "Find your probe", "Tell us about your process. Probes and flow cells that can't handle it drop out.", "analytics") +
-        '<div class="finder">' + filters + '<section style="display:grid;gap:1rem"><div class="results-head"><h2 class="h2" id="f-count"></h2><span class="muted small">Ratings are maximum values per model.</span></div><div id="f-results"></div></section></div>',
+        '<div class="finder">' + filters + '<section style="display:grid;gap:1rem"><div class="results-head"><h2 class="h2" id="f-count"></h2><span class="muted small">Ratings are the highest per model; some need brazed seals.</span></div><div id="f-results"></div>' + foot("weld") + "</section></div>",
       init: function (root) {
         function apply() {
           var f = S.finder;
@@ -1733,7 +2260,7 @@ window.KIOSK = {
             var k = c.dataset.f, v = c.dataset.val;
             S.finder[k] = (k === "temp" || k === "pres") ? Number(v) : v;
             $$('.chip[data-f="' + k + '"]', root).forEach(function (o) { o.setAttribute("aria-pressed", o === c); });
-            apply();
+            steady(apply);
           });
         });
         $("#f-reset", root).onclick = reset;
@@ -1745,10 +2272,12 @@ window.KIOSK = {
   SCREENS.product = function (id) {
     var p = productOf(id), fam = C.families[p.family], pr = C.principles[fam.principle], f = p.filter;
     if (S.viewed.indexOf(p.name) < 0) S.viewed.push(p.name);
-    var thumbs = '<div class="thumbs"><button type="button" data-view="photo" aria-pressed="true">' + img(p.img, "") + "</button>" +
-      (p.drawing ? '<button type="button" data-view="drawing" aria-pressed="false">' + img(p.drawing, "") + "</button>" : "") + "</div>";
+    var views = [["photo", p.img]].concat(p.img2 ? [["photo2", p.img2]] : []).concat(p.drawing ? [["drawing", p.drawing]] : []);
+    var thumbs = '<div class="thumbs">' + views.map(function (v, i) { return '<button type="button" data-view="' + v[0] + '" data-id="' + v[1] + '" aria-pressed="' + (i === 0) + '">' + img(v[1], "") + "</button>"; }).join("") + "</div>";
     var specs = '<table class="specs"><tbody>' + p.specs.map(function (r) { return "<tr><th>" + esc(r[0]) + "</th><td>" + T(r[1]) + "</td></tr>"; }).join("") + "</tbody></table>";
     var fits = (p.fits || []).map(relItem).map(mini).join("");
+    var tNote = f.brazed ? "with brazed seals" : "", pNote = f.brazed ? "with brazed seals" : (f.custom ? "custom versions" : "");
+    var spectral = f.ranges.length ? f.ranges.map(function (r) { return RANGE_LABEL[r]; }).join(" · ") : "Ask us";
     return {
       crumb: crumb(fam.name, p.name),
       html: '<div class="product"><div class="gallery"><div id="pstage">' + stage(p.img, "", p.name) + "</div>" + thumbs +
@@ -1756,10 +2285,10 @@ window.KIOSK = {
         '<div class="pinfo"><div class="row" style="gap:.5rem"><span class="eyebrow">' + esc(fam.name) + " · " + esc(pr.name) + "</span></div>" +
         '<h1 class="h1">' + esc(p.name) + '</h1><div class="row" style="gap:.4rem"><span class="tag solid">' + esc(p.type) + "</span>" + (p.badge ? '<span class="tag">' + esc(p.badge) + "</span>" : "") + "</div>" +
         '<p class="lead">' + esc(p.summary) + "</p>" + note(p.check) +
-        '<div class="ratings"><div class="rating"><span class="k">Max. temperature</span><span class="n">' + f.maxT + "<small>°C</small></span></div>" +
-        '<div class="rating"><span class="k">Max. pressure</span><span class="n">' + (f.maxP ? f.maxP + "<small>bar</small>" : "Atm.") + "</span></div>" +
-        '<div class="rating"><span class="k">Spectral range</span><span class="n" style="font-size:1.2rem">' + f.ranges.map(function (r) { return RANGE_LABEL[r]; }).join(" · ") + "</span></div></div>" +
-        specs +
+        '<div class="ratings"><div class="rating"><span class="k">Max. temperature</span><span class="n">' + f.maxT + "<small>°C</small></span>" + (tNote ? '<span class="nt">' + tNote + "</span>" : "") + "</div>" +
+        '<div class="rating"><span class="k">Max. pressure</span><span class="n">' + (f.maxP ? f.maxP + "<small>bar" + (f.pStar ? "*" : "") + "</small>" : "Atm.") + "</span>" + (pNote ? '<span class="nt">' + pNote + "</span>" : "") + "</div>" +
+        '<div class="rating"><span class="k">Spectral range</span><span class="n" style="font-size:1.2rem">' + spectral + "</span></div></div>" +
+        specs + foot(p.foot) +
         '<div class="row"><button class="btn primary" type="button" data-req="' + p.family + '">' + I.mail + "Request information</button>" +
         '<button class="btn" type="button" data-go="principles/' + fam.principle + '">How ' + esc(pr.name.toLowerCase()) + " works</button></div>" +
         (fits ? '<div style="display:grid;gap:.6rem"><div class="eyebrow">Works with</div><div class="minis">' + fits + "</div></div>" : "") +
@@ -1768,8 +2297,10 @@ window.KIOSK = {
         $$(".thumbs button", root).forEach(function (b) {
           b.addEventListener("click", function () {
             $$(".thumbs button", root).forEach(function (o) { o.setAttribute("aria-pressed", o === b); });
-            var dr = b.dataset.view === "drawing";
-            $("#pstage", root).innerHTML = dr ? '<div class="stage" style="background:#fff" data-zoom="' + p.drawing + '" data-cap="' + esc(p.name + " drawing") + '">' + img(p.drawing, p.name + " drawing", "prod") + "</div>" : stage(p.img, "", p.name);
+            var v = b.dataset.view, aid = b.dataset.id;
+            steady(function () {
+              $("#pstage", root).innerHTML = v === "drawing" ? '<div class="stage" style="background:#fff" data-zoom="' + aid + '" data-cap="' + esc(p.name + " drawing") + '">' + img(aid, p.name + " drawing", "prod") + "</div>" : stage(aid, "", p.name);
+            });
           });
         });
       },
@@ -1806,7 +2337,7 @@ window.KIOSK = {
       html: pageHead("Sealing technology", "The seal decides how hard a probe can work", esc(s.intro), "analytics") +
         '<div class="cols2">' + opts + "</div>" +
         '<section class="panel sky" style="gap:1.2rem"><div class="row" style="justify-content:space-between;align-items:end"><div><div class="eyebrow">Hellma Excalibur HD</div><h2 class="h2" style="margin-top:.2rem">' + esc(w.name) + "</h2></div>" +
-        '<div class="row" style="gap:2rem">' + w.stats.map(function (x) { return '<div class="stat"><span class="l">' + esc(x.l) + '</span><span class="n">' + esc(x.n) + "<small>" + esc(x.u) + "</small></span></div>"; }).join("") + "</div></div>" +
+        '<div class="row" style="gap:2rem">' + w.stats.map(function (x) { return '<div class="stat"><span class="l">' + esc(x.l) + '</span><span class="n">' + esc(x.n) + "<small>" + esc(x.u) + "</small></span></div>"; }).join("") + "</div></div>" + foot(w.foot) +
         '<div class="cols2">' + figure(w.exploded, "Welded metal seal, exploded view") + figure(w.section, "Welded metal seal, section") + "</div>" +
         '<div class="cols2"><div style="display:grid;gap:.5rem"><div class="eyebrow" style="color:var(--grey-7)">Parts</div>' + bullets(w.parts) + '</div><div style="display:grid;gap:.5rem"><div class="eyebrow" style="color:var(--grey-7)">Advantages</div>' + bullets(w.plus, "plus") + "</div></div>" +
         '<div style="display:grid;gap:.6rem"><div class="eyebrow" style="color:var(--grey-7)">Used in</div><div class="minis">' + used + "</div></div></section>",
@@ -1824,7 +2355,7 @@ window.KIOSK = {
     var prmBlock = '<div class="cols2" style="align-items:start"><div style="display:grid;gap:.8rem">' + '<div class="figure" style="padding:0;overflow:hidden">' + img(prm.img, prm.title) + '<button class="zoom" type="button" data-zoom="' + prm.img + '" data-cap="' + esc(prm.title) + '">' + I.zoom + "</button></div>" + bullets(prm.points) +
       '<div class="minis">' + mini(relItem("excalibur-hd")) + "</div></div>" + figure(prm.drawing, "PRM installed on a reaction vessel") + "</div>";
     return {
-      crumb: crumb("Retractable housings", isPrm ? "PRM" : m.name),
+      crumb: crumb("Retractable housings", isPrm ? "PRM" : (sel === "cyclone" ? "Cyclone cleaning" : m.name)),
       html: pageHead("Retractable housings", "Clean, calibrate and swap probes while the process runs", esc(R.intro)) +
         '<div class="cols2"><div class="panel"><h2 class="h3">' + esc(R.why.title) + "</h2>" + bullets(R.why.points) + "</div>" +
         '<div class="panel sky"><div class="row" style="justify-content:space-between"><h2 class="h3">' + esc(R.knick.title) + "</h2>" + brandLogo("knick", 2.4) + "</div>" + bullets(R.knick.points) + "</div></div>" +
@@ -1842,7 +2373,7 @@ window.KIOSK = {
     return {
       crumb: crumb("Multiplexers"),
       html: pageHead("Multiplexers", "One spectrometer, many measuring points", esc(M.intro), "analytics") +
-        '<section class="panel" style="gap:1rem"><div class="diagram" id="mux">' + DG.multiplexer(S.mux.ch) + "</div>" +
+        '<section class="panel" style="gap:1rem"><div class="diagram" id="mux">' + DG.multiplexer() + "</div>" +
         '<div class="row" style="justify-content:space-between"><div class="row" id="mux-ch">' + [0, 1, 2, 3].map(function (i) { return '<button class="chip" type="button" data-ch="' + i + '" aria-pressed="' + (S.mux.ch === i) + '">Point ' + (i + 1) + "</button>"; }).join("") +
         '<button class="chip" type="button" id="mux-auto" aria-pressed="' + S.mux.auto + '">Auto-cycle</button></div><p class="muted small" style="max-width:34rem">' + esc(M.fmx.double) + "</p></div></section>" +
         '<div class="cols3">' + M.setup.map(function (s) { return '<div class="panel"><h2 class="h3">' + esc(s.k) + "</h2><p>" + esc(s.t) + "</p></div>"; }).join("") + "</div>" +
@@ -1851,18 +2382,23 @@ window.KIOSK = {
         '<div class="cols2"><div style="display:grid;gap:.5rem"><div class="eyebrow" style="color:var(--grey-7)">Connections</div>' + bullets(M.fmx.parts) + "</div>" +
         '<div style="display:grid;gap:.8rem;align-content:start"><p>' + esc(M.fmx.double) + '</p><div class="row"><button class="btn primary" type="button" data-req="multiplexers">' + I.mail + "Request information</button></div></div></div></section>",
       init: function (root) {
+        var svg = $("#mux svg", root), dial = $(".dial", svg);
         function set(ch) {
-          S.mux.ch = ch; $("#mux", root).innerHTML = DG.multiplexer(ch);
-          $$("#mux-ch .chip[data-ch]", root).forEach(function (b) { b.setAttribute("aria-pressed", Number(b.dataset.ch) === ch); });
+          S.mux.ch = ch;
+          steady(function () {
+            $$(".mpc", svg).forEach(function (g) { g.classList.toggle("on", Number(g.dataset.ch) === ch); });
+            dial.style.transform = "rotate(" + DG.MUX_ANGLES[ch] + "deg)";
+            $$("#mux-ch .chip[data-ch]", root).forEach(function (b) { b.setAttribute("aria-pressed", Number(b.dataset.ch) === ch); });
+          });
         }
         function auto(on) {
           S.mux.auto = on; $("#mux-auto", root).setAttribute("aria-pressed", on);
           clearInterval(muxTimer); if (on) muxTimer = setInterval(function () { if (!root.isConnected) return clearInterval(muxTimer); set((S.mux.ch + 1) % 4); }, 2600);
         }
         $$("#mux-ch .chip[data-ch]", root).forEach(function (b) { b.onclick = function () { auto(false); set(Number(b.dataset.ch)); }; });
-        $("#mux", root).addEventListener("click", function (e) { var g = e.target.closest(".mp"); if (g) { auto(false); set(Number(g.dataset.ch)); } });
+        svg.addEventListener("click", function (e) { var g = e.target.closest(".mp"); if (g) { auto(false); set(Number(g.dataset.ch)); } });
         $("#mux-auto", root).onclick = function () { auto(!S.mux.auto); };
-        auto(S.mux.auto);
+        set(S.mux.ch); auto(S.mux.auto);
       },
     };
   };
@@ -1872,7 +2408,7 @@ window.KIOSK = {
     var body = "";
     if (sel === "overview") {
       body = '<p class="lead">' + esc(X.intro) + '</p><div class="hexes">' + X.benefits.map(function (b) { return '<div class="hex">' + esc(b) + "</div>"; }).join("") + "</div>" +
-        '<div class="row"><button class="btn primary" type="button" data-go="case">See a full project: water in solvents ' + I.arrow + "</button></div>";
+        '<div class="row"><button class="btn primary" type="button" data-go="applications/cases">See the case studies ' + I.arrow + "</button></div>";
     } else if (sel === "sensors") {
       body = '<p class="lead">Spectroscopy sensors that combine a miniature spectrometer with a Hellma probe, ready for system integrators.</p><div class="cols3">' + X.sensors.map(function (s) {
         return '<div class="panel" style="padding:0;overflow:hidden">' + '<div style="aspect-ratio:4/3">' + stage(s.img, "", s.name) + '</div><div style="padding:0 1.2rem 1.2rem;display:grid;gap:.6rem"><h2 class="h2">' + esc(s.name) + "</h2><p>" + esc(s.text) + '</p><button class="btn" type="button" data-req="sensors">' + I.mail + "Request information</button></div></div>";
@@ -1884,11 +2420,11 @@ window.KIOSK = {
         '<div style="display:grid;gap:.6rem"><div class="eyebrow" style="color:var(--grey-7)">Project phases</div><div class="road" style="grid-template-columns:repeat(5,minmax(0,1fr))">' + cu.phases.map(function (ph, i) { return '<div class="panel" style="text-align:center;padding:.9rem .5rem"><span class="n num" style="color:var(--blue)">' + (i + 1) + "</span><b style=\"font-weight:500\">" + esc(ph) + "</b></div>"; }).join("") + "</div></div>" +
         '<div class="row"><button class="btn primary" type="button" data-req="custom">' + I.mail + "Talk to us about a custom solution</button></div>";
     } else if (sel === "services") {
-      body = '<div class="cols2" style="align-items:center"><div class="diagram" id="wheel" style="max-width:30rem;justify-self:center;width:100%">' + DG.wheel(0, X.portfolio) + "</div>" +
+      body = '<div class="cols2" style="align-items:center"><div class="diagram" id="wheel" style="max-width:30rem;justify-self:center;width:100%">' + DG.wheel(X.portfolio) + "</div>" +
         '<div class="panel" id="wheel-detail" style="min-height:12rem"></div></div>' + note(X.portfolioCheck);
     } else if (sel === "roadmap") {
       var steps = [{ id: null, name: "Start: analytical need", img: "W2" }].concat(C.caseStudy.steps.filter(function (s) { return s.id !== "vmodel"; }));
-      body = '<p class="lead">Every PAT project follows the same road. Tap a step to see it in the case study.</p><div class="road">' + steps.map(function (s, i) {
+      body = '<p class="lead">Every PAT project follows the same road. Tap a step to see it in the water-in-solvents case study.</p><div class="road">' + steps.map(function (s, i) {
         return '<button type="button" ' + (s.id ? 'data-go="case/' + s.id + '"' : 'data-go="case"') + '><span class="ph">' + img(s.img, "") + '</span><span class="n">STEP ' + (i + 1) + "</span><b>" + esc(s.name) + "</b></button>";
       }).join("") + "</div>";
     }
@@ -1898,15 +2434,16 @@ window.KIOSK = {
         tabs([["overview", "Overview"], ["sensors", "Sensors"], ["custom", "Custom development"], ["services", "Services"], ["roadmap", "Roadmap"]], sel, "solutions") + body,
       init: function (root) {
         var w = $("#wheel", root);
-        if (w) {
-          var show = function (i) {
-            w.innerHTML = DG.wheel(i, X.portfolio);
+        if (!w) return;
+        function show(i) {
+          steady(function () {
+            $$(".wseg", w).forEach(function (g) { g.classList.toggle("on", Number(g.dataset.seg) === i); });
             var it = X.portfolio[i];
             $("#wheel-detail", root).innerHTML = '<div class="eyebrow">Hellma Solutions portfolio</div><h2 class="h2">' + esc(it.name) + '</h2><p class="lead">' + esc(it.text) + '</p><div class="row"><button class="btn primary" type="button" data-req="services">' + I.mail + "Request information</button></div>";
-          };
-          w.addEventListener("click", function (e) { var g = e.target.closest(".wseg"); if (g) show(Number(g.dataset.seg)); });
-          show(0);
+          });
         }
+        w.addEventListener("click", function (e) { var g = e.target.closest(".wseg"); if (g) show(Number(g.dataset.seg)); });
+        show(0);
       },
     };
   };
@@ -1916,7 +2453,7 @@ window.KIOSK = {
     var body = "";
     if (sel === "what") {
       body = '<p class="lead">' + esc(X.what) + "</p>" +
-        '<div class="principle" style="grid-template-columns:minmax(0,1.6fr) minmax(0,1fr)"><div class="diagram" id="pos">' + DG.positions("inline") + '</div><div class="panel" id="pos-detail"></div></div>' +
+        '<div class="principle pos-layout"><div class="diagram" id="pos">' + DG.positions() + '</div><div class="panel" id="pos-detail"></div></div>' +
         '<div class="row" id="pos-btns">' + X.positions.map(function (p) { return '<button class="chip" type="button" data-pos="' + p.id + '">' + esc(p.name) + "</button>"; }).join("") + "</div>" + note(X.positionsCheck);
     } else if (sel === "why") {
       body = '<div class="cols3">' + X.why.map(function (w) { return '<div class="panel"><h2 class="h3">' + esc(w.name) + "</h2><p>" + esc(w.text) + "</p></div>"; }).join("") + "</div>";
@@ -1930,16 +2467,19 @@ window.KIOSK = {
         tabs([["what", "Where to measure"], ["why", "Why it matters"], ["challenges", "Challenges"]], sel, "pat") + body,
       init: function (root) {
         var d = $("#pos", root); if (!d) return;
+        var svg = $("svg", d);
         function show(id) {
-          d.innerHTML = DG.positions(id);
-          var p = X.positions.filter(function (x) { return x.id === id; })[0];
-          var meter = '<div style="display:flex;gap:.3rem;align-items:center"><span class="small muted" style="margin-right:.4rem">Speed of result</span>' + [1, 2, 3, 4].map(function (k) { return '<i style="width:1.6rem;height:.55rem;border-radius:3px;background:' + (k <= p.speed ? "var(--blue)" : "var(--grey-2)") + '"></i>'; }).join("") + "</div>";
-          $("#pos-detail", root).innerHTML = '<div class="eyebrow">Measuring position</div><h2 class="h2">' + esc(p.name) + "</h2><p>" + esc(p.text) + "</p>" + meter;
-          $$("#pos-btns .chip", root).forEach(function (b) { b.setAttribute("aria-pressed", b.dataset.pos === id); });
+          steady(function () {
+            $$(".pos", svg).forEach(function (g) { g.classList.toggle("sel", g.dataset.pos === id); g.classList.toggle("dim", g.dataset.pos !== id); });
+            var p = X.positions.filter(function (x) { return x.id === id; })[0];
+            var meter = '<div class="speed"><span class="small muted">Speed of result</span><span class="bars">' + [1, 2, 3, 4].map(function (k) { return "<i" + (k <= p.speed ? ' class="on"' : "") + "></i>"; }).join("") + '</span><b>' + esc(p.speedLabel) + "</b></div>";
+            $("#pos-detail", root).innerHTML = '<div class="eyebrow">Measuring position</div><h2 class="h2">' + esc(p.name) + "</h2><p>" + esc(p.text) + "</p>" + meter;
+            $$("#pos-btns .chip", root).forEach(function (b) { b.setAttribute("aria-pressed", b.dataset.pos === id); });
+          });
         }
-        d.addEventListener("click", function (e) { var g = e.target.closest(".pos"); if (g) show(g.dataset.pos); });
+        svg.addEventListener("click", function (e) { var g = e.target.closest(".pos"); if (g) show(g.dataset.pos); });
         $$("#pos-btns .chip", root).forEach(function (b) { b.onclick = function () { show(b.dataset.pos); }; });
-        show("inline");
+        show(X.positions[0].id);
       },
     };
   };
@@ -1954,33 +2494,48 @@ window.KIOSK = {
     var b = '<div><div class="eyebrow">Step ' + (idx + 1) + " of " + steps.length + " · " + esc(s.name) + '</div><h2 class="h2" style="margin-top:.3rem">' + esc(s.title) + "</h2></div>";
     if (s.text) b += '<p class="lead">' + esc(s.text) + "</p>";
     if (s.kind === "beforeafter") {
-      b += '<div class="seg" role="group"><button type="button" data-ba="0" aria-pressed="false">Before: offline</button><button type="button" data-ba="1" aria-pressed="true">After: online</button></div><div class="diagram" id="ba">' + DG.beforeAfter(true) + "</div>";
+      b += '<div class="seg" role="group"><button type="button" data-ba="0" aria-pressed="false">Before: offline</button><button type="button" data-ba="1" aria-pressed="true">After: online</button></div><div class="diagram" id="ba">' + DG.beforeAfter() + "</div>";
     }
     if (s.kind === "atex") b += '<div class="diagram">' + DG.atex() + "</div>";
-    if (s.kind === "model") b += '<div class="diagram">' + DG.model() + '</div><div class="cols3">' + s.phases.map(function (p) { return '<div class="panel"><h3 class="h3">' + esc(p.name) + "</h3><p>" + esc(p.text) + "</p></div>"; }).join("") + "</div>";
-    if (s.kind === "chips") b += '<div class="row">' + s.chips.map(function (c) { return '<span class="chip" style="cursor:default">' + esc(c) + "</span>"; }).join("") + "</div>";
-    if (s.kind === "vmodel") b += '<div class="diagram" id="vm">' + DG.vmodel("urs", X.vmodel) + '</div><div class="panel" id="vm-detail"></div>' + note(X.vmodelCheck);
+    if (s.kind === "model") b += '<div class="diagram" id="model">' + DG.model() + '</div><div class="cols3" id="phases">' + s.phases.map(function (p, k) { return '<button type="button" class="panel phase" data-phase="' + k + '" aria-pressed="' + (k === 0) + '"><span class="eyebrow">Phase ' + (k + 1) + '</span><h3 class="h3">' + esc(p.name) + "</h3><p>" + esc(p.text) + "</p></button>"; }).join("") + "</div>";
+    if (s.kind === "chips") b += '<div class="row">' + s.chips.map(function (c) { return '<span class="pill">' + esc(c) + "</span>"; }).join("") + "</div>";
+    if (s.kind === "vmodel") b += '<div class="diagram" id="vm">' + DG.vmodel(X.vmodel) + '</div><div class="panel" id="vm-detail"></div>' + note(X.vmodelCheck);
     if (s.points) b += bullets(s.points);
     if (s.cols) b += '<div class="cols2">' + s.cols.map(function (c) {
       return '<div class="panel">' + (c.img ? '<div style="aspect-ratio:16/9">' + stage(c.img, "", c.h) + "</div>" : "") + '<h3 class="h3">' + esc(c.h) + "</h3>" + bullets(c.points) +
-        (c.product ? '<button class="linkish" type="button" data-go="product/' + c.product + '">View the flow cell ' + I.arrow.replace("<svg", '<svg style="width:1rem;height:1rem"') + "</button>" : "") + "</div>";
+        (c.product ? '<button class="linkish" type="button" data-go="product/' + c.product + '">View the flow cell ' + arrowSm() + "</button>" : "") + "</div>";
     }).join("") + "</div>";
     if (s.note) b += '<div class="panel sky"><p><b style="font-weight:500">' + esc(s.note) + "</b></p></div>";
-    b += '<div class="pager">' + (idx > 0 ? '<button class="btn" type="button" data-tab="case/' + steps[idx - 1].id + '">' + I.back + esc(steps[idx - 1].name) + "</button>" : "<span></span>") +
+    b += '<div class="pager">' + (idx > 0 ? '<button class="btn" type="button" data-tab="case/' + steps[idx - 1].id + '">' + I.back + esc(steps[idx - 1].name) + "</button>" : "") +
       (idx < steps.length - 1 ? '<button class="btn primary" type="button" data-tab="case/' + steps[idx + 1].id + '">' + esc(steps[idx + 1].name) + I.arrow + "</button>" : '<button class="btn primary" type="button" data-req="services">' + I.mail + "Talk to us about your project</button>") + "</div>";
     return {
       crumb: crumb("Case study", s.name),
       html: pageHead("Case study · Hellma Solutions", X.title, esc(X.sub), "solutions") + '<div class="case">' + list + '<div class="stepbody">' + b + "</div></div>",
       init: function (root) {
+        var ba = $("#ba svg", root);
         $$("[data-ba]", root).forEach(function (btn) {
-          btn.onclick = function () { $$("[data-ba]", root).forEach(function (o) { o.setAttribute("aria-pressed", o === btn); }); $("#ba", root).innerHTML = DG.beforeAfter(btn.dataset.ba === "1"); };
+          btn.onclick = function () { steady(function () { $$("[data-ba]", root).forEach(function (o) { o.setAttribute("aria-pressed", o === btn); }); ba.setAttribute("data-after", btn.dataset.ba); }); };
         });
-        var vm = $("#vm", root);
+        var model = $("#model svg", root);
+        if (model) {
+          var phase = function (k) {
+            steady(function () {
+              model.setAttribute("data-show", String(k));
+              $$("#phases .phase", root).forEach(function (b) { b.setAttribute("aria-pressed", Number(b.dataset.phase) === k); });
+            });
+          };
+          $$("#phases .phase", root).forEach(function (b) { b.onclick = function () { phase(Number(b.dataset.phase)); }; });
+          model.addEventListener("click", function (e) { var g = e.target.closest(".phl"); if (g) phase(Number(g.dataset.phase)); });
+          phase(0);
+        }
+        var vm = $("#vm svg", root);
         if (vm) {
           var show = function (id) {
-            vm.innerHTML = DG.vmodel(id, X.vmodel);
-            var st = X.vmodel.filter(function (v) { return v.id === id; })[0];
-            $("#vm-detail", root).innerHTML = '<h3 class="h3">' + esc(st.name) + "</h3><p>" + esc(st.text) + "</p>";
+            steady(function () {
+              $$(".vst", vm).forEach(function (g) { g.classList.toggle("on", g.dataset.v === id); });
+              var st = X.vmodel.filter(function (v) { return v.id === id; })[0];
+              $("#vm-detail", root).innerHTML = '<h3 class="h3">' + esc(st.name) + "</h3><p>" + esc(st.text) + "</p>";
+            });
           };
           vm.addEventListener("click", function (e) { var g = e.target.closest(".vst"); if (g) show(g.dataset.v); });
           show("urs");
@@ -1989,20 +2544,124 @@ window.KIOSK = {
     };
   };
 
-  SCREENS.industries = function (sel) {
-    var X = C.industries;
-    var grid = '<div class="ind-grid">' + X.items.map(function (it) {
-      return '<button class="ind" type="button" data-tab="industries/' + it.id + '" aria-pressed="' + (it.id === sel) + '">' + img(it.img, "") + "<span>" + esc(it.name) + "</span></button>";
-    }).join("") + "</div>";
-    var det = "";
-    if (sel) {
-      var it = X.items.filter(function (x) { return x.id === sel; })[0];
-      det = '<section class="panel sky ind-detail" id="ind-detail"><div class="ph">' + img(it.img, it.name) + '</div><div style="display:grid;gap:1rem;align-content:start"><h2 class="h2">' + esc(it.name) + '</h2><p class="lead">' + esc(it.text) + "</p>" +
-        '<div class="minis">' + it.related.map(relItem).map(mini).join("") + '</div><div class="row"><button class="btn primary" type="button" data-req="services">' + I.mail + "Discuss your application</button></div></div></section>";
+  /* ---------------- Applications ---------------- */
+  var A = C.applications;
+  function fieldOf(id) { return A.fields.filter(function (f) { return f.id === id; })[0]; }
+  function fieldVisual(f) {
+    if (f.img) return img(f.img, "");
+    return '<span class="gfx gfx-' + f.graphic + '"></span>';
+  }
+  function storyCard(id) {
+    var s = A.stories[id], t = A.techniques[s.technique];
+    return '<button class="scard" type="button" data-go="app/' + id + '"><span class="tag">' + esc(t.name) + "</span><b>" + esc(s.title) + "</b><span>" + esc(s.short) + '</span><span class="go">Read ' + arrowSm() + "</span></button>";
+  }
+  function caseCard(c) {
+    return '<button class="ccard" type="button" data-go="' + c.route + '">' + stage(c.img, "", c.title) + '<div class="t"><span class="eyebrow">Case study</span><b>' + esc(c.title) + "</b><span>" + esc(c.sub) + "</span></div></button>";
+  }
+  SCREENS.applications = function (sel) {
+    sel = sel || "industries";
+    var body = "";
+    if (sel === "industries") {
+      body = '<div class="ind-grid">' + A.fields.map(function (f) {
+        var n = (f.stories || []).length + (f.cases || []).length;
+        return '<button class="ind" type="button" data-go="industry/' + f.id + '">' + fieldVisual(f) + "<span>" + esc(f.name) + (n ? '<small>' + n + (n === 1 ? " example" : " examples") + "</small>" : "") + "</span></button>";
+      }).join("") + "</div>";
+    } else if (sel === "techniques") {
+      body = '<div class="cols3">' + Object.keys(A.techniques).map(function (k) {
+        var t = A.techniques[k];
+        return '<button class="panel tcard" type="button" data-go="technique/' + k + '"><span class="eyebrow">' + esc(t.long) + '</span><h2 class="h2">' + esc(t.name) + "</h2><p>" + esc(plain(t.points[0])) + '</p><span class="muted small">' + t.stories.length + " application" + (t.stories.length === 1 ? "" : "s") + '</span><span class="linkish">Explore ' + arrowSm() + "</span></button>";
+      }).join("") + "</div>";
+    } else {
+      body = '<div class="cols2">' + A.cases.map(caseCard).join("") + "</div>";
     }
     return {
-      crumb: crumb("Industries", sel ? X.items.filter(function (x) { return x.id === sel; })[0].name : null),
-      html: pageHead("Fields of application", "Where process spectroscopy pays off", esc(X.intro)) + note(X.check) + det + grid,
+      crumb: crumb("Applications", { industries: "By industry", techniques: "By technique", cases: "Case studies" }[sel]),
+      html: pageHead("Applications", "Where Hellma probes measure", esc(A.intro)) +
+        tabs([["industries", "By industry"], ["techniques", "By technique"], ["cases", "Case studies"]], sel, "applications") + body + note(A.relatedCheck),
+    };
+  };
+  SCREENS.industries = function () { return SCREENS.applications("industries"); };
+
+  SCREENS.industry = function (id) {
+    var f = fieldOf(id);
+    var stories = (f.stories || []).map(storyCard).join("");
+    var cases = (f.cases || []).map(function (cid) { return caseCard(A.cases.filter(function (c) { return c.id === cid; })[0]); }).join("");
+    var rel = (f.related || []).map(relItem).filter(Boolean).map(mini).join("");
+    return {
+      crumb: crumb("Applications", f.name),
+      html: '<section class="ind-hero"><div class="ph">' + fieldVisual(f) + '</div><div style="display:grid;gap:.7rem;align-content:center"><div class="eyebrow">Industry</div><h1 class="h1">' + esc(f.name) + '</h1><p class="lead">' + T(f.text) + "</p></div></section>" +
+        (stories ? '<section style="display:grid;gap:.8rem"><h2 class="h2">Examples</h2><div class="scards">' + stories + "</div></section>" : "") +
+        (cases ? '<section style="display:grid;gap:.8rem"><h2 class="h2">Case study</h2><div class="cols2">' + cases + "</div></section>" : "") +
+        (rel ? '<section style="display:grid;gap:.8rem"><h2 class="h2">Probes to look at</h2><div class="minis">' + rel + "</div></section>" : "") +
+        (!stories && !cases ? '<div class="empty"><p>Tell us about your process and our application team will suggest a setup.</p><button class="btn primary" type="button" data-req="applications">' + I.mail + "Discuss your application</button></div>" :
+          '<div class="row"><button class="btn primary" type="button" data-req="applications">' + I.mail + "Discuss your application</button></div>"),
+    };
+  };
+
+  function techChart(key) {
+    if (key === "nirbands") return DG.nirBands();
+    return DG.charts[key] ? DG.charts[key]() : "";
+  }
+  SCREENS.technique = function (id) {
+    var t = A.techniques[id];
+    var ex = t.example ? '<section class="panel sky" style="gap:1rem"><h2 class="h2">' + esc(t.example.title) + '</h2><div class="cols2" style="align-items:center"><p>' + esc(t.example.text) + '</p><div class="diagram">' + techChart(t.example.chart) + "</div></div></section>" : "";
+    return {
+      crumb: crumb("Applications", t.name),
+      html: pageHead(t.long, t.name, null) +
+        '<div class="cols2" style="align-items:start"><div style="display:grid;gap:1rem">' + bullets(t.points) + "</div>" +
+        '<figure class="chartfig"><div class="diagram">' + techChart(t.chart) + '</div><figcaption>' + T(t.chartNote) + "</figcaption></figure></div>" + ex +
+        '<section style="display:grid;gap:.8rem"><h2 class="h2">Applications</h2><div class="scards">' + t.stories.map(storyCard).join("") + "</div></section>",
+    };
+  };
+
+  function labToRgb(L, a, b) {
+    var fy = (L + 16) / 116, fx = fy + a / 500, fz = fy - b / 200;
+    function f(t) { return t * t * t > 0.008856 ? t * t * t : (t - 16 / 116) / 7.787; }
+    var X = 0.95047 * f(fx), Y = 1.0 * f(fy), Z = 1.08883 * f(fz);
+    var r = 3.2406 * X - 1.5372 * Y - 0.4986 * Z, g = -0.9689 * X + 1.8758 * Y + 0.0415 * Z, bl = 0.0557 * X - 0.2040 * Y + 1.0570 * Z;
+    function gm(c) { c = c > 0.0031308 ? 1.055 * Math.pow(c, 1 / 2.4) - 0.055 : 12.92 * c; return Math.round(Math.max(0, Math.min(1, c)) * 255); }
+    return "rgb(" + gm(r) + "," + gm(g) + "," + gm(bl) + ")";
+  }
+  SCREENS.app = function (id) {
+    var s = A.stories[id], t = A.techniques[s.technique];
+    var fields = s.fields.map(function (fid) { var f = fieldOf(fid); return '<button class="tag" type="button" data-go="industry/' + fid + '">' + esc(f.name) + "</button>"; }).join("");
+    var blocks = s.blocks.map(function (bl) { return '<div class="sblock"><h3 class="h3">' + esc(bl.h) + "</h3><p>" + esc(bl.t) + "</p></div>"; }).join("");
+    var params = s.params ? '<div class="params">' + s.params.map(function (p) { return "<div><b>" + esc(p[0]) + "</b>" + (p[1] ? "<span>" + esc(p[1]) + "</span>" : "") + "</div>"; }).join("") + "</div>" : "";
+    var visual = "";
+    if (s.chart === "lab") {
+      visual = '<div class="labx" id="labx"><div class="swatch" id="lab-sw"></div><div class="sliders">' +
+        [["L", "L*", 0, 100, 60, "dark", "light"], ["a", "a*", -80, 80, 20, "green", "red"], ["b", "b*", -80, 80, -40, "blue", "yellow"]].map(function (r) {
+          return '<label class="sl"><span class="k">' + r[1] + '</span><input type="range" id="lab-' + r[0] + '" min="' + r[2] + '" max="' + r[3] + '" value="' + r[4] + '" step="1"><span class="ends"><i>' + r[5] + "</i><i>" + r[6] + '</i></span><output id="lab-' + r[0] + 'o"></output></label>';
+        }).join("") + "</div></div>";
+    } else if (s.chart === "dilution") visual = '<div class="diagram">' + DG.dilution() + "</div>";
+    else if (s.chart) visual = '<figure class="chartfig"><div class="diagram">' + DG.charts[s.chart]() + "</div>" + (s.chartNote ? "<figcaption>" + esc(s.chartNote) + "</figcaption>" : "") + "</figure>";
+    var ranges = s.ranges ? '<figure class="chartfig"><div class="diagram">' + DG.ranges(s.ranges) + "</div><figcaption>Characteristic mixture. O₂ and N₂ are only visible to Raman.</figcaption></figure>" : "";
+    var tables = (s.tables || []).map(function (tb) {
+      return '<div class="tablewrap2"><table class="datatable"><caption>' + esc(tb.caption) + '</caption><thead><tr><th></th><th>Color</th><th>L*</th><th>±</th><th>a*</th><th>±</th><th>b*</th><th>±</th></tr></thead><tbody>' +
+        tb.rows.map(function (r) { return "<tr><th>" + esc(r[0]) + '</th><td><i class="sw" style="background:' + labToRgb(r[1], r[3], r[5]) + '"></i></td>' + [1, 2, 3, 4, 5, 6].map(function (k) { return "<td>" + r[k].toFixed(2) + "</td>"; }).join("") + "</tr>"; }).join("") +
+        "</tbody></table>" + note(tb.check) + "</div>";
+    }).join("");
+    var measured = s.measured ? '<div style="display:grid;gap:.5rem"><div class="eyebrow" style="color:var(--grey-7)">What is measured</div><div class="row" style="gap:.4rem">' + s.measured.map(function (m) { return '<span class="pill">' + esc(m) + "</span>"; }).join("") + "</div></div>" : "";
+    var rel = s.related.map(relItem).filter(Boolean).map(mini).join("");
+    return {
+      crumb: crumb(s.isCase ? "Case study" : "Applications", s.title.split(":")[0]),
+      html: '<header class="pagehead"><div class="row" style="gap:.4rem"><span class="tag solid">' + esc(t.name) + "</span>" + fields + (s.isCase ? '<span class="tag">Case study</span>' : "") + '</div><h1 class="h1">' + esc(s.title) + '</h1><p class="lead">' + esc(s.lead) + "</p></header>" +
+        (s.blocks.length ? '<div class="story"><div class="sbody">' + blocks + params + measured + "</div><div class=\"svis\">" + visual + ranges + "</div></div>"
+          : '<div class="story"><div class="sbody">' + params + measured + ranges + "</div><div class=\"svis\">" + visual + "</div></div>") + tables +
+        (s.credit ? '<p class="credit">' + esc(s.credit) + "</p>" : "") +
+        (rel ? '<section style="display:grid;gap:.8rem"><h2 class="h2">' + (s.isCase ? "Probes in this story" : "Probes and principles to look at") + '</h2><div class="minis">' + rel + "</div></section>" : "") +
+        '<div class="row"><button class="btn primary" type="button" data-req="applications">' + I.mail + "Discuss a similar application</button>" +
+        '<button class="btn" type="button" data-go="technique/' + s.technique + '">More ' + esc(t.name) + " applications</button></div>",
+      init: function (root) {
+        var lx = $("#labx", root); if (!lx) return;
+        function upd() {
+          var L = +$("#lab-L", lx).value, a = +$("#lab-a", lx).value, b = +$("#lab-b", lx).value;
+          $("#lab-sw", lx).style.background = labToRgb(L, a, b);
+          $("#lab-Lo", lx).textContent = L; $("#lab-ao", lx).textContent = a; $("#lab-bo", lx).textContent = b;
+        }
+        $$("input", lx).forEach(function (i) { i.addEventListener("input", upd); });
+        upd();
+      },
     };
   };
 
@@ -2038,6 +2697,9 @@ window.KIOSK = {
     if (r.indexOf("solutions/custom") === 0) set.custom = 1;
     if (r.indexOf("case") === 0 || r.indexOf("solutions/services") === 0) set.services = 1;
     if (r.indexOf("product/") === 0) set[C.products[r.split("/")[1]].family] = 1;
+    if (r.indexOf("principles/raman") === 0) set.tidus = 1;
+    if (r.indexOf("principles/fluorescence") === 0) set.espada = 1;
+    if (/^(applications|app\/|industry\/|technique\/)/.test(r)) set.applications = 1;
     return Object.keys(set);
   }
   function openForm(extra) {
@@ -2170,7 +2832,9 @@ window.KIOSK = {
   var taps = [];
   $("#logo-btn").addEventListener("click", function () {
     var now = Date.now(); taps = taps.filter(function (t) { return now - t < 3000; }); taps.push(now);
-    if (taps.length >= 5) { taps = []; openPin(); }
+    if (taps.length >= 5) { taps = []; openPin(); return; }
+    /* A single tap goes home; the next taps of a staff sequence land on the home screen and do nothing else */
+    if (current !== "home" && current !== "attract") go("home");
   });
   function openPin() {
     var pin = $("#pin"), entered = "";
