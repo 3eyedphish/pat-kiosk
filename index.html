@@ -417,7 +417,7 @@ body.review .chk-note::before { content: "To confirm: "; font-weight: 600; }
   .cta { height: 3.1rem; padding: 0 1.1rem; font-size: .95rem; }
 }
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { animation: none !important; transition: none !important; }
+  body:not(.motion-always) *, body:not(.motion-always) *::before, body:not(.motion-always) *::after { animation: none !important; transition: none !important; }
 }
 
 /* ---------- Diagram internals ---------- */
@@ -584,8 +584,8 @@ button.tag { cursor: pointer; }
   .labx .swatch { max-width: 8rem; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .chartsvg .draw { stroke-dasharray: none !important; stroke-dashoffset: 0 !important; }
-  .grow { transform: none !important; }
+  body:not(.motion-always) .chartsvg .draw { stroke-dasharray: none !important; stroke-dashoffset: 0 !important; }
+  body:not(.motion-always) .grow { transform: none !important; }
 }
 .pill { display: inline-flex; align-items: center; padding: .35rem .85rem; border-radius: 999px; background: var(--sky-1); border: 1px solid var(--sky-2); font-size: .92rem; color: var(--blue-ink); }
 /* Chart text stays readable when the 760-unit charts render at half width */
@@ -598,18 +598,23 @@ button.tag { cursor: pointer; }
 }
 .stage.svgstage { background: linear-gradient(180deg, #fff, var(--sky-1)); }
 .stage.svgstage svg { width: 94%; height: 94%; }
+/* NIR band chart: tap a group to highlight it */
+.nbsvg .nbr { cursor: pointer; transition: opacity .25s; }
+.nbsvg[data-sel] .nbr { opacity: .22; }
+.nbsvg[data-sel] .nbr.on { opacity: 1; }
+.nbsvg .nbr.on > rect:first-child { fill: var(--sky-2); }
 
 </style>
 </head>
 <body>
 <div id="app"></div>
 <script>
-window.KIOSK_ASSETS={"A1": "assets/A1.jpg", "A2": "assets/A2.jpg", "A3": "assets/A3.jpg", "A4": "assets/A4.jpg", "A5": "assets/A5.jpg", "A6": "assets/A6.jpg", "A7": "assets/A7.jpg", "A8": "assets/A8.jpg", "A9": "assets/A9.jpg", "C1": "assets/C1.jpg", "C2": "assets/C2.jpg", "C3": "assets/C3.jpg", "C4": "assets/C4.jpg", "D10": "assets/D10.png", "D2": "assets/D2.png", "D3": "assets/D3.png", "D4": "assets/D4.png", "D5": "assets/D5.png", "D6": "assets/D6.png", "D7": "assets/D7.png", "D8": "assets/D8.png", "D9": "assets/D9.png", "EX": "assets/EX.png", "I1": "assets/I1.jpg", "I2": "assets/I2.jpg", "I3": "assets/I3.jpg", "I4": "assets/I4.jpg", "I5": "assets/I5.jpg", "I6": "assets/I6.jpg", "K1": "assets/K1.jpg", "K2": "assets/K2.jpg", "K2b": "assets/K2b.jpg", "K3": "assets/K3.jpg", "L1": "assets/L1.svg", "L2": "assets/L2.png", "L3": "assets/L3.png", "L5": "assets/L5.png", "L6": "assets/L6.png", "P1": "assets/P1.jpg", "P10": "assets/P10.jpg", "P10b": "assets/P10b.jpg", "P11": "assets/P11.jpg", "P12": "assets/P12.jpg", "P13": "assets/P13.jpg", "P14": "assets/P14.jpg", "P15": "assets/P15.jpg", "P16": "assets/P16.jpg", "P17": "assets/P17.jpg", "P17b": "assets/P17b.jpg", "P2": "assets/P2.jpg", "P3": "assets/P3.jpg", "P4": "assets/P4.jpg", "P5": "assets/P5.jpg", "P6": "assets/P6.jpg", "P7": "assets/P7.jpg", "P8": "assets/P8.jpg", "P9": "assets/P9.jpg", "R1": "assets/R1.jpg", "R2": "assets/R2.jpg", "R3": "assets/R3.jpg", "R4": "assets/R4.jpg", "R5": "assets/R5.jpg", "R6": "assets/R6.png", "R7": "assets/R7.jpg", "R8": "assets/R8.jpg", "R9": "assets/R9.png", "S1": "assets/S1.png", "S2": "assets/S2.png", "S3": "assets/S3.png", "S4": "assets/S4.png", "W1": "assets/W1.jpg", "W2": "assets/W2.jpg", "W3": "assets/W3.jpg", "W4": "assets/W4.jpg", "W5": "assets/W5.jpg", "W6": "assets/W6.jpg", "W7": "assets/W7.jpg"};
+window.KIOSK_ASSETS={"A1": "assets/A1.jpg", "A2": "assets/A2.jpg", "A3": "assets/A3.jpg", "A4": "assets/A4.jpg", "A5": "assets/A5.jpg", "A6": "assets/A6.jpg", "A7": "assets/A7.jpg", "A8": "assets/A8.jpg", "A9": "assets/A9.jpg", "C1": "assets/C1.jpg", "C2": "assets/C2.jpg", "C3": "assets/C3.jpg", "C4": "assets/C4.jpg", "D10": "assets/D10.png", "D2": "assets/D2.png", "D3": "assets/D3.png", "D4": "assets/D4.png", "D5": "assets/D5.png", "D6": "assets/D6.png", "D7": "assets/D7.png", "D8": "assets/D8.png", "D9": "assets/D9.png", "EX": "assets/EX.png", "I1": "assets/I1.jpg", "I2": "assets/I2.jpg", "I3": "assets/I3.jpg", "I4": "assets/I4.jpg", "I5": "assets/I5.jpg", "I6": "assets/I6.jpg", "K1": "assets/K1.jpg", "K2": "assets/K2.jpg", "K2b": "assets/K2b.jpg", "K3": "assets/K3.jpg", "L1": "assets/L1.svg", "L2": "assets/L2.png", "L3": "assets/L3.png", "L5": "assets/L5.png", "L6": "assets/L6.png", "P1": "assets/P1.jpg", "P10": "assets/P10.jpg", "P10b": "assets/P10b.jpg", "P11": "assets/P11.jpg", "P12": "assets/P12.jpg", "P13": "assets/P13.jpg", "P14": "assets/P14.jpg", "P15": "assets/P15.jpg", "P16": "assets/P16.jpg", "P17": "assets/P17.jpg", "P17b": "assets/P17b.jpg", "P18": "assets/P18.jpg", "P2": "assets/P2.jpg", "P3": "assets/P3.jpg", "P4": "assets/P4.jpg", "P5": "assets/P5.jpg", "P6": "assets/P6.jpg", "P7": "assets/P7.jpg", "P8": "assets/P8.jpg", "P9": "assets/P9.jpg", "R1": "assets/R1.jpg", "R2": "assets/R2.jpg", "R3": "assets/R3.jpg", "R4": "assets/R4.jpg", "R5": "assets/R5.jpg", "R6": "assets/R6.png", "R7": "assets/R7.jpg", "R8": "assets/R8.jpg", "R9": "assets/R9.png", "S1": "assets/S1.png", "S2": "assets/S2.png", "S3": "assets/S3.png", "S4": "assets/S4.png", "W1": "assets/W1.jpg", "W2": "assets/W2.jpg", "W3": "assets/W3.jpg", "W4": "assets/W4.jpg", "W5": "assets/W5.jpg", "W6": "assets/W6.jpg", "W7": "assets/W7.jpg"};
 window.KIOSK_LOGO_SVG="<svg\n   xmlns:dc=\"http://purl.org/dc/elements/1.1/\"\n   xmlns:cc=\"http://creativecommons.org/ns#\"\n   xmlns:rdf=\"http://www.w3.org/1999/02/22-rdf-syntax-ns#\"\n   xmlns:svg=\"http://www.w3.org/2000/svg\"\n   xmlns=\"http://www.w3.org/2000/svg\"\n   viewBox=\"0 0 216.62666 49.119999\"\n   height=\"49.119999\"\n   width=\"216.62666\"\n   xml:space=\"preserve\"\n   id=\"svg2\"\n   version=\"1.1\"><defs\n     id=\"defs6\" /><g\n     transform=\"matrix(1.3333333,0,0,-1.3333333,0,49.12)\"\n     id=\"g10\"><g\n       transform=\"scale(0.1)\"\n       id=\"g12\"><path\n         id=\"path14\"\n         style=\"fill:#1959a6;fill-opacity:1;fill-rule:nonzero;stroke:none\"\n         d=\"M 351.117,9.08984 H 289.082 V 159.766 H 143.32 V 9.08984 H 83.1055 V 159.344 L 5,159.383 v 58.387 l 78.1055,-0.036 v 144.5 H 143.32 V 217.68 h 145.762 v 144.554 h 62.035 V 9.08984\" /><path\n         id=\"path16\"\n         style=\"fill:none;stroke:#1959a6;stroke-width:10;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1\"\n         d=\"M 351.117,9.08984 H 289.082 V 159.766 H 143.32 V 9.08984 H 83.1055 V 159.344 L 5,159.383 v 58.387 l 78.1055,-0.036 v 144.5 H 143.32 V 217.68 h 145.762 v 144.554 h 62.035 z\" /><path\n         id=\"path18\"\n         style=\"fill:#1959a6;fill-opacity:1;fill-rule:nonzero;stroke:none\"\n         d=\"M 739.043,9.08984 H 679.707 V 362.234 h 59.336 V 9.08984\" /><path\n         id=\"path20\"\n         style=\"fill:none;stroke:#1959a6;stroke-width:10;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1\"\n         d=\"M 739.043,9.08984 H 679.707 V 362.234 h 59.336 z\" /><path\n         id=\"path22\"\n         style=\"fill:#1959a6;fill-opacity:1;fill-rule:nonzero;stroke:none\"\n         d=\"M 857.055,9.08984 H 797.734 V 362.234 h 59.321 V 9.08984\" /><path\n         id=\"path24\"\n         style=\"fill:none;stroke:#1959a6;stroke-width:10;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1\"\n         d=\"M 857.055,9.08984 H 797.734 V 362.234 h 59.321 z\" /><path\n         id=\"path26\"\n         style=\"fill:#1959a6;fill-opacity:1;fill-rule:nonzero;stroke:none\"\n         d=\"m 966.676,256.293 v -35.785 h 1.875 c 13.191,31.547 46.619,38.609 77.699,38.609 31.07,0 66.86,-8.004 73.45,-43.789 h 1.89 c 11.3,34.375 45.19,43.789 78.15,43.789 64.04,0 85.23,-22.129 85.23,-82.879 V 9.08984 h -59.33 V 170.594 c -1.41,31.078 -8.95,43.324 -41.44,43.324 -48.02,0 -57.44,-21.664 -57.44,-65.453 V 9.08984 h -59.32 V 170.594 c -1.42,31.078 -8.95,43.324 -41.44,43.324 -48.027,0 -57.449,-21.664 -57.449,-65.453 V 9.08984 H 909.223 V 256.293 h 57.453\" /><path\n         id=\"path28\"\n         style=\"fill:none;stroke:#1959a6;stroke-width:10;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1\"\n         d=\"m 966.676,256.293 v -35.785 h 1.875 c 13.191,31.547 46.619,38.609 77.699,38.609 31.07,0 66.86,-8.004 73.45,-43.789 h 1.89 c 11.3,34.375 45.19,43.789 78.15,43.789 64.04,0 85.23,-22.129 85.23,-82.879 V 9.08984 h -59.33 V 170.594 c -1.41,31.078 -8.95,43.324 -41.44,43.324 -48.02,0 -57.44,-21.664 -57.44,-65.453 V 9.08984 h -59.32 V 170.594 c -1.42,31.078 -8.95,43.324 -41.44,43.324 -48.027,0 -57.449,-21.664 -57.449,-65.453 V 9.08984 H 909.223 V 256.293 Z\" /><path\n         id=\"path30\"\n         style=\"fill:#1959a6;fill-opacity:1;fill-rule:nonzero;stroke:none\"\n         d=\"m 1493.45,9.08984 h 59.33 V 164.004 c 0,82.871 -32.96,95.113 -112.06,95.113 -56.51,0 -105.95,-2.824 -105.95,-74.871 h 59.34 c 0,32.024 20.71,34.375 46.61,34.375 49.44,0 52.73,-14.117 52.73,-54.148 v -32.024 h -1.88 c -14.12,27.793 -43.79,28.266 -73.93,28.266 -61.21,0 -92.28,-16.488 -92.28,-75.8127 0,-66.8671 36.26,-78.63277 92.28,-78.63277 28.72,0 64.98,0.9375 76.75,33.89457 h 1.42 z M 1438.83,120.215 c 29.19,0 54.62,-0.949 54.62,-35.3127 0,-35.3242 -23.06,-38.1367 -54.62,-38.1367 -40.02,0 -54.15,3.293 -54.15,38.1367 0,35.3127 24.02,35.3127 54.15,35.3127\" /><path\n         id=\"path32\"\n         style=\"fill:none;stroke:#1959a6;stroke-width:10;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1\"\n         d=\"m 1493.45,9.08984 h 59.33 V 164.004 c 0,82.871 -32.96,95.113 -112.06,95.113 -56.51,0 -105.95,-2.824 -105.95,-74.871 h 59.34 c 0,32.024 20.71,34.375 46.61,34.375 49.44,0 52.73,-14.117 52.73,-54.148 v -32.024 h -1.88 c -14.12,27.793 -43.79,28.266 -73.93,28.266 -61.21,0 -92.28,-16.488 -92.28,-75.8127 0,-66.8671 36.26,-78.63277 92.28,-78.63277 28.72,0 64.98,0.9375 76.75,33.89457 h 1.42 z M 1438.83,120.215 c 29.19,0 54.62,-0.949 54.62,-35.3127 0,-35.3242 -23.06,-38.1367 -54.62,-38.1367 -40.02,0 -54.15,3.293 -54.15,38.1367 0,35.3127 24.02,35.3127 54.15,35.3127 z\" /><path\n         id=\"path34\"\n         style=\"fill:#1959a6;fill-opacity:1;fill-rule:evenodd;stroke:none\"\n         d=\"m 1588.79,313.555 c 4.09,0 7.99,-0.625 11.7,-1.918 3.75,-1.258 7.23,-3.114 10.37,-5.535 4.42,-3.391 7.76,-7.598 10.2,-12.563 2.42,-4.969 3.63,-10.258 3.63,-15.875 0,-4.867 -0.88,-9.496 -2.67,-13.832 -1.78,-4.297 -4.38,-8.105 -7.8,-11.406 -3.53,-3.438 -7.52,-6.063 -11.87,-7.918 -4.38,-1.828 -8.91,-2.727 -13.56,-2.727 -4.7,0 -9.25,0.899 -13.67,2.766 -4.39,1.855 -8.28,4.519 -11.74,7.976 -3.36,3.372 -5.97,7.247 -7.77,11.524 -1.82,4.394 -2.69,8.887 -2.69,13.617 0,3.961 0.64,7.84 1.93,11.633 1.35,3.797 3.28,7.332 5.82,10.625 3.44,4.402 7.58,7.797 12.42,10.137 4.83,2.343 10.08,3.496 15.7,3.496 z m 31.14,-36.168 c 0,4.316 -0.78,8.398 -2.29,12.211 -1.54,3.82 -3.77,7.254 -6.68,10.242 -2.91,2.871 -6.31,5.09 -10.13,6.664 -3.81,1.578 -7.84,2.383 -12.04,2.383 -4.21,0 -8.2,-0.766 -11.93,-2.301 -3.71,-1.531 -7.01,-3.715 -9.8,-6.582 -2.99,-3.012 -5.3,-6.465 -6.92,-10.301 -1.66,-3.879 -2.44,-7.879 -2.44,-12.039 0,-4.074 0.78,-8.031 2.32,-11.84 1.59,-3.75 3.83,-7.078 6.72,-9.969 2.97,-2.968 6.35,-5.246 10.12,-6.867 3.83,-1.64 7.68,-2.441 11.66,-2.441 4.22,0 8.26,0.781 12.13,2.324 3.87,1.613 7.3,3.867 10.31,6.817 2.85,2.871 5.06,6.164 6.64,9.902 1.55,3.73 2.33,7.656 2.33,11.797 z m -22.54,-0.789 9.2,-18.567 h -8.73 l -8.27,17.336 h -7.55 v -17.336 h -7.68 v 40.66 h 15.31 c 5.69,0 9.96,-0.914 12.82,-2.808 2.85,-1.86 4.31,-4.649 4.31,-8.34 0,-2.871 -0.86,-5.293 -2.52,-7.25 -1.66,-1.938 -3.94,-3.199 -6.89,-3.695 z m -8.87,3.652 c 3.71,0 6.41,0.508 7.99,1.492 1.6,1.055 2.36,2.711 2.36,4.973 0,2.441 -0.82,4.199 -2.5,5.312 -1.66,1.153 -4.33,1.711 -8.06,1.711 h -6.27 V 280.25 h 6.48 v 0\" /><path\n         id=\"path36\"\n         style=\"fill:#1959a6;fill-opacity:1;fill-rule:nonzero;stroke:none\"\n         d=\"m 571.348,86.4531 c 0,-36.7265 -23.067,-36.25 -56.028,-36.25 -53.211,0 -54.617,16.9453 -54.617,70.1559 h 169.981 c 0,107.825 -13.664,137.489 -115.364,137.489 -99.824,0 -113.941,-38.61 -113.941,-127.133 C 401.379,35.1367 420.676,5 515.32,5 585.945,5 630.684,8.75781 630.684,86.4531 Z M 460.703,158.027 c 0,43.789 3.289,54.618 54.617,54.618 48.496,0 56.028,-3.766 56.028,-54.618 H 460.703\" /><path\n         id=\"path38\"\n         style=\"fill:none;stroke:#1959a6;stroke-width:10;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1\"\n         d=\"m 571.348,86.4531 c 0,-36.7265 -23.067,-36.25 -56.028,-36.25 -53.211,0 -54.617,16.9453 -54.617,70.1559 h 169.981 c 0,107.825 -13.664,137.489 -115.364,137.489 -99.824,0 -113.941,-38.61 -113.941,-127.133 C 401.379,35.1367 420.676,5 515.32,5 585.945,5 630.684,8.75781 630.684,86.4531 Z M 460.703,158.027 c 0,43.789 3.289,54.618 54.617,54.618 48.496,0 56.028,-3.766 56.028,-54.618 z\" /><path\n         id=\"path40\"\n         style=\"fill:#7b7979;fill-opacity:1;fill-rule:nonzero;stroke:none\"\n         d=\"m 535,332.422 -19.684,31.441 v 0.278 L 515.23,364 l -0.089,0.141 v -0.278 l -19.68,-31.441 -52.348,35.937 32.625,-97.554 c 6.992,0.785 14.66,1.281 22.918,1.535 l -13.511,40.082 16.41,-11.563 13.758,20.782 13.593,-20.782 16.407,11.563 -13.512,-40.082 c 8.258,-0.254 15.929,-0.75 22.922,-1.535 L 587.344,368.359 535,332.422\" /><\/g><\/g><\/svg>";
-window.KIOSK_BUILT="2026-10-12 20:14";
+window.KIOSK_BUILT="2026-10-12 20:46";
 window.KIOSK_PWA=true;
-window.KIOSK_CACHE="hellma-kiosk-93f675b427";
-window.KIOSK_PRECACHE_COUNT=83;
+window.KIOSK_CACHE="hellma-kiosk-5e6e1c03b8";
+window.KIOSK_PRECACHE_COUNT=84;
 
 </script>
 <script>
@@ -627,7 +632,7 @@ window.KIOSK_PRECACHE_COUNT=83;
 window.KIOSK = {
   meta: {
     title: "Hellma Process Analytics",
-    version: "0.4 (feedback round 2)",
+    version: "0.5 (feedback round 3)",
     source: "20250428_HellmaUSA_PAT.pptx; HellmaUSA_2025_Applications_for_CPACT_webinar.pptx; 661.920 information sheet",
   },
 
@@ -710,8 +715,8 @@ window.KIOSK = {
     katana: { name: "Katana", principle: "atr", desc: "ATR probes with a three-bounce sapphire element, for an extremely short path length. Brazed versions reach 300 °C and 100 bar.", products: ["katana-xp"] },
     gladius: { name: "Gladius", principle: "reflection", desc: "Reflection probes that collect diffusely reflected light, in contact or at a distance. Brazed versions reach 300 °C and 100 bar.", products: ["gladius-fdr", "gladius-xp"] },
     polymer: { name: "Polymer extruder probes", principle: "transmission", desc: "Custom-built probe pairs that thread into standard melt-pressure ports on polymer extruders, for transmission or diffuse reflection. Rated up to 300 °C and 750 bar.", products: ["polymer-probe"] },
-    espada: { name: "Espada", principle: "fluorescence", desc: "Fluorescence probes for liquids in the UV/VIS range, with quartz glass optics.", products: [], empty: "Ask our team for Espada specifications and availability." },
-    tidus: { name: "Tidus", principle: "raman", desc: "Raman probes with exchangeable optics and filters, optimized for maximum Raman signal.", products: [], empty: "Ask our team for Tidus specifications and availability.", check: "From the Hellma Analytics optical probes brochure; no Tidus specs or photo yet." },
+    espada: { name: "Espada", principle: "fluorescence", desc: "Fluorescence probes for liquids in the UV/VIS range, with quartz glass optics.", products: ["espada"], empty: "Ask our team for Espada specifications and availability." },
+    tidus: { name: "Tidus", principle: "raman", desc: "Raman probes with exchangeable optics and filters, optimized for maximum Raman signal. The Tidus Lumio adds an integrated laser and an ATEX-compliant version.", products: ["tidus-lumio"], empty: "Ask our team for Tidus specifications and availability." },
   },
 
   products: {
@@ -752,12 +757,11 @@ window.KIOSK = {
     },
     "excalibur-hy": {
       name: "Excalibur HY 25", type: "Hygienic immersion probe", family: "excalibur", line: "process-interfaces",
-      img: "svg:transmission", badge: "3-A certified",
+      img: "P18", badge: "3-A certified",
       summary: "Hygienic transmission probe for food, dairy and pharmaceutical liquids. Soldered sapphire windows make it maintenance-free, and it can be cleaned in place (CIP and SIP) without interrupting the process.",
-      check: "Specs from the Excalibur HY 25 (3-A) page on hellma.com; no photo yet (image P18).",
-      filter: { format: ["probe"], ranges: ["nir"], maxT: 140, maxP: 16 },
+      filter: { format: ["probe"], ranges: ["vis", "nir"], maxT: 140, maxP: 16 },
       specs: [
-        ["Spectral range", "NIR 800–2300 nm"],
+        ["Spectral range", "VIS–NIR 400–2300 nm"],
         ["Path length", "1 mm (±0.025 mm)"],
         ["Body material", "Stainless steel 316L, electropolished"],
         ["Optical material", "Sapphire, soldered in (gold-tin)"],
@@ -767,6 +771,36 @@ window.KIOSK = {
         ["Pressure", "Up to 16 bar (~230 psi)"],
         ["Hygiene", "3-A certified · CIP and SIP capable · autoclavable with protective cap"],
         ["Applications", "Fat, protein, water and lactose in dairy; other hygienic food and pharma liquids"],
+      ],
+    },
+    espada: {
+      name: "Espada", type: "Fluorescence immersion probe", family: "espada", line: "process-interfaces",
+      img: "svg:fluorescence", badge: "Quartz glass optics",
+      summary: "Fluorescence immersion probe for liquids in the UV and VIS. Mirrors give the excitation light a second pass and send downward emission back to the collection fiber, for a strong signal.",
+      check: "From the Hellma optical probes brochure (Espada Lab); no temperature, pressure or dimension specs or photo yet.",
+      filter: { format: ["probe"], ranges: ["uvvis"], maxT: null, maxP: null },
+      specs: [
+        ["Measuring principle", "Fluorescence, collected at 90° with mirrors"],
+        ["Wavelength range", "UV, VIS"],
+        ["Optical material", "Quartz glass"],
+        ["Sample", "Liquids"],
+        ["Temperature and pressure", "Ask us"],
+      ],
+    },
+    "tidus-lumio": {
+      name: "Tidus Lumio", type: "Raman probe", family: "tidus", line: "process-interfaces",
+      img: "svg:raman", badge: "Integrated laser",
+      summary: "Raman process probe with its own integrated laser light source. The ATEX-compliant version measures in hazardous areas with an ATEX-capable VIS spectrometer, or with a standard spectrometer outside the zone. A non-ATEX version is also available.",
+      check: "From Hellma's Tidus Lumio announcement and the optical probes brochure; no laser, temperature or pressure specs or photo yet.",
+      filter: { format: ["probe"], ranges: [], maxT: null, maxP: null },
+      specs: [
+        ["Measuring principle", "Raman, direct backscatter"],
+        ["Light source", "Integrated laser"],
+        ["Hazardous areas", "ATEX-compliant version; non-ATEX version available"],
+        ["Spectrometer", "Works with almost any Raman spectrometer"],
+        ["Process interface", "Several configurations available"],
+        ["Optics", "Exchangeable optics and filters"],
+        ["Temperature and pressure", "Ask us"],
       ],
     },
     "excalibur-fcp": {
@@ -1229,7 +1263,8 @@ window.KIOSK = {
           "NIR is the more widely used in process.",
           "Overtones and combinations of C–H, O–H and N–H vibrations fall in the NIR.",
         ],
-        chartNote: { v: "Schematic: approximate NIR band regions.", check: "Band positions are textbook approximations drawn for the kiosk, not taken from the deck's chart." },
+        wide: true,
+        chartNote: "Approximate NIR band positions by functional group. Tap a group to highlight its bands.",
         stories: ["natural-gas", "polymerization", "polyol", "oleochemicals", "agriculture-dairy"],
       },
       fluorescence: {
@@ -1315,7 +1350,7 @@ window.KIOSK = {
         lead: "UV-Vis watches dissolved nitrates, sulfates and H₂S. Fluorescence picks up impurities in wastewater.",
         blocks: [],
         measured: ["Nitrates", "Sulfates", "H₂S", "Impurities (fluorescence)"],
-        related: ["principle:transmission", "principle:fluorescence"],
+        related: ["excalibur-xp", "excalibur-fcp", "espada", "principle:transmission", "principle:fluorescence"],
       },
       "natural-gas": {
         title: "Natural gas composition", short: "NIR resolves the mixture; Raman adds O₂ and N₂.",
@@ -1325,7 +1360,7 @@ window.KIOSK = {
         chart: "gas", chartNote: "Schematic NIR absorption of natural gas, 1000–2200 nm.",
         ranges: [["Methane", 70, 90], ["Ethane, propane, butane", 0, 20], ["CO₂", 0, 8], ["H₂S", 0, 5], ["O₂", 0, 0.2, "Raman only"], ["N₂", 0, 0.2, "Raman only"], ["Ar, He, Ne, Xe", null, null, "Trace"]],
         measured: ["Methane", "Ethane, propane, butane", "CO₂", "H₂S", "O₂ and N₂ (Raman)"],
-        related: ["excalibur-fcp", "excalibur-hd", "principle:raman"],
+        related: ["excalibur-fcp", "excalibur-hd", "tidus-lumio", "principle:transmission", "principle:raman"],
       },
       polymerization: {
         title: "Polymerization: styrene to polystyrene", short: "Watch monomer turn into polymer.",
@@ -1843,22 +1878,47 @@ window.KIOSK = {
     },
   };
 
-  /* NIR band regions (approximate) */
+  /* NIR band positions by functional group (positions read from the band-assignment chart Hellma supplied).
+     Rows are tappable: the app sets data-sel on the svg to highlight one group. */
+  D.NIR_ROWS = [
+    ["H₂O", "Water", "#16a9cf", [[748, 757], [957, 979], [1407, 1445], [1905, 1957], [2243, 2252]]],
+    ["ROH", "Alcohols", "#e0453a", [[733, 743], [921, 943], [1410, 1471], [2067, 2086]]],
+    ["ArOH", "Phenols", "#a8325e", [[736, 748], [936, 955], [1383, 1412]]],
+    ["RCOOH, RCOOR", "Acids, esters", "#e879a6", [[1886, 1895], [1929, 1964]]],
+    ["RNH₂, RNHR′", "Amines", "#2349c8", [[786, 812], [805, 821], [1024, 1040], [1490, 1512], [2138, 2202]]],
+    ["CONH₂, CONHR", "Amides", "#5a86e6", [[1438, 1462], [1464, 1490], [1917, 1971], [2038, 2150]]],
+    ["ArCH", "Aromatic C–H", "#8a5a2b", [[700, 717], [852, 867], [1083, 1100], [1612, 1648]]],
+    ["SH", "Thiols", "#d9b400", [[1731, 1752]]],
+    ["POH", "P–OH", "#9c6b30", [[1910, 1921]]],
+    ["C=O, CHO", "Carbonyl, aldehyde", "#2e9b4f", [[2019, 2048], [2188, 2214]]],
+    ["C–C", "Carbon–carbon", "#3a3f45", [[2152, 2200]]],
+    ["CH", "Methine", "#a3acb5", [[738, 769], [907, 938], [1176, 1252], [1419, 1457], [1690, 1779], [2276, 2440]]],
+    ["CH₂", "Methylene", "#6e7882", [[726, 752], [898, 929], [1152, 1212], [1381, 1433], [1681, 1748], [2252, 2414]]],
+    ["CH₃", "Methyl", "#1e2328", [[712, 738], [871, 907], [1121, 1193], [1360, 1400], [1636, 1707], [2202, 2398]]],
+  ];
   D.nirBands = function () {
-    var L = 110, R = 740, x0 = 800, x1 = 2500;
+    var L = 340, R = 962, x0 = 700, x1 = 2500, top = 74, rh = 28;
     function X(v) { return L + (v - x0) / (x1 - x0) * (R - L); }
-    var rows = [["C–H", "#0072b6", [[1100, 1250, "2nd overtone"], [1650, 1800, "1st overtone"], [2200, 2450, "combination"]]],
-                ["O–H", "#e07b00", [[950, 1000, ""], [1400, 1450, "1st overtone"], [1900, 1950, "combination"]]],
-                ["N–H", "#2e8b57", [[1000, 1060, ""], [1450, 1550, "1st overtone"], [2000, 2100, "combination"]]]];
-    var out = '<svg viewBox="0 0 760 230" role="img" aria-label="Approximate NIR band regions" class="chartsvg">';
-    rows.forEach(function (r, i) {
-      var y = 30 + i * 52;
-      out += '<text x="20" y="' + (y + 18) + '" class="lbl b">' + r[0] + '</text><path d="M' + L + ' ' + (y + 13) + ' H' + R + '" stroke="#e0e0e0"/>';
-      r[2].forEach(function (b, k) { out += '<rect class="grow" style="animation-delay:' + (i * .2 + k * .1) + 's" x="' + X(b[0]) + '" y="' + y + '" width="' + (X(b[1]) - X(b[0])) + '" height="26" rx="4" fill="' + r[1] + '"/>' + (b[2] && i === 0 ? '' : ''); });
+    var rows = D.NIR_ROWS, yAxis = top + rows.length * rh + 6, Hh = yAxis + 56;
+    var out = '<svg viewBox="0 0 1000 ' + Hh + '" role="img" aria-label="Approximate NIR band positions by functional group" class="chartsvg nbsvg">';
+    for (var g = 700; g <= 2500; g += 100) out += '<path d="M' + X(g).toFixed(1) + ' ' + (top - 6) + ' V' + yAxis + '" stroke="' + (g % 200 === 100 ? '#d6dde3' : '#edf0f2') + '"/>';
+    [[1050, 1650, "2nd overtones", 14], [1950, 2500, "Combinations", 14], [700, 1150, "3rd overtones", 42], [1475, 2050, "1st overtones", 42]].forEach(function (r) {
+      out += '<rect x="' + X(r[0]).toFixed(1) + '" y="' + r[3] + '" width="' + (X(r[1]) - X(r[0])).toFixed(1) + '" height="20" rx="10" fill="#e4eef7"/>' +
+        '<text x="' + ((X(r[0]) + X(r[1])) / 2).toFixed(1) + '" y="' + (r[3] + 15) + '" text-anchor="middle" class="lbl s b">' + r[2] + '</text>';
     });
-    [800, 1200, 1600, 2000, 2400].forEach(function (t) { out += '<path d="M' + X(t) + ' 186 v6" stroke="#878787"/><text x="' + X(t) + '" y="210" text-anchor="middle" class="lbl s">' + t + '</text>'; });
-    out += '<path d="M' + L + ' 186 H' + R + '" stroke="#575756"/><text x="' + ((L + R) / 2) + '" y="228" text-anchor="middle" class="lbl s">Wavelength (nm)</text>';
-    out += '<text x="' + X(1175) + '" y="24" text-anchor="middle" class="lbl s">2nd overtones</text><text x="' + X(1600) + '" y="24" text-anchor="middle" class="lbl s">1st overtones</text><text x="' + X(2200) + '" y="24" text-anchor="middle" class="lbl s">combinations</text>';
+    rows.forEach(function (r, i) {
+      var y = top + i * rh;
+      out += '<g class="nbr" data-r="' + i + '"><rect x="0" y="' + y + '" width="1000" height="' + rh + '" fill="transparent"/>' +
+        '<text x="10" y="' + (y + 18) + '" class="lbl b">' + r[0] + '</text><text x="' + (L - 10) + '" y="' + (y + 18) + '" text-anchor="end" class="lbl s">' + r[1] + '</text>';
+      r[3].forEach(function (b, k) {
+        var w = Math.max(5, X(b[1]) - X(b[0]));
+        out += '<rect class="grow" style="animation-delay:' + (i * .05 + k * .04).toFixed(2) + 's" x="' + X(b[0]).toFixed(1) + '" y="' + (y + 7) + '" width="' + w.toFixed(1) + '" height="14" rx="3" fill="' + r[2] + '"/>';
+      });
+      out += '</g>';
+    });
+    out += '<path d="M' + L + ' ' + yAxis + ' H' + R + '" stroke="#575756" stroke-width="1.5"/>';
+    for (var t = 700; t <= 2500; t += 200) out += '<path d="M' + X(t).toFixed(1) + ' ' + yAxis + ' v6" stroke="#575756"/><text x="' + X(t).toFixed(1) + '" y="' + (yAxis + 26) + '" text-anchor="middle" class="lbl s">' + t + '</text>';
+    out += '<text x="' + ((L + R) / 2) + '" y="' + (yAxis + 50) + '" text-anchor="middle" class="lbl s">Wavelength (nm)</text>';
     return out + '</svg>';
   };
 
@@ -1950,7 +2010,7 @@ window.KIOSK = {
   }
   function fmtT(n) { return n + " °C"; }
   function fmtP(n) { return n > 0 ? n + " bar" : "Atm."; }
-  var RANGE_LABEL = { uvvis: "UV-Vis", nir: "NIR" };
+  var RANGE_LABEL = { uvvis: "UV-Vis", vis: "VIS", nir: "NIR" };
 
   /* ---------------- Settings and storage ---------------- */
   var LS = {
@@ -1958,7 +2018,7 @@ window.KIOSK = {
     set: function (k, v) { try { localStorage.setItem(k, JSON.stringify(v)); return true; } catch (e) { return false; } },
     del: function (k) { try { localStorage.removeItem(k); } catch (e) { } },
   };
-  var settings = Object.assign({ pin: C.settings.defaultPin, idle: C.settings.idleSeconds, event: "", review: false }, LS.get("hk.settings", {}));
+  var settings = Object.assign({ pin: C.settings.defaultPin, idle: C.settings.idleSeconds, event: "", review: false, motion: "always" }, LS.get("hk.settings", {}));
   function saveSettings() { return LS.set("hk.settings", settings); }
 
   /* ---------------- Home Screen web app support ---------------- */
@@ -2161,9 +2221,9 @@ window.KIOSK = {
     return '<button class="pcard" type="button" data-go="product/' + id + '">' + stage(p.img, "", p.name) +
       '<div class="body"><div class="nm"><b>' + esc(p.name) + "</b><span>" + esc(p.type) + "</span></div>" +
       '<div class="row" style="gap:.35rem"><span class="tag">' + esc(pr.name) + "</span>" + (f.custom ? '<span class="tag">Custom</span>' : "") + f.ranges.map(function (r) { return '<span class="tag">' + RANGE_LABEL[r] + "</span>"; }).join("") + "</div>" +
-      '<div class="meter"><span>Temp.</span><span class="bar"><i style="width:' + tw + '%"></i>' + (req.temp ? '<u style="left:' + Math.round(req.temp / 400 * 100) + '%"></u>' : "") + '</span><span class="v">' + fmtT(f.maxT) + "</span></div>" +
+      (f.maxT == null ? '<span class="pnote">Temperature and pressure ratings on request</span>' : '<div class="meter"><span>Temp.</span><span class="bar"><i style="width:' + tw + '%"></i>' + (req.temp ? '<u style="left:' + Math.round(req.temp / 400 * 100) + '%"></u>' : "") + '</span><span class="v">' + fmtT(f.maxT) + "</span></div>" +
       '<div class="meter"><span>Pressure</span><span class="bar"><i style="width:' + pw + '%"></i>' + (req.pres ? '<u style="left:' + Math.round(req.pres / 250 * 100) + '%"></u>' : "") + '</span><span class="v">' + fmtP(f.maxP) + (f.pStar ? "*" : "") + "</span></div>" +
-      (pn ? '<span class="pnote">' + pn + "</span>" : "") + "</div></button>";
+      (pn ? '<span class="pnote">' + pn + "</span>" : "")) + "</div></button>";
   }
   function mini(o) {
     var vis = o.svg ? '<div class="stage svgthumb">' + o.svg + "</div>" : stage(o.img, "", o.title);
@@ -2273,7 +2333,7 @@ window.KIOSK = {
             var p = C.products[id], q = p.filter;
             if (f.principle !== "any" && C.families[p.family].principle !== f.principle) return false;
             if (f.format !== "any" && q.format.indexOf(f.format) < 0) return false;
-            if (f.range !== "any" && q.ranges.indexOf(f.range) < 0) return false;
+            if (f.range !== "any" && q.ranges.indexOf(f.range) < 0 && !(f.range === "uvvis" && q.ranges.indexOf("vis") >= 0)) return false;
             if (f.temp && q.maxT < f.temp) return false;
             if (f.pres && q.maxP < f.pres) return false;
             return true;
@@ -2315,8 +2375,8 @@ window.KIOSK = {
         '<div class="pinfo"><div class="row" style="gap:.5rem"><span class="eyebrow">' + esc(fam.name) + " · " + esc(pr.name) + "</span></div>" +
         '<h1 class="h1">' + esc(p.name) + '</h1><div class="row" style="gap:.4rem"><span class="tag solid">' + esc(p.type) + "</span>" + (p.badge ? '<span class="tag">' + esc(p.badge) + "</span>" : "") + "</div>" +
         '<p class="lead">' + esc(p.summary) + "</p>" + note(p.check) +
-        '<div class="ratings"><div class="rating"><span class="k">Max. temperature</span><span class="n">' + f.maxT + "<small>°C</small></span>" + (tNote ? '<span class="nt">' + tNote + "</span>" : "") + "</div>" +
-        '<div class="rating"><span class="k">Max. pressure</span><span class="n">' + (f.maxP ? f.maxP + "<small>bar" + (f.pStar ? "*" : "") + "</small>" : "Atm.") + "</span>" + (pNote ? '<span class="nt">' + pNote + "</span>" : "") + "</div>" +
+        '<div class="ratings"><div class="rating"><span class="k">Max. temperature</span><span class="n">' + (f.maxT == null ? '<span style="font-size:1.2rem">Ask us</span>' : f.maxT + "<small>°C</small>") + "</span>" + (tNote ? '<span class="nt">' + tNote + "</span>" : "") + "</div>" +
+        '<div class="rating"><span class="k">Max. pressure</span><span class="n">' + (f.maxP == null ? '<span style="font-size:1.2rem">Ask us</span>' : f.maxP ? f.maxP + "<small>bar" + (f.pStar ? "*" : "") + "</small>" : "Atm.") + "</span>" + (pNote ? '<span class="nt">' + pNote + "</span>" : "") + "</div>" +
         '<div class="rating"><span class="k">Spectral range</span><span class="n" style="font-size:1.2rem">' + spectral + "</span></div></div>" +
         specs + foot(p.foot) +
         '<div class="row"><button class="btn primary" type="button" data-req="' + p.family + '">' + I.mail + "Request information</button>" +
@@ -2638,9 +2698,21 @@ window.KIOSK = {
     return {
       crumb: crumb("Applications", t.name),
       html: pageHead(t.long, t.name, null) +
-        '<div class="cols2" style="align-items:start"><div style="display:grid;gap:1rem">' + bullets(t.points) + "</div>" +
-        '<figure class="chartfig"><div class="diagram">' + techChart(t.chart) + '</div><figcaption>' + T(t.chartNote) + "</figcaption></figure></div>" + ex +
+        (t.wide ? bullets(t.points) + '<figure class="chartfig"><div class="diagram" id="techchart">' + techChart(t.chart) + '</div><figcaption>' + T(t.chartNote) + "</figcaption></figure>"
+          : '<div class="cols2" style="align-items:start"><div style="display:grid;gap:1rem">' + bullets(t.points) + "</div>" +
+          '<figure class="chartfig"><div class="diagram" id="techchart">' + techChart(t.chart) + '</div><figcaption>' + T(t.chartNote) + "</figcaption></figure></div>") + ex +
         '<section style="display:grid;gap:.8rem"><h2 class="h2">Applications</h2><div class="scards">' + t.stories.map(storyCard).join("") + "</div></section>",
+      init: function (root) {
+        var nb = $("#techchart .nbsvg", root); if (!nb) return;
+        nb.addEventListener("click", function (e) {
+          var g = e.target.closest(".nbr"); if (!g) return;
+          steady(function () {
+            var same = nb.getAttribute("data-sel") === g.dataset.r;
+            $$(".nbr", nb).forEach(function (o) { o.classList.toggle("on", !same && o === g); });
+            if (same) nb.removeAttribute("data-sel"); else nb.setAttribute("data-sel", g.dataset.r);
+          });
+        });
+      },
     };
   };
 
@@ -2948,6 +3020,7 @@ window.KIOSK = {
         '<label class="field"><span class="lab">Start over after no touch for</span><select id="st-idle">' + [60, 90, 120, 180, 300].map(function (s) { return '<option value="' + s + '"' + (s === settings.idle ? " selected" : "") + ">" + s + " seconds</option>"; }).join("") + "</select></label>" +
         '<label class="field"><span class="lab">New 4-digit PIN</span><input type="text" id="st-pin" inputmode="numeric" maxlength="4" placeholder="Leave empty to keep the current PIN"></label>' +
         '<div class="field"><span class="lab">Review mode</span><button class="check" type="button" id="st-review" role="checkbox" aria-checked="' + settings.review + '"><span class="box">' + I.check + "</span><span>Highlight values to confirm (" + checks.length + ")</span></button></div>" +
+        '<div class="field"><span class="lab">Animation</span><button class="check" type="button" id="st-motion" role="checkbox" aria-checked="' + (settings.motion === "always") + '"><span class="box">' + I.check + "</span><span>Animate diagrams even when the iPad's Reduce Motion is on</span></button></div>" +
         '</div><div class="row"><button class="btn primary" type="button" id="st-save">Save settings</button><button class="btn" type="button" id="st-attract">Start attract screen</button></div></section>' +
         '<section class="panel"><h2 class="h3">This iPad</h2><div class="cols3">' +
         '<div class="stat"><span class="l">Opened as</span><span class="n" style="font-size:1.15rem">' + (standalone() ? "Home Screen app" : "Browser tab") + "</span></div>" +
@@ -2982,6 +3055,7 @@ window.KIOSK = {
       };
       $("#st-close", st).onclick = function () { st.hidden = true; };
       $("#st-attract", st).onclick = function () { st.hidden = true; go("attract"); };
+      $("#st-motion", st).onclick = function () { var b = $("#st-motion", st), on = b.getAttribute("aria-checked") !== "true"; b.setAttribute("aria-checked", on); settings.motion = on ? "always" : "system"; saveSettings(); document.body.classList.toggle("motion-always", on); };
       $("#st-review", st).onclick = function () { var b = $("#st-review", st), on = b.getAttribute("aria-checked") !== "true"; b.setAttribute("aria-checked", on); settings.review = on; saveSettings(); document.body.classList.toggle("review", on); };
       $("#st-save", st).onclick = function () {
         settings.event = $("#st-event", st).value.trim(); settings.idle = Number($("#st-idle", st).value);
@@ -3025,6 +3099,8 @@ window.KIOSK = {
 
   /* ---------------- Start ---------------- */
   document.body.classList.toggle("review", !!settings.review);
+  /* A kiosk iPad's Reduce Motion setting belongs to the device, not the visitor, so diagrams animate unless staff choose otherwise */
+  document.body.classList.toggle("motion-always", settings.motion !== "system");
   buildAttract();
   initPwa();
   Store.init().then(function () { });
