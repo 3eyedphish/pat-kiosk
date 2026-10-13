@@ -604,17 +604,41 @@ button.tag { cursor: pointer; }
 .nbsvg[data-sel] .nbr.on { opacity: 1; }
 .nbsvg .nbr.on > rect:first-child { fill: var(--sky-2); }
 
+/* ---------- Application stories with photos and figures ---------- */
+.scard.has-img { padding: 0; overflow: hidden; gap: 0; }
+.scard .sthumb { display: block; aspect-ratio: 16 / 8; overflow: hidden; background: var(--sky-1); }
+.scard .sthumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.scard .sthumb .stage { border-radius: 0; }
+.scard .sc-body { display: grid; gap: .45rem; align-content: start; }
+.scard.has-img .sc-body { padding: .85rem 1.1rem 1.05rem; }
+.scard .sc-body > span:not(.tag):not(.go):not(.row) { font-size: .9rem; color: var(--grey-7); line-height: 1.4; }
+.scard .sc-body b { font-weight: 500; font-size: 1.12rem; line-height: 1.25; }
+.scard .sc-body .go { color: var(--blue); font-weight: 500; display: inline-flex; gap: .3rem; align-items: center; margin-top: .15rem; }
+.shero { border-radius: var(--radius); overflow: hidden; height: clamp(11rem, 26vh, 17rem); background: var(--sky-1); }
+.shero img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.story.solo { grid-template-columns: minmax(0, 1fr); max-width: 52rem; }
+.sfig .figure { padding: .5rem; }
+.sfig .figure img { max-height: 19rem; width: auto; max-width: 100%; }
+.squote { margin: 0; padding: 1rem 1.2rem; border-left: 4px solid var(--blue); background: var(--sky-1); border-radius: 0 var(--radius) var(--radius) 0; display: grid; gap: .5rem; }
+.squote p { font-size: 1.05rem; font-style: italic; color: var(--ink); }
+.squote cite { font-style: normal; font-size: .82rem; color: var(--grey-7); }
+.results-band { display: flex; flex-wrap: wrap; gap: 1rem 2.4rem; align-items: center; padding: 1rem 1.3rem; background: var(--sky-1); border: 1px solid var(--sky-2); border-radius: var(--radius); }
+.results-band .eyebrow { flex-basis: 100%; }
+.results-band .stat .n { font-size: 2.2rem; }
+.scard > .sc-body { color: var(--ink); font-size: 1rem; line-height: 1.45; }
+.scard > .sthumb { font-size: 1rem; }
+
 </style>
 </head>
 <body>
 <div id="app"></div>
 <script>
-window.KIOSK_ASSETS={"A1": "assets/A1.jpg", "A2": "assets/A2.jpg", "A3": "assets/A3.jpg", "A4": "assets/A4.jpg", "A5": "assets/A5.jpg", "A6": "assets/A6.jpg", "A7": "assets/A7.jpg", "A8": "assets/A8.jpg", "A9": "assets/A9.jpg", "C1": "assets/C1.jpg", "C2": "assets/C2.jpg", "C3": "assets/C3.jpg", "C4": "assets/C4.jpg", "D10": "assets/D10.png", "D2": "assets/D2.png", "D3": "assets/D3.png", "D4": "assets/D4.png", "D5": "assets/D5.png", "D6": "assets/D6.png", "D7": "assets/D7.png", "D8": "assets/D8.png", "D9": "assets/D9.png", "EX": "assets/EX.png", "I1": "assets/I1.jpg", "I2": "assets/I2.jpg", "I3": "assets/I3.jpg", "I4": "assets/I4.jpg", "I5": "assets/I5.jpg", "I6": "assets/I6.jpg", "K1": "assets/K1.jpg", "K2": "assets/K2.jpg", "K2b": "assets/K2b.jpg", "K3": "assets/K3.jpg", "L1": "assets/L1.svg", "L2": "assets/L2.png", "L3": "assets/L3.png", "L5": "assets/L5.png", "L6": "assets/L6.png", "P1": "assets/P1.jpg", "P10": "assets/P10.jpg", "P10b": "assets/P10b.jpg", "P11": "assets/P11.jpg", "P12": "assets/P12.jpg", "P13": "assets/P13.jpg", "P14": "assets/P14.jpg", "P15": "assets/P15.jpg", "P16": "assets/P16.jpg", "P17": "assets/P17.jpg", "P17b": "assets/P17b.jpg", "P18": "assets/P18.jpg", "P2": "assets/P2.jpg", "P3": "assets/P3.jpg", "P4": "assets/P4.jpg", "P5": "assets/P5.jpg", "P6": "assets/P6.jpg", "P7": "assets/P7.jpg", "P8": "assets/P8.jpg", "P9": "assets/P9.jpg", "R1": "assets/R1.jpg", "R2": "assets/R2.jpg", "R3": "assets/R3.jpg", "R4": "assets/R4.jpg", "R5": "assets/R5.jpg", "R6": "assets/R6.png", "R7": "assets/R7.jpg", "R8": "assets/R8.jpg", "R9": "assets/R9.png", "S1": "assets/S1.png", "S2": "assets/S2.png", "S3": "assets/S3.png", "S4": "assets/S4.png", "W1": "assets/W1.jpg", "W2": "assets/W2.jpg", "W3": "assets/W3.jpg", "W4": "assets/W4.jpg", "W5": "assets/W5.jpg", "W6": "assets/W6.jpg", "W7": "assets/W7.jpg"};
+window.KIOSK_ASSETS={"A1": "assets/A1.jpg", "A2": "assets/A2.jpg", "A3": "assets/A3.jpg", "A4": "assets/A4.jpg", "A5": "assets/A5.jpg", "A6": "assets/A6.jpg", "A7": "assets/A7.jpg", "A8": "assets/A8.jpg", "A9": "assets/A9.jpg", "C1": "assets/C1.jpg", "C2": "assets/C2.jpg", "C3": "assets/C3.jpg", "C4": "assets/C4.jpg", "D10": "assets/D10.png", "D2": "assets/D2.png", "D3": "assets/D3.png", "D4": "assets/D4.png", "D5": "assets/D5.png", "D6": "assets/D6.png", "D7": "assets/D7.png", "D8": "assets/D8.png", "D9": "assets/D9.png", "EX": "assets/EX.png", "F01": "assets/F01.jpg", "F02": "assets/F02.jpg", "F03": "assets/F03.jpg", "F04": "assets/F04.jpg", "F05": "assets/F05.jpg", "F06": "assets/F06.jpg", "F07": "assets/F07.jpg", "F08": "assets/F08.jpg", "F09": "assets/F09.jpg", "F10": "assets/F10.jpg", "F11": "assets/F11.jpg", "F12": "assets/F12.jpg", "F13": "assets/F13.jpg", "F14": "assets/F14.jpg", "F15": "assets/F15.jpg", "F16": "assets/F16.jpg", "F17": "assets/F17.jpg", "F18": "assets/F18.jpg", "F19": "assets/F19.jpg", "F20": "assets/F20.jpg", "F22": "assets/F22.jpg", "F23": "assets/F23.jpg", "F24": "assets/F24.jpg", "F25": "assets/F25.jpg", "F26": "assets/F26.jpg", "F27": "assets/F27.jpg", "F28": "assets/F28.jpg", "F29": "assets/F29.jpg", "F30": "assets/F30.jpg", "F31": "assets/F31.jpg", "F32": "assets/F32.jpg", "F33": "assets/F33.jpg", "F34": "assets/F34.jpg", "F35": "assets/F35.jpg", "F36": "assets/F36.jpg", "F37": "assets/F37.jpg", "F38": "assets/F38.jpg", "F39": "assets/F39.jpg", "I1": "assets/I1.jpg", "I2": "assets/I2.jpg", "I3": "assets/I3.jpg", "I4": "assets/I4.jpg", "I5": "assets/I5.jpg", "I6": "assets/I6.jpg", "K1": "assets/K1.jpg", "K2": "assets/K2.jpg", "K2b": "assets/K2b.jpg", "K3": "assets/K3.jpg", "L1": "assets/L1.svg", "L2": "assets/L2.png", "L3": "assets/L3.png", "L5": "assets/L5.png", "L6": "assets/L6.png", "P1": "assets/P1.jpg", "P10": "assets/P10.jpg", "P10b": "assets/P10b.jpg", "P11": "assets/P11.jpg", "P12": "assets/P12.jpg", "P13": "assets/P13.jpg", "P14": "assets/P14.jpg", "P15": "assets/P15.jpg", "P16": "assets/P16.jpg", "P17": "assets/P17.jpg", "P17b": "assets/P17b.jpg", "P18": "assets/P18.jpg", "P19": "assets/P19.jpg", "P2": "assets/P2.jpg", "P3": "assets/P3.jpg", "P4": "assets/P4.jpg", "P5": "assets/P5.jpg", "P6": "assets/P6.jpg", "P7": "assets/P7.jpg", "P8": "assets/P8.jpg", "P9": "assets/P9.jpg", "R1": "assets/R1.jpg", "R2": "assets/R2.jpg", "R3": "assets/R3.jpg", "R4": "assets/R4.jpg", "R5": "assets/R5.jpg", "R6": "assets/R6.png", "R7": "assets/R7.jpg", "R8": "assets/R8.jpg", "R9": "assets/R9.png", "S01": "assets/S01.jpg", "S02": "assets/S02.jpg", "S03": "assets/S03.jpg", "S04": "assets/S04.jpg", "S05": "assets/S05.jpg", "S06": "assets/S06.jpg", "S07": "assets/S07.jpg", "S08": "assets/S08.jpg", "S09": "assets/S09.jpg", "S1": "assets/S1.png", "S10": "assets/S10.jpg", "S11": "assets/S11.jpg", "S12": "assets/S12.jpg", "S13": "assets/S13.jpg", "S14": "assets/S14.jpg", "S15": "assets/S15.jpg", "S16": "assets/S16.jpg", "S17": "assets/S17.jpg", "S18": "assets/S18.jpg", "S2": "assets/S2.png", "S20": "assets/S20.jpg", "S21": "assets/S21.jpg", "S22": "assets/S22.jpg", "S23": "assets/S23.jpg", "S3": "assets/S3.png", "S4": "assets/S4.png", "W1": "assets/W1.jpg", "W2": "assets/W2.jpg", "W3": "assets/W3.jpg", "W4": "assets/W4.jpg", "W5": "assets/W5.jpg", "W6": "assets/W6.jpg", "W7": "assets/W7.jpg"};
 window.KIOSK_LOGO_SVG="<svg\n   xmlns:dc=\"http://purl.org/dc/elements/1.1/\"\n   xmlns:cc=\"http://creativecommons.org/ns#\"\n   xmlns:rdf=\"http://www.w3.org/1999/02/22-rdf-syntax-ns#\"\n   xmlns:svg=\"http://www.w3.org/2000/svg\"\n   xmlns=\"http://www.w3.org/2000/svg\"\n   viewBox=\"0 0 216.62666 49.119999\"\n   height=\"49.119999\"\n   width=\"216.62666\"\n   xml:space=\"preserve\"\n   id=\"svg2\"\n   version=\"1.1\"><defs\n     id=\"defs6\" /><g\n     transform=\"matrix(1.3333333,0,0,-1.3333333,0,49.12)\"\n     id=\"g10\"><g\n       transform=\"scale(0.1)\"\n       id=\"g12\"><path\n         id=\"path14\"\n         style=\"fill:#1959a6;fill-opacity:1;fill-rule:nonzero;stroke:none\"\n         d=\"M 351.117,9.08984 H 289.082 V 159.766 H 143.32 V 9.08984 H 83.1055 V 159.344 L 5,159.383 v 58.387 l 78.1055,-0.036 v 144.5 H 143.32 V 217.68 h 145.762 v 144.554 h 62.035 V 9.08984\" /><path\n         id=\"path16\"\n         style=\"fill:none;stroke:#1959a6;stroke-width:10;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1\"\n         d=\"M 351.117,9.08984 H 289.082 V 159.766 H 143.32 V 9.08984 H 83.1055 V 159.344 L 5,159.383 v 58.387 l 78.1055,-0.036 v 144.5 H 143.32 V 217.68 h 145.762 v 144.554 h 62.035 z\" /><path\n         id=\"path18\"\n         style=\"fill:#1959a6;fill-opacity:1;fill-rule:nonzero;stroke:none\"\n         d=\"M 739.043,9.08984 H 679.707 V 362.234 h 59.336 V 9.08984\" /><path\n         id=\"path20\"\n         style=\"fill:none;stroke:#1959a6;stroke-width:10;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1\"\n         d=\"M 739.043,9.08984 H 679.707 V 362.234 h 59.336 z\" /><path\n         id=\"path22\"\n         style=\"fill:#1959a6;fill-opacity:1;fill-rule:nonzero;stroke:none\"\n         d=\"M 857.055,9.08984 H 797.734 V 362.234 h 59.321 V 9.08984\" /><path\n         id=\"path24\"\n         style=\"fill:none;stroke:#1959a6;stroke-width:10;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1\"\n         d=\"M 857.055,9.08984 H 797.734 V 362.234 h 59.321 z\" /><path\n         id=\"path26\"\n         style=\"fill:#1959a6;fill-opacity:1;fill-rule:nonzero;stroke:none\"\n         d=\"m 966.676,256.293 v -35.785 h 1.875 c 13.191,31.547 46.619,38.609 77.699,38.609 31.07,0 66.86,-8.004 73.45,-43.789 h 1.89 c 11.3,34.375 45.19,43.789 78.15,43.789 64.04,0 85.23,-22.129 85.23,-82.879 V 9.08984 h -59.33 V 170.594 c -1.41,31.078 -8.95,43.324 -41.44,43.324 -48.02,0 -57.44,-21.664 -57.44,-65.453 V 9.08984 h -59.32 V 170.594 c -1.42,31.078 -8.95,43.324 -41.44,43.324 -48.027,0 -57.449,-21.664 -57.449,-65.453 V 9.08984 H 909.223 V 256.293 h 57.453\" /><path\n         id=\"path28\"\n         style=\"fill:none;stroke:#1959a6;stroke-width:10;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1\"\n         d=\"m 966.676,256.293 v -35.785 h 1.875 c 13.191,31.547 46.619,38.609 77.699,38.609 31.07,0 66.86,-8.004 73.45,-43.789 h 1.89 c 11.3,34.375 45.19,43.789 78.15,43.789 64.04,0 85.23,-22.129 85.23,-82.879 V 9.08984 h -59.33 V 170.594 c -1.41,31.078 -8.95,43.324 -41.44,43.324 -48.02,0 -57.44,-21.664 -57.44,-65.453 V 9.08984 h -59.32 V 170.594 c -1.42,31.078 -8.95,43.324 -41.44,43.324 -48.027,0 -57.449,-21.664 -57.449,-65.453 V 9.08984 H 909.223 V 256.293 Z\" /><path\n         id=\"path30\"\n         style=\"fill:#1959a6;fill-opacity:1;fill-rule:nonzero;stroke:none\"\n         d=\"m 1493.45,9.08984 h 59.33 V 164.004 c 0,82.871 -32.96,95.113 -112.06,95.113 -56.51,0 -105.95,-2.824 -105.95,-74.871 h 59.34 c 0,32.024 20.71,34.375 46.61,34.375 49.44,0 52.73,-14.117 52.73,-54.148 v -32.024 h -1.88 c -14.12,27.793 -43.79,28.266 -73.93,28.266 -61.21,0 -92.28,-16.488 -92.28,-75.8127 0,-66.8671 36.26,-78.63277 92.28,-78.63277 28.72,0 64.98,0.9375 76.75,33.89457 h 1.42 z M 1438.83,120.215 c 29.19,0 54.62,-0.949 54.62,-35.3127 0,-35.3242 -23.06,-38.1367 -54.62,-38.1367 -40.02,0 -54.15,3.293 -54.15,38.1367 0,35.3127 24.02,35.3127 54.15,35.3127\" /><path\n         id=\"path32\"\n         style=\"fill:none;stroke:#1959a6;stroke-width:10;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1\"\n         d=\"m 1493.45,9.08984 h 59.33 V 164.004 c 0,82.871 -32.96,95.113 -112.06,95.113 -56.51,0 -105.95,-2.824 -105.95,-74.871 h 59.34 c 0,32.024 20.71,34.375 46.61,34.375 49.44,0 52.73,-14.117 52.73,-54.148 v -32.024 h -1.88 c -14.12,27.793 -43.79,28.266 -73.93,28.266 -61.21,0 -92.28,-16.488 -92.28,-75.8127 0,-66.8671 36.26,-78.63277 92.28,-78.63277 28.72,0 64.98,0.9375 76.75,33.89457 h 1.42 z M 1438.83,120.215 c 29.19,0 54.62,-0.949 54.62,-35.3127 0,-35.3242 -23.06,-38.1367 -54.62,-38.1367 -40.02,0 -54.15,3.293 -54.15,38.1367 0,35.3127 24.02,35.3127 54.15,35.3127 z\" /><path\n         id=\"path34\"\n         style=\"fill:#1959a6;fill-opacity:1;fill-rule:evenodd;stroke:none\"\n         d=\"m 1588.79,313.555 c 4.09,0 7.99,-0.625 11.7,-1.918 3.75,-1.258 7.23,-3.114 10.37,-5.535 4.42,-3.391 7.76,-7.598 10.2,-12.563 2.42,-4.969 3.63,-10.258 3.63,-15.875 0,-4.867 -0.88,-9.496 -2.67,-13.832 -1.78,-4.297 -4.38,-8.105 -7.8,-11.406 -3.53,-3.438 -7.52,-6.063 -11.87,-7.918 -4.38,-1.828 -8.91,-2.727 -13.56,-2.727 -4.7,0 -9.25,0.899 -13.67,2.766 -4.39,1.855 -8.28,4.519 -11.74,7.976 -3.36,3.372 -5.97,7.247 -7.77,11.524 -1.82,4.394 -2.69,8.887 -2.69,13.617 0,3.961 0.64,7.84 1.93,11.633 1.35,3.797 3.28,7.332 5.82,10.625 3.44,4.402 7.58,7.797 12.42,10.137 4.83,2.343 10.08,3.496 15.7,3.496 z m 31.14,-36.168 c 0,4.316 -0.78,8.398 -2.29,12.211 -1.54,3.82 -3.77,7.254 -6.68,10.242 -2.91,2.871 -6.31,5.09 -10.13,6.664 -3.81,1.578 -7.84,2.383 -12.04,2.383 -4.21,0 -8.2,-0.766 -11.93,-2.301 -3.71,-1.531 -7.01,-3.715 -9.8,-6.582 -2.99,-3.012 -5.3,-6.465 -6.92,-10.301 -1.66,-3.879 -2.44,-7.879 -2.44,-12.039 0,-4.074 0.78,-8.031 2.32,-11.84 1.59,-3.75 3.83,-7.078 6.72,-9.969 2.97,-2.968 6.35,-5.246 10.12,-6.867 3.83,-1.64 7.68,-2.441 11.66,-2.441 4.22,0 8.26,0.781 12.13,2.324 3.87,1.613 7.3,3.867 10.31,6.817 2.85,2.871 5.06,6.164 6.64,9.902 1.55,3.73 2.33,7.656 2.33,11.797 z m -22.54,-0.789 9.2,-18.567 h -8.73 l -8.27,17.336 h -7.55 v -17.336 h -7.68 v 40.66 h 15.31 c 5.69,0 9.96,-0.914 12.82,-2.808 2.85,-1.86 4.31,-4.649 4.31,-8.34 0,-2.871 -0.86,-5.293 -2.52,-7.25 -1.66,-1.938 -3.94,-3.199 -6.89,-3.695 z m -8.87,3.652 c 3.71,0 6.41,0.508 7.99,1.492 1.6,1.055 2.36,2.711 2.36,4.973 0,2.441 -0.82,4.199 -2.5,5.312 -1.66,1.153 -4.33,1.711 -8.06,1.711 h -6.27 V 280.25 h 6.48 v 0\" /><path\n         id=\"path36\"\n         style=\"fill:#1959a6;fill-opacity:1;fill-rule:nonzero;stroke:none\"\n         d=\"m 571.348,86.4531 c 0,-36.7265 -23.067,-36.25 -56.028,-36.25 -53.211,0 -54.617,16.9453 -54.617,70.1559 h 169.981 c 0,107.825 -13.664,137.489 -115.364,137.489 -99.824,0 -113.941,-38.61 -113.941,-127.133 C 401.379,35.1367 420.676,5 515.32,5 585.945,5 630.684,8.75781 630.684,86.4531 Z M 460.703,158.027 c 0,43.789 3.289,54.618 54.617,54.618 48.496,0 56.028,-3.766 56.028,-54.618 H 460.703\" /><path\n         id=\"path38\"\n         style=\"fill:none;stroke:#1959a6;stroke-width:10;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1\"\n         d=\"m 571.348,86.4531 c 0,-36.7265 -23.067,-36.25 -56.028,-36.25 -53.211,0 -54.617,16.9453 -54.617,70.1559 h 169.981 c 0,107.825 -13.664,137.489 -115.364,137.489 -99.824,0 -113.941,-38.61 -113.941,-127.133 C 401.379,35.1367 420.676,5 515.32,5 585.945,5 630.684,8.75781 630.684,86.4531 Z M 460.703,158.027 c 0,43.789 3.289,54.618 54.617,54.618 48.496,0 56.028,-3.766 56.028,-54.618 z\" /><path\n         id=\"path40\"\n         style=\"fill:#7b7979;fill-opacity:1;fill-rule:nonzero;stroke:none\"\n         d=\"m 535,332.422 -19.684,31.441 v 0.278 L 515.23,364 l -0.089,0.141 v -0.278 l -19.68,-31.441 -52.348,35.937 32.625,-97.554 c 6.992,0.785 14.66,1.281 22.918,1.535 l -13.511,40.082 16.41,-11.563 13.758,20.782 13.593,-20.782 16.407,11.563 -13.512,-40.082 c 8.258,-0.254 15.929,-0.75 22.922,-1.535 L 587.344,368.359 535,332.422\" /><\/g><\/g><\/svg>";
-window.KIOSK_BUILT="2026-10-12 20:46";
+window.KIOSK_BUILT="2026-10-13 14:25";
 window.KIOSK_PWA=true;
-window.KIOSK_CACHE="hellma-kiosk-5e6e1c03b8";
-window.KIOSK_PRECACHE_COUNT=84;
+window.KIOSK_CACHE="hellma-kiosk-f4c8ec57c6";
+window.KIOSK_PRECACHE_COUNT=145;
 
 </script>
 <script>
@@ -632,7 +656,7 @@ window.KIOSK_PRECACHE_COUNT=84;
 window.KIOSK = {
   meta: {
     title: "Hellma Process Analytics",
-    version: "0.5 (feedback round 3)",
+    version: "0.6 (application notes)",
     source: "20250428_HellmaUSA_PAT.pptx; HellmaUSA_2025_Applications_for_CPACT_webinar.pptx; 661.920 information sheet",
   },
 
@@ -716,7 +740,7 @@ window.KIOSK = {
     gladius: { name: "Gladius", principle: "reflection", desc: "Reflection probes that collect diffusely reflected light, in contact or at a distance. Brazed versions reach 300 °C and 100 bar.", products: ["gladius-fdr", "gladius-xp"] },
     polymer: { name: "Polymer extruder probes", principle: "transmission", desc: "Custom-built probe pairs that thread into standard melt-pressure ports on polymer extruders, for transmission or diffuse reflection. Rated up to 300 °C and 750 bar.", products: ["polymer-probe"] },
     espada: { name: "Espada", principle: "fluorescence", desc: "Fluorescence probes for liquids in the UV/VIS range, with quartz glass optics.", products: ["espada"], empty: "Ask our team for Espada specifications and availability." },
-    tidus: { name: "Tidus", principle: "raman", desc: "Raman probes with exchangeable optics and filters, optimized for maximum Raman signal. The Tidus Lumio adds an integrated laser and an ATEX-compliant version.", products: ["tidus-lumio"], empty: "Ask our team for Tidus specifications and availability." },
+    tidus: { name: "Tidus", principle: "raman", desc: "Raman probes with exchangeable optics and filters, optimized for maximum Raman signal. The Tidus Lumio adds an integrated laser and an ATEX-compliant version.", products: ["tidus-flex-gas", "tidus-lumio"], empty: "Ask our team for Tidus specifications and availability." },
   },
 
   products: {
@@ -784,6 +808,22 @@ window.KIOSK = {
         ["Wavelength range", "UV, VIS"],
         ["Optical material", "Quartz glass"],
         ["Sample", "Liquids"],
+        ["Temperature and pressure", "Ask us"],
+      ],
+    },
+    "tidus-flex-gas": {
+      name: "Tidus Flex Gas", type: "Raman process probe", family: "tidus", line: "process-interfaces",
+      img: "P19", badge: "For gases",
+      summary: "Raman process probe for gas analysis, for example natural gas in pipelines. A special reflector amplifies the Raman signal, so low gas concentrations are measured reliably with the low laser power that explosive gases allow.",
+      check: "From the natural gas application note; no temperature, pressure or dimension specs yet.",
+      filter: { format: ["probe"], ranges: [], maxT: null, maxP: null },
+      specs: [
+        ["Measuring principle", "Raman"],
+        ["Excitation", "Standard Raman spectrometer with a temperature-stabilized 785 nm laser, connected by optical fiber"],
+        ["Hazardous areas", "Probe and spectrometer are separated, which allows ATEX-compliant operation"],
+        ["Signal", "Special reflector amplifies the Raman signal for low concentrations"],
+        ["Construction", "High-quality materials for high pressure and chemical resistance"],
+        ["Tidus Flex family", "Modular design with three measuring heads (quartz or glass optics) for gases, liquids and solids"],
         ["Temperature and pressure", "Ask us"],
       ],
     },
@@ -1164,6 +1204,7 @@ window.KIOSK = {
   caseStudy: {
     title: "Water in solvents",
     sub: "How a PAT project runs, using a real example: measuring water impurities in a solvent after distillation, in a GMP and ATEX environment.",
+    results: [{ n: "≈30 %", l: "less process time for the step" }, { n: "10 %", l: "less energy for the step" }, { n: "3 a day", l: "batches targeted, up from two" }],
     steps: [
       { id: "consulting", name: "Consulting", img: "W1", kind: "beforeafter",
         title: "Start with the analytical need",
@@ -1196,6 +1237,7 @@ window.KIOSK = {
       { id: "model", name: "Model development", img: "W7", kind: "model",
         title: "Build and maintain the calibration",
         text: "Tap each phase to see how the calibration grows over time.",
+        fig: { img: "F35", cap: "The real calibration: NIR prediction of water in the solvent against the reference (PLS model)." },
         phases: [
           { name: "Calibration", text: "Method development with internal validation." },
           { name: "External validation", text: "Independent samples confirm the model." },
@@ -1228,17 +1270,18 @@ window.KIOSK = {
     vmodelCheck: "FAT and SAT definitions are written for the kiosk; the deck's notes define URS, DS, DQ, IQ, OQ and PQ only.",
   },
 
-  /* ---------- Applications (CPACT webinar 2025 + PAT deck) ---------- */
+  /* ---------- Applications (CPACT webinar 2025, PAT deck, Hellma application notes) ---------- */
   applications: {
     intro: "Metrological solutions using atline, online or inline spectroscopy pay off in many industries. Browse by industry or by technique, or open a case study.",
     fields: [
-      { id: "pharma", name: "Pharmaceutical", img: "I1", text: "Follow drug release in dissolution tests and release batches on real-time data under GMP.", stories: ["tablet-dissolution"], cases: ["water-solvents"] },
-      { id: "biotech", name: "Biotechnology", img: "K2", text: { v: "Hygienic probe designs measure in bioprocesses without pulling samples.", check: "Draft: the deck lists biotechnology without an example." }, stories: [], related: ["excalibur-hy", "gladius-xp", "retractables"] },
-      { id: "chemistry", name: "Chemistry", img: "I3", text: "Follow reactions, purity and composition directly in the line, from polyols to precious metals.", stories: ["precious-metals", "polyol", "oleochemicals"], cases: ["water-solvents"] },
-      { id: "petro", name: "Petrochemistry", img: "A9", text: "Measure gas and hydrocarbon composition under pressure, with ATEX-ready sensors.", stories: ["natural-gas"] },
-      { id: "polymers", name: "Polymers", img: "I4", text: "Follow polymerization from monomer to polymer, right in the extruder.", stories: ["polymerization"], related: ["polymer-probe"] },
-      { id: "paint", name: "Paint & pigment", graphic: "paint", text: "Turn spectra into L*a*b* color values and catch pigment deviations.", stories: ["paint-color"] },
-      { id: "food", name: "Food", graphic: "food", text: "Sort produce and check composition without touching the product.", stories: ["fruit-sorting", "agriculture-dairy"] },
+      { id: "pharma", name: "Pharmaceutical", img: "I1", text: "Follow drug release, drying and purification in real time and release batches under GMP.", stories: ["tablet-dissolution", "spray-drying", "filter-dryer", "purification", "bioprocess"], cases: ["water-solvents"] },
+      { id: "biotech", name: "Biotechnology", img: "K2", text: "Follow nutrients and metabolites in the bioreactor, and the product through purification.", stories: ["bioprocess", "single-use-flow-cell"], related: ["excalibur-hy", "excalibur-xp", "retractables"] },
+      { id: "chemistry", name: "Chemistry", img: "I3", text: "Follow reactions, purity and composition directly in the line, from polyols and phosgene to precious metals.", stories: ["precious-metals", "polyol", "oleochemicals", "phosgene", "purification", "acrylic-acid", "multipoint", "in-situ-fluorescence"], cases: ["water-solvents"] },
+      { id: "petro", name: "Oil, gas & petrochemistry", img: "A9", text: "Measure water in crude oil, sulfur in marine fuel and gas composition under pressure, with ATEX-ready cells and probes.", stories: ["natural-gas", "oil-production", "bunker-fuel", "acrylic-acid"] },
+      { id: "polymers", name: "Polymers", img: "I4", text: "Follow polymerization from monomer to polymer, from the reactor to the extruder.", stories: ["polymerization", "pom", "multipoint", "prepolymers", "phosgene", "polyol"], related: ["polymer-probe"] },
+      { id: "paint", name: "Paints & coatings", graphic: "paint", text: "Turn spectra into L*a*b* color values, control resin pre-polymers and check BPA-free can coatings.", stories: ["paint-color", "prepolymers", "bpa-free"] },
+      { id: "food", name: "Food", graphic: "food", text: "Check oils, fruit content and composition in the line, to hygienic standards.", stories: ["edible-oil", "fruit-yogurt", "dairy", "fruit-sorting", "agriculture-dairy"] },
+      { id: "dairy", name: "Dairy", img: "S23", text: "Measure fat, protein, water and lactose from milk intake to recombination, with a 3-A certified probe.", stories: ["dairy", "fruit-yogurt", "agriculture-dairy"] },
       { id: "beverages", name: "Beverages", img: "I2", text: "Follow what the barrel adds while the spirit matures.", stories: ["whiskey"] },
       { id: "agriculture", name: "Agriculture", img: "I5", text: "Measure moisture, protein, starch and ash for precision farming.", stories: ["agriculture-dairy", "fruit-sorting"] },
       { id: "water", name: "Water & wastewater", graphic: "water", text: "Monitor nitrates, sulfates and H₂S, and spot impurities by fluorescence.", stories: ["water"] },
@@ -1254,7 +1297,7 @@ window.KIOSK = {
           "HPLC-UV and HPLC-DAD are the most common UV-Vis applications overall, mostly in the lab.",
         ],
         chartNote: "Schematic: acetone and toluene, after NIST Chemistry WebBook spectra.",
-        stories: ["precious-metals", "paint-color", "tablet-dissolution", "whiskey", "fruit-sorting", "water", "polymerization"],
+        stories: ["precious-metals", "paint-color", "tablet-dissolution", "single-use-flow-cell", "purification", "whiskey", "fruit-sorting", "water"],
       },
       nirmir: {
         name: "NIR / MIR", long: "Near- and mid-infrared spectroscopy", chart: "nirbands",
@@ -1265,7 +1308,18 @@ window.KIOSK = {
         ],
         wide: true,
         chartNote: "Approximate NIR band positions by functional group. Tap a group to highlight its bands.",
-        stories: ["natural-gas", "polymerization", "polyol", "oleochemicals", "agriculture-dairy"],
+        stories: ["natural-gas", "oil-production", "bunker-fuel", "acrylic-acid", "polymerization", "pom", "multipoint", "prepolymers", "bpa-free", "polyol", "oleochemicals", "bioprocess", "spray-drying", "filter-dryer", "edible-oil", "dairy", "agriculture-dairy"],
+      },
+      raman: {
+        name: "Raman", long: "Raman spectroscopy", chart: "ramangas",
+        points: [
+          "A laser excites the sample. A tiny part of the scattered light is shifted by molecular vibrations, giving each compound a unique fingerprint.",
+          "No water signal, which overlays many NIR signals in wet or biochemical processes such as fermentation.",
+          "Measures gases that NIR cannot see, such as oxygen and nitrogen.",
+          "Several components at once, qualitative and quantitative, with no sample preparation.",
+        ],
+        chartNote: "Schematic: approximate Raman shifts of natural-gas components.",
+        stories: ["natural-gas"],
       },
       fluorescence: {
         name: "Fluorescence", long: "Fluorescence spectroscopy", chart: "fluor",
@@ -1279,14 +1333,124 @@ window.KIOSK = {
           text: "The mineral scheelite (CaWO₄) fluoresces blue, with a maximum near 440 nm from tungstate. Where molybdenum replaces tungsten, a yellow band near 540 nm appears; a shoulder near 570 nm comes from Dy³⁺. Other common impurities are Tb³⁺, Sm³⁺ and Pr³⁺. Not a process application, but it shows how sensitive fluorescence is.",
           chart: "scheelite",
         },
-        stories: ["water"],
+        stories: ["water", "in-situ-fluorescence"],
       },
     },
     cases: [
-      { id: "water-solvents", route: "case", img: "K2b", title: "Water in solvents", sub: "A complete PAT project, from analytical need to service, in ten steps." },
+      { id: "water-solvents", route: "case", img: "K2b", title: "Water in solvents", sub: "A complete PAT project in ten steps. About 30 % less process time." },
+      { id: "single-use-flow-cell", route: "app/single-use-flow-cell", img: "S04", title: "Single-use UV flow cell, with Sartorius", sub: "Cast quartz made a precision part cheap enough for single use." },
+      { id: "polymerization", route: "app/polymerization", img: "S16", title: "Expandable polystyrene at Versalis", sub: "Inline end point instead of a blocked reactor." },
+      { id: "oleochemicals", route: "app/oleochemicals", img: "S13", title: "Oleochemicals at IOI Oleo", sub: "Acid and OH number in the reactor at up to 245 °C." },
+      { id: "fruit-yogurt", route: "app/fruit-yogurt", img: "S10", title: "Fruit content at Schwarzwaldmilch", sub: "An inline model replaces the Brix lab check." },
+      { id: "bpa-free", route: "app/bpa-free", img: "S20", title: "BPA-free can coatings at AkzoNobel", sub: "Residual monomers tracked in a sticky polymerization." },
       { id: "precious-metals", route: "app/precious-metals", img: "P7", title: "Precious-metals refining", sub: "Why a strongly absorbing process moved from transflection to ATR." },
     ],
     stories: {
+      /* ---- Pharmaceutical ---- */
+      "tablet-dissolution": {
+        title: "Tablet dissolution testing", short: "Automated drug-release tests with immersion probes, without sampling.",
+        fields: ["pharma"], technique: "uvvis", img: "S06", hero: false,
+        lead: "Dissolution tests show how fast and how completely a tablet releases its active ingredient. Optical immersion probes measure the release directly in the test vessel.",
+        blocks: [
+          { h: "The task", t: "The pharmacopoeias (EP, USP, JP) prescribe the procedure: six tablets, several test intervals. Manual sampling, filtering and photometry are labor-intensive and prone to error, and new dosage forms keep adding samples." },
+          { h: "Measured in the vessel", t: "Probes connected to a spectrometer by optical fibers sit in the paddle stirrer next to the dissolving tablet. As the active ingredient dissolves, its absorption rises until the tablet has fully dissolved and the curve levels off. With several vessels, a multiplexer connects all probes to one spectrometer." },
+          { h: "Faster with robotics", t: "A robotic arm can move the probe from vessel to vessel, rinsing and drying it in between, for very short measurement intervals." },
+          { h: "Which probe", t: "The Excalibur Lab, with its monolithic quartz measuring head, has proven itself here. For narrow vessels with small lids, the slim Falcata Lab with interchangeable path-length tips fits better." },
+          { h: "Why it pays", t: "Unlike HPLC, no filters, tubing or consumables are needed, and rinsing and drying the probe avoids carryover between samples." },
+        ],
+        figs: [
+          { img: "F09", cap: "Absorption spectrum of an active ingredient as it is released into the buffer." },
+          { img: "F10", cap: "Absorbance over time: it rises until the tablet has fully dissolved." },
+        ],
+        measured: ["Active-ingredient concentration", "Release profile"],
+        related: ["falcata-xp", "multiplexers", "principle:transmission"],
+      },
+      "spray-drying": {
+        title: "Spray drying: residual moisture in an API", short: "NIR through a sight glass replaces Karl Fischer sampling.",
+        fields: ["pharma"], technique: "nirmir", img: "S21",
+        lead: "Spray drying turns a solution of active ingredient and excipients into powder, in less than a second per droplet. The residual moisture of that powder has to stay within tight limits.",
+        blocks: [
+          { h: "Why moisture matters", t: "Too much residual moisture makes the powder clump and hurts flowability, yield and ultimately the drug's performance. Particle size and morphology, which shape the release profile, are set in the same step." },
+          { h: "The old way", t: "Karl Fischer titration needs samples taken and analyzed by hand in the lab. By the time a result comes back, the dryer has moved on." },
+          { h: "Measured without contact", t: "A Gladius XP 25 reflection probe coupled to an FT-NIR spectrometer looks at the powder through a sight glass. Water content is measured continuously and logged in a GxP-compliant data historian, with regular lab tests as a safety net." },
+          { h: "Result", t: "The inline NIR values match the Karl Fischer reference throughout the run, and deviations from the target are caught as they start." },
+        ],
+        figs: [
+          { img: "F37", cap: "The Gladius XP 25 measures the spray-dried powder through a sight glass." },
+          { img: "F38", cap: "Water content during spray drying: inline NIR (orange) and Karl Fischer titration (grey)." },
+        ],
+        measured: ["Residual moisture"],
+        related: ["gladius-xp", "principle:reflection"],
+      },
+      "filter-dryer": {
+        title: "Filter dryer end point", short: "Diffuse reflectance NIR shows when the product is dry.",
+        fields: ["pharma"], technique: "nirmir",
+        lead: "Filter dryers wash and dry pharmaceutical product before blending and tableting. Drying for a fixed time, or stopping to pull a sample, gives no continuous view of the moisture.",
+        blocks: [
+          { h: "Measured in the bowl", t: "Diffuse reflectance probes sit in measurement ports in the dryer bowl, placed to suit its size, and connect to an FT-NIR spectrometer by optical fibers. The NIR light penetrates 2–3 mm into the product." },
+          { h: "Keeping the tip clean", t: "Product can build up on the probe tip, and the probe would then keep measuring the same material. Probes with a software-controlled purge blow the tip clear at regular intervals." },
+          { h: "Calibration", t: "Spectra taken during drying are matched to samples analyzed by loss on drying or Karl Fischer titration. A PLS model then reports moisture or solvent content in real time." },
+        ],
+        credit: "Based on Bruker Optics application note AF 505, Filter Drier Endpoint Analysis using FT-NIR Spectroscopy.",
+        check: "Third-party note (Bruker). It does not name a Hellma probe; the Gladius XP is linked as a suggestion.",
+        measured: ["Moisture", "Residual solvent"],
+        related: ["gladius-xp", "principle:reflection"],
+      },
+      purification: {
+        title: "Purification: end point by a marker", short: "Follow an invisible impurity through one the UV can see.",
+        fields: ["pharma", "chemistry"], technique: "uvvis", img: "S18",
+        lead: "In a filter-cake wash, an impurity is washed out until the wash solvent falls below a set limit. The impurity that matters can't be seen spectroscopically, only by gas chromatography.",
+        blocks: [
+          { h: "The problem", t: "Gas chromatography is too slow for a continuous end-point decision, so the wash runs on lab results that arrive late." },
+          { h: "A marker that is visible", t: "A second impurity, present in much smaller amounts but visible in the UV, washes out of the filter cake along with it. Following its decrease in the wash solvent tracks the wash online." },
+          { h: "Where to measure", t: "Depending on the plant, a transmission probe goes directly into the reactor or a flow cell into a bypass. The compact Excalibur Lab FFV flow cell suits this task." },
+          { h: "Result", t: "The state of the wash is known in real time, the end point is found precisely, and close monitoring supports GMP compliance." },
+        ],
+        figs: [
+          { img: "F32", cap: "Filter-cake wash: wash liquor runs through the cake until the impurity is gone." },
+          { img: "F33", cap: "Impurity content (dots, by GC) and UV absorbance at 300 nm (line) fall together during the wash." },
+        ],
+        measured: ["UV marker in the wash solvent", "Wash end point"],
+        related: ["excalibur-ffv", "principle:transmission"],
+      },
+
+      /* ---- Biotechnology ---- */
+      bioprocess: {
+        title: "Bioprocesses: nutrients and metabolites", short: "NIR in the bioreactor follows glucose and metabolites in real time.",
+        fields: ["biotech", "pharma"], technique: "nirmir", img: "S03",
+        lead: "Cell cultures and microbes make biopharmaceuticals, and also amino acids, antibiotics, bioethanol, beer, yeast and organic acids. The living process changes fast, and its variables depend on each other.",
+        blocks: [
+          { h: "The challenge", t: "Fermentation is often still followed through growth models, turbidity and other indirect measurements that need manual samples. Fast, interdependent reactions call for real-time measurement that does not disturb the cells." },
+          { h: "Measured in the bioreactor", t: "An Excalibur XP 20 immersion probe with a 2 mm path length sits in the bioreactor and connects through light guides to an NIR spectrometer. It follows nutrients such as glucose that the cells take up and the metabolites they release. The monolithic sapphire head minimizes carryover and adhesion, and a quick-change fitting makes the probe easy to swap for cleaning." },
+          { h: "Hygienic option", t: "Where deposits and biofouling are a risk, the 3-A certified Excalibur HY 25 has a hemispherical head, no dead volume and only smooth, electropolished surfaces, so germs have nowhere to settle." },
+          { h: "More insight", t: "The continuous data feed trend models that predict how the reaction will go. Electrical impedance, which counts living cells, complements the spectroscopy." },
+        ],
+        figs: [{ img: "F03", cap: "An immersion probe measures directly in the bioreactor." }],
+        measured: ["Glucose", "Metabolites"],
+        related: ["excalibur-xp", "excalibur-hy", "principle:transmission"],
+      },
+      "single-use-flow-cell": {
+        title: "Single-use UV flow cell, with Sartorius", short: "A cast quartz flow cell for the BioPAT® Spectro UV single-use sensor.",
+        fields: ["biotech", "pharma"], technique: "uvvis", img: "S04", hero: false, isCase: true, customer: "Sartorius",
+        lead: "Sartorius developed a single-use inline sensor that measures biomolecule concentration by UV spectroscopy during chromatographic purification. Its core is a quartz flow cell from Hellma.",
+        blocks: [
+          { h: "Why single use", t: "Biopharmaceuticals such as monoclonal antibodies are made in single-use bioreactors of up to 2,000 liters and purified in single-use tubing sets. Inline UV sensors watch each purification step without manual samples, so the sensor parts that touch the product have to be disposable too." },
+          { h: "The challenge", t: "Existing single-use UV sensors fell short on dead volume, price-performance and ecological footprint. The quartz part needed a 1 mm gap held to within 0.05 mm, parallel windows of high optical quality and a seal to the plastic body around it, at a cost that suits a disposable part." },
+          { h: "Quartz cold casting", t: "Hellma's Quartz Cold Casting (QCC) pours a silicon-containing compound into molds at room temperature, cures it and converts it to pure quartz glass. The flow cell comes out monolithic, in one piece, with sealing structures molded in, so many conventional processing steps disappear." },
+          { h: "Into series production", t: "The project began with a feasibility study after the Sartorius PAT team saw QCC at ACHEMA. Hellma refines, inspects every gap width, packages and qualifies the cells under the PPAP process, so they go straight into the Sartorius sensor." },
+          { h: "The payoff", t: "Every connection size has the same, precisely known optical path length. That lets spectroscopic methods, not just simple photometry, determine concentration, with minimal dead volume and practically no effect on flow." },
+        ],
+        quote: { t: "As part of the good cooperation with Hellma, we succeeded in jointly iteratively developing an optical sensor core component from the first draft to series production under the highest quality requirements.", who: "Dr. Christian Grimm, Head of Product Development Embedded Hardware, Sartorius Stedim Biotech GmbH" },
+        figs: [
+          { img: "F06", cap: "The finished single-use flow cell, cast in one piece of quartz glass." },
+          { img: "F04", cap: "First 3-D model of the flow cell." },
+          { img: "F05", cap: "First cast prototype." },
+        ],
+        measured: ["Biomolecule concentration", "Impurities during purification"],
+        related: ["custom", "principle:transmission"],
+      },
+
+      /* ---- Chemistry ---- */
       "precious-metals": {
         title: "Precious-metals refining: from dilution to ATR", short: "Transflection needed a million-fold dilution. ATR did not.",
         fields: ["chemistry"], technique: "uvvis", img: "P7", isCase: true,
@@ -1299,6 +1463,211 @@ window.KIOSK = {
         chart: "dilution",
         measured: ["Transition-metal concentration"],
         related: ["falcata-xp", "katana-xp", "principle:atr"],
+      },
+      polyol: {
+        title: "Polyol production", short: "Water, acid number, viscosity and hydroxyl number, measured at 400 °C.",
+        fields: ["chemistry", "polymers"], technique: "nirmir", img: "S17",
+        lead: "Polyols react with isocyanates to make polyurethanes: rigid and flexible foams, adhesives, coatings and elastomers. Their structure decides the properties of the end product.",
+        blocks: [
+          { h: "Sensitive chemistry", t: "Polyol synthesis reacts to swings in temperature, pressure and reaction time. Raw-material variations and side reactions show up as color deviations or uneven viscosity, and lab samples come back too late to steer the batch." },
+          { h: "A probe for 400 °C", t: "The Excalibur HD FPT probe uses metal seals, a sapphire window and light guides in place of internal optical fibers, so it measures reliably at the 400 °C this process needs. The wear-free seals make it maintenance-free." },
+          { h: "From spectra to numbers", t: "Hellma Solutions tests process samples in its application lab, pre-processes the spectra mathematically to remove unrelated variation, and builds a validated chemometric model for each parameter." },
+          { h: "More polyols", t: "The term also covers sugar alcohols, made by hydrogenating sugars, where NIR follows the same kinds of parameters." },
+        ],
+        params: [["Water", "Keeps the reaction under control"], ["Viscosity", "Shapes the processing properties"], ["Acid number", "The share of acidic impurities"], ["Hydroxyl number", "Crucial for the product's reactivity"]],
+        figs: [{ img: "F31", cap: "NIR spectra of polyol samples with different parameter values, measured with the Excalibur HD FPT." }],
+        measured: ["Water", "Viscosity", "Acid number", "Hydroxyl number"],
+        related: ["excalibur-hd", "principle:transmission"],
+      },
+      oleochemicals: {
+        title: "Oleochemicals at IOI Oleo", short: "Acid and OH number in the reactor, at up to 245 °C.",
+        fields: ["chemistry"], technique: "nirmir", img: "S13", isCase: true, customer: "IOI Oleo",
+        lead: "IOI Oleo in Hamburg makes oleochemical specialties from plant-based raw materials: active ingredients and excipients for pharmaceuticals, emollients for cosmetics and esters for food.",
+        blocks: [
+          { h: "Natural raw materials vary", t: "Rapeseed, sunflower, soybean and palm oil change with each harvest. Oils and fats also react with oxygen in the air, so the reaction is measured directly in the closed vessel." },
+          { h: "Tough conditions", t: "The probes face up to 245 °C, agitator vibration and pressure swings in 24-hour batch operation. Fatty acids, glycerol, propylene glycol, tetra-n-butyl titanate and butanediol must all be monitored to keep contaminants below EU limits." },
+          { h: "The setup", t: "Excalibur HD FPT transmission probes sit directly in the reaction vessels and connect over 30–50 m of fiber to one spectrometer through a multiplexer, so acid number and OH number are followed along the whole process chain." },
+          { h: "Why the FPT", t: "Hollow light guides instead of glass fibers handle very high and very low temperatures. Gold-coated metal seals and sapphire windows replace elastomers, and a second barrier with a nitrogen charge reduces the risk of leaks, so maintenance intervals get much longer." },
+          { h: "Result", t: "Knowing the exact state of the reaction ends batches on time, shortens run times and replaces lab sampling." },
+        ],
+        figs: [
+          { img: "F25", cap: "NIR spectra of coconut oil: pure (green) and contaminated (yellow, red)." },
+          { img: "F24", cap: "Probe in the reactor, connected to the spectrometer." },
+        ],
+        measured: ["Acid number", "OH number", "State of reaction", "Contamination"],
+        related: ["excalibur-hd", "multiplexers", "principle:transmission"],
+      },
+      phosgene: {
+        title: "Phosgene for polyurethane", short: "Gas purity checked inline, in a flow cell built for toxic gases.",
+        fields: ["chemistry", "polymers"], technique: null, img: "S08", foot: "weld",
+        lead: "Phosgene (COCl₂) is a highly toxic gas and a key raw material: it turns amines into the isocyanates TDI and MDI, which react with polyols to make polyurethane.",
+        blocks: [
+          { h: "Why purity matters", t: "Moisture and other impurities in the gas are very costly in later process steps. Polycarbonate, for example, needs phosgene with at most 250 ppm carbon tetrachloride, or the clear plastic discolors." },
+          { h: "Why online", t: "Gas chromatography limits continuous monitoring. Spectroscopic probes and cells measure directly in the gas stream, in real time. Because the gases are toxic and flammable, nothing may leak." },
+          { h: "The flow cell", t: "The Excalibur HD FCP, built from standard Swagelok parts, measures in transmission along the pipe axis. Path lengths of up to 2 m reach impurities in the ppt range. The optical fingers are filled with nitrogen: the slight overpressure and a second barrier keep the medium and moisture out." },
+          { h: "Built for it", t: "Metal seals and sapphire optics make the stainless-steel cell maintenance-free and good for 250 bar* and 300 °C. It can be used in ATEX zones 1, 2, 21 and 22, inline or atline in a bypass cabinet next to the spectrometer." },
+        ],
+        figs: [
+          { img: "F15", cap: "Measuring interface on the gas line." },
+          { img: "F16", cap: "Excalibur HD FCP with standard Swagelok parts, for path lengths up to 2 m." },
+        ],
+        measured: ["Impurities in the process gas", "Moisture"],
+        related: ["excalibur-fcp", "principle:transmission"],
+      },
+      "acrylic-acid": {
+        title: "Acrylic acid: dewatering end point", short: "A brazed titanium Falcata keeps measuring where acrylic acid crystallizes and polymerizes.",
+        fields: ["petro", "chemistry"], technique: "nirmir", img: "S02",
+        lead: "Acrylic acid and acrylate esters are key monomers for superabsorbent polymers, dispersions, coatings, adhesives and sealants. They are made from propene by two-step gas-phase oxidation.",
+        blocks: [
+          { h: "Where NIR measures", t: "In the azeotropic distillation column, water is removed with a carrier such as toluene or isobutylbenzene. NIR follows the water content in the liquid phase to find the end point of dehydration, so the acid meets specification for final purification. Tight control improves stability, energy efficiency and throughput." },
+          { h: "A hard place to measure", t: "Acrylic acid can crystallize as it cools, and the crystals damage and harden seals. High-purity acid also tends to polymerize spontaneously when temperature or pressure shift, leaving polymer on the optics. Traces of polymer and inhibitor make the liquid slightly turbid." },
+          { h: "The probe", t: "The Falcata XP transflection probe gives stable signals in highly absorbent, slightly turbid liquids. Its windows are brazed directly into a titanium housing: no elastomer seals, and no gaps or dead spaces where polymer can build up. It fits Knick Ceramat and SensoGate retractable housings." },
+          { h: "Proven", t: "The Falcata XP has been tested under industrial conditions in acrylic acid production at a major European plant." },
+        ],
+        figs: [{ img: "F02", cap: "NIR measuring points in the acrylic acid process: water removal and final cleaning." }],
+        measured: ["Water content", "Dehydration end point"],
+        related: ["falcata-xp", "retractables", "principle:transflection"],
+      },
+      multipoint: {
+        title: "Many measuring points, one spectrometer", short: "A multiplexer serves up to 16 points in a multi-stage plant.",
+        fields: ["polymers", "chemistry"], technique: "nirmir", img: "S14",
+        lead: "Plastics, medicines and foods often come from multi-stage processes with measuring points spread across reactors and lines: polymerization, solvent recovery, additive dosing, fiber spinning.",
+        blocks: [
+          { h: "The cost problem", t: "A spectrometer at every point drives up investment, and calibrating, running and maintaining many instruments takes much more work." },
+          { h: "The solution", t: "The Hellma FMX multiplexer connects up to 16 probes or flow cells to one spectrometer. A high-precision stepper motor moves a retroreflector that couples the light into each channel through collimator lenses. The channels are separated so no light crosses over, and switching takes less than a second." },
+          { h: "Easy to extend", t: "The FMX is modular, so channels can be added later up to full capacity. It connects to the process control system over RS232 or RS422 with the supplied software, and switches in both directions as standard." },
+          { h: "Payback", t: "Cost per measuring point drops sharply, and a multiplexer can pay for itself from just two measuring points." },
+        ],
+        figs: [
+          { img: "F26", cap: "Three process streams, one spectrometer: the multiplexer replaces the extra instruments." },
+          { img: "F27", cap: "Cost per measuring point with and without the FMX multiplexer." },
+        ],
+        measured: ["Reaction progress at every stage"],
+        related: ["multiplexers", "excalibur-xp", "falcata-xp"],
+      },
+      "in-situ-fluorescence": {
+        title: "In situ fluorescence in the reaction vessel", short: "A Hellma fluorescence probe brings the fluorometer to the reaction.",
+        fields: ["chemistry"], technique: "fluorescence", img: "S22", hero: false,
+        lead: "Pulling samples from a running reaction is slow, can be hazardous, and can change temperature, pressure or volatile content, so the data lag behind and may be off. A fiber-optic fluorescence probe measures in place instead.",
+        blocks: [
+          { h: "The setup", t: "A Hellma fluorescence probe (661.057-UV) sits in the reaction vessel. Its fiber-optic cables match the F-3000 coupler of a HORIBA Fluorolog-3 fluorometer, so pipetting, mixing, heating, cleaning and the fume hood all drop out." },
+          { h: "The example", t: "A pyrene-based nickel complex was titrated with NaOH. Excited at 340 nm, it emits at 375 and 395 nm under acidic conditions. As the pH rises, that fluorescence drops through photoinduced electron transfer, and a broad excimer band appears near 480 nm." },
+        ],
+        figs: [{ img: "S22", cap: "Hellma fiber-optic fluorescence probe 661.057-UV." }, { img: "F39", cap: "Fluorescence spectra of the nickel complex as the pH rises; excitation at 340 nm. Data: HORIBA Scientific." }],
+        credit: "Based on HORIBA Scientific technical note FL-34, Liquid in situ Fluorescence Measurements.",
+        check: "Third-party note (HORIBA). Confirm whether probe 661.057-UV belongs to the Espada family.",
+        measured: ["Fluorescence intensity", "Reaction progress"],
+        related: ["espada", "principle:fluorescence"],
+      },
+
+      /* ---- Oil, gas & petrochemistry ---- */
+      "natural-gas": {
+        title: "Natural gas composition", short: "Raman and NIR resolve the mixture in the pipeline.",
+        fields: ["petro"], technique: "raman", techniques: ["raman", "nirmir"], img: "S11",
+        lead: "Natural gas is mostly methane and is traded on its energy value. That value depends on the exact mix of hydrocarbons, which varies with where the gas was extracted, so it is analyzed at several points on its way to the customer.",
+        blocks: [
+          { h: "Why not gas chromatography", t: "GC separates many components and traces, but carrier and calibration gases make it expensive, and the lag between sampling and result means deviations are found late." },
+          { h: "Hard conditions", t: "Pipelines run at around 80 bar to raise energy density, so the measurement has to withstand the pressure. Because the gas is explosive, laser power is strictly limited, and detection has to be sensitive enough to work with little of it." },
+          { h: "Raman in the pipeline", t: "The Tidus Flex Gas probe connects by optical fibers to a standard Raman spectrometer with a temperature-stabilized 785 nm laser. Keeping the spectrometer away from the probe allows ATEX-compliant operation. A special reflector boosts the Raman signal for low gas concentrations, and the system reports each gas concentration every minute." },
+          { h: "Raman and NIR together", t: "Raman tells the hydrocarbons apart even at low concentrations, and it sees oxygen and nitrogen, which NIR cannot. NIR absorption complements it for the hydrocarbons, CO₂ and H₂S. The same Raman approach works for biogas and biomethane before feed-in." },
+        ],
+        charts: [{ key: "ramangas", note: "Schematic: approximate Raman shifts of natural-gas components." }, { key: "gas", note: "Schematic NIR absorption of natural gas, 1000–2200 nm." }],
+        ranges: [["Methane", 70, 90], ["Ethane, propane, butane", 0, 20], ["CO₂", 0, 8], ["H₂S", 0, 5], ["O₂", 0, 0.2, "Raman only"], ["N₂", 0, 0.2, "Raman only"], ["Ar, He, Ne, Xe", null, null, "Trace"]],
+        measured: ["Methane", "Ethane, propane, butane", "CO₂", "H₂S", "O₂ and N₂ (Raman)"],
+        related: ["excalibur-fcp", "excalibur-hd", "tidus-flex-gas", "principle:transmission", "principle:raman"],
+      },
+      "oil-production": {
+        title: "Water in crude oil", short: "NIR measures the water-in-liquid ratio right at the pipeline.",
+        fields: ["petro"], technique: "nirmir", img: "S12",
+        lead: "To get the most out of an oil field, producers watch water and gas content continuously. Over-pumping dilutes the stream and lowers the yield; knowing the water content lets them tune pumping so more oil comes up in the same time.",
+        blocks: [
+          { h: "Why it is difficult", t: "Solids, gas fraction and salinity fluctuate, the oil is viscous and conditions vary widely. Phase-separation methods are often imprecise, lab analysis is slow, and equipment at the pipeline must meet the ATEX directive 2014/34/EU." },
+          { h: "How NIR helps", t: "Crude oil and water absorb near-infrared light very differently. The signal comes from the water itself, not the dissolved salts, so water-in-liquid-ratio (WLR) sensors based on an NIR transmission cell work in real time, unaffected by emulsions or salinity, without large phase-separation systems." },
+          { h: "Three designs, all metal-sealed", t: "The Excalibur HD Flange cell mounts directly in the main pipeline, and its welded sapphire optics cannot be misadjusted. With CE certification to the Pressure Equipment Directive 2014/68/EU it can go into ATEX zones 1, 2, 21 and 22 and into pressure vessels without acceptance tests. The compact Excalibur HD FCP suits smaller pipes, and the Excalibur HD FPT probe fits an existing flange and adds a second barrier." },
+        ],
+        figs: [
+          { img: "F23", cap: "Excalibur HD Flange measurement cell." },
+          { img: "F22", cap: "Crude oil sample." },
+        ],
+        measured: ["Water-in-liquid ratio (WLR)"],
+        related: ["excalibur-fcp", "excalibur-hd", "principle:transmission"],
+      },
+      "bunker-fuel": {
+        title: "Sulfur in marine fuel", short: "Online NIR helps ships stay within sulfur-oxide limits.",
+        fields: ["petro"], technique: "nirmir", img: "S05",
+        lead: "Most large ships burn bunker fuel, a cheap heavy residue from refining. Its sulfur content becomes sulfur oxides in the exhaust, and much stricter limits for ships have applied since 2020.",
+        blocks: [
+          { h: "The challenge", t: "The fuel's composition varies from tank to tank and even within a tank, and can change during storage. Sticky particles foul pipes and instruments, and undetected deposits can damage the engine. Occasional manual samples are not precise enough." },
+          { h: "Measured in the fuel line", t: "A spectrometer with an Excalibur HD FCP flow cell in the heated fuel supply to the engine measures the fuel's components continuously, so the engine can be controlled and the limits kept at all times." },
+          { h: "Built for the engine room", t: "Metal seals make the cell resistant to pressure and temperature, the stainless-steel housing allows use in explosive areas, and sapphire optics resist particle adhesion. The exchangeable center part takes an H-cell for 2–10 mm path lengths or Swagelok T-pieces for 10 cm to 2 m." },
+        ],
+        figs: [
+          { img: "F07", cap: "Example NIR absorption spectrum of heavy fuel oil." },
+          { img: "F08", cap: "Excalibur HD FCP with H-cell center part." },
+        ],
+        measured: ["Sulfur content", "Fuel components"],
+        related: ["excalibur-fcp", "principle:transmission"],
+      },
+
+      /* ---- Polymers, paints & coatings ---- */
+      polymerization: {
+        title: "Expandable polystyrene at Versalis", short: "Bead size and conversion followed inline, so the batch ends on time.",
+        fields: ["polymers"], technique: "nirmir", img: "S16", hero: false, isCase: true, customer: "Versalis",
+        lead: "Versalis makes expandable polystyrene (EPS) beads by suspension polymerization in Mantova, Italy. Two things decide quality and yield: how far the styrene has converted to polymer, and how big the beads have grown.",
+        blocks: [
+          { h: "The process", t: "In the second reactor, a 1:1 water–styrene mixture is heated to 90 °C and stirred so the monomer forms beads. At 70–75 % conversion the temperature rises to 123 °C and calcium phosphate keeps the beads from sticking. The batch takes four hours; later, pentane and steam expand the beads up to 50 times." },
+          { h: "Why the end point matters", t: "Miss it, and the beads clump into a large ball that blocks the reactor outlet, or even the whole plant, and the cleanup costs a six-figure sum. Until now, operators pulled samples and judged bead size against a light beam." },
+          { h: "Measured in the reactor", t: "A Gladius XP reflection probe on the side of the reactor measures in contact with the suspension without disturbing its flow. As styrene converts, the transmission falls. The data show when to add dispersant to steer bead growth, and the reaction ends automatically once the beads reach their size. The installation meets ATEX Zone 2 IIB T3." },
+          { h: "Result", t: "Up to one hundred polymerization cycles run in the same reactor without cleaning the probe. Ring-shaped illumination fibers keep stray light low, and the hygienic design cleans without disassembly." },
+          { h: "Monomer to polymer", t: "Many monomers have a UV signal from their double bonds, and the NIR spectrum follows the conversion. The same approach applies to PMMA, a shatter-resistant alternative to glass, and to PET for beverage and food containers." },
+        ],
+        figs: [
+          { img: "F30", cap: "Spectra during polymerization: start (blue), during (green) and end (red)." },
+          { img: "F29", cap: "Gladius XP installed on the reactor at Versalis." },
+        ],
+        measured: ["Monomer conversion", "Bead size", "Reaction end point"],
+        related: ["gladius-xp", "principle:reflection"],
+      },
+      pom: {
+        title: "POM: methanol in real time", short: "NIR replaces a 45-minute GC loop in polyoxymethylene production.",
+        fields: ["polymers"], technique: "nirmir", img: "S15",
+        lead: "Polyoxymethylene (POM) goes into gear wheels, housings, coffee machines, zippers and toothbrushes. Its production uses several reactants, solvents and additives that must stay within a narrow range.",
+        blocks: [
+          { h: "The process", t: "Formaldehyde is first converted to trioxane, purified and depolymerized again, then polymerized with an amine catalyst at low temperature. That needs very pure starting material and the complete exclusion of water." },
+          { h: "The problem", t: "Methanol was checked by gas chromatography several times a day. With transport to the lab, a result took about 45 minutes while the reaction carried on. A wrong composition can trigger unwanted polymerization, downtime and damage worth millions, at outputs of up to 300 tonnes a day." },
+          { h: "The solution", t: "Optical immersion probes and an NIR spectrometer (800–2,500 nm) record the composition every few seconds or minutes, visible directly in the control room. A sieve around the measuring head, in the wake of the flow, steers solid clumps around the optics. Lab GC checks continue at intervals as an extra safeguard." },
+        ],
+        figs: [{ img: "F28", cap: "Methanol concentration over time, measured by NIR during POM production." }],
+        measured: ["Methanol", "Reactant and solvent composition"],
+        related: ["principle:transmission", "finder"],
+      },
+      prepolymers: {
+        title: "Pre-polymers for coatings and resins", short: "NCO, residual monomer and moisture in sticky resins, with in-process probe cleaning.",
+        fields: ["paint", "polymers"], technique: "nirmir", img: "S01",
+        lead: "Polyester and alkyd resins are high-performance binders for paints, coatings and varnishes. The pre-polymers formed during their synthesis need a precisely controlled reactivity.",
+        blocks: [
+          { h: "What to watch", t: "Within a single batch, both the chemistry and the physical properties of the reaction mass change. NCO content, temperature, viscosity, residual monomer and moisture all need reliable monitoring, and the end point accurate control." },
+          { h: "The problem with sticky media", t: "Viscous, adhesive polymer builds up on probe windows, distorts the signal and causes drift, so conventional probes need frequent maintenance." },
+          { h: "Probe plus retractable housing", t: "A Falcata XP 12 transflection probe with interchangeable path-length tips measures transparent to slightly turbid media in seconds. Mounted in a Knick Ceramat retractable housing, it moves into a separate chamber for cleaning, reference measurements and calibration. Two ceramic discs seal the chamber from the process, and a cyclonic rinse flows all around the probe." },
+          { h: "Result", t: "No process interruption or reactor draining for cleaning, reliable data even with fouling media, and less waste." },
+        ],
+        figs: [{ img: "F01", cap: "Knick Ceramat: the probe retracts into a chamber for rinsing and referencing while the process runs." }],
+        measured: ["NCO content", "Residual monomer", "Moisture", "Viscosity"],
+        related: ["falcata-xp", "retractables", "principle:transflection"],
+      },
+      "bpa-free": {
+        title: "BPA-free can coatings at AkzoNobel", short: "Residual monomers tracked in a sticky polymerization, with in-process probe cleaning.",
+        fields: ["paint", "food"], technique: "nirmir", img: "S20", isCase: true, customer: "AkzoNobel",
+        lead: "AkzoNobel's Accelshield 300 coats the inside of two-piece aluminium beverage cans without bisphenols, styrene or PFAS. Polymerization creates its binder.",
+        blocks: [
+          { h: "Why it matters", t: "After the European Food Safety Authority's 2023 re-evaluation of bisphenol A, its use in food-contact packaging is banned or restricted in the EU. Only fully converted polymers meet the requirements, so residual monomers such as acrylates and styrenes must be measured during polymerization, continuously and fast." },
+          { h: "A sticky medium", t: "The reaction mass is highly viscous and sticky. Polymer can cling to or harden on the window and distort the signal, so the probe has to be cleaned during the process without losing the measurement." },
+          { h: "The solution", t: "A Falcata XP transflection probe measures the polymerization status in seconds. It sits in a Knick SensoGate retractable housing: in clean-in-place mode the probe is cleaned, referenced, serviced or removed while the process keeps running." },
+          { h: "Result", t: "Deviations are caught and corrected immediately, rejects and material losses fall, and product quality stays consistently high." },
+        ],
+        figs: [{ img: "F36", cap: "Falcata XP in a Knick SensoGate retractable housing on the reactor." }],
+        measured: ["Residual monomers", "Polymerization status"],
+        related: ["falcata-xp", "retractables", "principle:transflection"],
       },
       "paint-color": {
         title: "Paint color from the spectrum", short: "L*a*b* values calculated from UV-Vis spectra.",
@@ -1317,16 +1686,57 @@ window.KIOSK = {
         measured: ["L* lightness", "a* green–red", "b* blue–yellow", "Pigment level"],
         related: ["katana-xp", "principle:atr"],
       },
-      "tablet-dissolution": {
-        title: "Tablet dissolution testing", short: "Follow drug release as it happens.",
-        fields: ["pharma"], technique: "uvvis",
-        lead: "Dissolution tests show how fast and how completely a drug dissolves, to establish its release profile.",
+
+      /* ---- Food, dairy, beverages, agriculture, water ---- */
+      "edible-oil": {
+        title: "Edible oil in chocolate", short: "Iodine value measured inline with a 3-A hygienic probe.",
+        fields: ["food"], technique: "nirmir", img: "S07",
+        lead: "In chocolate and chocolate-flavored foods, edible oil can replace part of the cocoa butter. Its fatty-acid makeup shapes creaminess, texture, viscosity and shelf life.",
         blocks: [
-          { h: "How UV-Vis follows it", t: "UV-Vis records the absorption spectrum of the active ingredient as the tablet releases it. As the absorption rises, so does the concentration of the active ingredient in the buffer." },
+          { h: "Iodine value", t: "The iodine value tells how many grams of iodine 100 g of fat absorbs, which reflects its unsaturated fatty acids. Oil with a low iodine value is mostly saturated and makes chocolate hard at room temperature; a high value keeps spreads creamy." },
+          { h: "Before it reaches the cocoa mass", t: "Lab samples take time and trained staff, and the process runs on while results wait. The equipment must also meet strict hygiene rules and must not affect the product." },
+          { h: "The solution", t: "An Excalibur HY 25 (3-A) hygienic immersion probe connects by fiber to a VIS-NIR diode-array spectrometer. The chemometric model uses the whole spectrum, which makes it robust. Samples cluster at iodine values between 30 and 60, and spectra that look like outliers stay in the model because they carry process information." },
+          { h: "Result", t: "Real-time values go straight to the process control system, recipes are met, ingredients are used optimally, and the system can be extended to more parameters." },
         ],
-        chart: "dissolution", chartNote: "Schematic: spectra recorded during drug release.",
-        measured: ["Active-ingredient concentration", "Release profile"],
-        related: ["falcata-xp", "principle:transmission"],
+        figs: [
+          { img: "F12", cap: "NIR spectra of edible oil from a VIS-NIR diode-array spectrometer." },
+          { img: "F14", cap: "Calibration: NIR prediction against the reference iodine value." },
+          { img: "F13", cap: "Iodine values of the calibration samples." },
+        ],
+        measured: ["Iodine value"],
+        related: ["excalibur-hy", "principle:transmission"],
+      },
+      dairy: {
+        title: "Milk: from intake to recombination", short: "Fat, protein, water and lactose, measured with a 3-A probe.",
+        fields: ["dairy", "food"], technique: "nirmir", img: "S09",
+        lead: "Raw milk changes with season, region and even from cow to cow. Dairies check it at delivery, separate it into cream and skim milk, and recombine the two to the exact fat content each product needs.",
+        blocks: [
+          { h: "Hygiene first", t: "In the US, milk processing must meet the 3-A sanitary standards, and Europe's EHEDG guidelines build on them. Instruments in contact with the product must rule out contamination and cross-contamination, and costly ingredients like fat and protein should be dosed precisely." },
+          { h: "The solution", t: "Excalibur HY 25 (3-A) hygienic immersion probes coupled to an FT-NIR spectrometer report fat, protein, water and lactose from several key positions to the process control system at short intervals. Deviations are corrected within minutes instead of waiting for the lab." },
+          { h: "Why this probe", t: "It can touch the product directly, is 3-A certified, and cleans and sterilizes in place (CIP and SIP) without stopping production. Its precise path length makes results reproducible and methods easy to transfer between probes and measuring points." },
+          { h: "Beyond dairy", t: "The same setup measures unsaturated fatty acids, sugar in juices, and vitamins or concentrates in other food and pharmaceutical processes." },
+        ],
+        figs: [{ img: "F17", cap: "Hygienic probe in a dairy line." }],
+        measured: ["Fat", "Protein", "Water", "Lactose"],
+        related: ["excalibur-hy", "principle:transmission"],
+      },
+      "fruit-yogurt": {
+        title: "Fruit content at Schwarzwaldmilch", short: "An inline model checks the yogurt-to-fruit ratio before filling.",
+        fields: ["dairy", "food"], technique: null, img: "S10", isCase: true, customer: "Schwarzwaldmilch",
+        lead: "The Freiburg dairy Schwarzwaldmilch checks every fruit yogurt again after the fruit preparation is added and before filling. The ratio of yogurt to fruit sets the taste, the declared minimum fruit content and the ingredient cost.",
+        blocks: [
+          { h: "Why it varies", t: "Fruit sugar changes with variety and ripeness, and fruit preparations change in storage. Container changes and pump stops and restarts shift the mixing ratio." },
+          { h: "The old way", t: "Random samples were checked in the lab through the Brix value (refractive index). That is slow, and as a measure of fruit content it is unreliable, which can mean waste." },
+          { h: "Building the model", t: "Hellma Solutions measured product samples in the Hellma application lab over a longer period and built calibration models for the different fruit yogurts. The models were then run on a spectrometer and brought into the process in several steps." },
+          { h: "Measured inline", t: "Because of yogurt's optical properties, a reflectance measurement fits best. A Gladius XP reflection probe, hygienic enough for food production, measures the yogurt in the line. Updating the model over time follows the process in ever more detail." },
+        ],
+        figs: [
+          { img: "F18", cap: "Fruit content over time: the start of production, a system stop and a container change show up at once." },
+          { img: "F19", cap: "The installation at Schwarzwaldmilch." },
+          { img: "F20", cap: "From lab analysis to calibration model to process control." },
+        ],
+        measured: ["Yogurt-to-fruit ratio"],
+        related: ["gladius-xp", "principle:reflection", "solutions"],
       },
       whiskey: {
         title: "Whiskey maturing in the barrel", short: "Measure what the wood adds, right in the barrel.",
@@ -1344,61 +1754,9 @@ window.KIOSK = {
         measured: ["Sugar", "Bruising", "Dryness", "Acidity", "Blight"],
         related: ["gladius-fdr", "principle:reflection"],
       },
-      water: {
-        title: "Water and wastewater monitoring", short: "Nitrates, sulfates, H₂S and impurities.",
-        fields: ["water"], technique: "uvvis", techniques: ["uvvis", "fluorescence"],
-        lead: "UV-Vis watches dissolved nitrates, sulfates and H₂S. Fluorescence picks up impurities in wastewater.",
-        blocks: [],
-        measured: ["Nitrates", "Sulfates", "H₂S", "Impurities (fluorescence)"],
-        related: ["excalibur-xp", "excalibur-fcp", "espada", "principle:transmission", "principle:fluorescence"],
-      },
-      "natural-gas": {
-        title: "Natural gas composition", short: "NIR resolves the mixture; Raman adds O₂ and N₂.",
-        fields: ["petro"], technique: "nirmir",
-        lead: "Natural gas is a characteristic mixture. NIR absorption resolves its components; oxygen and nitrogen need Raman.",
-        blocks: [],
-        chart: "gas", chartNote: "Schematic NIR absorption of natural gas, 1000–2200 nm.",
-        ranges: [["Methane", 70, 90], ["Ethane, propane, butane", 0, 20], ["CO₂", 0, 8], ["H₂S", 0, 5], ["O₂", 0, 0.2, "Raman only"], ["N₂", 0, 0.2, "Raman only"], ["Ar, He, Ne, Xe", null, null, "Trace"]],
-        measured: ["Methane", "Ethane, propane, butane", "CO₂", "H₂S", "O₂ and N₂ (Raman)"],
-        related: ["excalibur-fcp", "excalibur-hd", "tidus-lumio", "principle:transmission", "principle:raman"],
-      },
-      polymerization: {
-        title: "Polymerization: styrene to polystyrene", short: "Watch monomer turn into polymer.",
-        fields: ["polymers"], technique: "nirmir",
-        lead: "Many monomers have a UV signal from their double bonds, and the NIR spectrum follows the conversion from monomer to polymer.",
-        blocks: [
-          { h: "Examples", t: "PMMA, a lightweight, shatter-resistant alternative to glass. PET, for beverage, food and liquid containers." },
-          { h: "In the spectrum", t: "The spectra change from the start of polymerization, through the reaction, to its end." },
-        ],
-        chart: "polymer", chartNote: "Schematic NIR spectra: start (blue), during (green) and end (red) of polymerization.",
-        measured: ["Monomer conversion", "Reaction end point"],
-        related: ["polymer-probe", "principle:transmission"],
-      },
-      polyol: {
-        title: "Polyol production", short: "Water, viscosity, acid and hydroxyl number by NIR.",
-        fields: ["chemistry"], technique: "nirmir",
-        lead: "Most industrial polyols are made by chemical hydrogenation of sugars. NIR follows the properties that matter.",
-        blocks: [{ h: "Control in real time", t: "NIR spectra of polyol samples change with each of these parameters. Deviations show up directly, so the process can be controlled." }],
-        params: [["Water", ""], ["Viscosity", "Shapes the processing properties"], ["Acid number", "The share of acidic impurities"], ["Hydroxyl number", "Crucial for the product's reactivity"]],
-        chart: "polyol", chartNote: "Schematic NIR spectra of polyol samples with varying parameters.",
-        measured: ["Water", "Viscosity", "Acid number", "Hydroxyl number"],
-        related: ["excalibur-xp", "principle:transmission"],
-      },
-      oleochemicals: {
-        title: "Oleochemicals: catching contamination", short: "Keep contaminated oil out of the end product.",
-        fields: ["chemistry"], technique: "nirmir",
-        lead: "Natural oils and fats react when exposed to the atmosphere.",
-        blocks: [
-          { h: "Why monitor", t: "To keep the end product consistent even when raw-material quality varies, the process has to be watched at several steps." },
-          { h: "What it prevents", t: "Knowing the state of the reaction keeps contaminated material out of the end product." },
-        ],
-        chart: "oil", chartNote: "Schematic NIR spectra of coconut oil: pure (green) and contaminated (yellow, red).",
-        measured: ["State of reaction", "Contamination"],
-        related: ["excalibur-xp"],
-      },
       "agriculture-dairy": {
         title: "Agriculture and dairy", short: "Moisture, protein, starch, ash, fats and sugars.",
-        fields: ["agriculture", "food"], technique: "nirmir",
+        fields: ["agriculture", "food", "dairy"], technique: "nirmir",
         lead: "NIR measures the composition of crops and dairy products quickly, without chemicals.",
         blocks: [
           { h: "Precision farming", t: "Moisture, protein, starch and ash." },
@@ -1406,6 +1764,14 @@ window.KIOSK = {
         ],
         measured: ["Moisture", "Protein", "Starch", "Ash", "Fats", "Sugars"],
         related: ["gladius-fdr", "excalibur-hy"],
+      },
+      water: {
+        title: "Water and wastewater monitoring", short: "Nitrates, sulfates, H₂S and impurities.",
+        fields: ["water"], technique: "uvvis", techniques: ["uvvis", "fluorescence"],
+        lead: "UV-Vis watches dissolved nitrates, sulfates and H₂S. Fluorescence picks up impurities in wastewater.",
+        blocks: [],
+        measured: ["Nitrates", "Sulfates", "H₂S", "Impurities (fluorescence)"],
+        related: ["excalibur-xp", "excalibur-fcp", "espada", "principle:transmission", "principle:fluorescence"],
       },
     },
   },
@@ -1922,6 +2288,34 @@ window.KIOSK = {
     return out + '</svg>';
   };
 
+  /* Raman shifts of natural-gas components (approximate literature values, cm⁻¹) */
+  D.ramanGas = function () {
+    var W = 760, H = 300, L = 40, R = 30, T = 46, B = 52, x0 = 700, x1 = 3200;
+    var iw = W - L - R, ih = H - T - B;
+    function X(v) { return L + (v - x0) / (x1 - x0) * iw; }
+    function Y(v) { return T + ih - v * ih; }
+    var hc = "#0072b6", rm = "#e07b00", ot = "#6e7882";
+    var peaks = [[869, .34, hc], [993, .38, hc], [1285, .30, ot], [1388, .44, ot], [1556, .40, rm], [2331, .52, rm], [2611, .26, ot], [2890, .52, hc], [2917, 1, hc], [2954, .62, hc], [3020, .2, hc]];
+    var d = '';
+    for (var x = x0, i = 0; x <= x1; x += 2, i++) {
+      var y = 0; peaks.forEach(function (p) { y += p[1] * Math.exp(-0.5 * Math.pow((x - p[0]) / 7, 2)); });
+      d += (i ? ' L' : 'M') + X(x).toFixed(1) + ' ' + Y(Math.min(y, 1.02) * .92).toFixed(1);
+    }
+    var labels = [[869, "C₃H₈", hc, "end", -4], [993, "C₂H₆", hc, "start", 4], [1336, "CO₂", ot], [1556, "O₂", rm], [2331, "N₂", rm], [2611, "H₂S", ot], [2930, "CH₄ · C₂H₆ · C₃H₈", hc]];
+    var out = '<svg viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="Approximate Raman shifts of natural-gas components" class="chartsvg">' +
+      '<path d="M' + L + ' ' + T + ' V' + (T + ih) + ' H' + (W - R) + '" stroke="#575756" stroke-width="1.6" fill="none"/>' +
+      '<path class="draw" d="' + d + '" stroke="#0a3a5f" stroke-width="2.2" fill="none" stroke-linejoin="round"/>';
+    labels.forEach(function (l, k) {
+      var p = peaks.filter(function (q) { return Math.abs(q[0] - l[0]) < 60; }).reduce(function (a, q) { return q[1] > a ? q[1] : a; }, 0);
+      var y = Y(p * .92) - 10;
+      out += '<text x="' + (X(l[0]) + (l[4] || 0)).toFixed(1) + '" y="' + y.toFixed(1) + '" text-anchor="' + (l[3] || "middle") + '" class="lbl s b" style="fill:' + l[2] + '">' + l[1] + '</text>';
+    });
+    [1000, 1500, 2000, 2500, 3000].forEach(function (t) { out += '<path d="M' + X(t).toFixed(1) + ' ' + (T + ih) + ' v6" stroke="#878787"/><text x="' + X(t).toFixed(1) + '" y="' + (T + ih + 24) + '" text-anchor="middle" class="lbl s">' + t + '</text>'; });
+    out += '<text x="' + (L + iw / 2) + '" y="' + (H - 6) + '" text-anchor="middle" class="lbl s">Raman shift (cm⁻¹)</text>';
+    out += '<g transform="translate(' + (L + 14) + ' 18)"><rect width="14" height="4" y="5" fill="' + hc + '"/><text x="20" y="12" class="lbl s">hydrocarbons</text><rect x="150" width="14" height="4" y="5" fill="' + rm + '"/><text x="170" y="12" class="lbl s">Raman only</text><rect x="290" width="14" height="4" y="5" fill="' + ot + '"/><text x="310" y="12" class="lbl s">other</text></g>';
+    return out + '</svg>';
+  };
+
   /* Natural gas composition ranges */
   D.ranges = function (items) {
     var L = 272, R = 640, out = '<svg viewBox="0 0 760 ' + (40 + items.length * 40) + '" role="img" aria-label="Natural gas composition ranges" class="chartsvg">';
@@ -1981,7 +2375,7 @@ window.KIOSK = {
   function note(check) { return check ? '<div class="chk-note">' + esc(check) + "</div>" : ""; }
   var PLACEHOLDER = "data:image/svg+xml;charset=utf-8," + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300"><rect width="400" height="300" fill="#f2f2f2"/><text x="200" y="158" text-anchor="middle" font-family="sans-serif" font-size="18" fill="#878787">Image coming</text></svg>');
   function src(id) { return ASSETS[id] || PLACEHOLDER; }
-  var PHOTO = /^(K|A|I|C|W)\d|^(P12|P17b|R1|R8)$/;
+  var PHOTO = /^(K|A|I|C|W)\d|^S\d\d|^(P12|P17b|R1|R8)$/;
   function isPhoto(id) { return PHOTO.test(id); }
   function stage(id, cls, alt) {
     if (!id) return '<div class="stage ' + (cls || "") + '"></div>';
@@ -2241,6 +2635,9 @@ window.KIOSK = {
     var map = {
       case: { route: "case", img: "K2b", title: "Case study", sub: "Water in solvents" },
       retractables: { route: "retractables", img: "R4", title: "Retractable housings", sub: "Ceramat and Sensogate" },
+      multiplexers: { route: "multiplexers", img: "P10", title: "FMX multiplexer", sub: "Up to 16 points, one spectrometer" },
+      custom: { route: "solutions/custom", img: "K3", title: "Custom development", sub: "Hellma Solutions" },
+      solutions: { route: "solutions", img: "K3", title: "Hellma Solutions", sub: "Feasibility, models, integration" },
       prm: { route: "retractables/prm", img: "P12", title: "Probe Retraction Mechanism", sub: "For Excalibur HD" },
       finder: { route: "finder", img: "P2", title: "Probe finder", sub: "Match a probe to your process" },
     };
@@ -2590,6 +2987,7 @@ window.KIOSK = {
     if (s.kind === "model") b += '<div class="diagram" id="model">' + DG.model() + '</div><div class="cols3" id="phases">' + s.phases.map(function (p, k) { return '<button type="button" class="panel phase" data-phase="' + k + '" aria-pressed="' + (k === 0) + '"><span class="eyebrow">Phase ' + (k + 1) + '</span><h3 class="h3">' + esc(p.name) + "</h3><p>" + esc(p.text) + "</p></button>"; }).join("") + "</div>";
     if (s.kind === "chips") b += '<div class="row">' + s.chips.map(function (c) { return '<span class="pill">' + esc(c) + "</span>"; }).join("") + "</div>";
     if (s.kind === "vmodel") b += '<div class="diagram" id="vm">' + DG.vmodel(X.vmodel) + '</div><div class="panel" id="vm-detail"></div>' + note(X.vmodelCheck);
+    if (s.fig) b += '<figure class="chartfig sfig" style="max-width:40rem">' + figure(s.fig.img, s.fig.cap) + "<figcaption>" + esc(s.fig.cap) + "</figcaption></figure>";
     if (s.points) b += bullets(s.points);
     if (s.cols) b += '<div class="cols2">' + s.cols.map(function (c) {
       return '<div class="panel">' + (c.img ? '<div style="aspect-ratio:16/9">' + stage(c.img, "", c.h) + "</div>" : "") + '<h3 class="h3">' + esc(c.h) + "</h3>" + bullets(c.points) +
@@ -2600,7 +2998,9 @@ window.KIOSK = {
       (idx < steps.length - 1 ? '<button class="btn primary" type="button" data-tab="case/' + steps[idx + 1].id + '">' + esc(steps[idx + 1].name) + I.arrow + "</button>" : '<button class="btn primary" type="button" data-req="services">' + I.mail + "Talk to us about your project</button>") + "</div>";
     return {
       crumb: crumb("Case study", s.name),
-      html: pageHead("Case study · Hellma Solutions", X.title, esc(X.sub), "solutions") + '<div class="case">' + list + '<div class="stepbody">' + b + "</div></div>",
+      html: pageHead("Case study · Hellma Solutions", X.title, esc(X.sub), "solutions") +
+        (X.results ? '<div class="results-band"><span class="eyebrow">Results</span>' + X.results.map(function (r) { return '<div class="stat"><span class="n">' + esc(r.n) + '</span><span class="l">' + esc(r.l) + "</span></div>"; }).join("") + "</div>" : "") +
+        '<div class="case">' + list + '<div class="stepbody">' + b + "</div></div>",
       init: function (root) {
         var ba = $("#ba svg", root);
         $$("[data-ba]", root).forEach(function (btn) {
@@ -2641,9 +3041,11 @@ window.KIOSK = {
     if (f.img) return img(f.img, "");
     return '<span class="gfx gfx-' + f.graphic + '"></span>';
   }
+  function techOf(s) { return A.techniques[s.technique] || { name: "Process spectroscopy" }; }
   function storyCard(id) {
-    var s = A.stories[id], t = A.techniques[s.technique];
-    return '<button class="scard" type="button" data-go="app/' + id + '"><span class="tag">' + esc(t.name) + "</span><b>" + esc(s.title) + "</b><span>" + esc(s.short) + '</span><span class="go">Read ' + arrowSm() + "</span></button>";
+    var s = A.stories[id], t = techOf(s);
+    var th = s.img ? '<span class="sthumb">' + (isPhoto(s.img) ? img(s.img, "") : stage(s.img, "", s.title)) + "</span>" : "";
+    return '<button class="scard' + (th ? " has-img" : "") + '" type="button" data-go="app/' + id + '">' + th + '<span class="sc-body"><span class="row" style="gap:.3rem"><span class="tag">' + esc(t.name) + "</span>" + (s.isCase ? '<span class="tag">Case study</span>' : "") + "</span><b>" + esc(s.title) + "</b><span>" + esc(s.short) + '</span><span class="go">Read ' + arrowSm() + "</span></span></button>";
   }
   function caseCard(c) {
     return '<button class="ccard" type="button" data-go="' + c.route + '">' + stage(c.img, "", c.title) + '<div class="t"><span class="eyebrow">Case study</span><b>' + esc(c.title) + "</b><span>" + esc(c.sub) + "</span></div></button>";
@@ -2681,7 +3083,7 @@ window.KIOSK = {
       crumb: crumb("Applications", f.name),
       html: '<section class="ind-hero"><div class="ph">' + fieldVisual(f) + '</div><div style="display:grid;gap:.7rem;align-content:center"><div class="eyebrow">Industry</div><h1 class="h1">' + esc(f.name) + '</h1><p class="lead">' + T(f.text) + "</p></div></section>" +
         (stories ? '<section style="display:grid;gap:.8rem"><h2 class="h2">Examples</h2><div class="scards">' + stories + "</div></section>" : "") +
-        (cases ? '<section style="display:grid;gap:.8rem"><h2 class="h2">Case study</h2><div class="cols2">' + cases + "</div></section>" : "") +
+        (cases ? '<section style="display:grid;gap:.8rem"><h2 class="h2">' + ((f.cases || []).length > 1 ? "Case studies" : "Case study") + '</h2><div class="cols2">' + cases + "</div></section>" : "") +
         (rel ? '<section style="display:grid;gap:.8rem"><h2 class="h2">Probes to look at</h2><div class="minis">' + rel + "</div></section>" : "") +
         (!stories && !cases ? '<div class="empty"><p>Tell us about your process and our application team will suggest a setup.</p><button class="btn primary" type="button" data-req="applications">' + I.mail + "Discuss your application</button></div>" :
           '<div class="row"><button class="btn primary" type="button" data-req="applications">' + I.mail + "Discuss your application</button></div>"),
@@ -2690,6 +3092,7 @@ window.KIOSK = {
 
   function techChart(key) {
     if (key === "nirbands") return DG.nirBands();
+    if (key === "ramangas") return DG.ramanGas();
     return DG.charts[key] ? DG.charts[key]() : "";
   }
   SCREENS.technique = function (id) {
@@ -2725,10 +3128,12 @@ window.KIOSK = {
     return "rgb(" + gm(r) + "," + gm(g) + "," + gm(bl) + ")";
   }
   SCREENS.app = function (id) {
-    var s = A.stories[id], t = A.techniques[s.technique];
+    var s = A.stories[id], t = techOf(s);
+    var techTags = (s.techniques || (s.technique ? [s.technique] : [])).map(function (k) { return '<span class="tag solid">' + esc(A.techniques[k].name) + "</span>"; }).join("") || '<span class="tag solid">' + esc(t.name) + "</span>";
     var fields = s.fields.map(function (fid) { var f = fieldOf(fid); return '<button class="tag" type="button" data-go="industry/' + fid + '">' + esc(f.name) + "</button>"; }).join("");
-    var blocks = s.blocks.map(function (bl) { return '<div class="sblock"><h3 class="h3">' + esc(bl.h) + "</h3><p>" + esc(bl.t) + "</p></div>"; }).join("");
+    var blocks = s.blocks.map(function (bl) { return '<div class="sblock"><h3 class="h3">' + esc(bl.h) + "</h3><p>" + nb(esc(bl.t)) + "</p></div>"; }).join("");
     var params = s.params ? '<div class="params">' + s.params.map(function (p) { return "<div><b>" + esc(p[0]) + "</b>" + (p[1] ? "<span>" + esc(p[1]) + "</span>" : "") + "</div>"; }).join("") + "</div>" : "";
+    var quote = s.quote ? '<blockquote class="squote"><p>“' + esc(s.quote.t) + '”</p><cite>' + esc(s.quote.who) + "</cite></blockquote>" : "";
     var visual = "";
     if (s.chart === "lab") {
       visual = '<div class="labx" id="labx"><div class="swatch" id="lab-sw"></div><div class="sliders">' +
@@ -2737,6 +3142,8 @@ window.KIOSK = {
         }).join("") + "</div></div>";
     } else if (s.chart === "dilution") visual = '<div class="diagram">' + DG.dilution() + "</div>";
     else if (s.chart) visual = '<figure class="chartfig"><div class="diagram">' + DG.charts[s.chart]() + "</div>" + (s.chartNote ? "<figcaption>" + esc(s.chartNote) + "</figcaption>" : "") + "</figure>";
+    (s.charts || []).forEach(function (c) { visual += '<figure class="chartfig"><div class="diagram">' + techChart(c.key) + "</div><figcaption>" + esc(c.note) + "</figcaption></figure>"; });
+    var figs = (s.figs || []).map(function (f) { return '<figure class="chartfig sfig">' + figure(f.img, f.cap) + "<figcaption>" + esc(f.cap) + "</figcaption></figure>"; }).join("");
     var ranges = s.ranges ? '<figure class="chartfig"><div class="diagram">' + DG.ranges(s.ranges) + "</div><figcaption>Characteristic mixture. O₂ and N₂ are only visible to Raman.</figcaption></figure>" : "";
     var tables = (s.tables || []).map(function (tb) {
       return '<div class="tablewrap2"><table class="datatable"><caption>' + esc(tb.caption) + '</caption><thead><tr><th></th><th>Color</th><th>L*</th><th>±</th><th>a*</th><th>±</th><th>b*</th><th>±</th></tr></thead><tbody>' +
@@ -2745,15 +3152,16 @@ window.KIOSK = {
     }).join("");
     var measured = s.measured ? '<div style="display:grid;gap:.5rem"><div class="eyebrow" style="color:var(--grey-7)">What is measured</div><div class="row" style="gap:.4rem">' + s.measured.map(function (m) { return '<span class="pill">' + esc(m) + "</span>"; }).join("") + "</div></div>" : "";
     var rel = s.related.map(relItem).filter(Boolean).map(mini).join("");
+    var hero = s.img && s.hero !== false && isPhoto(s.img) ? '<div class="shero">' + img(s.img, s.title) + "</div>" : "";
+    var side = visual + figs + (s.blocks.length ? ranges : "");
     return {
       crumb: crumb(s.isCase ? "Case study" : "Applications", s.title.split(":")[0]),
-      html: '<header class="pagehead"><div class="row" style="gap:.4rem"><span class="tag solid">' + esc(t.name) + "</span>" + fields + (s.isCase ? '<span class="tag">Case study</span>' : "") + '</div><h1 class="h1">' + esc(s.title) + '</h1><p class="lead">' + esc(s.lead) + "</p></header>" +
-        (s.blocks.length ? '<div class="story"><div class="sbody">' + blocks + params + measured + "</div><div class=\"svis\">" + visual + ranges + "</div></div>"
-          : '<div class="story"><div class="sbody">' + params + measured + ranges + "</div><div class=\"svis\">" + visual + "</div></div>") + tables +
+      html: '<header class="pagehead"><div class="row" style="gap:.4rem">' + techTags + fields + (s.isCase ? '<span class="tag">Case study</span>' : "") + (s.customer ? '<span class="tag">Customer: ' + esc(s.customer) + "</span>" : "") + '</div><h1 class="h1">' + esc(s.title) + '</h1><p class="lead">' + nb(esc(s.lead)) + "</p></header>" + hero +
+        '<div class="story' + (side ? "" : " solo") + '"><div class="sbody">' + blocks + quote + params + measured + (s.blocks.length ? "" : ranges) + note(s.check) + foot(s.foot) + "</div>" + (side ? '<div class="svis">' + side + "</div>" : "") + "</div>" + tables +
         (s.credit ? '<p class="credit">' + esc(s.credit) + "</p>" : "") +
         (rel ? '<section style="display:grid;gap:.8rem"><h2 class="h2">' + (s.isCase ? "Probes in this story" : "Probes and principles to look at") + '</h2><div class="minis">' + rel + "</div></section>" : "") +
         '<div class="row"><button class="btn primary" type="button" data-req="applications">' + I.mail + "Discuss a similar application</button>" +
-        '<button class="btn" type="button" data-go="technique/' + s.technique + '">More ' + esc(t.name) + " applications</button></div>",
+        (A.techniques[s.technique] ? '<button class="btn" type="button" data-go="technique/' + s.technique + '">More ' + esc(t.name) + " applications</button>" : '<button class="btn" type="button" data-go="applications">All applications</button>') + "</div>",
       init: function (root) {
         var lx = $("#labx", root); if (!lx) return;
         function upd() {
