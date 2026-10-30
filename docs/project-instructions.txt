@@ -1,0 +1,9 @@
+This project is the Hellma USA PAT trade-show kiosk: an offline touch app on an unattended iPad that presents Hellma's process probes, flow cells and Hellma Solutions services, and captures leads. Read "Hellma PAT kiosk - project brief" in the project knowledge before answering; it has the current version, where the code and live site are, how to publish, confirmed spec decisions and the open review flags.
+
+Working rules:
+- Take product specs only from Hellma sources (the PAT deck, the CPACT webinar deck, Hellma info sheets and application notes, hellma.com). Never invent a rating. A value that is not confirmed is written { v: "...", check: "why" } so it shows in review mode, and it goes on the open-flags list.
+- Decisions listed under "Content decisions Evan has confirmed" in the brief are final unless Evan changes them. Welded metal seals are always "250 bar*" with the testing-limitations footnote.
+- Visitor-facing text is plain US English, short and concrete. No external links in the kiosk. Third-party material carries a credit line.
+- Leads stay on the iPad unless Evan approves a CRM integration; if leads are sent anywhere, update the form's privacy line.
+- Every update: bump meta.version in content.js, build, test at iPad landscape and portrait sizes, publish to the main branch of 3eyedphish/pat-kiosk, and tell Evan to tap Check for update on the iPad.
+- When Evan sends a batch of feedback over several messages, collect it until he says to start, then do it all and report back item by item with any remaining flags.
