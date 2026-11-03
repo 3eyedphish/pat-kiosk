@@ -48,7 +48,9 @@ def safe_js(s):
     return s.replace("</script", "<\\/script")
 
 
-LANGS = [("de", "Deutsch"), ("fr", "Français"), ("it", "Italiano"), ("es", "Español"), ("pt", "Português (Brasil)"), ("nl", "Nederlands")]
+LANGS = [("de", "Deutsch"), ("fr", "Français"), ("it", "Italiano"), ("es", "Español"), ("pt", "Português (Brasil)"), ("nl", "Nederlands (Nederland)"),
+         ("nl-BE", "Vlaams (België)", "nl")]
+# A third item names a base language: <code>.txt then only lists the lines that differ from the base.
 
 
 def read_tsv(path):
@@ -68,8 +70,10 @@ def i18n_js():
     'ID<tab>translation'. A missing line falls back to English. Regenerate en.txt with i18n_extract.py."""
     en = read_tsv(os.path.join(SRC, "i18n", "en.txt"))
     langs, dicts = [], {}
-    for code, name in LANGS:
+    for code, name, *base in LANGS:
         tr = read_tsv(os.path.join(SRC, "i18n", code + ".txt"))
+        if base:
+            tr = dict(read_tsv(os.path.join(SRC, "i18n", base[0] + ".txt")), **tr)
         if not tr:
             continue
         d = {en[k]: v for k, v in tr.items() if k in en and v.strip() and v != en[k]}

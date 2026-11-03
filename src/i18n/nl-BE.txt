@@ -1,0 +1,8 @@
+0834	Verkoopfilialen
+0867	Technische fiche
+0868	Prijsofferte
+0869	Telefonisch contact met een specialist
+0928	Gemeente, provincie of land
+0952	Klaar
+1010	Familienaam
+1163	Dank u, {name}.
