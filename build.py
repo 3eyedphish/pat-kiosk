@@ -75,6 +75,10 @@ def i18n_js():
         d = {en[k]: v for k, v in tr.items() if k in en and v.strip() and v != en[k]}
         langs.append({"code": code, "name": name, "count": len([k for k in en if k in tr])})
         dicts[code] = d
+        # A translation that is itself another English string would be translated a second time on screen
+        for src, out in d.items():
+            if out in d and d[out] != out:
+                print("i18n WARNING %s: %r -> %r, which is also English for %r" % (code, src, out, d[out]))
     print("i18n: %d strings; %s" % (len(en), ", ".join("%s %d" % (l["code"], l["count"]) for l in langs) or "no translations"))
     return "window.KIOSK_I18N = %s;\n" % json.dumps({"total": len(en), "langs": langs, "dict": dicts}, ensure_ascii=False)
 

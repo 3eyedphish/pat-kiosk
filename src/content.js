@@ -12,7 +12,7 @@
 window.KIOSK = {
   meta: {
     title: "Hellma Process Analytics",
-    version: "0.7.0 (localization settings)",
+    version: "0.8.0 (translations)",
     source: "20250428_HellmaUSA_PAT.pptx; HellmaUSA_2025_Applications_for_CPACT_webinar.pptx; 661.920 information sheet",
   },
 

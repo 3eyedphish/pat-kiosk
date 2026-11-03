@@ -1167,3 +1167,4 @@
 1247	Spettroscopia di laboratorio e di processo
 1248	Soluzioni spettroscopiche
 1249	fino a 100 mm
+1250	a 90°

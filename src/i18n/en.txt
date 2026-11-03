@@ -1233,3 +1233,4 @@
 1247	Laboratory & process spectroscopy
 1248	Spectroscopy solutions
 1249	up to 100 mm
+1250	at 90°

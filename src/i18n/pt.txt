@@ -16,7 +16,7 @@
 0017	Seletor de sondas
 0018	Encontre a sonda certa para o seu processo.
 0019	Filtre por princípio de medição, temperatura e pressão.
-0020	Espectroscopia direto no seu processo
+0020	Espectroscopia diretamente no seu processo
 0021	Toque em um tema para conhecer sondas, células de fluxo e soluções PAT.
 0022	Encontre sua sonda
 0023	Informe as condições do seu processo e veja quais sondas e células de fluxo são adequadas.
@@ -1043,7 +1043,7 @@
 1094	Rapidez do resultado
 1095	Secagem por atomização
 1096	Começar
-1097	TCP/IP · fieldbus
+1097	TCP/IP · barramento de campo
 1098	Toque no desenho para ampliar
 1099	Conte-nos sobre o seu processo (opcional)
 1100	Conte-nos sobre o seu processo. Sondas e células de fluxo que não o suportam ficam de fora.
@@ -1179,3 +1179,4 @@
 1247	Espectroscopia de laboratório e de processo
 1248	Soluções espectroscópicas
 1249	até 100 mm
+1250	a 90°

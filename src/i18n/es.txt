@@ -1169,3 +1169,4 @@
 1247	Espectroscopía de laboratorio y de procesos
 1248	Soluciones espectroscópicas
 1249	hasta 100 mm
+1250	a 90°

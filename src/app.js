@@ -144,16 +144,18 @@
       if (w > room && room > 20) el.style.fontSize = Math.max(9, fs * room / w).toFixed(1) + "px";
     } catch (e) { }
   }
+  var WROTE = window.WeakMap ? new WeakMap() : null;
   function trNode(n) {
     if (n.nodeType === 3) {
       if (inStaff(n.parentElement)) return;
+      if (WROTE && WROTE.get(n) === n.nodeValue) return; /* our own output: never translate it twice */
       var r = trText(n.nodeValue);
-      if (r != null && r !== n.nodeValue) { n.nodeValue = r; if (n.parentElement && n.parentElement.tagName.toLowerCase() === "text") fitSvgText(n.parentElement); }
+      if (r != null && r !== n.nodeValue) { n.nodeValue = r; if (WROTE) WROTE.set(n, r); if (n.parentElement && n.parentElement.tagName.toLowerCase() === "text") fitSvgText(n.parentElement); }
       return;
     }
     if (n.nodeType !== 1 || n.id === "staff" || inStaff(n)) return;
     if (n.tagName === "SCRIPT" || n.tagName === "STYLE") return;
-    TR_ATTRS.forEach(function (a) { var v = n.getAttribute(a); if (v) { var r = trText(v); if (r != null && r !== v) n.setAttribute(a, r); } });
+    TR_ATTRS.forEach(function (a) { var v = n.getAttribute(a); if (v && !(n._trA && n._trA[a] === v)) { var r = trText(v); if (r != null && r !== v) { (n._trA = n._trA || {})[a] = r; n.setAttribute(a, r); } } });
     for (var c = n.firstChild; c; c = c.nextSibling) trNode(c);
   }
   setLang(loc.lang);

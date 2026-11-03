@@ -1169,3 +1169,4 @@
 1248	Solutions spectroscopiques
 1249	jusqu’à 100 mm
 1021	Méthyle
+1250	à 90°

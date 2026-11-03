@@ -95,7 +95,7 @@
 0099	Fluoreszenz, unter 90° mit Spiegeln erfasst
 0100	Wellenlängenbereich
 0102	Quarzglas
-0103	Probe
+0103	Medium
 0104	Flüssigkeiten
 0105	Temperatur und Druck
 0106	Auf Anfrage
@@ -1165,3 +1165,4 @@
 1248	Spektroskopie-Lösungen
 1249	bis 100 mm
 1097	TCP/IP · Feldbus
+1250	unter 90°

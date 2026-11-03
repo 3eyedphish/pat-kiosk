@@ -1,0 +1,1185 @@
+0001	Hellma Process Analytics
+0002	*Hogere drukken zijn mogelijk, maar kunnen vanwege testbeperkingen niet worden gecertificeerd.
+0003	Hoge precisie in spectro-optiek
+0004	Voor specifieke spectroscopietoepassingen
+0005	Process Analytical Technology
+0006	Meet in uw proces, in realtime.
+0007	Dompelsondes, doorstroomcellen en complete PAT-oplossingen van Hellma.
+0008	Gelaste metalen afdichtingen
+0009	Geschikt tot 400 °C en 250 bar*.
+0010	Excalibur HD-sondes en -doorstroomcellen voor zware procesomstandigheden.
+0011	Hellma Solutions
+0012	Van haalbaarheidsstudie tot gevalideerde methode.
+0013	Advies, sensoren, chemometrie, integratie en service.
+0014	Toepassingen
+0015	Van whiskyvaten tot polymeerextruders.
+0016	Zie waar Hellma-sondes meten, per industrie.
+0017	Sondezoeker
+0018	Vind de juiste sonde voor uw proces.
+0019	Filter op meetprincipe, temperatuur en druk.
+0020	Spectroscopie, midden in uw proces
+0021	Tik op een onderwerp om sondes, doorstroomcellen en PAT-oplossingen te verkennen.
+0022	Vind uw sonde
+0023	Stel uw procesomstandigheden in en zie welke sondes en doorstroomcellen passen.
+0024	Procesinterfaces
+0025	Sondes en doorstroomcellen
+0026	Elk model met volledige specificaties
+0027	Meetprincipes
+0028	Hoe elke sonde meet, geanimeerd
+0029	Afdichtingstechniek
+0030	Waarom gelaste metalen afdichtingen lang meegaan
+0031	Wisselarmaturen
+0032	Sondes reinigen en wisselen tijdens bedrijf
+0033	Multiplexers
+0034	Eén spectrometer, veel meetpunten
+0035	PAT-oplossingen
+0036	Sensoren, maatwerksystemen en services
+0037	Praktijkvoorbeelden
+0038	Water in oplosmiddelen, raffinage van edelmetalen
+0039	Leren
+0040	Wat is PAT?
+0041	Offline, atline, online, inline
+0042	Industrieën, technieken en voorbeelden
+0043	Over Hellma
+0044	Sinds 1922 een familiebedrijf
+0045	Hellma-procesinterfaces brengen het lichtpad in het proces: dompelsondes voor vaten en leidingen, doorstroomcellen voor monsterstromen. Kies eerst op meetprincipe, daarna op temperatuur, druk en materialen.
+0046	Transmissiesondes en doorstroomcellen. De meetspleet werkt als de weglengte van een cuvet. Standaardwaarden reiken tot 400 °C en 250 bar*, en de HY 25 is 3-A-gecertificeerd voor hygiënische processen.
+0047	Transflectiesondes. Het licht doorkruist het monster, wordt door een spiegel teruggekaatst en doorkruist het opnieuw. Gesoldeerde uitvoeringen halen 300 °C en 300 bar.
+0048	ATR-sondes met een saffierelement met drie reflecties, voor een extreem korte weglengte. Gesoldeerde uitvoeringen halen 300 °C en 100 bar.
+0049	Reflectiesondes die diffuus gereflecteerd licht opvangen, in contact of op afstand. Gesoldeerde uitvoeringen halen 300 °C en 100 bar.
+0050	Op maat gebouwde sondeparen die in standaard smeltdrukpoorten van polymeerextruders worden geschroefd, voor transmissie of diffuse reflectie. Geschikt tot 300 °C en 750 bar.
+0051	Fluorescentiesondes voor vloeistoffen in het UV/VIS-bereik, met kwartsglasoptiek.
+0052	Vraag ons team naar specificaties en beschikbaarheid van de Espada.
+0053	Ramansondes met verwisselbare optiek en filters, geoptimaliseerd voor een maximaal Ramansignaal. De Tidus Lumio voegt een geïntegreerde laser en een ATEX-conforme uitvoering toe.
+0054	Vraag ons team naar specificaties en beschikbaarheid van de Tidus.
+0055	Uiterst nauwkeurig
+0056	Uiterst nauwkeurige transmissiesonde voor UV-Vis en NIR, afgedicht met Kalrez O-ringen. Te installeren als dompelsonde of in een doorstroomopstelling.
+0057	Spectraal bereik
+0058	UV-Vis 210/240–1000 nm · NIR 400–2300 nm
+0059	Weglengte
+0060	1, 2, 5, 10 en 20 mm
+0061	Behuizingsmateriaal
+0062	Roestvast staal 1.4571 (316Ti), Hastelloy C-22
+0063	Optisch materiaal
+0064	Kwarts, saffier
+0065	Afdichting
+0066	Kalrez O-ringen (6230, 6375, 6380, 8085)
+0067	Dompeldiepte
+0068	100–940 mm, of doorstroomopstelling
+0069	Temperatuur
+0070	Tot 260 °C (500 °F)
+0071	Druk
+0072	Tot 40 bar (~580 psi)
+0073	Heavy duty
+0074	Heavy-duty transmissiesonde met gelaste metalen afdichtingen voor hoge temperatuur, hoge druk en agressieve media.
+0076	2, 3, 4, 5 en 10 mm
+0077	Roestvast staal 1.4435/1.4404 (316L), Hastelloy C-22, Hastelloy C-276
+0078	Saffier
+0080	−30 °C tot 400 °C (−22 °F tot 750 °F)
+0081	Tot 250 bar* (~3600 psi)
+0082	3-A-gecertificeerd
+0083	Hygiënische transmissiesonde voor vloeistoffen in voeding, zuivel en farmacie. Gesoldeerde saffiervensters maken hem onderhoudsvrij, en hij kan ter plaatse worden gereinigd (CIP en SIP) zonder het proces te onderbreken.
+0085	1 mm (±0,025 mm)
+0086	Roestvast staal 316L, elektrolytisch gepolijst
+0087	Saffier, ingesoldeerd (goud-tin)
+0088	Procesaansluiting
+0089	2-inch hygiënische aansluiting (DN50, DIN 32676)
+0090	38–75 mm · 25 mm diameter
+0091	Tot 140 °C (284 °F) aan de procesaansluiting
+0092	Tot 16 bar (~230 psi)
+0093	Hygiëne
+0094	3-A-gecertificeerd · geschikt voor CIP en SIP · autoclaveerbaar met beschermkap
+0095	Vet, eiwit, water en lactose in zuivel; andere hygiënische vloeistoffen in voeding en farmacie
+0096	Kwartsglasoptiek
+0097	Fluorescentie-dompelsonde voor vloeistoffen in het UV en VIS. Spiegels laten het excitatielicht een tweede keer passeren en sturen neerwaartse emissie terug naar de collectievezel, voor een sterk signaal.
+0098	Meetprincipe
+0099	Fluorescentie, onder 90° opgevangen met spiegels
+0100	Golflengtebereik
+0102	Kwartsglas
+0103	Monster
+0104	Vloeistoffen
+0105	Temperatuur en druk
+0106	Vraag het ons
+0107	Voor gassen
+0108	Raman-processonde voor gasanalyse, bijvoorbeeld aardgas in pijpleidingen. Een speciale reflector versterkt het Ramansignaal, zodat lage gasconcentraties betrouwbaar worden gemeten met het lage laservermogen dat explosieve gassen toelaten.
+0109	Raman
+0110	Excitatie
+0111	Standaard Ramanspectrometer met een temperatuurgestabiliseerde 785 nm-laser, aangesloten via optische vezel
+0112	Explosiegevaarlijke zones
+0113	Sonde en spectrometer zijn gescheiden, wat ATEX-conform bedrijf mogelijk maakt
+0114	Signaal
+0115	Speciale reflector versterkt het Ramansignaal voor lage concentraties
+0116	Constructie
+0117	Hoogwaardige materialen voor hoge druk en chemische bestendigheid
+0118	Tidus Flex-familie
+0119	Modulair ontwerp met drie meetkoppen (kwarts- of glasoptiek) voor gassen, vloeistoffen en vaste stoffen
+0120	Geïntegreerde laser
+0121	Raman-processonde met een eigen geïntegreerde laserlichtbron. De ATEX-conforme uitvoering meet in explosiegevaarlijke zones met een ATEX-geschikte VIS-spectrometer, of met een standaardspectrometer buiten de zone. Er is ook een niet-ATEX-uitvoering.
+0122	Raman, directe terugverstrooiing
+0123	Lichtbron
+0124	ATEX-conforme uitvoering; niet-ATEX-uitvoering leverbaar
+0125	Spectrometer
+0126	Werkt met vrijwel elke Ramanspectrometer
+0127	Procesinterface
+0128	Verschillende configuraties leverbaar
+0129	Optiek
+0130	Verwisselbare optiek en filters
+0131	Inline doorstroomcel met gelaste metalen afdichtingen. Weglengtes lopen van 2 mm tot 2 m voor zwak absorberende stromen.
+0132	2, 5, 10 mm en 100–2000 mm
+0133	Roestvast staal 1.4435/1.4404 (316L), Hastelloy C-276
+0134	−30 °C tot 300 °C (−22 °F tot 570 °F)
+0135	Compacte blokdoorstroomcel met gelaste metalen afdichtingen en korte weglengtes vanaf 0,5 mm.
+0136	0,5, 1, 2, 3, 5 en 10 mm
+0137	Roestvast staal 1.4435/1.4404 (316L)
+0138	Tot 200 bar (~2900 psi)
+0139	Variabele weglengte
+0140	Doorstroomcel met vaste of variabele weglengte. Een thermokoppel en verwarmingspatroon zijn leverbaar.
+0141	0,5, 1, 2, 3, 5 en 10 mm, of variabel
+0142	Roestvast staal 1.4435/1.4404 (316L), Hastelloy C-276 (2.4819)
+0143	Kalrez
+0144	5 °C tot 180 °C (40 °F tot 350 °F)
+0145	Tot 30 bar (~435 psi)
+0146	Opties
+0147	Thermokoppel en verwarmingspatroon
+0148	Transflectiesonde met verwisselbare inzetstukken voor zeer reproduceerbare weglengtes. Mini-uitvoeringen zijn er in 6, 4 en 3 mm diameter.
+0149	Kalrez O-ringen (4079, 6230, 6375) of gesoldeerd (hardgesoldeerd: Ag, Cu, Ti)
+0150	Waarden met O-ringen
+0151	Tot 260 °C (500 °F) · 40 bar (~580 psi)
+0152	Waarden, gesoldeerd
+0153	Tot 300 °C (572 °F) · 300 bar (~4350 psi)
+0154	ATR-sonde met drie reflecties voor media die te sterk absorberen voor een transmissiespleet.
+0156	Meetelement
+0157	Verzwakte totale reflectie (ATR) met 3 reflecties
+0158	Roestvast staal 1.4571 (316Ti), titanium grade 2
+0159	Kalrez O-ringen (4079, 6375) of gesoldeerd (hardgesoldeerd: Ag, Cu, Ti)
+0160	100–640 mm, of doorstroomopstelling
+0161	Tot 300 °C (572 °F) · 100 bar (~1450 psi)
+0162	Contactloos
+0163	Diffuse-reflectiesonde van geanodiseerd aluminium. Hij meet op 25 tot 100 mm afstand, zonder het monster aan te raken.
+0165	Werkafstand
+0167	Geanodiseerd aluminium
+0169	Epoxylijm of hardgesoldeerd (Ag, Cu, Ti)
+0171	Tot 100 °C (212 °F)
+0172	Atmosferisch
+0173	Reflectiesonde van roestvast staal, Hastelloy of titanium, metend in contact of op 2 mm.
+0174	Contact of 2 mm
+0175	Roestvast staal 1.4435/1.4404 (316L), Hastelloy C-22, titanium grade 2
+0176	EPDM, Kalrez O-ring (6221) of gesoldeerd (hardgesoldeerd: Ag, Cu, Ti)
+0177	Tot 120 °C (248 °F) · 16 bar (~230 psi)
+0178	Past in smeltdrukpoorten
+0179	Voor inlinemeting in polymeerextruders onder extreme omstandigheden. De sondes hebben dezelfde afmetingen als standaard smeltdruksensoren (bijvoorbeeld Dynisco), zodat ze in bestaande poorten passen.
+0180	Transmissie met twee tegenover elkaar liggende koppen, of diffuse reflectie
+0181	1, 2, 5 of 10 mm, bepaald door koplengte en boring
+0182	Materiaal van de schacht
+0183	Titanium
+0184	Saffiervensters ingesoldeerd in de schacht
+0185	Tot 300 °C (572 °F)
+0186	Tot 750 bar (~10.900 psi), op maat gebouwd
+0187	Past in
+0188	Schroefpoorten voor smeltdruksensoren, ook in rheometers
+0189	Licht loopt door een optische vezel naar een collimator, in de meetkop of aan de achterkant van de sonde.
+0190	Het doorkruist de meetspleet één keer en gaat onderweg een wisselwerking aan met het medium.
+0191	Vergelijkbaar met meten in een cuvet: de meetspleet komt overeen met de weglengte van de cuvet.
+0192	Weinig strooilicht, omdat het licht het monster maar één keer passeert.
+0193	Licht loopt door een optische vezel naar de meetkop, wordt gecollimeerd en passeert een venster.
+0194	Het doorkruist de meetspleet, wordt door een spiegel teruggekaatst en doorkruist het medium een tweede keer.
+0195	Verwisselbare inzetstukken geven zeer reproduceerbare, variabele weglengtes.
+0196	Sondes met minidiameter: 6, 4 en 3 mm.
+0197	Verzwakte totale reflectie
+0198	Licht loopt door de vezel naar het ATR-prisma.
+0199	Het wordt teruggekaatst door de prismavlakken. Bij elke reflectie dringt een evanescent veld een heel klein stukje het medium in, dat specifieke golflengten absorbeert.
+0200	Extreem korte weglengte, voor sterk absorberende vloeistoffen en pasta's.
+0201	Afdichting door hardsolderen is mogelijk.
+0202	Licht loopt door de buitenste vezels van een bundel en wordt op het monster gefocust, in contact of tot 100 mm afstand.
+0203	Het monster verstrooit het licht in alle richtingen: diffuse reflectie.
+0204	De centrale vezel vangt een deel van dat licht op en voert het naar de spectrometer.
+0205	Hygiënisch ontwerp is mogelijk.
+0206	Contactloze meting.
+0207	Excitatielicht loopt door één vezel. Een spiegel buigt het 90° af zodat het de meetspleet doorkruist.
+0208	Fluorescerende moleculen in het monster absorberen het en zenden licht met langere golflengten uit, in alle richtingen.
+0209	Een spiegel aan de overkant van de spleet stuurt het excitatielicht terug voor een tweede doorgang, wat meer fluorescentie oplevert.
+0210	De collectievezel staat onder 90° ten opzichte van de excitatiebundel. Emissie die van de vezel wegloopt, treft een spiegel onderin de spleet en wordt teruggekaatst naar de vezel.
+0211	De rechthoekige geometrie houdt excitatielicht buiten het collectiepad, zodat de achtergrond laag blijft.
+0212	Twee spiegels verdubbelen de excitatiedoorgang en winnen neerwaartse emissie terug, voor meer signaal.
+0213	Kwartsglasoptiek voor het UV/VIS-bereik.
+0214	Laserlicht loopt door de sonde. Een bundelsplitser buigt het af naar de optische as en het wordt op het monster gefocust.
+0215	Bijna al het verstrooide licht komt terug op de lasergolflengte. Een heel klein deel wordt verschoven door de trillingen van de moleculen: het Ramansignaal.
+0216	Het Ramanlicht keert langs hetzelfde pad terug (directe terugverstrooiing). Het passeert de bundelsplitser, en een filter verwijdert wat er nog over is van de laserlijn vóór de collectievezel.
+0217	Verwisselbare optiek en filters.
+0218	Optiek geoptimaliseerd voor een maximaal Ramansignaal.
+0219	Een grote meetvlek, vanaf enkele centimeters afstand op het monster gefocust.
+0220	De afdichting tussen venster en behuizing bepaalt welke temperatuur, druk en chemicaliën een sonde aankan, en hoe lang hij meegaat. Hellma biedt alle drie de benaderingen.
+0221	Maakt monolithische meetkoppen mogelijk voor een hogere transmissie
+0222	Goedkoper
+0223	Chemisch bestendige elastomeren vervormen bij hoge temperaturen
+0224	Vereist regelmatig onderhoud
+0225	Beperkte geschiktheid voor temperatuur en druk
+0226	Opstellingen voor hoge temperatuur en druk
+0227	Metalen met lage uitzetting zijn gevoelig voor chemische aantasting
+0228	Chemisch bestendige soldeermiddelen gebruiken brosse legeringen die bij uitzetting scheuren
+0229	Saffiervenster
+0230	Met goud of PTFE gecoate Waspaloy C-ring
+0231	Hastelloy-huls
+0232	Elektronenstraallas
+0233	Temperatuur tot
+0234	Druk tot
+0235	Extreme chemische bestendigheid
+0236	Ongevoelig voor thermische schokken
+0237	Vrijwel onverwoestbaar
+0238	Met een wisselarmatuur kunnen procesingenieurs optische en andere inline sensoren vervangen, reinigen of kalibreren zonder de productie te onderbreken.
+0239	Waarom een sonde terugtrekken?
+0240	Onderhoud is vaak jaarlijks, met een beperkt tijdvenster.
+0241	O-ringafdichtingen hebben regelmatig onderhoud nodig.
+0242	Er bouwt zich vervuiling op het venster op.
+0243	Nieuwe of vervangende sensoren kunnen worden voorbereid en ingewisseld.
+0244	Wisselarmaturen met Knick
+0245	Geautomatiseerde reiniging van het spectroscopische systeem zonder de sonde met de hand te verwijderen.
+0246	Sonde wisselen of verwijderen terwijl het proces doorloopt.
+0247	Sluisafdichting.
+0248	Werkt met Excalibur XP- en Falcata XP-sondes.
+0249	Afbeeldingen met dank aan Knick
+0250	Handmatige, halfautomatische en volautomatische uitvoeringen
+0251	Plug-and-play: één centrale multistekker voert alle aansluitingen en controlewaarden
+0252	Modulair: materialen, sensorassemblages, mediumaansluitingen en aandrijving
+0253	Keramische kamers met roterende afdichting: twee keramische schijven, geen O-ringen
+0254	Universele chemische compatibiliteit, hoge chemische en thermische robuustheid, extreme hardheid, steriliseerbaar
+0255	Alle kamers zijn spoelbaar; mediumberoerde delen van roestvast staal, Hastelloy of titanium
+0256	Hygiënische uitvoering leverbaar
+0257	Aandrijfeenheid gaat eraf zonder speciaal gereedschap; dompelbuis met bajonetkoppeling uitneembaar; eenvoudig O-ringen vervangen
+0258	Dubbele afdichting tussen kalibratiekamer en dompelbuis, zodat procesmedium en perslucht gescheiden blijven
+0259	Dompelbuis in 1.4571, 1.4435, Hastelloy, PVDF, PVDF HD, PEEK of PEEK HD
+0260	De sensor zit niet vast aan de armatuur
+0261	Reiniging in de kalibratiekamer
+0262	Nieuwe sensorhouderklem voorkomt dat de vezels tijdens de beweging verdraaien
+0263	Cycloonreiniging
+0264	Traditioneel spoelen laat een schaduw achter aan de kant van het venster die van de spuitmond afgekeerd is. Cycloonspoelen voert het reinigingsmedium tangentieel aan, zodat het rond de hele sensor wervelt.
+0265	Probe Retraction Mechanism (PRM) voor Excalibur HD
+0266	Zware lagerconstructie
+0267	Aandrijving met spindel of pneumatisch
+0268	Optionele reinigingskamer
+0269	Spindel
+0270	Conax-koppeling
+0271	Spoelkamer
+0272	Kogelkraan
+0273	Leidingflens
+0274	Oplosmiddelaansluiting
+0275	Reactievat
+0276	Een multiplexer verbindt één spectrometer met meerdere sondes of doorstroomcellen en schakelt daartussen, zodat één analyser veel meetpunten bestrijkt.
+0277	Controlekamer van de fabriek
+0278	Het procesbesturingssysteem (PCS) ontvangt resultaten via TCP/IP of een veldbus.
+0279	Analyserkast
+0280	Spectrometer, spectrometer-pc en multiplexer staan in een behuizing met airconditioning en spoeling waar nodig.
+0281	Proces
+0282	Optische vezels lopen van de multiplexerkanalen naar de sondes en doorstroomcellen in de fabriek.
+0283	Glasvezelconnectoren voor „double side”
+0284	SMA- of FC-connectoren voor sondes of cellen (kanalen)
+0285	Voedingsaansluiting
+0286	Data-interfaces: RS-232, RS-422/485
+0287	Hellma Solutions levert spectroscopische procesanalysetechnologie. Slimme sensoren en analyse geven gedetailleerd inzicht in complexe productieprocessen, voor efficiëntere productie in veel industrieën.
+0288	Betere procesbeheersing
+0289	Hogere productkwaliteit
+0290	Hogere output
+0291	Efficiëntere productie
+0292	Minder uitval en bijproducten
+0293	Lager energieverbruik
+0294	Meer processveiligheid
+0295	Meer procestransparantie
+0296	Analyse van reactieprocessen
+0297	Tijdsbesparing
+0298	NIR-miniatuurspectrometer gecombineerd met een sonde voor nauwkeurige metingen, bijvoorbeeld in de chemische en farmaceutische industrie, of met een hygiënische sonde voor de voedingsindustrie.
+0299	NIR-miniatuurspectrometer gecombineerd met een sonde voor zware omstandigheden: chemische bestendigheid, druk, temperatuur en optioneel ATEX. Voor de chemische en petrochemische industrie.
+0300	MIR-sensor gecombineerd met een ATR-sonde voor specifieke toepassingen met sterk absorberende media, bijvoorbeeld in de petrochemie en in verven en coatings.
+0301	Hoe stemt Hellma Solutions technologie af op uw behoeften?
+0302	Wij ontwikkelen een specifieke oplossing en passen sensor, instrumentatie of software aan waar nodig.
+0303	Uitgaande van bestaande technologie ontwikkelen en passen wij elk onderdeel aan dat de toepassing vraagt.
+0304	Toepassingsanalyse
+0305	Quick check
+0306	Advies
+0307	Oplossingsontwikkeling
+0308	Integratie
+0309	Van analytische behoefte naar een plan: welke meting, waar in het proces en wat er nodig is om die te kwalificeren.
+0310	De prestaties van het instrument worden vooraf getest met uw procesmonsters, inclusief storende factoren en monsterbehandeling.
+0311	Kalibratiemodellen worden ontwikkeld, gevalideerd en gedurende de levensduur van de methode bijgewerkt.
+0312	Spectrometer, meetcel, software en fabrieksinterfaces worden in uw proces samengebracht.
+0313	NIR- en MIR-sensoren die een miniatuurspectrometer combineren met een Hellma-sonde.
+0314	Specifieke systemen, ontwikkeld voor één toepassing.
+0315	PAT staat voor Process Analytical Technology: de hulpmiddelen en methoden waarmee fabrikanten de productie in realtime bewaken en sturen. In plaats van de kwaliteit pas aan het eind te controleren, controleert PAT haar tijdens de hele productie, zodat u direct kunt bijsturen.
+0316	Uren tot dagen
+0317	Een monster gaat naar een laboratorium. De resultaten komen als het proces al verder is.
+0318	Minuten tot uren
+0319	Een monster wordt genomen en gemeten op een analyser naast de lijn.
+0320	Seconden tot minuten
+0321	Een deel van de stroom wordt via een bypass omgeleid, automatisch gemeten en kan naar het proces terugkeren.
+0322	Seconden
+0323	De sonde zit direct in de processtroom. Er wordt niets verwijderd en de resultaten komen continu binnen.
+0324	Realtime data over kritische procesparameters (CPP's) en hun effect op kritische kwaliteitskenmerken (CQA's) laten zien waar problemen vandaan komen.
+0325	Afwijkingen worden vroeg opgemerkt en direct gecorrigeerd, wat fouten en afkeur vermindert.
+0326	Geoptimaliseerde processen benutten grondstoffen beter en verminderen herbewerking, uitval en afval.
+0327	Snelle terugkoppeling over proces- en productkwaliteit verkort de ontwikkeling en de time-to-market.
+0328	Realtime bewaking houdt de kwaliteit constant en het proces betrouwbaar en ononderbroken draaiend.
+0329	Toezichthouders zoals de FDA stimuleren PAT. Het helpt een constant hoge productkwaliteit aan te tonen.
+0330	Variaties die kwaliteit of veiligheid bedreigen, worden in realtime opgemerkt, wat het risico op kwaliteitsproblemen, terugroepacties en boetes verkleint.
+0331	Trillingen, temperatuurschommelingen en vuil kunnen de spectroscopische meting beïnvloeden.
+0332	Veel processen hebben een groot aantal variabelen en wisselwerkingen.
+0333	UV, VIS, NIR, MIR en Raman zijn elk geschikt voor andere meettaken.
+0334	Het invoeren van spectroscopische methoden in industriële processen kan aanzienlijke kosten met zich meebrengen.
+0335	Nauwkeurige spectra hebben de juiste referentiedata nodig om een betrouwbaar model te bouwen.
+0336	Industrieën zoals farma en voeding stellen speciale eisen aan veiligheid en compliance.
+0337	Water in oplosmiddelen
+0338	Hoe een PAT-project verloopt, aan de hand van een echt voorbeeld: het meten van waterverontreiniging in een oplosmiddel na destillatie, in een GMP- en ATEX-omgeving.
+0339	minder procestijd voor de stap
+0340	minder energie voor de stap
+0341	3 per dag
+0342	batches als doel, eerst twee
+0343	Begin bij de analytische behoefte
+0344	Oplosmiddel verlaat een destillatieproces en wordt in een tank verzameld. Het watergehalte moet worden gecontroleerd voordat de batch kan worden vrijgegeven.
+0345	Test het voordat u het koopt
+0346	De prestaties van het instrument worden vooraf getest.
+0347	Spectroscopie ziet de hele matrix (het procesmonster), niet alleen de analyt.
+0348	Storende factoren, matrixeffecten, monsterbehandeling en -voorbereiding worden onderzocht.
+0349	Geschikte chemometrische methoden worden gekozen.
+0350	Uitschieters kunnen zo nodig worden aangemaakt en in de modellen worden opgenomen.
+0351	De referentieanalyse en haar totale fout bepalen in sterke mate de nauwkeurigheid van de spectroscopische methode.
+0352	Kies spectrometer en meetcel
+0353	Software conform 21 CFR Part 11
+0354	Werkt met de gekozen chemometrische software
+0355	Sluit aan op bovenliggende processoftware die alle PAT-analysers verbindt
+0356	Nauwkeurig genoeg om de verontreiniging in het proces te meten
+0357	Meetcel: Excalibur HD-doorstroomcel
+0358	ATEX zone 1
+0359	FDA-gecertificeerde materialen mogelijk
+0360	Verbind de data
+0361	De spectrometersoftware draait het chemometrische model.
+0362	Bovenliggende processoftware verbindt alle PAT-analysers.
+0363	Resultaten gaan naar de programmeerbare logische controller (PLC).
+0364	Conform FDA 21 CFR Part 11.
+0365	Communiceer met de fabriek
+0366	Analoog 4–20 mA (bijv. Beckhoff)
+0367	Modbus TCP
+0368	PROFIBUS
+0369	PROFINET
+0370	OPC UA
+0371	Installeer over de ATEX-grens heen
+0372	De Excalibur HD-doorstroomcel zit op de verzameltank binnen de ATEX-zone. Optische vezels voeren het licht naar de spectrometer daarbuiten.
+0373	Bouw en onderhoud de kalibratie
+0374	Tik op elke fase om te zien hoe de kalibratie in de loop van de tijd groeit.
+0375	De echte kalibratie: NIR-voorspelling van water in het oplosmiddel tegenover de referentie (PLS-model).
+0376	Methodeontwikkeling met interne validatie.
+0377	Onafhankelijke monsters bevestigen het model.
+0378	Extra kalibratie- en validatiemonsters testen het model in de loop van de tijd en werken het bij wanneer nodig.
+0379	Train de mensen die ermee werken
+0380	Spectrometersoftware
+0381	Training tijdens de implementatie van de oplossing
+0382	Chemometrische software
+0383	Interne training
+0384	Online training
+0385	Houd het draaiend
+0386	Jaarlijks onderhoud van de spectrometer
+0387	Chemometrische bijstelling op verschillende momenten van het jaar
+0388	Ondersteuning bij GMP-documentatie, URS en validatieconcept
+0389	De meetcel zelf is onderhoudsvrij.
+0390	Kwalificeer het stap voor stap
+0391	Het V-model koppelt elke ontwerpstap links aan een test rechts. Tik op een fase.
+0392	De eisen en wensen van de gebruiker worden beschreven.
+0393	Eisen worden vertaald in functies en daarna in technische ontwerpen en plannen.
+0394	Bevestigt dat het ontwerp aan alle eisen voldoet voordat er iets wordt gebouwd of geïnstalleerd, zodat dure wijzigingen later worden vermeden.
+0395	Het systeem wordt vóór verzending in de fabriek getest.
+0396	Het systeem wordt na levering opnieuw getest, ter plaatse.
+0397	Controleert of het systeem correct is geïnstalleerd en aan de technische specificaties voldoet.
+0398	Test of het systeem zijn gespecificeerde functies in bedrijf correct uitvoert.
+0399	Controleert of het systeem de vereiste prestaties levert onder echte bedrijfsomstandigheden.
+0400	Meettechnische oplossingen met atline-, online- of inlinespectroscopie lonen in veel industrieën. Blader per industrie of per techniek, of open een praktijkvoorbeeld.
+0401	Volg geneesmiddelafgifte, drogen en zuivering in realtime en geef batches vrij onder GMP.
+0402	Volg voedingsstoffen en metabolieten in de bioreactor, en het product tijdens de zuivering.
+0403	Volg reacties, zuiverheid en samenstelling direct in de lijn, van polyolen en fosgeen tot edelmetalen.
+0404	Meet water in ruwe olie, zwavel in scheepsbrandstof en gassamenstelling onder druk, met ATEX-geschikte cellen en sondes.
+0405	Volg de polymerisatie van monomeer tot polymeer, van de reactor tot de extruder.
+0406	Zet spectra om in L*a*b*-kleurwaarden, beheers harsprepolymeren en controleer BPA-vrije blikcoatings.
+0407	Controleer oliën, fruitgehalte en samenstelling in de lijn, volgens hygiënische normen.
+0408	Meet vet, eiwit, water en lactose van melkontvangst tot recombinatie, met een 3-A-gecertificeerde sonde.
+0409	Volg wat het vat toevoegt terwijl de drank rijpt.
+0410	Meet vocht, eiwit, zetmeel en as voor precisielandbouw.
+0411	Bewaak nitraten, sulfaten en H₂S, en spoor verontreinigingen op met fluorescentie.
+0412	Ultraviolet- en zichtbaarlichtspectroscopie
+0413	Nuttig voor moleculen met dubbele of drievoudige bindingen.
+0414	Geconjugeerde dubbele bindingen verschuiven de absorptie naar het zichtbare gebied. Daardoor krijgt een oplossing kleur.
+0415	Overgangsmetalen absorberen licht zeer sterk.
+0416	Kleur kan uit het spectrum worden berekend als L*a*b*-waarden.
+0417	HPLC-UV en HPLC-DAD zijn over het geheel de meest gebruikte UV-Vis-toepassingen, vooral in het lab.
+0418	Schematisch: aceton en tolueen, naar spectra uit het NIST Chemistry WebBook.
+0419	Nabij- en midden-infraroodspectroscopie
+0420	Vibratiespectra geven elk molecuul een unieke vingerafdruk.
+0421	NIR wordt in het proces het meest gebruikt.
+0422	Boventonen en combinaties van C–H-, O–H- en N–H-vibraties vallen in het NIR.
+0423	Benaderde posities van NIR-banden per functionele groep. Tik op een groep om de banden te markeren.
+0424	Ramanspectroscopie
+0425	Een laser exciteert het monster. Een heel klein deel van het verstrooide licht wordt verschoven door moleculaire vibraties, wat elke verbinding een unieke vingerafdruk geeft.
+0426	Geen watersignaal, dat in natte of biochemische processen zoals fermentatie veel NIR-signalen overlapt.
+0427	Meet gassen die NIR niet ziet, zoals zuurstof en stikstof.
+0428	Meerdere componenten tegelijk, kwalitatief en kwantitatief, zonder monstervoorbereiding.
+0429	Schematisch: benaderde Ramanverschuivingen van aardgascomponenten.
+0430	Fluorescentiespectroscopie
+0431	Een molecuul absorbeert licht van één golflengte (excitatie) en zendt licht van een langere golflengte uit (emissie).
+0432	Zeer gevoelig, zodat sporen zichtbaar worden, bijvoorbeeld verontreinigingen in afvalwater.
+0433	Schematische excitatie- en emissiespectra.
+0434	Een sprekend voorbeeld: scheeliet
+0435	Het mineraal scheeliet (CaWO₄) fluoresceert blauw, met een maximum rond 440 nm door wolframaat. Waar molybdeen wolfraam vervangt, verschijnt een gele band rond 540 nm; een schouder rond 570 nm komt van Dy³⁺. Andere gebruikelijke verontreinigingen zijn Tb³⁺, Sm³⁺ en Pr³⁺. Geen procestoepassing, maar het laat zien hoe gevoelig fluorescentie is.
+0436	Een compleet PAT-project in tien stappen. Ongeveer 30 % minder procestijd.
+0437	UV-doorstroomcel voor eenmalig gebruik, met Sartorius
+0438	Gegoten kwarts maakte een precisieonderdeel goedkoop genoeg voor eenmalig gebruik.
+0439	Expandeerbaar polystyreen bij Versalis
+0440	Inline eindpunt in plaats van een verstopte reactor.
+0441	Oleochemicaliën bij IOI Oleo
+0442	Zuurgetal en OH-getal in de reactor bij maximaal 245 °C.
+0443	Fruitgehalte bij Schwarzwaldmilch
+0444	Een inlinemodel vervangt de Brix-controle in het lab.
+0445	BPA-vrije blikcoatings bij AkzoNobel
+0446	Restmonomeren gevolgd in een kleverige polymerisatie.
+0447	Raffinage van edelmetalen
+0448	Waarom een sterk absorberend proces overstapte van transflectie naar ATR.
+0449	Oplossnelheidstest van tabletten
+0450	Geautomatiseerde afgiftetests met dompelsondes, zonder monstername.
+0451	Oplossnelheidstests laten zien hoe snel en hoe volledig een tablet zijn werkzame stof afgeeft. Optische dompelsondes meten de afgifte direct in het testvat.
+0452	De opgave
+0453	De farmacopees (EP, USP, JP) schrijven de procedure voor: zes tabletten, meerdere testintervallen. Handmatige monstername, filtratie en fotometrie zijn arbeidsintensief en foutgevoelig, en nieuwe toedieningsvormen zorgen voor steeds meer monsters.
+0454	Gemeten in het vat
+0455	Sondes die via optische vezels met een spectrometer zijn verbonden, zitten in de schoepenroerder naast de oplossende tablet. Terwijl de werkzame stof oplost, stijgt de absorptie tot de tablet volledig is opgelost en de curve afvlakt. Bij meerdere vaten verbindt een multiplexer alle sondes met één spectrometer.
+0456	Sneller met robotica
+0457	Een robotarm kan de sonde van vat naar vat verplaatsen en hem daartussen spoelen en drogen, voor zeer korte meetintervallen.
+0458	Welke sonde
+0459	De Excalibur Lab, met zijn monolithische kwartsmeetkop, heeft zich hier bewezen. Voor smalle vaten met kleine deksels past de slanke Falcata Lab met verwisselbare weglengtetips beter.
+0460	Waarom het loont
+0461	Anders dan bij HPLC zijn er geen filters, slangen of verbruiksmaterialen nodig, en spoelen en drogen van de sonde voorkomt overdracht tussen monsters.
+0462	Absorptiespectrum van een werkzame stof terwijl die in de buffer vrijkomt.
+0463	Absorbantie in de tijd: die stijgt tot de tablet volledig is opgelost.
+0464	Concentratie werkzame stof
+0465	Afgifteprofiel
+0467	Sproeidrogen: restvocht in een API
+0468	NIR door een kijkglas vervangt monstername voor Karl Fischer.
+0469	Sproeidrogen maakt van een oplossing van werkzame stof en hulpstoffen een poeder, in minder dan een seconde per druppel. Het restvocht van dat poeder moet binnen nauwe grenzen blijven.
+0470	Waarom vocht ertoe doet
+0471	Te veel restvocht laat het poeder klonteren en schaadt vloeibaarheid, opbrengst en uiteindelijk de werking van het geneesmiddel. Deeltjesgrootte en morfologie, die het afgifteprofiel bepalen, worden in dezelfde stap vastgelegd.
+0472	De oude manier
+0473	Karl Fischer-titratie vereist monsters die met de hand worden genomen en in het lab worden geanalyseerd. Tegen de tijd dat er een resultaat is, is de droger al verder.
+0474	Contactloos gemeten
+0475	Een Gladius XP 25-reflectiesonde, gekoppeld aan een FT-NIR-spectrometer, kijkt door een kijkglas naar het poeder. Het watergehalte wordt continu gemeten en vastgelegd in een GxP-conforme datahistorian, met regelmatige labtests als vangnet.
+0476	Resultaat
+0477	De inline NIR-waarden komen gedurende de hele run overeen met de Karl Fischer-referentie, en afwijkingen van het doel worden opgemerkt zodra ze beginnen.
+0478	De Gladius XP 25 meet het sproeigedroogde poeder door een kijkglas.
+0479	Watergehalte tijdens het sproeidrogen: inline NIR (oranje) en Karl Fischer-titratie (grijs).
+0480	Restvocht
+0482	Eindpunt van de filterdroger
+0483	Diffuse-reflectie-NIR laat zien wanneer het product droog is.
+0484	Filterdrogers wassen en drogen farmaceutisch product vóór het mengen en tabletteren. Drogen gedurende een vaste tijd, of stoppen om een monster te nemen, geeft geen continu beeld van het vocht.
+0485	Gemeten in de kuip
+0486	Diffuse-reflectiesondes zitten in meetpoorten in de drogerkuip, geplaatst passend bij de grootte ervan, en zijn via optische vezels met een FT-NIR-spectrometer verbonden. Het NIR-licht dringt 2–3 mm in het product door.
+0487	De punt schoon houden
+0488	Product kan zich op de sondepunt ophopen, en de sonde zou dan steeds hetzelfde materiaal blijven meten. Sondes met een softwaregestuurde spoeling blazen de punt met regelmatige tussenpozen schoon.
+0489	Kalibratie
+0490	Spectra die tijdens het drogen worden opgenomen, worden gekoppeld aan monsters die met droogverlies of Karl Fischer-titratie zijn geanalyseerd. Een PLS-model geeft dan het vocht- of oplosmiddelgehalte in realtime.
+0491	Gebaseerd op Bruker Optics-applicatienotitie AF 505, Filter Drier Endpoint Analysis using FT-NIR Spectroscopy.
+0492	Vocht
+0493	Restoplosmiddel
+0494	Zuivering: eindpunt via een marker
+0495	Volg een onzichtbare verontreiniging via een die het UV wel ziet.
+0496	Bij het wassen van een filterkoek wordt een verontreiniging uitgewassen tot het wasoplosmiddel onder een vastgestelde grens komt. De verontreiniging waar het om gaat, is spectroscopisch niet te zien, alleen met gaschromatografie.
+0497	Het probleem
+0498	Gaschromatografie is te traag voor een continue beslissing over het eindpunt, dus de wasstap loopt op labresultaten die laat binnenkomen.
+0499	Een marker die zichtbaar is
+0500	Een tweede verontreiniging, in veel kleinere hoeveelheden aanwezig maar zichtbaar in het UV, spoelt samen ermee uit de filterkoek. Door de afname daarvan in het wasoplosmiddel te volgen, wordt de wasstap online gevolgd.
+0501	Waar meten
+0502	Afhankelijk van de installatie gaat een transmissiesonde direct in de reactor of een doorstroomcel in een bypass. De compacte Excalibur Lab FFV-doorstroomcel is geschikt voor deze taak.
+0503	De toestand van de wasstap is in realtime bekend, het eindpunt wordt nauwkeurig bepaald en nauwe bewaking ondersteunt GMP-compliance.
+0504	Wassen van de filterkoek: wasvloeistof loopt door de koek tot de verontreiniging weg is.
+0505	Gehalte aan verontreiniging (punten, met GC) en UV-absorbantie bij 300 nm (lijn) dalen samen tijdens het wassen.
+0506	UV-marker in het wasoplosmiddel
+0507	Eindpunt van het wassen
+0508	Bioprocessen: voedingsstoffen en metabolieten
+0509	NIR in de bioreactor volgt glucose en metabolieten in realtime.
+0510	Celculturen en micro-organismen maken biofarmaceutica, maar ook aminozuren, antibiotica, bio-ethanol, bier, gist en organische zuren. Het levende proces verandert snel en de variabelen hangen van elkaar af.
+0511	De uitdaging
+0512	Fermentatie wordt vaak nog gevolgd via groeimodellen, troebelheid en andere indirecte metingen die handmatige monsters vereisen. Snelle, onderling afhankelijke reacties vragen om realtime meting die de cellen niet verstoort.
+0513	Gemeten in de bioreactor
+0514	Een Excalibur XP 20-dompelsonde met een weglengte van 2 mm zit in de bioreactor en is via lichtgeleiders verbonden met een NIR-spectrometer. Hij volgt voedingsstoffen zoals glucose die de cellen opnemen, en de metabolieten die ze afgeven. De monolithische saffierkop minimaliseert overdracht en aanhechting, en een snelwisselkoppeling maakt de sonde eenvoudig uitwisselbaar voor reiniging.
+0515	Hygiënische optie
+0516	Waar afzettingen en biofouling een risico zijn, heeft de 3-A-gecertificeerde Excalibur HY 25 een halfbolvormige kop, geen dood volume en alleen gladde, elektrolytisch gepolijste oppervlakken, zodat kiemen zich nergens kunnen vestigen.
+0517	Meer inzicht
+0518	De continue data voeden trendmodellen die voorspellen hoe de reactie zal verlopen. Elektrische impedantie, die levende cellen telt, vult de spectroscopie aan.
+0519	Een dompelsonde meet direct in de bioreactor.
+0520	Glucose
+0521	Metabolieten
+0522	Een gegoten kwartsdoorstroomcel voor de BioPAT® Spectro UV-sensor voor eenmalig gebruik.
+0523	Sartorius
+0524	Sartorius ontwikkelde een inlinesensor voor eenmalig gebruik die de concentratie van biomoleculen tijdens de chromatografische zuivering met UV-spectroscopie meet. De kern is een kwartsdoorstroomcel van Hellma.
+0525	Waarom eenmalig gebruik
+0526	Biofarmaceutica zoals monoklonale antilichamen worden gemaakt in bioreactoren voor eenmalig gebruik tot 2.000 liter en gezuiverd in slangsets voor eenmalig gebruik. Inline UV-sensoren bewaken elke zuiveringsstap zonder handmatige monsters, dus ook de sensoronderdelen die het product raken, moeten wegwerpbaar zijn.
+0527	Bestaande UV-sensoren voor eenmalig gebruik schoten tekort op dood volume, prijs-prestatieverhouding en ecologische voetafdruk. Het kwartsonderdeel had een spleet van 1 mm nodig met een tolerantie van 0,05 mm, parallelle vensters van hoge optische kwaliteit en een afdichting naar de kunststof behuizing eromheen, tegen een prijs die past bij een wegwerponderdeel.
+0528	Koud gieten van kwarts
+0529	Bij Hellma's Quartz Cold Casting (QCC) wordt een siliciumhoudende massa bij kamertemperatuur in mallen gegoten, uitgehard en omgezet in zuiver kwartsglas. De doorstroomcel komt er monolithisch uit, uit één stuk, met ingegoten afdichtingsstructuren, zodat veel conventionele bewerkingsstappen vervallen.
+0530	Naar serieproductie
+0531	Het project begon met een haalbaarheidsstudie nadat het PAT-team van Sartorius QCC op de ACHEMA had gezien. Hellma werkt de cellen na, inspecteert elke spleetbreedte, verpakt en kwalificeert ze volgens het PPAP-proces, zodat ze direct in de Sartorius-sensor gaan.
+0532	Het resultaat
+0533	Elke aansluitmaat heeft dezelfde, nauwkeurig bekende optische weglengte. Daardoor kunnen spectroscopische methoden, niet alleen eenvoudige fotometrie, de concentratie bepalen, met minimaal dood volume en vrijwel geen invloed op de stroming.
+0534	In het kader van de goede samenwerking met Hellma zijn we erin geslaagd om samen en iteratief een optische kerncomponent voor sensoren te ontwikkelen, van het eerste ontwerp tot serieproductie, onder de hoogste kwaliteitseisen.
+0535	Dr. Christian Grimm, hoofd productontwikkeling Embedded Hardware, Sartorius Stedim Biotech GmbH
+0536	De afgewerkte doorstroomcel voor eenmalig gebruik, gegoten uit één stuk kwartsglas.
+0537	Eerste 3D-model van de doorstroomcel.
+0538	Eerste gegoten prototype.
+0539	Concentratie van biomoleculen
+0540	Verontreinigingen tijdens de zuivering
+0541	Raffinage van edelmetalen: van verdunning naar ATR
+0542	Transflectie vereiste een miljoenvoudige verdunning. ATR niet.
+0543	Overgangsmetalen absorberen UV-Vis-licht zeer sterk. Voor één raffinaderij maakte dat een standaardmeting bijna onwerkbaar, tot de sonde werd gewisseld.
+0544	Een raffinagebedrijf voor edelmetalen mat met een Falcata-transflectiesonde met een lichtweg van 1 mm. De monsters absorbeerden zo sterk dat ze een miljoen keer moesten worden verdund om de absorbantie in een bruikbaar bereik te brengen.
+0545	De oplossing
+0546	Ze stapten over op een ATR-sonde. ATR heeft een extreem korte weglengte, zodat sterk absorberende vloeistoffen binnen bereik blijven, en het werkte uitstekend.
+0547	Waarom metalen lastig zijn
+0548	Overgangsmetalen zoals koper, nikkel, kobalt, ijzer, mangaan en zink absorberen licht zeer sterk, met banden van het UV tot in het nabij-infrarood.
+0549	Concentratie overgangsmetalen
+0551	Productie van polyolen
+0552	Water, zuurgetal, viscositeit en hydroxylgetal, gemeten bij 400 °C.
+0553	Polyolen reageren met isocyanaten tot polyurethanen: harde en zachte schuimen, lijmen, coatings en elastomeren. Hun structuur bepaalt de eigenschappen van het eindproduct.
+0554	Gevoelige chemie
+0555	De synthese van polyolen reageert op schommelingen in temperatuur, druk en reactietijd. Variaties in grondstoffen en nevenreacties uiten zich als kleurafwijkingen of ongelijke viscositeit, en labmonsters komen te laat terug om de batch bij te sturen.
+0556	Een sonde voor 400 °C
+0557	De Excalibur HD FPT-sonde gebruikt metalen afdichtingen, een saffiervenster en lichtgeleiders in plaats van interne optische vezels, zodat hij betrouwbaar meet bij de 400 °C die dit proces vraagt. De slijtvrije afdichtingen maken hem onderhoudsvrij.
+0558	Van spectra naar getallen
+0559	Hellma Solutions test procesmonsters in haar applicatielab, bewerkt de spectra wiskundig voor om ongerelateerde variatie te verwijderen en bouwt voor elke parameter een gevalideerd chemometrisch model.
+0560	Meer polyolen
+0561	De term omvat ook suikeralcoholen, gemaakt door hydrogenering van suikers, waarbij NIR dezelfde soorten parameters volgt.
+0562	Water
+0563	Houdt de reactie onder controle
+0564	Viscositeit
+0565	Bepaalt de verwerkingseigenschappen
+0566	Zuurgetal
+0567	Het aandeel zure verontreinigingen
+0568	Hydroxylgetal
+0569	Bepalend voor de reactiviteit van het product
+0570	NIR-spectra van polyolmonsters met verschillende parameterwaarden, gemeten met de Excalibur HD FPT.
+0571	Zuurgetal en OH-getal in de reactor, bij maximaal 245 °C.
+0572	IOI Oleo
+0573	IOI Oleo in Hamburg maakt oleochemische specialiteiten uit plantaardige grondstoffen: werkzame stoffen en hulpstoffen voor geneesmiddelen, emollients voor cosmetica en esters voor voeding.
+0574	Natuurlijke grondstoffen variëren
+0575	Raapzaad-, zonnebloem-, soja- en palmolie veranderen met elke oogst. Oliën en vetten reageren ook met zuurstof uit de lucht, daarom wordt de reactie direct in het gesloten vat gemeten.
+0576	Zware omstandigheden
+0577	De sondes krijgen te maken met maximaal 245 °C, trillingen van de roerder en drukschommelingen in batchbedrijf, 24 uur per dag. Vetzuren, glycerol, propyleenglycol, tetra-n-butyltitanaat en butaandiol moeten allemaal worden bewaakt om verontreinigingen onder de EU-limieten te houden.
+0578	De opstelling
+0579	Excalibur HD FPT-transmissiesondes zitten direct in de reactievaten en zijn via 30–50 m vezel en een multiplexer met één spectrometer verbonden, zodat zuurgetal en OH-getal over de hele procesketen worden gevolgd.
+0580	Waarom de FPT
+0581	Holle lichtgeleiders in plaats van glasvezels kunnen zeer hoge en zeer lage temperaturen aan. Met goud gecoate metalen afdichtingen en saffiervensters vervangen elastomeren, en een tweede barrière met stikstofvulling verkleint het risico op lekken, zodat de onderhoudsintervallen veel langer worden.
+0582	Door de exacte toestand van de reactie te kennen, eindigen batches op tijd, worden looptijden korter en vervalt de monstername voor het lab.
+0583	NIR-spectra van kokosolie: zuiver (groen) en verontreinigd (geel, rood).
+0584	Sonde in de reactor, verbonden met de spectrometer.
+0585	OH-getal
+0586	Toestand van de reactie
+0587	Verontreiniging
+0588	Fosgeen voor polyurethaan
+0589	Zuiverheid van het gas inline gecontroleerd, in een doorstroomcel gebouwd voor giftige gassen.
+0590	Fosgeen (COCl₂) is een zeer giftig gas en een belangrijke grondstof: het zet aminen om in de isocyanaten TDI en MDI, die met polyolen tot polyurethaan reageren.
+0591	Waarom zuiverheid telt
+0592	Vocht en andere verontreinigingen in het gas zijn in latere processtappen zeer kostbaar. Polycarbonaat heeft bijvoorbeeld fosgeen nodig met maximaal 250 ppm tetrachloorkoolstof, anders verkleurt het heldere kunststof.
+0593	Waarom online
+0594	Gaschromatografie beperkt continue bewaking. Spectroscopische sondes en cellen meten direct in de gasstroom, in realtime. Omdat de gassen giftig en brandbaar zijn, mag er niets lekken.
+0595	De doorstroomcel
+0596	De Excalibur HD FCP, opgebouwd uit standaard Swagelok-onderdelen, meet in transmissie langs de as van de leiding. Weglengtes tot 2 m bereiken verontreinigingen in het ppt-bereik. De optische vingers zijn met stikstof gevuld: de lichte overdruk en een tweede barrière houden medium en vocht buiten.
+0597	Daarvoor gebouwd
+0598	Metalen afdichtingen en saffieroptiek maken de roestvaststalen cel onderhoudsvrij en geschikt voor 250 bar* en 300 °C. Hij kan worden gebruikt in ATEX-zones 1, 2, 21 en 22, inline of atline in een bypasskast naast de spectrometer.
+0599	Meetinterface op de gasleiding.
+0600	Excalibur HD FCP met standaard Swagelok-onderdelen, voor weglengtes tot 2 m.
+0601	Verontreinigingen in het procesgas
+0602	Acrylzuur: eindpunt van de ontwatering
+0603	Een gesoldeerde titanium Falcata blijft meten waar acrylzuur kristalliseert en polymeriseert.
+0604	Acrylzuur en acrylaatesters zijn belangrijke monomeren voor superabsorberende polymeren, dispersies, coatings, lijmen en kitten. Ze worden uit propeen gemaakt door tweetraps gasfase-oxidatie.
+0605	Waar NIR meet
+0606	In de azeotrope destillatiekolom wordt water verwijderd met een meesleepmiddel zoals tolueen of isobutylbenzeen. NIR volgt het watergehalte in de vloeistoffase om het eindpunt van de dehydratatie te vinden, zodat het zuur aan de specificatie voor de eindzuivering voldoet. Strakke regeling verbetert stabiliteit, energie-efficiëntie en doorzet.
+0607	Een lastige meetplek
+0608	Acrylzuur kan bij afkoeling kristalliseren, en de kristallen beschadigen en verharden afdichtingen. Zeer zuiver zuur heeft ook de neiging spontaan te polymeriseren bij veranderingen in temperatuur of druk, waarbij polymeer op de optiek achterblijft. Sporen van polymeer en inhibitor maken de vloeistof licht troebel.
+0609	De sonde
+0610	De Falcata XP-transflectiesonde geeft stabiele signalen in sterk absorberende, licht troebele vloeistoffen. De vensters zijn direct in een titanium behuizing gesoldeerd: geen elastomeerafdichtingen en geen spleten of dode ruimtes waar polymeer zich kan ophopen. Hij past in de wisselarmaturen Knick Ceramat en SensoGate.
+0611	Bewezen
+0612	De Falcata XP is onder industriële omstandigheden getest in de acrylzuurproductie van een grote Europese fabriek.
+0613	NIR-meetpunten in het acrylzuurproces: waterverwijdering en eindzuivering.
+0614	Watergehalte
+0615	Eindpunt van de dehydratatie
+0617	Veel meetpunten, één spectrometer
+0618	Een multiplexer bedient tot 16 punten in een meertrapsinstallatie.
+0619	Kunststoffen, geneesmiddelen en voedingsmiddelen komen vaak uit meertrapsprocessen met meetpunten verspreid over reactoren en lijnen: polymerisatie, terugwinning van oplosmiddelen, dosering van additieven, vezelspinnen.
+0620	Het kostenprobleem
+0621	Een spectrometer op elk punt drijft de investering op, en het kalibreren, bedienen en onderhouden van veel instrumenten kost veel meer werk.
+0622	De oplossing
+0623	De Hellma FMX-multiplexer verbindt tot 16 sondes of doorstroomcellen met één spectrometer. Een uiterst nauwkeurige stappenmotor beweegt een retroreflector die het licht via collimatorlenzen in elk kanaal koppelt. De kanalen zijn gescheiden zodat er geen licht overspreekt, en omschakelen duurt minder dan een seconde.
+0624	Eenvoudig uit te breiden
+0625	De FMX is modulair, dus kanalen kunnen later worden toegevoegd tot de volledige capaciteit. Hij communiceert met het procesbesturingssysteem via RS232 of RS422 met de meegeleverde software, en schakelt standaard in beide richtingen.
+0626	Terugverdientijd
+0627	De kosten per meetpunt dalen sterk, en een multiplexer kan zich al vanaf twee meetpunten terugverdienen.
+0628	Drie processtromen, één spectrometer: de multiplexer vervangt de extra instrumenten.
+0629	Kosten per meetpunt met en zonder de FMX-multiplexer.
+0630	Reactievoortgang in elke fase
+0631	In-situfluorescentie in het reactievat
+0632	Een Hellma-fluorescentiesonde brengt de fluorimeter naar de reactie.
+0633	Monsters nemen uit een lopende reactie is traag, kan gevaarlijk zijn en kan temperatuur, druk of het gehalte aan vluchtige stoffen veranderen, zodat de data achterlopen en kunnen afwijken. Een glasvezel-fluorescentiesonde meet in plaats daarvan ter plekke.
+0634	Een Hellma-fluorescentiesonde (661.057-UV) zit in het reactievat. De glasvezelkabels passen op de F-3000-koppeling van een HORIBA Fluorolog-3-fluorimeter, zodat pipetteren, mengen, verwarmen, reinigen en de zuurkast vervallen.
+0635	Het voorbeeld
+0636	Een nikkelcomplex op basis van pyreen werd getitreerd met NaOH. Geëxciteerd bij 340 nm emitteert het bij 375 en 395 nm onder zure omstandigheden. Naarmate de pH stijgt, neemt die fluorescentie af door fotogeïnduceerde elektronenoverdracht, en verschijnt er een brede excimeerband rond 480 nm.
+0637	Hellma-glasvezel-fluorescentiesonde 661.057-UV.
+0638	Fluorescentiespectra van het nikkelcomplex bij stijgende pH; excitatie bij 340 nm. Data: HORIBA Scientific.
+0639	Gebaseerd op technische notitie FL-34 van HORIBA Scientific, Liquid in situ Fluorescence Measurements.
+0640	Fluorescentie-intensiteit
+0641	Reactievoortgang
+0643	Samenstelling van aardgas
+0644	Raman en NIR ontleden het mengsel in de pijpleiding.
+0645	Aardgas bestaat grotendeels uit methaan en wordt verhandeld op basis van zijn energiewaarde. Die waarde hangt af van het exacte mengsel van koolwaterstoffen, dat varieert met de winningsplaats, daarom wordt het gas op meerdere punten op weg naar de klant geanalyseerd.
+0646	Waarom geen gaschromatografie
+0647	GC scheidt veel componenten en sporen, maar draag- en kalibratiegassen maken het duur, en de vertraging tussen monstername en resultaat betekent dat afwijkingen laat worden ontdekt.
+0648	Zware omstandigheden
+0649	Pijpleidingen werken bij ongeveer 80 bar om de energiedichtheid te verhogen, dus de meting moet die druk aankunnen. Omdat het gas explosief is, is het laservermogen strikt beperkt, en de detectie moet gevoelig genoeg zijn om er met weinig van te werken.
+0650	Raman in de pijpleiding
+0651	De Tidus Flex Gas-sonde is via optische vezels verbonden met een standaard Ramanspectrometer met een temperatuurgestabiliseerde 785 nm-laser. Door de spectrometer uit de buurt van de sonde te houden, is ATEX-conform bedrijf mogelijk. Een speciale reflector versterkt het Ramansignaal bij lage gasconcentraties, en het systeem meldt elke minuut de concentratie van elk gas.
+0652	Raman en NIR samen
+0653	Raman onderscheidt de koolwaterstoffen ook bij lage concentraties, en ziet zuurstof en stikstof, wat NIR niet kan. NIR-absorptie vult het aan voor de koolwaterstoffen, CO₂ en H₂S. Dezelfde Raman-aanpak werkt voor biogas en biomethaan vóór invoeding in het net.
+0654	Schematische NIR-absorptie van aardgas, 1000–2200 nm.
+0655	Methaan
+0656	Ethaan, propaan, butaan
+0658	Alleen Raman
+0660	Sporen
+0661	O₂ en N₂ (Raman)
+0663	Water in ruwe olie
+0664	NIR meet de water-vloeistofverhouding direct aan de pijpleiding.
+0665	Om het meeste uit een olieveld te halen, bewaken producenten continu het water- en gasgehalte. Te hard pompen verdunt de stroom en verlaagt de opbrengst; wie het watergehalte kent, kan het pompen zo afstemmen dat er in dezelfde tijd meer olie bovenkomt.
+0666	Waarom het lastig is
+0667	Vaste stoffen, gasfractie en zoutgehalte schommelen, de olie is viskeus en de omstandigheden lopen sterk uiteen. Fasescheidingsmethoden zijn vaak onnauwkeurig, labanalyse is traag, en apparatuur aan de pijpleiding moet voldoen aan ATEX-richtlijn 2014/34/EU.
+0668	Hoe NIR helpt
+0669	Ruwe olie en water absorberen nabij-infrarood licht heel verschillend. Het signaal komt van het water zelf, niet van de opgeloste zouten, zodat sensoren voor de water-vloeistofverhouding (WLR) op basis van een NIR-transmissiecel in realtime werken, onafhankelijk van emulsies of zoutgehalte, zonder grote fasescheidingssystemen.
+0670	Drie uitvoeringen, alle metaal-afgedicht
+0671	De Excalibur HD Flange-cel wordt direct in de hoofdleiding gemonteerd, en de gelaste saffieroptiek kan niet ontregeld raken. Met CE-certificering volgens de Drukapparatuurrichtlijn 2014/68/EU kan hij in ATEX-zones 1, 2, 21 en 22 en in drukvaten worden geplaatst zonder acceptatietests. De compacte Excalibur HD FCP is geschikt voor kleinere leidingen, en de Excalibur HD FPT-sonde past in een bestaande flens en voegt een tweede barrière toe.
+0672	Excalibur HD Flange-meetcel.
+0673	Monster ruwe olie.
+0674	Water-vloeistofverhouding (WLR)
+0675	Zwavel in scheepsbrandstof
+0676	Online NIR helpt schepen binnen de limieten voor zwaveloxiden te blijven.
+0677	De meeste grote schepen verbranden bunkerolie, een goedkoop zwaar residu uit de raffinage. Het zwavelgehalte wordt zwaveloxide in de uitlaatgassen, en sinds 2020 gelden voor schepen veel strengere limieten.
+0678	De samenstelling van de brandstof verschilt van tank tot tank en zelfs binnen een tank, en kan tijdens opslag veranderen. Kleverige deeltjes vervuilen leidingen en instrumenten, en onopgemerkte afzettingen kunnen de motor beschadigen. Af en toe een handmatig monster is niet nauwkeurig genoeg.
+0679	Gemeten in de brandstofleiding
+0680	Een spectrometer met een Excalibur HD FCP-doorstroomcel in de verwarmde brandstoftoevoer naar de motor meet de componenten van de brandstof continu, zodat de motor kan worden geregeld en de limieten altijd worden nageleefd.
+0681	Gebouwd voor de machinekamer
+0682	Metalen afdichtingen maken de cel bestand tegen druk en temperatuur, de roestvaststalen behuizing maakt gebruik in explosiegevaarlijke zones mogelijk en de saffieroptiek gaat aanhechting van deeltjes tegen. Het verwisselbare middendeel neemt een H-cel op voor weglengtes van 2–10 mm of Swagelok T-stukken voor 10 cm tot 2 m.
+0683	Voorbeeld van een NIR-absorptiespectrum van zware stookolie.
+0684	Excalibur HD FCP met H-cel als middendeel.
+0685	Zwavelgehalte
+0686	Brandstofcomponenten
+0687	Parelgrootte en conversie inline gevolgd, zodat de batch op tijd eindigt.
+0688	Versalis
+0689	Versalis maakt parels van expandeerbaar polystyreen (EPS) door suspensiepolymerisatie in Mantua, Italië. Twee dingen bepalen kwaliteit en opbrengst: hoe ver het styreen tot polymeer is omgezet, en hoe groot de parels zijn geworden.
+0690	Het proces
+0691	In de tweede reactor wordt een 1:1-mengsel van water en styreen tot 90 °C verwarmd en geroerd, zodat het monomeer parels vormt. Bij 70–75 % conversie stijgt de temperatuur tot 123 °C en voorkomt calciumfosfaat dat de parels aan elkaar plakken. De batch duurt vier uur; later laten pentaan en stoom de parels tot 50 keer uitzetten.
+0692	Waarom het eindpunt telt
+0693	Wie het mist, krijgt parels die samenklonteren tot een grote bal die de reactoruitlaat of zelfs de hele installatie blokkeert, en het opruimen kost een bedrag van zes cijfers. Tot nu toe namen operators monsters en beoordeelden ze de parelgrootte tegen een lichtbundel.
+0694	Gemeten in de reactor
+0695	Een Gladius XP-reflectiesonde aan de zijkant van de reactor meet in contact met de suspensie zonder de stroming te verstoren. Naarmate het styreen wordt omgezet, daalt de transmissie. De data laten zien wanneer dispergeermiddel moet worden toegevoegd om de parelgroei te sturen, en de reactie stopt automatisch zodra de parels hun grootte bereiken. De installatie voldoet aan ATEX zone 2 IIB T3.
+0696	Tot honderd polymerisatiecycli draaien in dezelfde reactor zonder de sonde te reinigen. Ringvormige verlichtingsvezels houden het strooilicht laag, en het hygiënische ontwerp laat zich reinigen zonder demontage.
+0697	Van monomeer naar polymeer
+0698	Veel monomeren hebben een UV-signaal door hun dubbele bindingen, en het NIR-spectrum volgt de conversie. Dezelfde aanpak geldt voor PMMA, een breukvast alternatief voor glas, en voor PET voor drank- en voedselverpakkingen.
+0699	Spectra tijdens de polymerisatie: begin (blauw), tijdens (groen) en einde (rood).
+0700	Gladius XP geïnstalleerd op de reactor bij Versalis.
+0701	Monomeerconversie
+0702	Parelgrootte
+0703	Eindpunt van de reactie
+0704	POM: methanol in realtime
+0705	NIR vervangt een GC-lus van 45 minuten in de productie van polyoxymethyleen.
+0706	Polyoxymethyleen (POM) gaat in tandwielen, behuizingen, koffiemachines, ritsen en tandenborstels. De productie gebruikt meerdere reactanten, oplosmiddelen en additieven die binnen een smal bereik moeten blijven.
+0707	Formaldehyde wordt eerst omgezet in trioxaan, gezuiverd en weer gedepolymeriseerd, en daarna bij lage temperatuur gepolymeriseerd met een aminekatalysator. Dat vraagt om zeer zuiver uitgangsmateriaal en het volledig uitsluiten van water.
+0708	Methanol werd meerdere keren per dag met gaschromatografie gecontroleerd. Met het transport naar het lab duurde een resultaat ongeveer 45 minuten terwijl de reactie doorliep. Een verkeerde samenstelling kan ongewenste polymerisatie, stilstand en schade van miljoenen veroorzaken, bij producties tot 300 ton per dag.
+0709	Optische dompelsondes en een NIR-spectrometer (800–2.500 nm) leggen de samenstelling om de paar seconden of minuten vast, direct zichtbaar in de controlekamer. Een zeef rond de meetkop, in het zog van de stroming, leidt vaste klonten om de optiek heen. GC-controles in het lab gaan met tussenpozen door als extra waarborg.
+0710	Methanolconcentratie in de tijd, gemeten met NIR tijdens de POM-productie.
+0711	Methanol
+0712	Samenstelling van reactanten en oplosmiddelen
+0713	Prepolymeren voor coatings en harsen
+0714	NCO, restmonomeer en vocht in kleverige harsen, met reiniging van de sonde tijdens het proces.
+0715	Polyester- en alkydharsen zijn hoogwaardige bindmiddelen voor verven, coatings en lakken. De prepolymeren die tijdens hun synthese ontstaan, vragen om een nauwkeurig beheerste reactiviteit.
+0716	Waar op te letten
+0717	Binnen één batch veranderen zowel de chemie als de fysische eigenschappen van de reactiemassa. NCO-gehalte, temperatuur, viscositeit, restmonomeer en vocht vragen allemaal om betrouwbare bewaking, en het eindpunt om nauwkeurige regeling.
+0718	Het probleem met kleverige media
+0719	Viskeus, klevend polymeer hoopt zich op op sondevensters, vervormt het signaal en veroorzaakt drift, zodat conventionele sondes vaak onderhoud nodig hebben.
+0720	Sonde plus wisselarmatuur
+0721	Een Falcata XP 12-transflectiesonde met verwisselbare weglengtetips meet transparante tot licht troebele media in seconden. Gemonteerd in een Knick Ceramat-wisselarmatuur trekt hij zich terug in een aparte kamer voor reiniging, referentiemetingen en kalibratie. Twee keramische schijven sluiten de kamer af van het proces, en een cycloonspoeling stroomt rondom de sonde.
+0722	Geen procesonderbreking of aftappen van de reactor voor reiniging, betrouwbare data ook bij vervuilende media, en minder afval.
+0723	Knick Ceramat: de sonde trekt zich terug in een kamer om te spoelen en te refereren terwijl het proces doorloopt.
+0724	NCO-gehalte
+0725	Restmonomeer
+0726	Restmonomeren gevolgd in een kleverige polymerisatie, met reiniging van de sonde tijdens het proces.
+0727	AkzoNobel
+0728	Accelshield 300 van AkzoNobel coat de binnenkant van tweedelige aluminium drankblikjes zonder bisfenolen, styreen of PFAS. Polymerisatie vormt het bindmiddel.
+0729	Waarom het ertoe doet
+0730	Na de herbeoordeling van bisfenol A door de Europese Autoriteit voor voedselveiligheid in 2023 is het gebruik ervan in verpakkingen die met voedsel in contact komen in de EU verboden of beperkt. Alleen volledig omgezette polymeren voldoen aan de eisen, dus restmonomeren zoals acrylaten en styrenen moeten tijdens de polymerisatie worden gemeten, continu en snel.
+0731	Een kleverig medium
+0732	De reactiemassa is zeer viskeus en kleverig. Polymeer kan zich aan het venster hechten of erop uitharden en het signaal vervormen, dus de sonde moet tijdens het proces worden gereinigd zonder de meting te verliezen.
+0733	Een Falcata XP-transflectiesonde meet de polymerisatietoestand in seconden. Hij zit in een Knick SensoGate-wisselarmatuur: in de clean-in-place-modus wordt de sonde gereinigd, gerefereerd, onderhouden of verwijderd terwijl het proces doorloopt.
+0734	Afwijkingen worden direct opgemerkt en gecorrigeerd, afkeur en materiaalverlies nemen af, en de productkwaliteit blijft constant hoog.
+0735	Falcata XP in een Knick SensoGate-wisselarmatuur op de reactor.
+0736	Restmonomeren
+0737	Polymerisatietoestand
+0738	Verfkleur uit het spectrum
+0739	L*a*b*-waarden berekend uit UV-Vis-spectra.
+0740	Een UV-Vis-spectrum bevat alles wat nodig is om de kleur van een verf als L*a*b*-waarden te berekenen.
+0741	L*a*b* lezen
+0742	L* loopt van donker (0) tot licht (100). a* loopt van groen (negatief) tot rood (positief). b* loopt van blauw (negatief) tot geel (positief). Probeer het met de schuifregelaars.
+0743	Als TiO₂ de overhand neemt
+0744	TiO₂, een veelgebruikt wit additief, neemt bij lage kleurstofconcentraties het signaal over. Een blauwe verf met vier keer minder pigment oogt bijna wit: L* stijgt van 91,0 naar 99,6.
+0745	Verven, gemeten
+0746	Blauw
+0747	Rood
+0748	Geel
+0749	Blauw, standaard vs. 4× minder pigment
+0750	Blauw, standaard
+0751	Blauw, 4× minder pigment
+0752	Gemeten in samenwerking met Mettler Toledo
+0753	L* helderheid
+0754	a* groen–rood
+0755	b* blauw–geel
+0756	Pigmentniveau
+0757	Spijsolie in chocolade
+0758	Joodgetal inline gemeten met een 3-A hygiënische sonde.
+0759	In chocolade en voedingsmiddelen met chocoladesmaak kan spijsolie een deel van de cacaoboter vervangen. De vetzuursamenstelling bepaalt romigheid, textuur, viscositeit en houdbaarheid.
+0760	Joodgetal
+0761	Het joodgetal geeft aan hoeveel gram jood 100 g vet opneemt, wat de onverzadigde vetzuren weerspiegelt. Olie met een laag joodgetal is grotendeels verzadigd en maakt chocolade hard bij kamertemperatuur; een hoge waarde houdt smeerpasta's romig.
+0762	Voordat het de cacaomassa bereikt
+0763	Labmonsters kosten tijd en geschoold personeel, en het proces loopt door terwijl de resultaten op zich laten wachten. De apparatuur moet ook voldoen aan strenge hygiëneregels en mag het product niet beïnvloeden.
+0764	Een Excalibur HY 25 (3-A) hygiënische dompelsonde is via vezel verbonden met een VIS-NIR-diodearrayspectrometer. Het chemometrische model gebruikt het hele spectrum, wat het robuust maakt. Monsters clusteren bij joodgetallen tussen 30 en 60, en spectra die op uitschieters lijken, blijven in het model omdat ze procesinformatie bevatten.
+0765	Realtime waarden gaan direct naar het procesbesturingssysteem, recepten worden gehaald, ingrediënten optimaal benut, en het systeem kan met meer parameters worden uitgebreid.
+0766	NIR-spectra van spijsolie van een VIS-NIR-diodearrayspectrometer.
+0767	Kalibratie: NIR-voorspelling tegenover het referentiejoodgetal.
+0768	Joodgetallen van de kalibratiemonsters.
+0769	Melk: van ontvangst tot recombinatie
+0770	Vet, eiwit, water en lactose, gemeten met een 3-A-sonde.
+0771	Rauwe melk verandert met het seizoen, de regio en zelfs van koe tot koe. Zuivelbedrijven controleren haar bij aflevering, scheiden haar in room en magere melk, en voegen die weer samen tot het exacte vetgehalte dat elk product nodig heeft.
+0772	Hygiëne voorop
+0773	In de VS moet melkverwerking voldoen aan de 3-A-sanitaire normen, en de Europese EHEDG-richtlijnen bouwen daarop voort. Instrumenten die met het product in contact komen, moeten besmetting en kruisbesmetting uitsluiten, en kostbare ingrediënten zoals vet en eiwit moeten nauwkeurig worden gedoseerd.
+0774	Excalibur HY 25 (3-A) hygiënische dompelsondes, gekoppeld aan een FT-NIR-spectrometer, melden vet, eiwit, water en lactose vanaf meerdere sleutelposities met korte tussenpozen aan het procesbesturingssysteem. Afwijkingen worden binnen minuten gecorrigeerd in plaats van te wachten op het lab.
+0775	Waarom deze sonde
+0776	Hij mag direct met het product in contact komen, is 3-A-gecertificeerd en wordt ter plaatse gereinigd en gesteriliseerd (CIP en SIP) zonder de productie stil te leggen. Zijn nauwkeurige weglengte maakt resultaten reproduceerbaar en methoden eenvoudig overdraagbaar tussen sondes en meetpunten.
+0777	Meer dan zuivel
+0778	Dezelfde opstelling meet onverzadigde vetzuren, suiker in sappen en vitaminen of concentraten in andere voedings- en farmaceutische processen.
+0779	Hygiënische sonde in een zuivellijn.
+0780	Vet
+0781	Eiwit
+0783	Een inlinemodel controleert de verhouding yoghurt-fruit vóór het afvullen.
+0784	Schwarzwaldmilch
+0785	De zuivelfabriek Schwarzwaldmilch in Freiburg controleert elke vruchtenyoghurt opnieuw nadat de vruchtenbereiding is toegevoegd en vóór het afvullen. De verhouding yoghurt-fruit bepaalt de smaak, het gedeclareerde minimale fruitgehalte en de ingrediëntkosten.
+0786	Waarom het varieert
+0787	Fruitsuiker verandert met ras en rijpheid, en vruchtenbereidingen veranderen tijdens opslag. Wissels van verpakking en het stoppen en starten van pompen verschuiven de mengverhouding.
+0788	Steekproeven werden in het lab gecontroleerd via de Brix-waarde (brekingsindex). Dat is traag, en als maat voor het fruitgehalte onbetrouwbaar, wat tot verspilling kan leiden.
+0789	Het model bouwen
+0790	Hellma Solutions mat over een langere periode productmonsters in het Hellma-applicatielab en bouwde kalibratiemodellen voor de verschillende vruchtenyoghurts. De modellen werden daarna op een spectrometer gezet en in meerdere stappen in het proces gebracht.
+0791	Inline gemeten
+0792	Door de optische eigenschappen van yoghurt past een reflectiemeting het best. Een Gladius XP-reflectiesonde, hygiënisch genoeg voor voedselproductie, meet de yoghurt in de lijn. Door het model in de loop van de tijd bij te werken, volgt het het proces steeds gedetailleerder.
+0793	Fruitgehalte in de tijd: de start van de productie, een systeemstop en een verpakkingswissel zijn direct zichtbaar.
+0794	De installatie bij Schwarzwaldmilch.
+0795	Van labanalyse via kalibratiemodel naar procesregeling.
+0796	Verhouding yoghurt-fruit
+0797	Whisky die in het vat rijpt
+0798	Meet wat het hout toevoegt, direct in het vat.
+0799	Hout dat in de drank oplost, voegt verontreinigingen toe die in het UV-Vis-signaal zichtbaar worden.
+0800	Ter plekke gemeten
+0801	De concentratie van die verontreinigingen kan direct in het vat worden gemeten.
+0802	Verontreinigingen uit opgelost hout
+0803	Fruit sorteren
+0804	Licht dat door het fruit wordt verstrooid, onthult wat het oog niet ziet.
+0805	Licht dat door het fruit wordt verstrooid, vertelt een sorteermachine iets over de binnenkant én de oppervlakte.
+0806	Eén scan, vijf antwoorden
+0807	Het verstrooide licht bepaalt suikergehalte, kneuzingen, uitdroging, zuurgraad en plantenziekten.
+0808	Suiker
+0809	Kneuzingen
+0810	Uitdroging
+0811	Zuurgraad
+0812	Plantenziekten
+0813	Landbouw en zuivel
+0814	Vocht, eiwit, zetmeel, as, vetten en suikers.
+0815	NIR meet de samenstelling van gewassen en zuivelproducten snel, zonder chemicaliën.
+0816	Precisielandbouw
+0817	Vocht, eiwit, zetmeel en as.
+0818	Zuivel
+0819	Vetten en suikers.
+0820	Zetmeel
+0821	As
+0822	Vetten
+0823	Suikers
+0824	Bewaking van water en afvalwater
+0825	Nitraten, sulfaten, H₂S en verontreinigingen.
+0826	UV-Vis bewaakt opgeloste nitraten, sulfaten en H₂S. Fluorescentie spoort verontreinigingen in afvalwater op.
+0827	Nitraten
+0828	Sulfaten
+0829	Verontreinigingen (fluorescentie)
+0830	Met Hellma voert u moleculaire spectroscopie uit in het laboratorium en in het proces, efficiënt en op het hoogste niveau.
+0831	Opgericht
+0832	Medewerkers
+0833	Productielocaties
+0834	Verkoopdochters
+0835	Generatie familiebezit
+0836	Müllheim, Duitsland
+0837	Hellma GmbH & Co. KG
+0838	Analytics en Solutions
+0839	Jena en Eisenach, Duitsland
+0840	Hellma Materials GmbH
+0841	Fotonica
+0842	Trollhättan, Zweden
+0843	Hellma Materials Sweden AB
+0844	New Iberia, Louisiana, VS
+0845	CVD Ceramics Inc.
+0846	Duitsland
+0847	Benelux
+0848	Frankrijk
+0849	Italië
+0850	Zwitserland
+0851	Verenigd Koninkrijk
+0852	Azië
+0853	VS / Canada
+0854	Informatie aanvragen
+0855	Laat uw gegevens achter, dan neemt ons team na de beurs contact met u op.
+0856	Excalibur-transmissiesondes en -doorstroomcellen
+0857	Falcata-transflectiesondes
+0858	Katana-ATR-sondes
+0859	Gladius-reflectiesondes
+0860	Sondes voor polymeerextruders
+0861	Espada-fluorescentiesondes
+0862	Tidus-Ramansondes
+0863	Spectroscopische sensoren (NIR, MIR)
+0864	Ontwikkeling van maatwerkoplossingen
+0865	PAT-advies, haalbaarheid en chemometrie
+0866	Hulp bij een toepassing
+0867	Datasheet
+0868	Offerte
+0869	Telefoontje van een specialist
+0870	Haalbaarheidsstudie
+0871	Bezoek of demo
+0872	{territory} mag contact met mij opnemen over deze aanvraag.
+0873	Uw gegevens worden alleen op dit apparaat opgeslagen tot ons team ze na de beurs ophaalt.
+0874	(dichroïsch)
+0875	* Verplicht
+0876	0–0,2 %  ·  alleen Raman
+0877	Weglengte 1 mm
+0878	Eerste boventonen
+0879	Tweede boventonen
+0880	Derde boventonen
+0881	= weglengte
+0882	ATEX-zone
+0883	ATR-principe
+0884	ATR: het licht wordt drie keer gereflecteerd in een saffierelement dat in contact staat met het medium
+0885	Absorbantie
+0886	Aceton
+0887	UV-spectra van aceton en tolueen
+0888	Zuren, esters
+0889	Acrylzuur
+0890	Voordelen
+0891	Na: online
+0892	Alcoholen
+0893	Alle toepassingen
+0894	Amiden
+0895	Aminen
+0896	Alle
+0897	Toepassingen ·
+0898	Benaderde posities van NIR-banden per functionele groep
+0899	Benaderde Ramanverschuivingen van aardgascomponenten
+0902	Aromatisch C–H
+0904	Automatische cyclus
+0905	Terug
+0906	De batch wacht op het resultaat
+0907	Bundelsplitser
+0908	Voor: offline
+0909	Bioprocessen
+0910	Blauw monster
+0911	Beide
+0912	Ceramat en Sensogate
+0913	Onderste spiegel
+0914	Per industrie
+0915	Per techniek
+0919	Kalibratie, externe validatie en hervalidatie in de tijd
+0920	Carbonyl, aldehyde
+0921	Koolstof–koolstof
+0922	Praktijkvoorbeeld
+0923	Praktijkvoorbeeld ·
+0924	Praktijkvoorbeeld · Hellma Solutions
+0925	Ceramat en Sensogate
+0926	Uitdagingen
+0927	Typisch mengsel. O₂ en N₂ zijn alleen zichtbaar voor Raman.
+0928	Plaats, staat of land
+0929	Reinig, kalibreer en wissel sondes terwijl het proces doorloopt
+0930	Alle filters wissen
+0931	Collectievezel
+0932	Verzameltank
+0933	Kleur
+0934	Combinaties
+0935	Bedrijf
+0936	Aansluitingen
+0937	Contact of
+0938	Controlekamer
+0939	Maatwerk
+0940	Op maat gebouwd
+0941	Maatwerkontwikkeling
+0942	Klant: AkzoNobel
+0943	Klant: IOI Oleo
+0944	Klant: Sartorius
+0945	Klant: Schwarzwaldmilch
+0946	Klant: Versalis
+0947	Diffuse reflectie
+0948	Directe terugverstrooiing:
+0949	Bespreek een vergelijkbare toepassing
+0950	Bespreek uw toepassing
+0951	Destillatie
+0952	Gereed
+0953	E-mail
+0954	Emissie
+0955	Vergroten
+0956	Espada-sondes
+0959	Evanescent veld bij
+0960	Elke Hellma-sonde stuurt licht het proces in en terug naar de spectrometer. Wat verschilt, is de weg die het licht aflegt.
+0961	Voorbeelden
+0962	Excalibur-sondes
+0965	Excitatie- en emissiespectra
+0966	Excitatievezel
+0967	Falcata-sondes
+0970	Haalbaarheid, modellen, integratie
+0971	Filter blokkeert
+0972	Filteren met de sondezoeker
+0973	Voornaam
+0974	Doorstroomcel in de ATEX-zone, spectrometer erbuiten
+0975	Fluorescentieprincipe
+0976	Fluorescentie: een spiegel buigt de excitatie door de spleet en een tweede spiegel stuurt haar terug; de emissie wordt onder een rechte hoek opgevangen, en een onderste spiegel kaatst neerwaartse emissie terug naar de vezel
+0977	Meetvlek
+0978	Voor Excalibur HD
+0979	Van grondstof tot complete oplossing
+0980	Gladius-sondes
+0986	Hellma wereldwijd
+0987	Maximale waarden met gelaste afdichtingen
+0988	Start
+0989	Zo werkt ATR
+0990	Zo werkt fluorescentie
+0991	Zo werkt het
+0992	Zo werkt Raman
+0993	Zo werkt reflectie
+0994	Hoe het licht uw monster bereikt
+0995	Zo werkt transflectie
+0996	Zo werkt transmissie
+0997	Ik heb interesse in
+0998	Verlichtingsvezels
+0999	Industrie
+1000	Installatie
+1001	Intensiteit
+1002	Functie
+1003	Katana-sondes
+1006	Verder verkennen
+1007	Lab
+1009	Laser
+1010	Achternaam
+1011	Licht doorkruist
+1012	Kies de sonde voor uw proces
+1013	Max. druk
+1014	Max. temperatuur
+1015	Meetprincipe
+1016	Meetprincipes ·
+1017	Meetspleet
+1018	Meetpositie
+1019	Medium, temperatuur, druk, wat u wilt meten
+1020	Methyn
+1021	Methyl
+1022	Methyleen
+1023	Melk
+1024	Spiegel
+1025	Spiegel stuurt
+1026	Spiegel buigt
+1028	Moleculaire spectroscopie, in het lab en in het proces
+1029	Meer fluorescentietoepassingen
+1030	Meer NIR-/MIR-toepassingen
+1031	Meer Ramantoepassingen
+1032	Meer UV-Vis-toepassingen
+1033	Multiplexer
+1034	Multiplexer die tussen vier meetpunten schakelt
+1035	NIR-absorptie van aardgas
+1036	Samenstellingsbereiken van aardgas
+1037	Niet-ATEX-zone
+1038	Twijfelt u? Bekijk hoe elk principe werkt
+1039	Offline labmonster versus online meting op de verzameltank
+1040	Meetposities offline, atline, online en inline
+1041	Offline: monster naar het lab
+1042	Online: Excalibur-doorstroomcel
+1043	Glasvezel door de wand
+1044	Optische vezels
+1045	Overzicht
+1046	PAT van de eerste vraag tot service
+1049	PRM voor Excalibur HD
+1050	Onderdelen
+1051	Fenolen
+1052	Telefoon
+1053	Punt 1
+1054	Punt 2
+1055	Punt 3
+1056	Punt 4
+1057	Extrudersondes ·
+1059	Prisma buigt licht om
+1061	Sonde in een vat of leiding
+1062	Aanbevolen sondes en principes
+1063	Sondes in dit voorbeeld
+1064	Aanbevolen sondes
+1065	Procesdruk tot
+1066	Processpectroscopie
+1067	Procestemperatuur tot
+1068	Productielijn
+1069	Projectstappen
+1070	Zuivering
+1074	Ramanlicht naar
+1075	Ramanprincipe
+1076	Ramanverschuiving (cm⁻¹)
+1077	Raman: laserlicht en Ramansignaal volgen hetzelfde pad naar het monster en terug (directe terugverstrooiing); een bundelsplitser en een filter scheiden ze
+1078	De waarden zijn maxima per model; sommige vereisen gelaste afdichtingen.
+1079	Lezen
+1080	Realtime vrijgave van batches
+1081	Reflectieprincipe
+1082	Reflectie: licht uit de buitenste vezels wordt op het monster gefocust; de centrale vezel vangt het diffuus gereflecteerde licht op
+1083	Aanvraag verzonden
+1084	Resultaten
+1085	Wisselarmaturen ·
+1087	Monster in de
+1088	ATR-element van saffier
+1089	Fluorescentie van scheeliet
+1090	Bekijk de praktijkvoorbeelden
+1091	Aanvraag verzenden
+1092	Sensoren
+1093	Diensten
+1094	Snelheid van het resultaat
+1095	Sproeidrogen
+1096	Start
+1097	TCP/IP · veldbus
+1098	Tik op de tekening om te vergroten
+1099	Vertel ons over uw proces (optioneel)
+1100	Vertel ons over uw proces. Sondes en doorstroomcellen die het niet aankunnen, vallen af.
+1102	Temperatuur- en drukwaarden op aanvraag
+1103	De afdichting bepaalt wat een sonde aankan
+1104	Thiolen
+1105	Tidus-sondes
+1108	Tolueen
+1109	Tik om te verkennen
+1110	Transflectie vereiste een miljoenvoudige verdunning; ATR blijft binnen bereik
+1111	Transflectieprincipe
+1112	Transflectie: het licht doorkruist de spleet, wordt door een spiegel teruggekaatst en doorkruist haar opnieuw
+1113	Transmissieprincipe
+1114	Transmissie: het licht doorkruist de meetspleet één keer
+1116	Tot 16 punten, één spectrometer
+1117	Gebruikt in
+1118	Golflengte (nm)
+1119	Gelaste metalen afdichting, explosietekening
+1120	Gelaste metalen afdichting, doorsnede
+1121	Wat wordt gemeten
+1122	Waar zou u mee geholpen zijn?
+1123	Waar Hellma-sondes meten
+1124	Venster
+1125	Werkt met
+1126	Geel monster
+1127	Uw aanvraag is opgeslagen. Ons team neemt na de beurs contact met u op.
+1128	blauw
+1129	bypasslus
+1130	concentratie
+1131	maatwerk
+1132	donker
+1133	1 : 1.000.000 verdunnen
+1134	elk van de 3 reflecties
+1135	buiten bereik
+1136	doorstroomcel
+1137	groen
+1138	koolwaterstoffen
+1139	binnen bereik
+1140	in de stroom
+1141	licht
+1142	meetspleet
+1143	gefocust
+1144	naast de lijn
+1145	een gedeeld pad
+1146	overig
+1147	rood
+1148	kaatst emissie terug
+1149	monster naar het lab
+1150	de spleet twee keer
+1151	de laserlijn
+1152	licht terug
+1153	licht 90° af
+1154	de spectrometer
+1155	tijd
+1156	minimale indringing
+1157	bruikbaar
+1158	met gelaste afdichtingen
+1159	geel
+1160	“In het kader van de goede samenwerking met Hellma zijn we erin geslaagd om samen en iteratief een optische kerncomponent voor sensoren te ontwikkelen, van het eerste ontwerp tot serieproductie, onder de hoogste kwaliteitseisen.”
+1161	{territory} opgericht
+1162	Uw contactpersoon bij {territory}
+1163	Bedankt, {name}.
+1164	Stap {n} van {total}
+1165	{n} voorbeeld
+1166	{n} voorbeelden
+1167	Alle {n} sondes en doorstroomcellen
+1168	{n} van {total} komen overeen
+1169	Kantoor
+1176	Dompelsonde
+1177	Hygiënische dompelsonde
+1178	Fluorescentie-dompelsonde
+1179	Raman-processonde
+1180	Ramansonde
+1181	Doorstroomcel
+1182	Sonde
+1183	Op maat gebouwd sondepaar
+1184	Transmissie
+1185	Transflectie
+1186	Reflectie
+1187	Fluorescentie
+1188	Elastomeerafdichtingen (O-ringen)
+1189	Hardsolderen met goud- of zilverlegering
+1192	FMX-multiplexer
+1193	Double side: lamplicht en het signaal dat van de sonde naar de detector terugkeert, worden tegelijk geschakeld.
+1194	Maatwerkoplossingen
+1195	Technologische aanpassing
+1196	PAT-advies
+1197	Haalbaarheidsstudies
+1198	Chemometrische service
+1199	Integratie van oplossingen
+1200	Spectroscopische sensoren
+1205	Procesbegrip
+1206	Kwaliteitscontrole
+1207	Lagere productiekosten
+1208	Snellere ontwikkeling
+1209	Continue productie
+1210	Naleving van regelgeving
+1211	Risicobeperking
+1212	Storingen
+1213	Procescomplexiteit
+1214	Methodekeuze
+1215	Kosten en investering
+1216	Veiligheid en compliance
+1217	Haalbaarheid
+1220	Protocollen voor dataverbinding
+1221	Modelontwikkeling
+1222	Externe validatie
+1223	Hervalidatie
+1224	Training
+1225	Service
+1226	Kwalificatie
+1227	Gebruikerseisenspecificatie (URS)
+1228	Ontwerpspecificatie (DS)
+1229	Ontwerpkwalificatie (DQ)
+1230	Fabrieksacceptatietest (FAT)
+1231	Locatieacceptatietest (SAT)
+1232	Installatiekwalificatie (IQ)
+1233	Operationele kwalificatie (OQ)
+1234	Prestatiekwalificatie (PQ)
+1235	Farma
+1236	Biotechnologie
+1237	Chemie
+1238	Olie, gas en petrochemie
+1239	Polymeren
+1240	Verven en coatings
+1241	Voeding
+1242	Dranken
+1243	Landbouw
+1244	Water en afvalwater
+1245	Grondstoffen
+1246	Componenten
+1247	Lab- en processpectroscopie
+1248	Spectroscopische oplossingen
+1249	tot 100 mm
+1250	onder 90°
