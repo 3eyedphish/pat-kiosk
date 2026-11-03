@@ -12,7 +12,7 @@
 window.KIOSK = {
   meta: {
     title: "Hellma Process Analytics",
-    version: "0.6.1 (portrait layout fix)",
+    version: "0.7.0 (localization settings)",
     source: "20250428_HellmaUSA_PAT.pptx; HellmaUSA_2025_Applications_for_CPACT_webinar.pptx; 661.920 information sheet",
   },
 
@@ -1142,10 +1142,6 @@ window.KIOSK = {
       { n: "8", l: "Sales subsidiaries" },
       { n: "3rd", l: "Generation family ownership" },
     ],
-    usa: [
-      { n: "1963", l: "Hellma USA founded" },
-      { n: "Plainview, NY", l: "Office" },
-    ],
     sites: [
       { place: "Müllheim, Germany", co: "Hellma GmbH & Co. KG", area: "Analytics and Solutions" },
       { place: "Jena & Eisenach, Germany", co: "Hellma Materials GmbH", area: "Photonics" },
@@ -1159,6 +1155,17 @@ window.KIOSK = {
       { name: "Laboratory & process spectroscopy", img: "C4" },
       { name: "Spectroscopy solutions", img: "P13" },
     ],
+  },
+
+  /* ---------- Localization ----------
+   * Defaults for the subsidiary running the kiosk. Staff can override every value on the iPad
+   * (staff panel > Localization); overrides are saved on that device only.
+   * {territory} in any text below is replaced with the subsidiary name.
+   */
+  locale: {
+    territory: "Hellma USA",
+    founded: "1963",
+    office: "Plainview, NY",
   },
 
   contact: {
@@ -1189,7 +1196,7 @@ window.KIOSK = {
       { id: "applications", label: "Help with an application" },
     ],
     requests: ["Datasheet", "Quotation", "Call from a specialist", "Feasibility study", "Visit or demo"],
-    consent: "Hellma USA may contact me about this request.",
+    consent: "{territory} may contact me about this request.",
     privacy: "Your details are stored on this device only until our team collects them after the show.",
   },
 };

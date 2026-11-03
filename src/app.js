@@ -61,6 +61,22 @@
   var settings = Object.assign({ pin: C.settings.defaultPin, idle: C.settings.idleSeconds, event: "", review: false, motion: "always" }, LS.get("hk.settings", {}));
   function saveSettings() { return LS.set("hk.settings", settings); }
 
+  /* Localization: each subsidiary sets its own name, contact and office on the iPad. Saved on this device only. */
+  var LOC_FIELDS = [
+    ["territory", "Subsidiary name", "e.g. Hellma UK"],
+    ["name", "Contact name", "e.g. Jane Smith"], ["role", "Contact title", "e.g. Technical Sales Manager"],
+    ["phone", "Contact phone", "e.g. +44 1234 567890"], ["email", "Contact email", "e.g. jane.smith@hellma.com"],
+    ["web", "Website", "e.g. www.hellma.com"],
+    ["founded", "Year founded (empty hides it)", "e.g. 1963"], ["office", "Office location (empty hides it)", "e.g. Southend-on-Sea, UK"],
+  ];
+  function locDefaults() {
+    var d = C.locale || {}, c = C.contact || {};
+    return { territory: d.territory || "Hellma", name: c.name || "", role: c.role || "", phone: c.phone || "", email: c.email || "", web: c.web || "", founded: d.founded || "", office: d.office || "" };
+  }
+  var loc = Object.assign(locDefaults(), LS.get("hk.locale", {}));
+  if (!loc.territory) loc.territory = locDefaults().territory;
+  function tx(t) { return String(t == null ? "" : t).replace(/\{territory\}/g, loc.territory); }
+
   /* ---------------- Home Screen web app support ---------------- */
   var PWA = { reg: null, updateReady: false };
   function standalone() { return (window.matchMedia && matchMedia("(display-mode: standalone)").matches) || window.navigator.standalone === true; }
@@ -823,18 +839,24 @@
 
   SCREENS.about = function () {
     var X = C.about;
+    var localStats = [{ n: loc.founded, l: loc.territory + " founded" }, { n: loc.office, l: "Office" }].filter(function (s) { return s.n; });
     return {
       crumb: crumb("About Hellma"),
       html: banner("About Hellma", "Molecular spectroscopy, in the lab and in the process", esc(X.promise)) + note(X.check) +
         '<section style="display:grid;gap:.8rem"><div class="eyebrow">Hellma worldwide</div><div class="stats">' + X.group.map(function (s) { return '<div class="stat"><span class="n">' + esc(s.n) + '</span><span class="l">' + esc(s.l) + "</span></div>"; }).join("") + "</div></section>" +
         '<section style="display:grid;gap:.8rem"><div class="eyebrow">From raw material to complete solution</div><div class="chain">' + X.chain.map(function (c) { return '<div><div class="ph">' + (isPhoto(c.img) ? img(c.img, c.name) : stage(c.img, "", c.name)) + '</div><b style="font-weight:500">' + esc(c.name) + "</b></div>"; }).join("") + "</div></section>" +
         '<div class="cols2" style="align-items:start"><section class="panel"><div class="eyebrow">Production sites</div><div class="sites">' + X.sites.map(function (s) { return "<div><b>" + esc(s.place) + '</b><span class="muted small">' + esc(s.co) + " · " + esc(s.area) + "</span></div>"; }).join("") + "</div></section>" +
-        '<section class="panel sky"><div class="eyebrow">Hellma USA</div><div class="row" style="gap:2rem">' + X.usa.map(function (s) { return '<div class="stat"><span class="n" style="font-size:2rem">' + esc(s.n) + '</span><span class="l">' + esc(s.l) + "</span></div>"; }).join("") + "</div>" +
+        '<section class="panel sky"><div class="eyebrow">' + esc(loc.territory) + '</div>' + (localStats.length ? '<div class="row" style="gap:2rem">' + localStats.map(function (s) { return '<div class="stat"><span class="n" style="font-size:2rem">' + esc(s.n) + '</span><span class="l">' + esc(s.l) + "</span></div>"; }).join("") + "</div>" : "") +
         '<div class="eyebrow" style="color:var(--grey-7)">Sales subsidiaries</div><div class="row" style="gap:.4rem">' + X.subsidiaries.map(function (s) { return '<span class="tag">' + esc(s) + "</span>"; }).join("") + "</div></section></div>",
     };
   };
 
   /* ---------------- Lead form ---------------- */
+  /* The contact card uses the content defaults (with their review notes) until staff change it on the iPad */
+  function localContact() {
+    var d = locDefaults(), same = ["name", "role", "phone", "email", "web"].every(function (k) { return loc[k] === d[k]; });
+    return same ? C.contact : { name: loc.name, role: loc.role, phone: loc.phone, email: loc.email, web: loc.web };
+  }
   var FIELDS = [
     ["first", "First name", true, "given-name"], ["last", "Last name", true, "family-name"],
     ["company", "Company", true, "organization"], ["title", "Job title", false, "organization-title"],
@@ -866,7 +888,7 @@
   }
   SCREENS.contact = function () {
     if (!S.form) S.form = { v: {}, interests: contextInterests(), requests: [], consent: false };
-    var F = S.form, L = C.leadForm, ct = C.contact;
+    var F = S.form, L = C.leadForm, ct = localContact();
     var fields = FIELDS.map(function (f) {
       return '<div class="field' + (f[0] === "loc" ? " full" : "") + '" data-field="' + f[0] + '"><label for="f-' + f[0] + '">' + esc(f[1]) + (f[2] ? " <b>*</b>" : "") + "</label>" +
         '<input id="f-' + f[0] + '" name="' + f[0] + '" type="' + (f[0] === "email" ? "email" : f[0] === "phone" ? "tel" : "text") + '" autocomplete="off" autocorrect="off" spellcheck="false" ' + (f[0] === "email" ? 'autocapitalize="off" inputmode="email"' : 'autocapitalize="words"') + ' value="' + esc(F.v[f[0]] || "") + '"><span class="msg"></span></div>';
@@ -875,12 +897,13 @@
     var reqs = '<div class="field full"><span class="lab">What would help?</span><div class="row" style="gap:.45rem">' + L.requests.map(function (r) { return '<button class="chip" type="button" data-rq="' + esc(r) + '" aria-pressed="' + (F.requests.indexOf(r) >= 0) + '">' + esc(r) + "</button>"; }).join("") + "</div></div>";
     return {
       crumb: crumb("Request information"), noCta: true,
-      html: pageHead("Hellma USA", L.title, esc(L.sub)) +
+      html: pageHead(loc.territory, L.title, esc(L.sub)) +
         '<form class="form" id="lead" novalidate autocomplete="off">' + fields + ints + reqs +
         '<div class="field full"><label for="f-msg">Tell us about your process (optional)</label><textarea id="f-msg" name="msg" placeholder="Medium, temperature, pressure, what you want to measure">' + esc(F.v.msg || "") + "</textarea></div>" +
-        '<div class="field full"><button class="check" type="button" id="f-consent" role="checkbox" aria-checked="' + F.consent + '"><span class="box">' + I.check + "</span><span>" + esc(L.consent) + '<br><span class="muted small">' + esc(L.privacy) + '</span></span></button><span class="msg" id="consent-msg"></span></div>' +
+        '<div class="field full"><button class="check" type="button" id="f-consent" role="checkbox" aria-checked="' + F.consent + '"><span class="box">' + I.check + "</span><span>" + esc(tx(L.consent)) + '<br><span class="muted small">' + esc(L.privacy) + '</span></span></button><span class="msg" id="consent-msg"></span></div>' +
         '<div class="field full"><div class="row"><button class="btn primary" type="submit" style="min-width:14rem">' + I.mail + 'Send request</button><span class="muted small">* Required</span></div></div></form>' +
-        '<section class="panel sky" style="max-width:34rem"><div class="eyebrow">Your contact at Hellma USA</div><h2 class="h3">' + esc(ct.name) + '</h2><p class="muted">' + esc(ct.role) + "</p><p>" + esc(ct.phone) + "<br>" + esc(ct.email) + "<br>" + esc(ct.web) + "</p>" + note(ct.check) + "</section>",
+        (ct.name || ct.phone || ct.email || ct.web ? '<section class="panel sky" style="max-width:34rem"><div class="eyebrow">Your contact at ' + esc(loc.territory) + "</div>" + (ct.name ? '<h2 class="h3">' + esc(ct.name) + "</h2>" : "") + (ct.role ? '<p class="muted">' + esc(ct.role) + "</p>" : "") +
+          "<p>" + [ct.phone, ct.email, ct.web].filter(Boolean).map(esc).join("<br>") + "</p>" + (ct === C.contact ? note(ct.check) : "") + "</section>" : ""),
       init: function (root) {
         var form = $("#lead", root);
         $$("input, textarea", form).forEach(function (el) {
@@ -904,7 +927,7 @@
           if (bad) { bad.scrollIntoView({ block: "center", behavior: "smooth" }); return; }
           var v = {}; FIELDS.forEach(function (f) { v[f[0]] = ($("#f-" + f[0], form).value || "").trim(); });
           var lead = {
-            id: Date.now().toString(36) + Math.random().toString(36).slice(2, 7), ts: Date.now(), event: settings.event || "",
+            id: Date.now().toString(36) + Math.random().toString(36).slice(2, 7), ts: Date.now(), event: settings.event || "", territory: loc.territory,
             first: v.first, last: v.last, company: v.company, title: v.title, email: v.email, phone: v.phone, location: v.loc,
             interests: F.interests.map(function (k) { var o = C.leadForm.interests.filter(function (i) { return i.id === k; })[0]; return o ? o.label : k; }),
             requests: F.requests.slice(), message: ($("#f-msg", form).value || "").trim(), consent: true, viewed: S.viewed.slice(),
@@ -1016,13 +1039,13 @@
   }
 
   function csvOf(leads) {
-    var cols = ["Date", "Time", "Event", "First name", "Last name", "Company", "Job title", "Email", "Phone", "Location", "Interested in", "Requests", "Message", "Products viewed", "Consent"];
+    var cols = ["Date", "Time", "Event", "Subsidiary", "First name", "Last name", "Company", "Job title", "Email", "Phone", "Location", "Interested in", "Requests", "Message", "Products viewed", "Consent"];
     function q(v) { v = String(v == null ? "" : v); return /[",\n;]/.test(v) ? '"' + v.replace(/"/g, '""') + '"' : v; }
     var rows = leads.slice().sort(function (a, b) { return a.ts - b.ts; }).map(function (l) {
       var d = new Date(l.ts);
       var date = d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0");
       var time = String(d.getHours()).padStart(2, "0") + ":" + String(d.getMinutes()).padStart(2, "0");
-      return [date, time, l.event, l.first, l.last, l.company, l.title, l.email, l.phone, l.location, (l.interests || []).join("; "), (l.requests || []).join("; "), l.message, (l.viewed || []).join("; "), l.consent ? "Yes" : "No"].map(q).join(",");
+      return [date, time, l.event, l.territory || "", l.first, l.last, l.company, l.title, l.email, l.phone, l.location, (l.interests || []).join("; "), (l.requests || []).join("; "), l.message, (l.viewed || []).join("; "), l.consent ? "Yes" : "No"].map(q).join(",");
     });
     return "﻿" + cols.join(",") + "\n" + rows.join("\n") + "\n";
   }
@@ -1076,6 +1099,9 @@
         '<div class="field"><span class="lab">Review mode</span><button class="check" type="button" id="st-review" role="checkbox" aria-checked="' + settings.review + '"><span class="box">' + I.check + "</span><span>Highlight values to confirm (" + checks.length + ")</span></button></div>" +
         '<div class="field"><span class="lab">Animation</span><button class="check" type="button" id="st-motion" role="checkbox" aria-checked="' + (settings.motion === "always") + '"><span class="box">' + I.check + "</span><span>Animate diagrams even when the iPad's Reduce Motion is on</span></button></div>" +
         '</div><div class="row"><button class="btn primary" type="button" id="st-save">Save settings</button><button class="btn" type="button" id="st-attract">Start attract screen</button></div></section>' +
+        '<section class="panel" id="st-loc"><h2 class="h3">Localization</h2><p class="muted small">For subsidiaries using this kiosk: set your own point of contact, and the subsidiary name that replaces \u201cHellma USA\u201d on the request form, consent text and About page. Saved on this iPad only.</p><div class="cols2">' +
+        LOC_FIELDS.map(function (f) { return '<label class="field"><span class="lab">' + esc(f[1]) + '</span><input type="text" id="st-loc-' + f[0] + '" value="' + esc(loc[f[0]]) + '" placeholder="' + esc(f[2]) + '" autocomplete="off" autocorrect="off" spellcheck="false"' + (f[0] === "email" || f[0] === "web" ? ' autocapitalize="off"' : "") + (f[0] === "email" ? ' inputmode="email"' : f[0] === "phone" ? ' inputmode="tel"' : "") + "></label>"; }).join("") +
+        '</div><div class="row"><button class="btn primary" type="button" id="st-loc-save">Save localization</button><button class="btn" type="button" id="st-loc-reset">Reset to ' + esc(locDefaults().territory) + " defaults</button></div></section>" +
         '<section class="panel"><h2 class="h3">This iPad</h2><div class="cols3">' +
         '<div class="stat"><span class="l">Opened as</span><span class="n" style="font-size:1.15rem">' + (standalone() ? "Home Screen app" : "Browser tab") + "</span></div>" +
         '<div class="stat"><span class="l">Offline</span><span class="n" style="font-size:1.15rem" id="st-offline">Checking…</span></div>' +
@@ -1108,6 +1134,20 @@
         navigator.share({ files: [file], title: "Hellma kiosk leads" }).catch(function (e) { if (e && e.name !== "AbortError") toast("Sharing didn't work here. Use Copy CSV instead."); });
       };
       $("#st-close", st).onclick = function () { st.hidden = true; };
+      function refreshScreen() { if (!$("#shell").hidden && S.stack.length) render(S.stack[S.stack.length - 1], {}); }
+      $("#st-loc-save", st).onclick = function () {
+        var next = {}; LOC_FIELDS.forEach(function (f) { next[f[0]] = $("#st-loc-" + f[0], st).value.trim(); });
+        if (!next.territory) { toast("Enter a subsidiary name, for example Hellma UK."); $("#st-loc-territory", st).focus(); return; }
+        if (next.email && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(next.email)) { toast("Check the contact email address."); $("#st-loc-email", st).focus(); return; }
+        Object.assign(loc, next);
+        var ok = LS.set("hk.locale", loc); refreshScreen();
+        toast(ok ? "Localization saved on this iPad." : "Couldn't save on this iPad. Storage may be full or blocked.");
+      };
+      $("#st-loc-reset", st).onclick = function () {
+        LS.del("hk.locale"); Object.assign(loc, locDefaults());
+        LOC_FIELDS.forEach(function (f) { $("#st-loc-" + f[0], st).value = loc[f[0]]; });
+        refreshScreen(); toast("Localization reset to " + loc.territory + " defaults.");
+      };
       $("#st-attract", st).onclick = function () { st.hidden = true; go("attract"); };
       $("#st-motion", st).onclick = function () { var b = $("#st-motion", st), on = b.getAttribute("aria-checked") !== "true"; b.setAttribute("aria-checked", on); settings.motion = on ? "always" : "system"; saveSettings(); document.body.classList.toggle("motion-always", on); };
       $("#st-review", st).onclick = function () { var b = $("#st-review", st), on = b.getAttribute("aria-checked") !== "true"; b.setAttribute("aria-checked", on); settings.review = on; saveSettings(); document.body.classList.toggle("review", on); };
@@ -1160,5 +1200,5 @@
   Store.init().then(function () { });
   var start = (location.hash || "").replace(/^#/, "");
   if (start && /^[a-z]/.test(start) && SCREENS[start.split("/")[0]]) go(start.replace(/~/g, "/")); else showAttract();
-  window.KIOSK_APP = { go: go, store: Store, settings: settings, openStaff: openStaff };
+  window.KIOSK_APP = { go: go, store: Store, settings: settings, locale: loc, openStaff: openStaff };
 })();
