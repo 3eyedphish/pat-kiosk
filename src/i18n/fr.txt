@@ -1,0 +1,1171 @@
+0001	Hellma Analyse de procédés
+0002	*Des pressions plus élevées sont possibles mais ne peuvent pas être certifiées en raison des limites des essais.
+0003	Haute précision en spectro-optique
+0004	Pour des applications spectroscopiques dédiées
+0005	Technologie analytique des procédés (PAT)
+0006	Mesurez au cœur de votre procédé, en temps réel.
+0007	Sondes à immersion, cellules à circulation et solutions PAT complètes de Hellma.
+0008	Joints métalliques soudés
+0009	Jusqu’à 400 °C et 250 bar*.
+0010	Sondes et cellules à circulation Excalibur HD pour les conditions de procédé sévères.
+0012	De l’étude de faisabilité à la méthode validée.
+0013	Conseil, capteurs, chimiométrie, intégration et service.
+0014	Applications
+0015	Des fûts de whiskey aux extrudeuses de polymères.
+0016	Découvrez où mesurent les sondes Hellma, secteur par secteur.
+0017	Sélecteur de sondes
+0018	Trouvez la sonde adaptée à votre procédé.
+0019	Filtrez par principe de mesure, température et pression.
+0020	La spectroscopie au cœur de votre procédé
+0021	Touchez un thème pour découvrir sondes, cellules à circulation et solutions PAT.
+0022	Trouvez votre sonde
+0023	Indiquez vos conditions de procédé et voyez quelles sondes et cellules conviennent.
+0024	Interfaces de procédé
+0025	Sondes et cellules à circulation
+0026	Chaque modèle avec ses caractéristiques complètes
+0027	Principes de mesure
+0028	Comment mesure chaque sonde, en animation
+0029	Technologie d’étanchéité
+0030	Pourquoi les joints métalliques soudés durent
+0031	Chambres rétractables
+0032	Nettoyer et changer les sondes en marche
+0033	Multiplexeurs
+0034	Un spectromètre, de nombreux points de mesure
+0035	Solutions PAT
+0036	Capteurs, systèmes sur mesure et services
+0037	Études de cas
+0038	Eau dans les solvants, affinage des métaux précieux
+0039	Apprendre
+0040	Qu’est-ce que la PAT ?
+0041	Offline, atline, online, inline
+0042	Secteurs, techniques et exemples
+0043	À propos de Hellma
+0044	Entreprise familiale depuis 1922
+0045	Les interfaces de procédé Hellma amènent le trajet optique dans le procédé : sondes à immersion pour cuves et conduites, cellules à circulation pour les flux d’échantillon. Choisissez d’abord le principe de mesure, puis la température, la pression et les matériaux.
+0046	Sondes et cellules à circulation en transmission. La fente de mesure joue le rôle du trajet optique d’une cuve. Les versions standard atteignent 400 °C et 250 bar*, et la HY 25 est certifiée 3-A pour les procédés hygiéniques.
+0047	Sondes en transflexion. La lumière traverse l’échantillon, se réfléchit sur un miroir et le traverse à nouveau. Les versions brasées atteignent 300 °C et 300 bar.
+0048	Sondes ATR à élément saphir à trois réflexions, pour un trajet optique extrêmement court. Les versions brasées atteignent 300 °C et 100 bar.
+0049	Sondes en réflexion qui collectent la lumière réfléchie de façon diffuse, au contact ou à distance. Les versions brasées atteignent 300 °C et 100 bar.
+0050	Paires de sondes sur mesure qui se vissent dans les orifices standard de pression matière des extrudeuses, en transmission ou en réflexion diffuse. Jusqu’à 300 °C et 750 bar.
+0051	Sondes de fluorescence pour liquides dans l’UV/VIS, avec optique en verre de quartz.
+0052	Demandez à notre équipe les caractéristiques et la disponibilité d’Espada.
+0053	Sondes Raman à optiques et filtres interchangeables, optimisées pour un signal Raman maximal. La Tidus Lumio ajoute un laser intégré et une version conforme ATEX.
+0054	Demandez à notre équipe les caractéristiques et la disponibilité de Tidus.
+0055	Extrêmement précise
+0056	Sonde en transmission extrêmement précise pour l’UV-Vis et le NIR, étanchéifiée par joints toriques Kalrez. S’installe en sonde à immersion ou en montage à circulation.
+0057	Domaine spectral
+0059	Trajet optique
+0060	1, 2, 5, 10 et 20 mm
+0061	Matériau du corps
+0062	Acier inoxydable 1.4571 (316Ti), Hastelloy C-22
+0063	Matériau optique
+0064	Quartz, saphir
+0065	Étanchéité
+0066	Joints toriques Kalrez (6230, 6375, 6380, 8085)
+0067	Profondeur d’immersion
+0068	100–940 mm, ou montage à circulation
+0069	Température
+0070	Jusqu’à 260 °C (500 °F)
+0071	Pression
+0072	Jusqu’à 40 bar (~580 psi)
+0073	Haute performance
+0074	Sonde en transmission haute performance à joints métalliques soudés, pour hautes températures, hautes pressions et milieux agressifs.
+0076	2, 3, 4, 5 et 10 mm
+0077	Acier inoxydable 1.4435/1.4404 (316L), Hastelloy C-22, Hastelloy C-276
+0078	Saphir
+0080	−30 °C à 400 °C (−22 °F à 750 °F)
+0081	Jusqu’à 250 bar* (~3600 psi)
+0082	Certifiée 3-A
+0083	Sonde en transmission hygiénique pour liquides alimentaires, laitiers et pharmaceutiques. Ses fenêtres en saphir brasées la rendent sans entretien, et elle se nettoie en place (NEP et SEP) sans interrompre le procédé.
+0085	1 mm (±0,025 mm)
+0086	Acier inoxydable 316L, électropoli
+0087	Saphir, brasé (or-étain)
+0088	Raccord procédé
+0089	Raccord sanitaire 2 pouces (DN50, DIN 32676)
+0090	38–75 mm · 25 mm de diamètre
+0091	Jusqu’à 140 °C (284 °F) au raccord procédé
+0092	Jusqu’à 16 bar (~230 psi)
+0093	Hygiène
+0094	Certifiée 3-A · compatible NEP et SEP · autoclavable avec capuchon de protection
+0095	Matière grasse, protéines, eau et lactose dans les produits laitiers ; autres liquides alimentaires et pharmaceutiques hygiéniques
+0096	Optique en verre de quartz
+0097	Sonde de fluorescence à immersion pour liquides dans l’UV et le VIS. Des miroirs font passer une seconde fois la lumière d’excitation et renvoient l’émission descendante vers la fibre de collecte, pour un signal fort.
+0098	Principe de mesure
+0099	Fluorescence, collectée à 90° avec miroirs
+0100	Domaine de longueurs d’onde
+0102	Verre de quartz
+0103	Échantillon
+0104	Liquides
+0105	Température et pression
+0106	Nous consulter
+0107	Pour les gaz
+0108	Sonde Raman de procédé pour l’analyse des gaz, par exemple le gaz naturel en pipeline. Un réflecteur spécial amplifie le signal Raman, si bien que de faibles concentrations sont mesurées de façon fiable avec la faible puissance laser qu’autorisent les gaz explosifs.
+0110	Excitation
+0111	Spectromètre Raman standard avec laser 785 nm stabilisé en température, relié par fibre optique
+0112	Zones dangereuses
+0113	Sonde et spectromètre sont séparés, ce qui permet un fonctionnement conforme ATEX
+0114	Signal
+0115	Un réflecteur spécial amplifie le signal Raman pour les faibles concentrations
+0116	Construction
+0117	Matériaux de haute qualité pour haute pression et résistance chimique
+0118	Famille Tidus Flex
+0119	Conception modulaire avec trois têtes de mesure (optique quartz ou verre) pour gaz, liquides et solides
+0120	Laser intégré
+0121	Sonde Raman de procédé avec sa propre source laser intégrée. La version conforme ATEX mesure en zone dangereuse avec un spectromètre VIS compatible ATEX, ou avec un spectromètre standard hors zone. Une version non ATEX est également disponible.
+0122	Raman, rétrodiffusion directe
+0123	Source lumineuse
+0124	Version conforme ATEX ; version non ATEX disponible
+0125	Spectromètre
+0126	Compatible avec presque tous les spectromètres Raman
+0127	Interface de procédé
+0128	Plusieurs configurations disponibles
+0129	Optique
+0130	Optiques et filtres interchangeables
+0131	Cellule à circulation en ligne à joints métalliques soudés. Les trajets optiques vont de 2 mm à 2 m pour les flux faiblement absorbants.
+0132	2, 5, 10 mm et 100–2000 mm
+0133	Acier inoxydable 1.4435/1.4404 (316L), Hastelloy C-276
+0134	−30 °C à 300 °C (−22 °F à 570 °F)
+0135	Cellule à circulation compacte en bloc, à joints métalliques soudés et trajets optiques courts dès 0,5 mm.
+0136	0,5, 1, 2, 3, 5 et 10 mm
+0137	Acier inoxydable 1.4435/1.4404 (316L)
+0138	Jusqu’à 200 bar (~2900 psi)
+0139	Trajet variable
+0140	Cellule à circulation à trajet optique fixe ou variable. Thermocouple et cartouche chauffante disponibles.
+0141	0,5, 1, 2, 3, 5 et 10 mm, ou variable
+0142	Acier inoxydable 1.4435/1.4404 (316L), Hastelloy C-276 (2.4819)
+0144	5 °C à 180 °C (40 °F à 350 °F)
+0145	Jusqu’à 30 bar (~435 psi)
+0146	Options
+0147	Thermocouple et cartouche chauffante
+0148	Sonde en transflexion à inserts interchangeables pour des trajets optiques très reproductibles. Versions mini en 6, 4 et 3 mm de diamètre.
+0149	Joints toriques Kalrez (4079, 6230, 6375) ou brasée (brasage fort : Ag, Cu, Ti)
+0150	Tenue avec joints toriques
+0151	Jusqu’à 260 °C (500 °F) · 40 bar (~580 psi)
+0152	Tenue, version brasée
+0153	Jusqu’à 300 °C (572 °F) · 300 bar (~4350 psi)
+0154	Sonde ATR à trois réflexions pour les milieux trop absorbants pour une fente de transmission.
+0156	Élément de mesure
+0157	Réflexion totale atténuée (ATR) à 3 réflexions
+0158	Acier inoxydable 1.4571 (316Ti), titane grade 2
+0159	Joints toriques Kalrez (4079, 6375) ou brasée (brasage fort : Ag, Cu, Ti)
+0160	100–640 mm, ou montage à circulation
+0161	Jusqu’à 300 °C (572 °F) · 100 bar (~1450 psi)
+0162	Sans contact
+0163	Sonde en réflexion diffuse en aluminium anodisé. Elle mesure à 25 à 100 mm de distance, sans toucher l’échantillon.
+0165	Distance de travail
+0167	Aluminium anodisé
+0169	Colle époxy ou brasage fort (Ag, Cu, Ti)
+0171	Jusqu’à 100 °C (212 °F)
+0172	Atmosphérique
+0173	Sonde en réflexion en acier inoxydable, Hastelloy ou titane, mesurant au contact ou à 2 mm.
+0174	Contact ou 2 mm
+0175	Acier inoxydable 1.4435/1.4404 (316L), Hastelloy C-22, titane grade 2
+0176	EPDM, joint torique Kalrez (6221) ou brasée (brasage fort : Ag, Cu, Ti)
+0177	Jusqu’à 120 °C (248 °F) · 16 bar (~230 psi)
+0178	S’adapte aux orifices de pression matière
+0179	Pour la mesure en ligne dans les extrudeuses de polymères en conditions extrêmes. Les sondes ont les mêmes dimensions que les capteurs de pression matière standard (par exemple Dynisco) et se vissent donc dans les orifices existants.
+0180	Transmission avec deux têtes opposées, ou réflexion diffuse
+0181	1, 2, 5 ou 10 mm, selon la longueur de tête et l’alésage
+0182	Matériau du corps
+0183	Titane
+0184	Fenêtres en saphir brasées dans le corps
+0185	Jusqu’à 300 °C (572 °F)
+0186	Jusqu’à 750 bar (~10 900 psi), sur mesure
+0187	Compatible avec
+0188	Orifices filetés pour capteurs de pression matière, également sur rhéomètres
+0189	La lumière parcourt une fibre optique jusqu’à un collimateur, situé dans la tête de mesure ou à l’arrière de la sonde.
+0190	Elle traverse une fois la fente de mesure et interagit avec le milieu au passage.
+0191	Comparable à une mesure en cuve : la fente de mesure équivaut au trajet optique de la cuve.
+0192	Peu de lumière parasite, car la lumière ne traverse l’échantillon qu’une fois.
+0193	La lumière parcourt une fibre optique jusqu’à la tête de mesure, est collimatée et traverse une fenêtre.
+0194	Elle traverse la fente de mesure, se réfléchit sur un miroir et traverse le milieu une seconde fois.
+0195	Des inserts interchangeables donnent des trajets optiques variables et très reproductibles.
+0196	Sondes de mini-diamètre : 6, 4 et 3 mm.
+0197	Réflexion totale atténuée
+0198	La lumière parcourt la fibre jusqu’au prisme ATR.
+0199	Elle se réfléchit sur les faces du prisme. À chaque réflexion, un champ évanescent pénètre très légèrement dans le milieu, qui absorbe certaines longueurs d’onde.
+0200	Trajet optique extrêmement court, pour les liquides et pâtes très absorbants.
+0201	Étanchéité par brasage possible.
+0202	La lumière descend par les fibres extérieures d’un faisceau et est focalisée sur l’échantillon, au contact ou jusqu’à 100 mm.
+0203	L’échantillon diffuse la lumière dans toutes les directions : la réflexion diffuse.
+0204	La fibre centrale collecte une partie de cette lumière et la conduit au spectromètre.
+0205	Conception hygiénique possible.
+0206	Mesure sans contact.
+0207	La lumière d’excitation descend par une fibre. Un miroir la dévie de 90° pour qu’elle traverse la fente de mesure.
+0208	Les molécules fluorescentes de l’échantillon l’absorbent et émettent de la lumière à des longueurs d’onde plus grandes, dans toutes les directions.
+0209	Un miroir de l’autre côté de la fente renvoie la lumière d’excitation pour un second passage, ce qui génère davantage de fluorescence.
+0210	La fibre de collecte est placée à 90° du faisceau d’excitation. L’émission qui s’en éloigne atteint un miroir au fond de la fente et remonte vers la fibre.
+0211	La géométrie à angle droit tient la lumière d’excitation hors du trajet de collecte, si bien que le fond reste faible.
+0212	Deux miroirs doublent le passage d’excitation et récupèrent l’émission descendante, pour plus de signal.
+0213	Optique en verre de quartz pour l’UV/VIS.
+0214	La lumière laser descend dans la sonde. Un séparateur de faisceau la dirige sur l’axe optique et elle est focalisée sur l’échantillon.
+0215	Presque toute la lumière diffusée revient à la longueur d’onde du laser. Une infime fraction est décalée par les vibrations des molécules : c’est le signal Raman.
+0216	La lumière Raman revient par le même chemin (rétrodiffusion directe). Elle traverse le séparateur de faisceau, et un filtre élimine le reste de la raie laser avant la fibre de collecte.
+0217	Optiques et filtres interchangeables.
+0218	Optique optimisée pour un signal Raman maximal.
+0219	Un large point de mesure focalisé sur l’échantillon à plusieurs centimètres de distance.
+0220	Le joint entre fenêtre et corps détermine la température, la pression et les produits chimiques qu’une sonde supporte, et sa durée de vie. Hellma propose les trois approches.
+0221	Permet des têtes de mesure monolithiques pour une meilleure transmission
+0222	Moins coûteux
+0223	Les élastomères chimiquement résistants se déforment à haute température
+0224	Nécessite un entretien régulier
+0225	Tenue en température et en pression limitée
+0226	Montages haute température et haute pression
+0227	Les métaux à faible dilatation subissent l’attaque chimique
+0228	Les brasures chimiquement résistantes utilisent des alliages fragiles qui se fissurent à la dilatation
+0229	Fenêtre en saphir
+0230	Anneau en C en Waspaloy revêtu d’or ou de PTFE
+0231	Manchon en Hastelloy
+0232	Soudure par faisceau d’électrons
+0233	Tenue en température jusqu’à
+0234	Tenue en pression jusqu’à
+0235	Résistance chimique extrême
+0236	Insensible aux chocs thermiques
+0237	Pratiquement indestructible
+0238	Une chambre rétractable permet aux ingénieurs procédé de remplacer, nettoyer ou étalonner des capteurs optiques et autres capteurs en ligne sans interrompre la production.
+0239	Pourquoi rétracter une sonde ?
+0240	La maintenance est souvent annuelle, avec une fenêtre de temps limitée.
+0241	Les joints toriques nécessitent un entretien régulier.
+0242	Des dépôts s’accumulent sur la fenêtre.
+0243	Des capteurs neufs ou de rechange peuvent être préparés et échangés.
+0244	Chambres rétractables avec Knick
+0245	Nettoyage automatisé du système spectroscopique sans retirer la sonde à la main.
+0246	Changer ou retirer la sonde pendant que le procédé tourne.
+0247	Étanchéité par sas.
+0248	Compatible avec les sondes Excalibur XP et Falcata XP.
+0249	Images avec l’aimable autorisation de Knick
+0250	Versions manuelles, semi-automatiques et entièrement automatiques
+0251	Plug-and-play : un connecteur multiple central transporte toutes les connexions et valeurs de contrôle
+0252	Modulaire : matériaux, ensembles capteurs, raccords de fluides et entraînement
+0253	Chambres céramiques à étanchéité rotative : deux disques céramiques, sans joints toriques
+0254	Compatibilité chimique universelle, grande robustesse chimique et thermique, dureté extrême, stérilisable
+0255	Toutes les chambres sont rinçables ; pièces en contact en acier inoxydable, Hastelloy ou titane
+0256	Version hygiénique disponible
+0257	Unité d’entraînement démontable sans outil spécial ; tube d’immersion démontable par baïonnette ; remplacement simple des joints toriques
+0258	Double joint entre chambre d’étalonnage et tube d’immersion, pour séparer le fluide de procédé et l’air comprimé
+0259	Tube d’immersion en 1.4571, 1.4435, Hastelloy, PVDF, PVDF HD, PEEK ou PEEK HD
+0260	Le capteur n’est pas fixé à l’armature
+0261	Nettoyage dans la chambre d’étalonnage
+0262	Nouvelle pince de maintien qui empêche les fibres de se tordre pendant le mouvement
+0263	Nettoyage cyclonique
+0264	Le rinçage traditionnel laisse une ombre sur le côté de la fenêtre opposé à la buse. Le rinçage cyclonique injecte le fluide de nettoyage tangentiellement, si bien qu’il tourbillonne autour de tout le capteur.
+0265	Probe Retraction Mechanism (PRM) pour Excalibur HD
+0266	Structure de palier renforcée
+0267	Actionnement par vis-mère ou pneumatique
+0268	Chambre de nettoyage en option
+0269	Vis-mère
+0270	Raccord Conax
+0271	Chambre de rinçage
+0272	Vanne à boisseau sphérique
+0273	Bride de conduite
+0274	Raccord de solvant
+0275	Réacteur
+0276	Un multiplexeur relie un spectromètre à plusieurs sondes ou cellules à circulation et commute entre elles, pour qu’un seul analyseur couvre de nombreux points de mesure.
+0277	Salle de contrôle de l’usine
+0278	Le système de contrôle-commande (SNCC) reçoit les résultats via TCP/IP ou un bus de terrain.
+0279	Armoire d’analyse
+0280	Spectromètre, PC du spectromètre et multiplexeur sont installés dans un abri, climatisé et purgé si nécessaire.
+0281	Procédé
+0282	Des fibres optiques relient les voies du multiplexeur aux sondes et cellules à circulation de l’installation.
+0283	Connecteurs à fibre optique « double face »
+0284	Connecteurs SMA ou FC pour sondes ou cellules (voies)
+0285	Connecteur d’alimentation
+0286	Interfaces de données : RS-232, RS-422/485
+0287	Hellma Solutions fournit des technologies spectroscopiques d’analyse de procédés. Capteurs intelligents et analyse offrent une vue détaillée des procédés de fabrication complexes, pour une production plus efficace dans de nombreux secteurs.
+0288	Meilleure maîtrise du procédé
+0289	Meilleure qualité de produit
+0290	Rendement accru
+0291	Efficacité de production améliorée
+0292	Moins de rebuts et de sous-produits
+0293	Consommation d’énergie réduite
+0294	Sécurité de procédé accrue
+0295	Transparence de procédé accrue
+0296	Analyse des réactions
+0297	Gain de temps
+0298	Spectromètre NIR miniature associé à une sonde pour des mesures précises, par exemple dans la chimie et la pharmacie, ou à une sonde hygiénique pour l’agroalimentaire.
+0299	Spectromètre NIR miniature associé à une sonde pour conditions sévères : résistance chimique, pression, température et ATEX en option. Pour la chimie et la pétrochimie.
+0300	Capteur MIR associé à une sonde ATR pour des applications dédiées aux milieux très absorbants, par exemple en pétrochimie et dans les peintures et revêtements.
+0301	Comment Hellma Solutions peut-elle adapter la technologie à vos besoins ?
+0302	Nous développons une solution spécifique et adaptons le capteur, l’instrumentation ou le logiciel si nécessaire.
+0303	À partir d’une technologie existante, nous développons et adaptons chaque composant requis par l’application.
+0304	Analyse de l’application
+0305	Vérification rapide
+0306	Conseil
+0307	Développement de la solution
+0308	Intégration
+0309	Du besoin analytique au plan : quelle mesure, à quel endroit du procédé, et ce qu’il faut pour la qualifier.
+0310	Les performances de l’instrument sont testées à l’avance avec vos échantillons de procédé, y compris les facteurs d’interférence et la manipulation des échantillons.
+0311	Les modèles d’étalonnage sont développés, validés et mis à jour pendant toute la durée de vie de la méthode.
+0312	Spectromètre, cellule de mesure, logiciel et interfaces de l’installation sont réunis dans votre procédé.
+0313	Capteurs NIR et MIR associant un spectromètre miniature à une sonde Hellma.
+0314	Systèmes dédiés développés pour une application spécifique.
+0315	PAT signifie Process Analytical Technology (technologie analytique des procédés) : les outils et méthodes qu’utilisent les fabricants pour surveiller et piloter la production en temps réel. Au lieu de contrôler la qualité seulement à la fin, la PAT la contrôle tout au long de la production pour que vous puissiez ajuster immédiatement.
+0316	Heures à jours
+0317	Un échantillon est porté au laboratoire. Les résultats arrivent quand le procédé a déjà avancé.
+0318	Minutes à heures
+0319	Un échantillon est prélevé et mesuré sur un analyseur à côté de la ligne.
+0320	Secondes à minutes
+0321	Une partie du flux est dérivée par un bypass, mesurée automatiquement et peut être renvoyée dans le procédé.
+0322	Secondes
+0323	La sonde est placée directement dans le flux de procédé. Rien n’est prélevé et les résultats arrivent en continu.
+0324	Des données en temps réel sur les paramètres critiques du procédé (CPP) et leur effet sur les attributs qualité critiques (CQA) montrent l’origine des problèmes.
+0325	Les écarts sont détectés tôt et corrigés immédiatement, ce qui réduit erreurs et rebuts.
+0326	Des procédés optimisés utilisent mieux les ressources et réduisent reprises, rebuts et déchets.
+0327	Un retour rapide sur la qualité du procédé et du produit raccourcit le développement et la mise sur le marché.
+0328	La surveillance en temps réel maintient une qualité constante et un procédé fiable, sans interruption.
+0329	Des autorités comme la FDA encouragent la PAT. Elle aide à démontrer une qualité de produit constamment élevée.
+0330	Les variations qui menacent la qualité ou la sécurité sont détectées en temps réel, ce qui réduit le risque de problèmes qualité, de rappels et de sanctions.
+0331	Vibrations, variations de température et salissures peuvent affecter la mesure spectroscopique.
+0332	De nombreux procédés comptent un grand nombre de variables et d’interactions.
+0333	UV, VIS, NIR, MIR et Raman conviennent chacun à des tâches de mesure différentes.
+0334	La mise en œuvre de méthodes spectroscopiques dans les procédés industriels peut représenter un coût considérable.
+0335	Des spectres précis nécessitent les bonnes données de référence pour bâtir un modèle fiable.
+0336	Des secteurs comme la pharmacie et l’agroalimentaire ont des exigences particulières de sécurité et de conformité.
+0337	Eau dans les solvants
+0338	Le déroulement d’un projet PAT, sur un exemple réel : mesure de l’eau résiduelle dans un solvant après distillation, en environnement BPF et ATEX.
+0339	de temps de procédé en moins pour l’étape
+0340	d’énergie en moins pour l’étape
+0341	3 par jour
+0342	lots visés, contre deux auparavant
+0343	Partir du besoin analytique
+0344	Le solvant sort d’une distillation et s’accumule dans une cuve. La teneur en eau doit être contrôlée avant la libération du lot.
+0345	Tester avant d’acheter
+0346	Les performances de l’instrument sont testées à l’avance.
+0347	La spectroscopie voit toute la matrice (l’échantillon de procédé), pas seulement l’analyte.
+0348	Facteurs d’interférence, effets de matrice, manipulation et préparation des échantillons sont étudiés.
+0349	Des méthodes chimiométriques adaptées sont sélectionnées.
+0350	Des valeurs aberrantes peuvent être synthétisées si nécessaire et intégrées aux modèles.
+0351	L’analyse de référence et son erreur globale influencent fortement la précision de la méthode spectroscopique.
+0352	Choisir spectromètre et cellule de mesure
+0353	Logiciel conforme 21 CFR Part 11
+0354	Compatible avec le logiciel de chimiométrie choisi
+0355	Se connecte au logiciel de procédé de niveau supérieur qui relie tous les analyseurs PAT
+0356	Assez précis pour mesurer l’impureté dans le procédé
+0357	Cellule de mesure : cellule à circulation Excalibur HD
+0358	ATEX zone 1
+0359	Matériaux certifiés FDA possibles
+0360	Connecter les données
+0361	Le logiciel du spectromètre exécute le modèle chimiométrique.
+0362	Le logiciel de procédé de niveau supérieur relie tous les analyseurs PAT.
+0363	Les résultats vont à l’automate programmable (API).
+0364	Conforme FDA 21 CFR Part 11.
+0365	Dialoguer avec l’installation
+0366	Analogique 4–20 mA (p. ex. Beckhoff)
+0371	Installer de part et d’autre de la limite ATEX
+0372	La cellule à circulation Excalibur HD est montée sur la cuve de collecte en zone ATEX. Des fibres optiques conduisent la lumière au spectromètre situé à l’extérieur.
+0373	Construire et maintenir l’étalonnage
+0374	Touchez chaque phase pour voir comment l’étalonnage évolue dans le temps.
+0375	L’étalonnage réel : prédiction NIR de l’eau dans le solvant par rapport à la référence (modèle PLS).
+0376	Développement de méthode avec validation interne.
+0377	Des échantillons indépendants confirment le modèle.
+0378	Des échantillons supplémentaires d’étalonnage et de validation testent le modèle dans le temps et le mettent à jour si nécessaire.
+0379	Former les utilisateurs
+0380	Logiciel du spectromètre
+0381	Formation pendant la mise en œuvre de la solution
+0382	Logiciel de chimiométrie
+0383	Formation sur site
+0384	Formation en ligne
+0385	Assurer la continuité
+0386	Maintenance annuelle du spectromètre
+0387	Ajustement chimiométrique à différentes périodes de l’année
+0388	Accompagnement pour la documentation BPF, le cahier des charges (URS) et le concept de validation
+0389	La cellule de mesure elle-même est sans entretien.
+0390	Qualifier étape par étape
+0391	Le cycle en V associe chaque étape de conception à gauche à un test à droite. Touchez une étape.
+0392	Les exigences et souhaits de l’utilisateur sont décrits.
+0393	Les exigences sont traduites en fonctions, puis en conceptions et plans techniques.
+0394	Confirme que la conception répond à toutes les exigences avant toute fabrication ou installation, ce qui évite des modifications coûteuses plus tard.
+0395	Le système est testé en usine avant l’expédition.
+0396	Le système est testé à nouveau sur site après la livraison.
+0397	Vérifie que le système est correctement installé et conforme aux spécifications techniques.
+0398	Vérifie que le système remplit correctement ses fonctions spécifiées en fonctionnement.
+0399	Vérifie que le système fournit les performances requises en conditions réelles d’exploitation.
+0400	Les solutions métrologiques en spectroscopie atline, online ou inline sont rentables dans de nombreux secteurs. Parcourez par secteur ou par technique, ou ouvrez une étude de cas.
+0401	Suivre la libération du principe actif, le séchage et la purification en temps réel et libérer les lots sous BPF.
+0402	Suivre nutriments et métabolites dans le bioréacteur, et le produit tout au long de la purification.
+0403	Suivre réactions, pureté et composition directement en ligne, des polyols et du phosgène aux métaux précieux.
+0404	Mesurer l’eau dans le pétrole brut, le soufre dans le fioul marin et la composition des gaz sous pression, avec des cellules et sondes prêtes pour l’ATEX.
+0405	Suivre la polymérisation du monomère au polymère, du réacteur à l’extrudeuse.
+0406	Convertir des spectres en valeurs de couleur L*a*b*, piloter des prépolymères de résine et contrôler des revêtements de canettes sans BPA.
+0407	Contrôler huiles, teneur en fruits et composition en ligne, selon les normes d’hygiène.
+0408	Mesurer matière grasse, protéines, eau et lactose de la réception du lait à la recombinaison, avec une sonde certifiée 3-A.
+0409	Suivre ce que le fût apporte pendant la maturation de l’eau-de-vie.
+0410	Mesurer humidité, protéines, amidon et cendres pour l’agriculture de précision.
+0411	Surveiller nitrates, sulfates et H₂S, et repérer les impuretés par fluorescence.
+0412	Spectroscopie ultraviolette et visible
+0413	Utile pour les molécules à doubles ou triples liaisons.
+0414	Les doubles liaisons conjuguées déplacent l’absorption vers le visible. C’est ce qui colore une solution.
+0415	Les métaux de transition absorbent très fortement la lumière.
+0416	La couleur peut être calculée à partir du spectre en valeurs L*a*b*.
+0417	HPLC-UV et HPLC-DAD sont les applications UV-Vis les plus courantes, surtout en laboratoire.
+0418	Schéma : acétone et toluène, d’après les spectres du NIST Chemistry WebBook.
+0419	Spectroscopie proche et moyen infrarouge
+0420	Les spectres de vibration donnent à chaque molécule une empreinte unique.
+0421	Le NIR est le plus utilisé en procédé.
+0422	Les harmoniques et combinaisons des vibrations C–H, O–H et N–H se situent dans le NIR.
+0423	Positions approximatives des bandes NIR par groupe fonctionnel. Touchez un groupe pour mettre ses bandes en évidence.
+0424	Spectroscopie Raman
+0425	Un laser excite l’échantillon. Une infime partie de la lumière diffusée est décalée par les vibrations moléculaires, ce qui donne à chaque composé une empreinte unique.
+0426	Pas de signal de l’eau, qui masque de nombreux signaux NIR dans les procédés humides ou biochimiques comme la fermentation.
+0427	Mesure des gaz que le NIR ne voit pas, comme l’oxygène et l’azote.
+0428	Plusieurs composants à la fois, en qualitatif et en quantitatif, sans préparation d’échantillon.
+0429	Schéma : décalages Raman approximatifs des composants du gaz naturel.
+0430	Spectroscopie de fluorescence
+0431	Une molécule absorbe la lumière à une longueur d’onde (excitation) et émet de la lumière à une longueur d’onde plus grande (émission).
+0432	Très sensible, si bien que les traces apparaissent, par exemple les impuretés dans les eaux usées.
+0433	Spectres d’excitation et d’émission schématiques.
+0434	Un exemple frappant : la scheelite
+0435	Le minéral scheelite (CaWO₄) émet une fluorescence bleue, avec un maximum vers 440 nm dû au tungstate. Là où le molybdène remplace le tungstène, une bande jaune apparaît vers 540 nm ; un épaulement vers 570 nm provient de Dy³⁺. D’autres impuretés courantes sont Tb³⁺, Sm³⁺ et Pr³⁺. Ce n’est pas une application de procédé, mais cela montre la sensibilité de la fluorescence.
+0436	Un projet PAT complet en dix étapes. Environ 30 % de temps de procédé en moins.
+0437	Cellule UV à usage unique, avec Sartorius
+0438	Le quartz coulé a rendu une pièce de précision assez économique pour l’usage unique.
+0439	Polystyrène expansible chez Versalis
+0440	Un point final en ligne plutôt qu’un réacteur bouché.
+0441	Oléochimie chez IOI Oleo
+0442	Indices d’acide et d’OH dans le réacteur jusqu’à 245 °C.
+0443	Teneur en fruits chez Schwarzwaldmilch
+0444	Un modèle en ligne remplace le contrôle Brix au laboratoire.
+0445	Revêtements de canettes sans BPA chez AkzoNobel
+0446	Suivi des monomères résiduels dans une polymérisation collante.
+0447	Affinage des métaux précieux
+0448	Pourquoi un procédé très absorbant est passé de la transflexion à l’ATR.
+0449	Essais de dissolution de comprimés
+0450	Essais de libération automatisés avec sondes à immersion, sans prélèvement.
+0451	Les essais de dissolution montrent à quelle vitesse et dans quelle mesure un comprimé libère son principe actif. Des sondes optiques à immersion mesurent la libération directement dans le vase d’essai.
+0452	La tâche
+0453	Les pharmacopées (EP, USP, JP) imposent la procédure : six comprimés, plusieurs intervalles d’essai. Prélèvement manuel, filtration et photométrie sont laborieux et sources d’erreurs, et les nouvelles formes galéniques ajoutent toujours plus d’échantillons.
+0454	Mesuré dans le vase
+0455	Des sondes reliées par fibres optiques à un spectromètre sont placées dans l’agitateur à palette, à côté du comprimé qui se dissout. À mesure que le principe actif se dissout, son absorption augmente jusqu’à dissolution complète, puis la courbe se stabilise. Avec plusieurs vases, un multiplexeur relie toutes les sondes à un seul spectromètre.
+0456	Plus rapide avec la robotique
+0457	Un bras robotisé peut déplacer la sonde d’un vase à l’autre, en la rinçant et la séchant entre deux, pour des intervalles de mesure très courts.
+0458	Quelle sonde
+0459	L’Excalibur Lab, avec sa tête de mesure monolithique en quartz, a fait ses preuves ici. Pour les vases étroits à petits couvercles, la fine Falcata Lab à embouts de trajet optique interchangeables convient mieux.
+0460	Pourquoi c’est rentable
+0461	Contrairement à la HPLC, aucun filtre, tuyau ou consommable n’est nécessaire, et le rinçage et le séchage de la sonde évitent toute contamination entre échantillons.
+0462	Spectre d’absorption d’un principe actif libéré dans le tampon.
+0463	Absorbance dans le temps : elle augmente jusqu’à dissolution complète du comprimé.
+0464	Concentration en principe actif
+0465	Profil de libération
+0467	Séchage par atomisation : humidité résiduelle d’un principe actif
+0468	Le NIR à travers un hublot remplace les prélèvements Karl Fischer.
+0469	Le séchage par atomisation transforme une solution de principe actif et d’excipients en poudre, en moins d’une seconde par gouttelette. L’humidité résiduelle de cette poudre doit rester dans des limites étroites.
+0470	Pourquoi l’humidité compte
+0471	Trop d’humidité résiduelle fait s’agglomérer la poudre et nuit à l’écoulement, au rendement et finalement à l’efficacité du médicament. La taille et la morphologie des particules, qui déterminent le profil de libération, sont fixées à la même étape.
+0472	L’ancienne méthode
+0473	Le titrage Karl Fischer nécessite des échantillons prélevés et analysés à la main au laboratoire. Quand le résultat arrive, le sécheur a déjà avancé.
+0474	Mesuré sans contact
+0475	Une sonde en réflexion Gladius XP 25 couplée à un spectromètre FT-NIR observe la poudre à travers un hublot. La teneur en eau est mesurée en continu et enregistrée dans un historique de données conforme BPx, avec des tests réguliers au laboratoire comme filet de sécurité.
+0476	Résultat
+0477	Les valeurs NIR en ligne suivent la référence Karl Fischer pendant tout le cycle, et les écarts par rapport à la cible sont détectés dès leur apparition.
+0478	La Gladius XP 25 mesure la poudre atomisée à travers un hublot.
+0479	Teneur en eau pendant le séchage par atomisation : NIR en ligne (orange) et titrage Karl Fischer (gris).
+0480	Humidité résiduelle
+0482	Point final du filtre-sécheur
+0483	Le NIR en réflexion diffuse indique quand le produit est sec.
+0484	Les filtres-sécheurs lavent et sèchent le produit pharmaceutique avant mélange et compression. Sécher pendant un temps fixe, ou s’arrêter pour prélever, ne donne aucune vue continue de l’humidité.
+0485	Mesuré dans la cuve
+0486	Des sondes en réflexion diffuse sont placées dans des ports de mesure de la cuve du sécheur, disposées selon sa taille, et reliées par fibres optiques à un spectromètre FT-NIR. La lumière NIR pénètre de 2–3 mm dans le produit.
+0487	Garder l’embout propre
+0488	Le produit peut s’accumuler sur l’embout, et la sonde mesurerait alors toujours la même matière. Des sondes à purge pilotée par logiciel soufflent l’embout à intervalles réguliers.
+0489	Étalonnage
+0490	Les spectres pris pendant le séchage sont associés à des échantillons analysés par perte à la dessiccation ou titrage Karl Fischer. Un modèle PLS indique alors la teneur en humidité ou en solvant en temps réel.
+0491	D’après la note d’application Bruker Optics AF 505, Filter Drier Endpoint Analysis using FT-NIR Spectroscopy.
+0492	Humidité
+0493	Solvant résiduel
+0494	Purification : point final par un marqueur
+0495	Suivre une impureté invisible grâce à une autre que l’UV voit.
+0496	Lors du lavage d’un gâteau de filtration, une impureté est éliminée jusqu’à ce que le solvant de lavage passe sous une limite fixée. L’impureté déterminante n’est pas visible en spectroscopie, seulement par chromatographie en phase gazeuse.
+0497	Le problème
+0498	La chromatographie en phase gazeuse est trop lente pour décider en continu du point final, si bien que le lavage dépend de résultats de laboratoire tardifs.
+0499	Un marqueur visible
+0500	Une seconde impureté, présente en bien plus faible quantité mais visible dans l’UV, est éliminée du gâteau en même temps. Suivre sa diminution dans le solvant de lavage permet de suivre le lavage en ligne.
+0501	Où mesurer
+0502	Selon l’installation, une sonde en transmission va directement dans le réacteur ou une cellule à circulation dans un bypass. La cellule compacte Excalibur Lab FFV convient à cette tâche.
+0503	L’état du lavage est connu en temps réel, le point final est trouvé avec précision, et la surveillance étroite favorise la conformité BPF.
+0504	Lavage du gâteau de filtration : la liqueur de lavage traverse le gâteau jusqu’à disparition de l’impureté.
+0505	Teneur en impureté (points, par CPG) et absorbance UV à 300 nm (ligne) diminuent ensemble pendant le lavage.
+0506	Marqueur UV dans le solvant de lavage
+0507	Point final du lavage
+0508	Bioprocédés : nutriments et métabolites
+0509	Le NIR dans le bioréacteur suit le glucose et les métabolites en temps réel.
+0510	Cultures cellulaires et microbes produisent des biomédicaments, mais aussi des acides aminés, antibiotiques, bioéthanol, bière, levure et acides organiques. Le procédé vivant évolue vite, et ses variables dépendent les unes des autres.
+0511	Le défi
+0512	La fermentation est souvent encore suivie par des modèles de croissance, la turbidité et d’autres mesures indirectes nécessitant des prélèvements manuels. Des réactions rapides et interdépendantes exigent une mesure en temps réel qui ne perturbe pas les cellules.
+0513	Mesuré dans le bioréacteur
+0514	Une sonde à immersion Excalibur XP 20 de 2 mm de trajet optique est placée dans le bioréacteur et reliée par guides de lumière à un spectromètre NIR. Elle suit les nutriments, comme le glucose, consommés par les cellules et les métabolites qu’elles libèrent. La tête monolithique en saphir limite contamination croisée et adhérence, et un raccord rapide facilite l’échange de la sonde pour le nettoyage.
+0515	Option hygiénique
+0516	Là où dépôts et biofouling sont à craindre, l’Excalibur HY 25 certifiée 3-A possède une tête hémisphérique, aucun volume mort et uniquement des surfaces lisses électropolies, si bien que les germes ne peuvent se fixer nulle part.
+0517	Plus de visibilité
+0518	Les données continues alimentent des modèles de tendance qui prédisent le déroulement de la réaction. L’impédance électrique, qui compte les cellules vivantes, complète la spectroscopie.
+0519	Une sonde à immersion mesure directement dans le bioréacteur.
+0520	Glucose
+0521	Métabolites
+0522	Une cellule à circulation en quartz coulé pour le capteur à usage unique BioPAT® Spectro UV.
+0524	Sartorius a développé un capteur en ligne à usage unique qui mesure la concentration en biomolécules par spectroscopie UV pendant la purification chromatographique. Son cœur est une cellule à circulation en quartz de Hellma.
+0525	Pourquoi l’usage unique
+0526	Les biomédicaments comme les anticorps monoclonaux sont produits dans des bioréacteurs à usage unique jusqu’à 2 000 litres et purifiés dans des sets de tubulure à usage unique. Des capteurs UV en ligne surveillent chaque étape de purification sans prélèvement manuel ; les pièces du capteur en contact avec le produit doivent donc aussi être jetables.
+0527	Les capteurs UV à usage unique existants étaient insuffisants en volume mort, en rapport prix-performance et en empreinte écologique. La pièce en quartz exigeait une fente de 1 mm tenue à 0,05 mm près, des fenêtres parallèles de haute qualité optique et une étanchéité avec le corps plastique, à un coût adapté à une pièce jetable.
+0528	Coulée de quartz à froid
+0529	Le procédé Quartz Cold Casting (QCC) de Hellma coule un composé contenant du silicium dans des moules à température ambiante, le durcit et le convertit en verre de quartz pur. La cellule sort monolithique, d’une seule pièce, avec ses structures d’étanchéité moulées, ce qui supprime de nombreuses étapes d’usinage classiques.
+0530	Vers la production en série
+0531	Le projet a commencé par une étude de faisabilité après que l’équipe PAT de Sartorius a découvert le QCC à l’ACHEMA. Hellma affine, contrôle chaque largeur de fente, conditionne et qualifie les cellules selon le processus PPAP, pour qu’elles aillent directement dans le capteur Sartorius.
+0532	Le bénéfice
+0533	Chaque taille de raccord a le même trajet optique, connu avec précision. Cela permet de déterminer la concentration par des méthodes spectroscopiques, pas seulement par simple photométrie, avec un volume mort minimal et pratiquement aucun effet sur l’écoulement.
+0534	Dans le cadre de notre bonne coopération avec Hellma, nous avons réussi à développer ensemble, de manière itérative, un composant central de capteur optique, de la première ébauche à la production en série, selon les plus hautes exigences de qualité.
+0535	Dr Christian Grimm, responsable du développement produit Embedded Hardware, Sartorius Stedim Biotech GmbH
+0536	La cellule à usage unique terminée, coulée d’une seule pièce de verre de quartz.
+0537	Premier modèle 3D de la cellule.
+0538	Premier prototype coulé.
+0539	Concentration en biomolécules
+0540	Impuretés pendant la purification
+0541	Affinage des métaux précieux : de la dilution à l’ATR
+0542	La transflexion exigeait une dilution d’un million de fois. L’ATR non.
+0543	Les métaux de transition absorbent très fortement la lumière UV-Vis. Pour un affineur, cela rendait une mesure standard presque impossible, jusqu’au changement de sonde.
+0544	Une société d’affinage de métaux précieux mesurait avec une sonde en transflexion Falcata de 1 mm de trajet optique. Les échantillons absorbaient si fortement qu’il fallait les diluer d’un facteur un million pour ramener l’absorbance dans une plage exploitable.
+0545	La solution
+0546	Elle est passée à une sonde ATR. L’ATR a un trajet optique extrêmement court, si bien que les liquides très absorbants restent dans la plage, et cela a parfaitement fonctionné.
+0547	Pourquoi les métaux sont difficiles
+0548	Les métaux de transition comme le cuivre, le nickel, le cobalt, le fer, le manganèse et le zinc absorbent très fortement la lumière, avec des bandes de l’UV au proche infrarouge.
+0549	Concentration en métaux de transition
+0551	Production de polyols
+0552	Eau, indice d’acide, viscosité et indice d’hydroxyle, mesurés à 400 °C.
+0553	Les polyols réagissent avec les isocyanates pour former des polyuréthanes : mousses rigides et souples, adhésifs, revêtements et élastomères. Leur structure détermine les propriétés du produit final.
+0554	Une chimie sensible
+0555	La synthèse des polyols réagit aux variations de température, de pression et de temps de réaction. Les variations des matières premières et les réactions secondaires se traduisent par des écarts de couleur ou une viscosité irrégulière, et les échantillons de laboratoire reviennent trop tard pour piloter le lot.
+0556	Une sonde pour 400 °C
+0557	La sonde Excalibur HD FPT utilise des joints métalliques, une fenêtre en saphir et des guides de lumière à la place de fibres optiques internes, si bien qu’elle mesure de façon fiable aux 400 °C requis par ce procédé. Ses joints sans usure la rendent sans entretien.
+0558	Des spectres aux chiffres
+0559	Hellma Solutions teste les échantillons de procédé dans son laboratoire d’application, prétraite mathématiquement les spectres pour éliminer les variations sans rapport, et construit un modèle chimiométrique validé pour chaque paramètre.
+0560	Autres polyols
+0561	Le terme couvre aussi les polyols de sucre, obtenus par hydrogénation des sucres, pour lesquels le NIR suit le même type de paramètres.
+0562	Eau
+0563	Garde la réaction sous contrôle
+0564	Viscosité
+0565	Détermine les propriétés de mise en œuvre
+0566	Indice d’acide
+0567	La part d’impuretés acides
+0568	Indice d’hydroxyle
+0569	Essentiel pour la réactivité du produit
+0570	Spectres NIR d’échantillons de polyols avec différentes valeurs de paramètres, mesurés avec l’Excalibur HD FPT.
+0571	Indices d’acide et d’OH dans le réacteur, jusqu’à 245 °C.
+0573	IOI Oleo, à Hambourg, fabrique des spécialités oléochimiques à partir de matières premières végétales : principes actifs et excipients pour la pharmacie, émollients pour la cosmétique et esters pour l’alimentaire.
+0574	Les matières premières naturelles varient
+0575	Les huiles de colza, de tournesol, de soja et de palme changent à chaque récolte. Huiles et graisses réagissent aussi avec l’oxygène de l’air ; la réaction est donc mesurée directement dans la cuve fermée.
+0576	Des conditions difficiles
+0577	Les sondes subissent jusqu’à 245 °C, les vibrations de l’agitateur et des variations de pression en fonctionnement par lots sur 24 heures. Acides gras, glycérol, propylène glycol, titanate de tétra-n-butyle et butanediol doivent tous être surveillés pour maintenir les contaminants sous les limites de l’UE.
+0578	Le montage
+0579	Des sondes en transmission Excalibur HD FPT sont placées directement dans les réacteurs et reliées par 30–50 m de fibre à un seul spectromètre via un multiplexeur, si bien que l’indice d’acide et l’indice d’OH sont suivis sur toute la chaîne de procédé.
+0580	Pourquoi la FPT
+0581	Des guides de lumière creux à la place de fibres de verre supportent des températures très hautes et très basses. Des joints métalliques dorés et des fenêtres en saphir remplacent les élastomères, et une seconde barrière remplie d’azote réduit le risque de fuite, ce qui allonge nettement les intervalles de maintenance.
+0582	Connaître l’état exact de la réaction permet de terminer les lots à temps, de raccourcir les cycles et de remplacer les prélèvements de laboratoire.
+0583	Spectres NIR d’huile de coco : pure (vert) et contaminée (jaune, rouge).
+0584	Sonde dans le réacteur, reliée au spectromètre.
+0585	Indice d’OH
+0586	État de la réaction
+0587	Contamination
+0588	Phosgène pour le polyuréthane
+0589	Pureté du gaz contrôlée en ligne, dans une cellule conçue pour les gaz toxiques.
+0590	Le phosgène (COCl₂) est un gaz très toxique et une matière première clé : il transforme les amines en isocyanates TDI et MDI, qui réagissent avec les polyols pour former le polyuréthane.
+0591	Pourquoi la pureté compte
+0592	L’humidité et les autres impuretés du gaz coûtent très cher aux étapes suivantes. Le polycarbonate, par exemple, exige un phosgène contenant au plus 250 ppm de tétrachlorure de carbone, sinon le plastique transparent se colore.
+0593	Pourquoi en ligne
+0594	La chromatographie en phase gazeuse limite la surveillance continue. Les sondes et cellules spectroscopiques mesurent directement dans le flux gazeux, en temps réel. Les gaz étant toxiques et inflammables, rien ne doit fuir.
+0595	La cellule à circulation
+0596	L’Excalibur HD FCP, construite à partir de pièces Swagelok standard, mesure en transmission le long de l’axe de la conduite. Des trajets optiques jusqu’à 2 m atteignent les impuretés de l’ordre du ppt. Les doigts optiques sont remplis d’azote : la légère surpression et une seconde barrière empêchent l’entrée du fluide et de l’humidité.
+0597	Conçue pour cela
+0598	Joints métalliques et optique en saphir rendent la cellule en acier inoxydable sans entretien et apte à 250 bar* et 300 °C. Elle peut être utilisée en zones ATEX 1, 2, 21 et 22, en ligne ou en atline dans une armoire de bypass près du spectromètre.
+0599	Interface de mesure sur la conduite de gaz.
+0600	Excalibur HD FCP avec pièces Swagelok standard, pour des trajets optiques jusqu’à 2 m.
+0601	Impuretés dans le gaz de procédé
+0602	Acide acrylique : point final de déshydratation
+0603	Une Falcata en titane brasée continue de mesurer là où l’acide acrylique cristallise et polymérise.
+0604	L’acide acrylique et les esters acryliques sont des monomères clés pour les polymères superabsorbants, dispersions, revêtements, adhésifs et mastics. Ils sont produits à partir du propène par oxydation en phase gazeuse en deux étapes.
+0605	Où mesure le NIR
+0606	Dans la colonne de distillation azéotropique, l’eau est éliminée avec un entraîneur comme le toluène ou l’isobutylbenzène. Le NIR suit la teneur en eau de la phase liquide pour trouver le point final de la déshydratation, afin que l’acide respecte la spécification pour la purification finale. Un contrôle serré améliore la stabilité, l’efficacité énergétique et le débit.
+0607	Un point de mesure difficile
+0608	L’acide acrylique peut cristalliser en refroidissant, et les cristaux endommagent et durcissent les joints. L’acide de haute pureté tend aussi à polymériser spontanément lorsque la température ou la pression varie, laissant du polymère sur l’optique. Des traces de polymère et d’inhibiteur rendent le liquide légèrement trouble.
+0609	La sonde
+0610	La sonde en transflexion Falcata XP donne des signaux stables dans les liquides très absorbants et légèrement troubles. Ses fenêtres sont brasées directement dans un boîtier en titane : pas de joints élastomères, ni d’interstices ou d’espaces morts où le polymère pourrait s’accumuler. Elle s’adapte aux chambres rétractables Knick Ceramat et SensoGate.
+0611	Éprouvée
+0612	La Falcata XP a été testée en conditions industrielles dans la production d’acide acrylique d’un grand site européen.
+0613	Points de mesure NIR dans le procédé d’acide acrylique : élimination de l’eau et purification finale.
+0614	Teneur en eau
+0615	Point final de déshydratation
+0617	De nombreux points de mesure, un spectromètre
+0618	Un multiplexeur dessert jusqu’à 16 points dans une installation à plusieurs étages.
+0619	Plastiques, médicaments et aliments proviennent souvent de procédés à plusieurs étapes, avec des points de mesure répartis sur les réacteurs et les lignes : polymérisation, récupération de solvant, dosage d’additifs, filage de fibres.
+0620	Le problème du coût
+0621	Un spectromètre à chaque point fait grimper l’investissement, et étalonner, exploiter et entretenir de nombreux instruments demande beaucoup plus de travail.
+0622	La solution
+0623	Le multiplexeur Hellma FMX relie jusqu’à 16 sondes ou cellules à circulation à un seul spectromètre. Un moteur pas à pas de haute précision déplace un rétroréflecteur qui couple la lumière dans chaque voie via des lentilles de collimation. Les voies sont séparées pour éviter toute diaphonie lumineuse, et la commutation prend moins d’une seconde.
+0624	Facile à étendre
+0625	Le FMX est modulaire : des voies peuvent être ajoutées plus tard jusqu’à pleine capacité. Il se connecte au système de contrôle-commande via RS232 ou RS422 avec le logiciel fourni, et commute dans les deux sens en standard.
+0626	Retour sur investissement
+0627	Le coût par point de mesure baisse fortement, et un multiplexeur peut être rentabilisé dès deux points de mesure.
+0628	Trois flux de procédé, un spectromètre : le multiplexeur remplace les instruments supplémentaires.
+0629	Coût par point de mesure avec et sans multiplexeur FMX.
+0630	Avancement de la réaction à chaque étape
+0631	Fluorescence in situ dans le réacteur
+0632	Une sonde de fluorescence Hellma amène le fluorimètre à la réaction.
+0633	Prélever des échantillons d’une réaction en cours est lent, peut être dangereux et peut modifier la température, la pression ou la teneur en composés volatils ; les données sont alors en retard et parfois faussées. Une sonde de fluorescence à fibre optique mesure sur place.
+0634	Une sonde de fluorescence Hellma (661.057-UV) est placée dans le réacteur. Ses câbles à fibre optique s’adaptent au coupleur F-3000 d’un fluorimètre HORIBA Fluorolog-3 : pipetage, mélange, chauffage, nettoyage et hotte deviennent inutiles.
+0635	L’exemple
+0636	Un complexe de nickel à base de pyrène a été titré par NaOH. Excité à 340 nm, il émet à 375 et 395 nm en milieu acide. Quand le pH augmente, cette fluorescence chute par transfert d’électron photoinduit, et une large bande d’excimère apparaît vers 480 nm.
+0637	Sonde de fluorescence à fibre optique Hellma 661.057-UV.
+0638	Spectres de fluorescence du complexe de nickel quand le pH augmente ; excitation à 340 nm. Données : HORIBA Scientific.
+0639	D’après la note technique HORIBA Scientific FL-34, Liquid in situ Fluorescence Measurements.
+0640	Intensité de fluorescence
+0641	Avancement de la réaction
+0643	Composition du gaz naturel
+0644	Raman et NIR décomposent le mélange dans le pipeline.
+0645	Le gaz naturel est surtout du méthane et se négocie sur sa valeur énergétique. Celle-ci dépend du mélange exact d’hydrocarbures, qui varie selon le lieu d’extraction ; il est donc analysé en plusieurs points sur le chemin du client.
+0646	Pourquoi pas la chromatographie en phase gazeuse
+0647	La CPG sépare de nombreux composants et traces, mais les gaz vecteurs et d’étalonnage la rendent coûteuse, et le délai entre prélèvement et résultat fait que les écarts sont détectés tard.
+0648	Des conditions difficiles
+0649	Les pipelines fonctionnent vers 80 bar pour augmenter la densité énergétique ; la mesure doit donc résister à la pression. Le gaz étant explosif, la puissance laser est strictement limitée, et la détection doit être assez sensible pour s’en contenter.
+0650	Le Raman dans le pipeline
+0651	La sonde Tidus Flex Gas est reliée par fibres optiques à un spectromètre Raman standard avec laser 785 nm stabilisé en température. Éloigner le spectromètre de la sonde permet un fonctionnement conforme ATEX. Un réflecteur spécial amplifie le signal Raman pour les faibles concentrations, et le système indique chaque concentration de gaz toutes les minutes.
+0652	Raman et NIR ensemble
+0653	Le Raman distingue les hydrocarbures même à faible concentration et voit l’oxygène et l’azote, ce que le NIR ne peut pas. L’absorption NIR le complète pour les hydrocarbures, le CO₂ et le H₂S. La même approche Raman fonctionne pour le biogaz et le biométhane avant injection.
+0654	Absorption NIR schématique du gaz naturel, 1000–2200 nm.
+0655	Méthane
+0656	Éthane, propane, butane
+0658	Raman uniquement
+0660	Traces
+0661	O₂ et N₂ (Raman)
+0663	Eau dans le pétrole brut
+0664	Le NIR mesure le rapport eau/liquide directement sur le pipeline.
+0665	Pour tirer le meilleur d’un gisement, les producteurs surveillent en continu la teneur en eau et en gaz. Un pompage excessif dilue le flux et réduit le rendement ; connaître la teneur en eau permet d’ajuster le pompage pour extraire plus de pétrole dans le même temps.
+0666	Pourquoi c’est difficile
+0667	Solides, fraction gazeuse et salinité fluctuent, le pétrole est visqueux et les conditions varient beaucoup. Les méthodes de séparation de phases sont souvent imprécises, l’analyse de laboratoire est lente, et les équipements sur pipeline doivent respecter la directive ATEX 2014/34/UE.
+0668	Comment le NIR aide
+0669	Le pétrole brut et l’eau absorbent très différemment la lumière proche infrarouge. Le signal provient de l’eau elle-même, pas des sels dissous ; les capteurs de rapport eau/liquide (WLR) basés sur une cellule NIR en transmission fonctionnent donc en temps réel, sans influence des émulsions ou de la salinité, et sans grands systèmes de séparation de phases.
+0670	Trois conceptions, toutes à joints métalliques
+0671	La cellule Excalibur HD Flange se monte directement sur la conduite principale, et son optique en saphir soudée ne peut pas se dérégler. Certifiée CE selon la directive équipements sous pression 2014/68/UE, elle peut être installée en zones ATEX 1, 2, 21 et 22 et dans des récipients sous pression sans essais de réception. La compacte Excalibur HD FCP convient aux conduites plus petites, et la sonde Excalibur HD FPT s’adapte à une bride existante et ajoute une seconde barrière.
+0672	Cellule de mesure Excalibur HD Flange.
+0673	Échantillon de pétrole brut.
+0674	Rapport eau/liquide (WLR)
+0675	Soufre dans le fioul marin
+0676	Le NIR en ligne aide les navires à respecter les limites d’oxydes de soufre.
+0677	La plupart des grands navires brûlent du fioul de soute, un résidu lourd et bon marché du raffinage. Sa teneur en soufre devient des oxydes de soufre dans les gaz d’échappement, et des limites bien plus strictes s’appliquent aux navires depuis 2020.
+0678	La composition du carburant varie d’un réservoir à l’autre, et même au sein d’un réservoir, et peut évoluer pendant le stockage. Des particules collantes encrassent conduites et instruments, et des dépôts non détectés peuvent endommager le moteur. Des prélèvements manuels occasionnels ne sont pas assez précis.
+0679	Mesuré dans la ligne de carburant
+0680	Un spectromètre équipé d’une cellule à circulation Excalibur HD FCP dans l’alimentation chauffée du moteur mesure en continu les composants du carburant, pour piloter le moteur et respecter les limites à tout moment.
+0681	Conçue pour la salle des machines
+0682	Les joints métalliques rendent la cellule résistante à la pression et à la température, le boîtier en acier inoxydable permet l’usage en zones explosives, et l’optique en saphir résiste à l’adhérence des particules. La partie centrale interchangeable accueille une cellule en H pour des trajets de 2–10 mm ou des tés Swagelok pour 10 cm à 2 m.
+0683	Exemple de spectre d’absorption NIR d’un fioul lourd.
+0684	Excalibur HD FCP avec partie centrale en cellule H.
+0685	Teneur en soufre
+0686	Composants du carburant
+0687	Taille des billes et conversion suivies en ligne, pour que le lot se termine à temps.
+0689	Versalis produit des billes de polystyrène expansible (PSE) par polymérisation en suspension à Mantoue, en Italie. Deux éléments déterminent la qualité et le rendement : le taux de conversion du styrène en polymère et la taille atteinte par les billes.
+0690	Le procédé
+0691	Dans le second réacteur, un mélange eau–styrène 1:1 est chauffé à 90 °C et agité pour que le monomère forme des billes. À 70–75 % de conversion, la température monte à 123 °C et le phosphate de calcium empêche les billes de coller. Le lot dure quatre heures ; ensuite, le pentane et la vapeur font gonfler les billes jusqu’à 50 fois.
+0692	Pourquoi le point final compte
+0693	S’il est manqué, les billes s’agglomèrent en une grosse boule qui bloque la sortie du réacteur, voire toute l’installation, et le nettoyage coûte une somme à six chiffres. Jusqu’ici, les opérateurs prélevaient des échantillons et jugeaient la taille des billes à la lumière d’un faisceau.
+0694	Mesuré dans le réacteur
+0695	Une sonde en réflexion Gladius XP sur le côté du réacteur mesure au contact de la suspension sans perturber son écoulement. À mesure que le styrène se convertit, la transmission baisse. Les données indiquent quand ajouter le dispersant pour piloter la croissance des billes, et la réaction s’arrête automatiquement dès que les billes atteignent leur taille. L’installation est conforme ATEX zone 2 IIB T3.
+0696	Jusqu’à cent cycles de polymérisation s’enchaînent dans le même réacteur sans nettoyer la sonde. Des fibres d’éclairage en anneau limitent la lumière parasite, et la conception hygiénique se nettoie sans démontage.
+0697	Du monomère au polymère
+0698	De nombreux monomères ont un signal UV dû à leurs doubles liaisons, et le spectre NIR suit la conversion. La même approche s’applique au PMMA, alternative incassable au verre, et au PET des emballages de boissons et d’aliments.
+0699	Spectres pendant la polymérisation : début (bleu), en cours (vert) et fin (rouge).
+0700	Gladius XP installée sur le réacteur chez Versalis.
+0701	Conversion du monomère
+0702	Taille des billes
+0703	Point final de la réaction
+0704	POM : le méthanol en temps réel
+0705	Le NIR remplace une boucle CPG de 45 minutes dans la production de polyoxyméthylène.
+0706	Le polyoxyméthylène (POM) se retrouve dans les engrenages, boîtiers, machines à café, fermetures éclair et brosses à dents. Sa production utilise plusieurs réactifs, solvants et additifs qui doivent rester dans une plage étroite.
+0707	Le formaldéhyde est d’abord converti en trioxane, purifié puis à nouveau dépolymérisé, puis polymérisé avec un catalyseur aminé à basse température. Cela exige une matière de départ très pure et l’exclusion totale de l’eau.
+0708	Le méthanol était contrôlé par chromatographie en phase gazeuse plusieurs fois par jour. Avec le transport au laboratoire, un résultat prenait environ 45 minutes pendant que la réaction continuait. Une mauvaise composition peut déclencher une polymérisation indésirable, des arrêts et des dommages se chiffrant en millions, pour des productions allant jusqu’à 300 tonnes par jour.
+0709	Des sondes optiques à immersion et un spectromètre NIR (800–2 500 nm) enregistrent la composition toutes les quelques secondes ou minutes, visible directement en salle de contrôle. Un tamis autour de la tête de mesure, dans le sillage de l’écoulement, détourne les amas solides de l’optique. Des contrôles CPG au laboratoire continuent à intervalles comme sécurité supplémentaire.
+0710	Concentration en méthanol dans le temps, mesurée par NIR pendant la production de POM.
+0711	Méthanol
+0712	Composition des réactifs et des solvants
+0713	Prépolymères pour revêtements et résines
+0714	NCO, monomère résiduel et humidité dans des résines collantes, avec nettoyage de la sonde en cours de procédé.
+0715	Les résines polyester et alkydes sont des liants hautes performances pour peintures, revêtements et vernis. Les prépolymères formés pendant leur synthèse exigent une réactivité contrôlée avec précision.
+0716	Ce qu’il faut surveiller
+0717	Au sein d’un même lot, la chimie comme les propriétés physiques de la masse réactionnelle changent. Teneur en NCO, température, viscosité, monomère résiduel et humidité exigent tous une surveillance fiable, et le point final un pilotage précis.
+0718	Le problème des milieux collants
+0719	Le polymère visqueux et adhésif s’accumule sur les fenêtres des sondes, fausse le signal et provoque une dérive ; les sondes classiques demandent donc un entretien fréquent.
+0720	Sonde et chambre rétractable
+0721	Une sonde en transflexion Falcata XP 12 à embouts de trajet optique interchangeables mesure en quelques secondes des milieux transparents à légèrement troubles. Montée dans une chambre rétractable Knick Ceramat, elle se retire dans une chambre séparée pour le nettoyage, les mesures de référence et l’étalonnage. Deux disques céramiques isolent la chambre du procédé, et un rinçage cyclonique circule tout autour de la sonde.
+0722	Pas d’interruption du procédé ni de vidange du réacteur pour le nettoyage, des données fiables même avec des milieux encrassants, et moins de déchets.
+0723	Knick Ceramat : la sonde se retire dans une chambre pour le rinçage et la référence pendant que le procédé tourne.
+0724	Teneur en NCO
+0725	Monomère résiduel
+0726	Suivi des monomères résiduels dans une polymérisation collante, avec nettoyage de la sonde en cours de procédé.
+0728	Accelshield 300 d’AkzoNobel revêt l’intérieur des canettes en aluminium deux pièces sans bisphénols, styrène ni PFAS. La polymérisation crée son liant.
+0729	Pourquoi c’est important
+0730	Après la réévaluation du bisphénol A par l’Autorité européenne de sécurité des aliments en 2023, son usage dans les emballages au contact des aliments est interdit ou restreint dans l’UE. Seuls des polymères entièrement convertis satisfont aux exigences ; les monomères résiduels comme les acrylates et les styrènes doivent donc être mesurés pendant la polymérisation, en continu et rapidement.
+0731	Un milieu collant
+0732	La masse réactionnelle est très visqueuse et collante. Le polymère peut adhérer ou durcir sur la fenêtre et fausser le signal ; la sonde doit donc être nettoyée en cours de procédé sans perdre la mesure.
+0733	Une sonde en transflexion Falcata XP mesure l’état de polymérisation en quelques secondes. Elle est montée dans une chambre rétractable Knick SensoGate : en mode nettoyage en place, la sonde est nettoyée, référencée, entretenue ou retirée pendant que le procédé continue.
+0734	Les écarts sont détectés et corrigés immédiatement, les rebuts et pertes de matière diminuent, et la qualité du produit reste constamment élevée.
+0735	Falcata XP dans une chambre rétractable Knick SensoGate sur le réacteur.
+0736	Monomères résiduels
+0737	État de polymérisation
+0738	La couleur d’une peinture à partir du spectre
+0739	Valeurs L*a*b* calculées à partir de spectres UV-Vis.
+0740	Un spectre UV-Vis contient tout ce qu’il faut pour calculer la couleur d’une peinture en valeurs L*a*b*.
+0741	Lire L*a*b*
+0742	L* va du sombre (0) au clair (100). a* va du vert (négatif) au rouge (positif). b* va du bleu (négatif) au jaune (positif). Essayez avec les curseurs.
+0743	Quand le TiO₂ domine
+0744	Le TiO₂, additif blanc courant, domine le signal aux faibles concentrations de colorant. Une peinture bleue avec quatre fois moins de pigment paraît presque blanche : L* passe de 91,0 à 99,6.
+0745	Peintures mesurées
+0746	Bleu
+0747	Rouge
+0748	Jaune
+0749	Bleu, standard vs 4× moins de pigment
+0750	Bleu, standard
+0751	Bleu, 4× moins de pigment
+0752	Mesuré en coopération avec Mettler Toledo
+0753	L* clarté
+0754	a* vert–rouge
+0755	b* bleu–jaune
+0756	Taux de pigment
+0757	Huile alimentaire dans le chocolat
+0758	Indice d’iode mesuré en ligne avec une sonde hygiénique 3-A.
+0759	Dans le chocolat et les produits aromatisés au chocolat, l’huile alimentaire peut remplacer une partie du beurre de cacao. Sa composition en acides gras détermine l’onctuosité, la texture, la viscosité et la durée de conservation.
+0760	Indice d’iode
+0761	L’indice d’iode indique combien de grammes d’iode 100 g de matière grasse absorbent, ce qui reflète ses acides gras insaturés. Une huile à faible indice d’iode est surtout saturée et rend le chocolat dur à température ambiante ; un indice élevé garde les pâtes à tartiner onctueuses.
+0762	Avant d’atteindre la masse de cacao
+0763	Les échantillons de laboratoire demandent du temps et du personnel formé, et le procédé continue pendant l’attente des résultats. L’équipement doit aussi respecter des règles d’hygiène strictes et ne pas affecter le produit.
+0764	Une sonde hygiénique à immersion Excalibur HY 25 (3-A) est reliée par fibre à un spectromètre VIS-NIR à barrette de diodes. Le modèle chimiométrique utilise tout le spectre, ce qui le rend robuste. Les échantillons se regroupent à des indices d’iode entre 30 et 60, et les spectres qui ressemblent à des valeurs aberrantes restent dans le modèle car ils portent une information sur le procédé.
+0765	Les valeurs en temps réel vont directement au système de contrôle-commande, les recettes sont respectées, les ingrédients utilisés au mieux, et le système peut être étendu à d’autres paramètres.
+0766	Spectres NIR d’huile alimentaire issus d’un spectromètre VIS-NIR à barrette de diodes.
+0767	Étalonnage : prédiction NIR par rapport à l’indice d’iode de référence.
+0768	Indices d’iode des échantillons d’étalonnage.
+0769	Le lait : de la réception à la recombinaison
+0770	Matière grasse, protéines, eau et lactose, mesurés avec une sonde 3-A.
+0771	Le lait cru varie selon la saison, la région et même d’une vache à l’autre. Les laiteries le contrôlent à la livraison, le séparent en crème et lait écrémé, puis recombinent les deux à la teneur exacte en matière grasse requise par chaque produit.
+0772	L’hygiène d’abord
+0773	Aux États-Unis, la transformation du lait doit respecter les normes sanitaires 3-A, et les directives européennes EHEDG s’en inspirent. Les instruments en contact avec le produit doivent exclure contamination et contamination croisée, et des ingrédients coûteux comme la matière grasse et les protéines doivent être dosés avec précision.
+0774	Des sondes hygiéniques à immersion Excalibur HY 25 (3-A) couplées à un spectromètre FT-NIR transmettent matière grasse, protéines, eau et lactose depuis plusieurs points clés au système de contrôle-commande à intervalles courts. Les écarts sont corrigés en quelques minutes au lieu d’attendre le laboratoire.
+0775	Pourquoi cette sonde
+0776	Elle peut toucher directement le produit, est certifiée 3-A, et se nettoie et se stérilise en place (NEP et SEP) sans arrêter la production. Son trajet optique précis rend les résultats reproductibles et les méthodes faciles à transférer entre sondes et points de mesure.
+0777	Au-delà des produits laitiers
+0778	Le même montage mesure les acides gras insaturés, le sucre dans les jus, et les vitamines ou concentrés dans d’autres procédés alimentaires et pharmaceutiques.
+0779	Sonde hygiénique sur une ligne laitière.
+0780	Matière grasse
+0781	Protéines
+0782	Lactose
+0783	Un modèle en ligne contrôle le rapport yaourt/fruits avant remplissage.
+0785	La laiterie Schwarzwaldmilch de Fribourg-en-Brisgau contrôle à nouveau chaque yaourt aux fruits après l’ajout de la préparation de fruits et avant le remplissage. Le rapport yaourt/fruits détermine le goût, la teneur minimale en fruits déclarée et le coût des ingrédients.
+0786	Pourquoi il varie
+0787	Le sucre des fruits change selon la variété et la maturité, et les préparations de fruits évoluent au stockage. Les changements de conteneur et les arrêts et redémarrages de pompe modifient le rapport de mélange.
+0788	Des échantillons aléatoires étaient contrôlés au laboratoire via la valeur Brix (indice de réfraction). C’est lent et peu fiable comme mesure de la teneur en fruits, ce qui peut entraîner du gaspillage.
+0789	Construire le modèle
+0790	Hellma Solutions a mesuré des échantillons de produits dans le laboratoire d’application Hellma sur une longue période et construit des modèles d’étalonnage pour les différents yaourts aux fruits. Les modèles ont ensuite été exécutés sur un spectromètre et intégrés au procédé en plusieurs étapes.
+0791	Mesuré en ligne
+0792	En raison des propriétés optiques du yaourt, une mesure en réflexion convient le mieux. Une sonde en réflexion Gladius XP, assez hygiénique pour la production alimentaire, mesure le yaourt dans la ligne. La mise à jour du modèle au fil du temps suit le procédé de façon toujours plus détaillée.
+0793	Teneur en fruits dans le temps : le démarrage de la production, un arrêt et un changement de conteneur apparaissent immédiatement.
+0794	L’installation chez Schwarzwaldmilch.
+0795	De l’analyse de laboratoire au modèle d’étalonnage puis au pilotage du procédé.
+0796	Rapport yaourt/fruits
+0797	La maturation du whiskey en fût
+0798	Mesurer ce que le bois apporte, directement dans le fût.
+0799	Le bois qui se dissout dans l’eau-de-vie apporte des impuretés visibles dans le signal UV-Vis.
+0800	Mesuré sur place
+0801	La concentration de ces impuretés peut être mesurée directement dans le fût.
+0802	Impuretés issues du bois dissous
+0803	Tri des fruits
+0804	La lumière diffusée par le fruit révèle ce que l’œil ne voit pas.
+0805	La lumière diffusée par le fruit renseigne une trieuse sur son intérieur autant que sur sa surface.
+0806	Un scan, cinq réponses
+0807	La lumière diffusée détermine la teneur en sucre, les meurtrissures, la sécheresse, l’acidité et la pourriture.
+0808	Sucre
+0809	Meurtrissures
+0810	Sécheresse
+0811	Acidité
+0812	Pourriture
+0813	Agriculture et produits laitiers
+0814	Humidité, protéines, amidon, cendres, matières grasses et sucres.
+0815	Le NIR mesure rapidement et sans produits chimiques la composition des cultures et des produits laitiers.
+0816	Agriculture de précision
+0817	Humidité, protéines, amidon et cendres.
+0818	Produits laitiers
+0819	Matières grasses et sucres.
+0820	Amidon
+0821	Cendres
+0822	Matières grasses
+0823	Sucres
+0824	Surveillance de l’eau et des eaux usées
+0825	Nitrates, sulfates, H₂S et impuretés.
+0826	L’UV-Vis surveille les nitrates, sulfates et H₂S dissous. La fluorescence détecte les impuretés dans les eaux usées.
+0827	Nitrates
+0828	Sulfates
+0829	Impuretés (fluorescence)
+0830	Hellma vous permet de pratiquer la spectroscopie moléculaire au laboratoire et dans le procédé, efficacement et au plus haut niveau.
+0831	Fondée en
+0832	Collaborateurs
+0833	Sites de production
+0834	Filiales commerciales
+0835	Génération d’actionnariat familial
+0836	Müllheim, Allemagne
+0838	Analytics et Solutions
+0839	Iéna et Eisenach, Allemagne
+0841	Photonique
+0842	Trollhättan, Suède
+0844	New Iberia, Louisiane, États-Unis
+0846	Allemagne
+0847	Benelux
+0848	France
+0849	Italie
+0850	Suisse
+0851	Royaume-Uni
+0852	Asie
+0853	États-Unis / Canada
+0854	Demander des informations
+0855	Laissez vos coordonnées et notre équipe vous recontactera après le salon.
+0856	Sondes et cellules à circulation en transmission Excalibur
+0857	Sondes en transflexion Falcata
+0858	Sondes ATR Katana
+0859	Sondes en réflexion Gladius
+0860	Sondes pour extrudeuses de polymères
+0861	Sondes de fluorescence Espada
+0862	Sondes Raman Tidus
+0863	Capteurs spectroscopiques (NIR, MIR)
+0864	Développement de solutions sur mesure
+0865	Conseil PAT, faisabilité et chimiométrie
+0866	Aide pour une application
+0867	Fiche technique
+0868	Devis
+0869	Appel d’un spécialiste
+0870	Étude de faisabilité
+0871	Visite ou démonstration
+0872	{territory} peut me contacter au sujet de cette demande.
+0873	Vos données sont stockées uniquement sur cet appareil jusqu’à ce que notre équipe les récupère après le salon.
+0874	(dichroïque)
+0875	* Obligatoire
+0876	0–0,2 %  ·  Raman uniquement
+0877	Trajet optique 1 mm
+0878	1res harmoniques
+0879	2es harmoniques
+0880	3es harmoniques
+0881	= trajet optique
+0882	Zone ATEX
+0883	Principe ATR
+0884	ATR : la lumière se réfléchit trois fois dans un élément en saphir au contact du milieu
+0885	Absorbance
+0886	Acétone
+0887	Spectres UV de l’acétone et du toluène
+0888	Acides, esters
+0889	Acide acrylique
+0890	Avantages
+0891	Après : en ligne
+0892	Alcools
+0893	Toutes les applications
+0894	Amides
+0895	Amines
+0896	Tous
+0897	Applications ·
+0898	Positions approximatives des bandes NIR par groupe fonctionnel
+0899	Décalages Raman approximatifs des composants du gaz naturel
+0902	C–H aromatique
+0903	Atm.
+0904	Cycle auto
+0905	Retour
+0906	Le lot attend le résultat
+0907	Séparateur de faisceau
+0908	Avant : hors ligne
+0909	Bioprocédés
+0910	Échantillon bleu
+0911	Les deux
+0912	Ceramat et Sensogate
+0913	Miroir de fond
+0914	Par secteur
+0915	Par technique
+0919	Étalonnage, validation externe et revalidation dans le temps
+0920	Carbonyle, aldéhyde
+0921	Carbone–carbone
+0922	Étude de cas
+0923	Étude de cas ·
+0924	Étude de cas · Hellma Solutions
+0925	Ceramat et Sensogate
+0926	Défis
+0927	Mélange caractéristique. O₂ et N₂ ne sont visibles qu’en Raman.
+0928	Ville, région ou pays
+0929	Nettoyer, étalonner et changer les sondes pendant que le procédé tourne
+0930	Effacer tous les filtres
+0931	Fibre de collecte
+0932	Cuve de collecte
+0933	Couleur
+0934	Combinaisons
+0935	Société
+0936	Raccordements
+0937	Contact ou
+0938	Salle de contrôle
+0939	Sur mesure
+0940	Fabriquée sur mesure
+0941	Développement sur mesure
+0942	Client : AkzoNobel
+0943	Client : IOI Oleo
+0944	Client : Sartorius
+0945	Client : Schwarzwaldmilch
+0946	Client : Versalis
+0947	Réflexion diffuse
+0948	Rétrodiffusion directe :
+0949	Discuter d’une application similaire
+0950	Discuter de votre application
+0951	Distillation
+0952	Terminé
+0953	E-mail
+0954	Émission
+0955	Agrandir
+0956	Sondes Espada
+0959	Champ évanescent à
+0960	Chaque sonde Hellma envoie de la lumière dans le procédé et la renvoie au spectromètre. Ce qui change, c’est le chemin de la lumière.
+0961	Exemples
+0962	Sondes Excalibur
+0965	Spectres d’excitation et d’émission
+0966	Fibre d’excitation
+0967	Sondes Falcata
+0970	Faisabilité, modèles, intégration
+0971	Le filtre bloque
+0972	Filtrer avec le sélecteur de sondes
+0973	Prénom
+0974	Cellule à circulation en zone ATEX, spectromètre à l’extérieur
+0975	Principe de fluorescence
+0976	Fluorescence : un miroir fait traverser la fente à l’excitation et un second miroir la renvoie ; l’émission est collectée à angle droit, et un miroir de fond renvoie l’émission descendante vers la fibre
+0977	Point de mesure
+0978	Pour Excalibur HD
+0979	De la matière première à la solution complète
+0980	Sondes Gladius
+0986	Hellma dans le monde
+0987	Valeurs maximales avec joints brasés
+0988	Accueil
+0989	Fonctionnement de l’ATR
+0990	Fonctionnement de la fluorescence
+0991	Fonctionnement
+0992	Fonctionnement du Raman
+0993	Fonctionnement de la réflexion
+0994	Comment la lumière rencontre votre échantillon
+0995	Fonctionnement de la transflexion
+0996	Fonctionnement de la transmission
+0997	Je m’intéresse à
+0998	Fibres d’éclairage
+0999	Secteur
+1000	Installation
+1001	Intensité
+1002	Fonction
+1003	Sondes Katana
+1006	Continuer la visite
+1007	Labo
+1008	Lampe
+1010	Nom
+1011	La lumière traverse
+1012	Trouvez la sonde adaptée à votre procédé
+1013	Pression max.
+1014	Température max.
+1015	Principe de mesure
+1016	Principes de mesure ·
+1017	Fente de mesure
+1018	Position de mesure
+1019	Milieu, température, pression, ce que vous voulez mesurer
+1020	Méthine
+1022	Méthylène
+1023	Lait
+1024	Miroir
+1025	Le miroir renvoie
+1026	Le miroir dévie
+1028	La spectroscopie moléculaire, au laboratoire et dans le procédé
+1029	Autres applications de fluorescence
+1030	Autres applications NIR / MIR
+1031	Autres applications Raman
+1032	Autres applications UV-Vis
+1033	Multiplexeur
+1034	Multiplexeur commutant entre quatre points de mesure
+1035	Absorption NIR du gaz naturel
+1036	Plages de composition du gaz naturel
+1037	Zone non ATEX
+1038	Pas sûr ? Voyez comment fonctionne chaque principe
+1039	Échantillon de laboratoire hors ligne comparé à la mesure en ligne sur la cuve de collecte
+1040	Positions de mesure offline, atline, online et inline
+1041	Hors ligne : échantillon au labo
+1042	En ligne : cellule à circulation Excalibur
+1043	Fibre optique à travers le mur
+1044	Fibres optiques
+1045	Vue d’ensemble
+1046	La PAT, de la première question au service
+1049	PRM pour Excalibur HD
+1050	Pièces
+1051	Phénols
+1052	Téléphone
+1053	Point 1
+1054	Point 2
+1055	Point 3
+1056	Point 4
+1057	Sondes pour extrudeuses ·
+1059	Le prisme dévie la lumière
+1061	Sonde dans une cuve ou une conduite
+1062	Sondes et principes à découvrir
+1063	Sondes de cet exemple
+1064	Sondes à découvrir
+1065	Pression de procédé jusqu’à
+1066	Spectroscopie de procédé
+1067	Température de procédé jusqu’à
+1068	Ligne de production
+1069	Étapes du projet
+1070	Purification
+1074	Lumière Raman vers
+1075	Principe Raman
+1076	Décalage Raman (cm⁻¹)
+1077	Raman : la lumière laser et le signal Raman suivent le même chemin vers l’échantillon et retour (rétrodiffusion directe) ; un séparateur de faisceau et un filtre les séparent
+1078	Valeurs maximales par modèle ; certaines nécessitent des joints brasés.
+1079	Lire
+1080	Libération des lots en temps réel
+1081	Principe de réflexion
+1082	Réflexion : la lumière des fibres extérieures est focalisée sur l’échantillon ; la fibre centrale collecte la lumière réfléchie de façon diffuse
+1083	Demande envoyée
+1084	Résultats
+1085	Chambres rétractables ·
+1087	Échantillon dans la
+1088	Élément ATR en saphir
+1089	Fluorescence de la scheelite
+1090	Voir les études de cas
+1091	Envoyer la demande
+1092	Capteurs
+1093	Services
+1094	Délai du résultat
+1095	Séchage par atomisation
+1096	Démarrer
+1097	TCP/IP · bus de terrain
+1098	Touchez le dessin pour l’agrandir
+1099	Parlez-nous de votre procédé (facultatif)
+1100	Décrivez votre procédé. Les sondes et cellules qui ne le supportent pas sont exclues.
+1101	Temp.
+1102	Tenue en température et en pression sur demande
+1103	Le joint détermine jusqu’où une sonde peut aller
+1104	Thiols
+1105	Sondes Tidus
+1108	Toluène
+1109	Touchez pour découvrir
+1110	La transflexion exigeait une dilution d’un million de fois ; l’ATR reste dans la plage
+1111	Principe de transflexion
+1112	Transflexion : la lumière traverse la fente, se réfléchit sur un miroir et la traverse à nouveau
+1113	Principe de transmission
+1114	Transmission : la lumière traverse une fois la fente de mesure
+1116	Jusqu’à 16 points, un spectromètre
+1117	Utilisé dans
+1118	Longueur d’onde (nm)
+1119	Joint métallique soudé, vue éclatée
+1120	Joint métallique soudé, coupe
+1121	Ce qui est mesuré
+1122	Qu’est-ce qui vous aiderait ?
+1123	Où mesurent les sondes Hellma
+1124	Fenêtre
+1125	Compatible avec
+1126	Échantillon jaune
+1127	Votre demande est enregistrée. Notre équipe vous recontactera après le salon.
+1128	bleu
+1129	boucle de bypass
+1130	concentration
+1131	sur mesure
+1132	sombre
+1133	diluer 1 : 1 000 000
+1134	chacune des 3 réflexions
+1135	hors échelle
+1136	cellule à circulation
+1137	vert
+1138	hydrocarbures
+1139	dans la plage
+1140	dans le flux
+1141	clair
+1142	fente de mesure
+1143	focalisé
+1144	à côté de la ligne
+1145	un chemin commun
+1146	autres
+1147	rouge
+1148	renvoie l’émission
+1149	échantillon au labo
+1150	deux fois la fente
+1151	la raie laser
+1152	la lumière
+1153	la lumière de 90°
+1154	le spectromètre
+1155	temps
+1156	pénétration infime
+1157	exploitable
+1158	avec joints brasés
+1159	jaune
+1160	« Dans le cadre de notre bonne coopération avec Hellma, nous avons réussi à développer ensemble, de manière itérative, un composant central de capteur optique, de la première ébauche à la production en série, selon les plus hautes exigences de qualité. »
+1161	{territory}, fondée en
+1162	Votre contact chez {territory}
+1163	Merci, {name}.
+1164	Étape {n} sur {total}
+1165	{n} exemple
+1166	{n} exemples
+1167	Les {n} sondes et cellules à circulation
+1168	{n} sur {total} correspondent
+1169	Bureau
+1176	Sonde à immersion
+1177	Sonde à immersion hygiénique
+1178	Sonde de fluorescence à immersion
+1179	Sonde Raman de procédé
+1180	Sonde Raman
+1181	Cellule à circulation
+1182	Sonde
+1183	Paire de sondes sur mesure
+1185	Transflexion
+1186	Réflexion
+1187	Fluorescence
+1188	Joints élastomères (joints toriques)
+1189	Brasure en alliage d’or ou d’argent
+1192	Multiplexeur FMX
+1193	Double face : la lumière de la lampe et le signal revenant de la sonde vers le détecteur sont commutés simultanément.
+1194	Solutions sur mesure
+1195	Adaptation technologique
+1196	Conseil PAT
+1197	Études de faisabilité
+1198	Service de chimiométrie
+1199	Intégration de solutions
+1200	Capteurs spectroscopiques
+1205	Compréhension du procédé
+1206	Contrôle qualité
+1207	Coûts de production réduits
+1208	Développement plus rapide
+1209	Production continue
+1210	Conformité réglementaire
+1211	Réduction des risques
+1212	Interférences
+1213	Complexité du procédé
+1214	Choix de la méthode
+1215	Coûts et investissement
+1216	Sécurité et conformité
+1217	Faisabilité
+1218	Matériel
+1219	Logiciel
+1220	Protocoles de connexion des données
+1221	Développement du modèle
+1222	Validation externe
+1223	Revalidation
+1224	Formation
+1225	Service
+1226	Qualification
+1227	Cahier des charges utilisateur (URS)
+1228	Spécification de conception (DS)
+1229	Qualification de conception (DQ)
+1230	Essai de réception en usine (FAT)
+1231	Essai de réception sur site (SAT)
+1232	Qualification d’installation (IQ)
+1233	Qualification opérationnelle (OQ)
+1234	Qualification de performance (PQ)
+1235	Pharmacie
+1236	Biotechnologie
+1237	Chimie
+1238	Pétrole, gaz et pétrochimie
+1239	Polymères
+1240	Peintures et revêtements
+1241	Alimentaire
+1242	Boissons
+1243	Agriculture
+1244	Eau et eaux usées
+1245	Matières premières
+1246	Composants
+1247	Spectroscopie de laboratoire et de procédé
+1248	Solutions spectroscopiques
+1249	jusqu’à 100 mm
+1021	Méthyle
