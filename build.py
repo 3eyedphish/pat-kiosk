@@ -48,11 +48,43 @@ def safe_js(s):
     return s.replace("</script", "<\\/script")
 
 
+LANGS = [("de", "Deutsch"), ("fr", "Français"), ("it", "Italiano"), ("es", "Español"), ("pt", "Português (Brasil)"), ("nl", "Nederlands")]
+
+
+def read_tsv(path):
+    out = {}
+    if not os.path.exists(path):
+        return out
+    for line in open(path, encoding="utf-8"):
+        line = line.rstrip("\n")
+        if "\t" in line and line[:1].isdigit():
+            k, v = line.split("\t", 1)
+            out[k] = v
+    return out
+
+
+def i18n_js():
+    """Translations: src/i18n/en.txt lists every visitor-facing English string with an ID; <lang>.txt gives
+    'ID<tab>translation'. A missing line falls back to English. Regenerate en.txt with i18n_extract.py."""
+    en = read_tsv(os.path.join(SRC, "i18n", "en.txt"))
+    langs, dicts = [], {}
+    for code, name in LANGS:
+        tr = read_tsv(os.path.join(SRC, "i18n", code + ".txt"))
+        if not tr:
+            continue
+        d = {en[k]: v for k, v in tr.items() if k in en and v.strip() and v != en[k]}
+        langs.append({"code": code, "name": name, "count": len([k for k in en if k in tr])})
+        dicts[code] = d
+    print("i18n: %d strings; %s" % (len(en), ", ".join("%s %d" % (l["code"], l["count"]) for l in langs) or "no translations"))
+    return "window.KIOSK_I18N = %s;\n" % json.dumps({"total": len(en), "langs": langs, "dict": dicts}, ensure_ascii=False)
+
+
 def build():
     os.makedirs(DIST, exist_ok=True)
     assets = pick_assets()
     built = datetime.datetime.now().strftime("%Y-%m-%d %H:%M")
     css, content, diagrams, app = read("styles.css"), read("content.js"), read("diagrams.js"), read("app.js")
+    content = content + "\n" + i18n_js()
     logo = logo_svg(assets["L1"])
 
     def page(asset_map, mode, extra_boot=None, extra_head=""):

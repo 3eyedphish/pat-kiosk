@@ -71,11 +71,100 @@
   ];
   function locDefaults() {
     var d = C.locale || {}, c = C.contact || {};
-    return { territory: d.territory || "Hellma", name: c.name || "", role: c.role || "", phone: c.phone || "", email: c.email || "", web: c.web || "", founded: d.founded || "", office: d.office || "" };
+    return { lang: "en", territory: d.territory || "Hellma", name: c.name || "", role: c.role || "", phone: c.phone || "", email: c.email || "", web: c.web || "", founded: d.founded || "", office: d.office || "" };
   }
   var loc = Object.assign(locDefaults(), LS.get("hk.locale", {}));
   if (!loc.territory) loc.territory = locDefaults().territory;
   function tx(t) { return String(t == null ? "" : t).replace(/\{territory\}/g, loc.territory); }
+
+  /* ---------------- Languages ----------------
+   * Translations come from src/i18n/<lang>.txt, keyed by the English text (see build.py).
+   * 1) Content strings in KIOSK are swapped in place at start-up.
+   * 2) Text the app code writes (buttons, labels, diagram captions) is translated as it reaches the page.
+   * The staff panel stays in English. Anything without a translation shows in English. */
+  var I18N = window.KIOSK_I18N || { total: 0, langs: [], dict: {} };
+  var C_EN = JSON.parse(JSON.stringify(C));
+  var SKIP_KEYS = { id: 1, img: 1, img2: 1, family: 1, route: 1, drawing: 1, principle: 1, pos: 1, side: 1, logo: 1, svg: 1, exploded: 1, graphic: 1, key: 1, check: 1, source: 1, version: 1, defaultPin: 1, chart: 1, kind: 1, section: 1, u: 1, brand: 1 };
+  var DICT = {}, LANG = "en";
+  var TEMPLATES = ["Thank you, {name}.", "Step {n} of {total}", "{n} example", "{n} examples", "All {n} probes and flow cells", "{n} of {total} match"].map(function (t) {
+    var names = [], re = t.replace(/[.*+?^$()|[\]\\]/g, "\\$&").replace(/\{(\w+)\}/g, function (m, k) { names.push(k); return "(.+?)"; });
+    return { en: t, re: new RegExp("^" + re + "$"), names: names };
+  });
+  function setLang(code) {
+    LANG = I18N.dict[code] ? code : "en";
+    DICT = I18N.dict[LANG] || {};
+    (function walk(src, dst) {
+      for (var k in src) {
+        var v = src[k];
+        if (typeof v === "string") { if (!SKIP_KEYS[k] && !/Check$/.test(k)) dst[k] = DICT[v] || v; }
+        else if (v && typeof v === "object" && dst[k] && typeof dst[k] === "object") walk(v, dst[k]);
+      }
+    })(C_EN, C);
+    document.documentElement.lang = LANG;
+  }
+  /* Translate an app string; {territory} and {name}-style values are filled in */
+  function t(en, vars) {
+    var s = DICT[en] || en;
+    vars = vars || {};
+    return tx(s.replace(/\{(\w+)\}/g, function (m, k) { return k in vars ? vars[k] : m; }));
+  }
+  function trCore(s) {
+    if (DICT[s]) return DICT[s];
+    for (var i = 0; i < TEMPLATES.length; i++) {
+      var T0 = TEMPLATES[i], m = s.match(T0.re);
+      if (m && DICT[T0.en]) { var vars = {}; T0.names.forEach(function (k, j) { vars[k] = m[j + 1]; }); return DICT[T0.en].replace(/\{(\w+)\}/g, function (x, k) { return k in vars ? vars[k] : x; }); }
+    }
+    if (s.indexOf(" · ") > 0) {
+      var changed = false, parts = s.split(" · ").map(function (p) { var q = trCore(p); if (q != null && q !== p) { changed = true; return q; } return p; });
+      if (changed) return parts.join(" · ");
+    }
+    if (/ ·$/.test(s)) { var q = trCore(s.slice(0, -2)); if (q != null) return q + " ·"; }
+    return null;
+  }
+  function trText(raw) {
+    var s = raw.replace(/\u00a0/g, " ").trim();
+    if (!s || !/[A-Za-z]/.test(s)) return null;
+    var r = trCore(s);
+    if (r == null || r === s) return null;
+    return raw.match(/^\s*/)[0] + nb(r) + raw.match(/\s*$/)[0];
+  }
+  var TR_ATTRS = ["placeholder", "aria-label", "title", "alt"];
+  function inStaff(el) { return !!(el && el.closest && el.closest("#staff")); }
+  /* Translated diagram captions can be longer than the English; shrink a caption that would run off the drawing */
+  var measureCtx = null;
+  function fitSvgText(el) {
+    var svg = el.ownerSVGElement, vb = svg && svg.viewBox && svg.viewBox.baseVal;
+    if (!vb || !vb.width) return;
+    try {
+      var cs = getComputedStyle(el), fs = parseFloat(cs.fontSize) || 15;
+      measureCtx = measureCtx || document.createElement("canvas").getContext("2d");
+      measureCtx.font = cs.fontWeight + " " + fs + "px " + cs.fontFamily;
+      var w = measureCtx.measureText(el.textContent).width, x = parseFloat(el.getAttribute("x")) || 0;
+      var a = el.getAttribute("text-anchor") || "start", room = a === "end" ? x - vb.x - 4 : a === "middle" ? 2 * Math.min(x - vb.x, vb.x + vb.width - x) - 8 : vb.x + vb.width - x - 4;
+      if (w > room && room > 20) el.style.fontSize = Math.max(9, fs * room / w).toFixed(1) + "px";
+    } catch (e) { }
+  }
+  function trNode(n) {
+    if (n.nodeType === 3) {
+      if (inStaff(n.parentElement)) return;
+      var r = trText(n.nodeValue);
+      if (r != null && r !== n.nodeValue) { n.nodeValue = r; if (n.parentElement && n.parentElement.tagName.toLowerCase() === "text") fitSvgText(n.parentElement); }
+      return;
+    }
+    if (n.nodeType !== 1 || n.id === "staff" || inStaff(n)) return;
+    if (n.tagName === "SCRIPT" || n.tagName === "STYLE") return;
+    TR_ATTRS.forEach(function (a) { var v = n.getAttribute(a); if (v) { var r = trText(v); if (r != null && r !== v) n.setAttribute(a, r); } });
+    for (var c = n.firstChild; c; c = c.nextSibling) trNode(c);
+  }
+  setLang(loc.lang);
+  if (LANG !== "en" && window.MutationObserver) {
+    new MutationObserver(function (muts) {
+      muts.forEach(function (m) {
+        if (m.type === "childList") Array.prototype.forEach.call(m.addedNodes, trNode);
+        else trNode(m.target);
+      });
+    }).observe(document.body, { childList: true, subtree: true, characterData: true, attributes: true, attributeFilter: TR_ATTRS });
+  }
 
   /* ---------------- Home Screen web app support ---------------- */
   var PWA = { reg: null, updateReady: false };
@@ -839,7 +928,7 @@
 
   SCREENS.about = function () {
     var X = C.about;
-    var localStats = [{ n: loc.founded, l: loc.territory + " founded" }, { n: loc.office, l: "Office" }].filter(function (s) { return s.n; });
+    var localStats = [{ n: loc.founded, l: t("{territory} founded") }, { n: loc.office, l: t("Office") }].filter(function (s) { return s.n; });
     return {
       crumb: crumb("About Hellma"),
       html: banner("About Hellma", "Molecular spectroscopy, in the lab and in the process", esc(X.promise)) + note(X.check) +
@@ -902,7 +991,7 @@
         '<div class="field full"><label for="f-msg">Tell us about your process (optional)</label><textarea id="f-msg" name="msg" placeholder="Medium, temperature, pressure, what you want to measure">' + esc(F.v.msg || "") + "</textarea></div>" +
         '<div class="field full"><button class="check" type="button" id="f-consent" role="checkbox" aria-checked="' + F.consent + '"><span class="box">' + I.check + "</span><span>" + esc(tx(L.consent)) + '<br><span class="muted small">' + esc(L.privacy) + '</span></span></button><span class="msg" id="consent-msg"></span></div>' +
         '<div class="field full"><div class="row"><button class="btn primary" type="submit" style="min-width:14rem">' + I.mail + 'Send request</button><span class="muted small">* Required</span></div></div></form>' +
-        (ct.name || ct.phone || ct.email || ct.web ? '<section class="panel sky" style="max-width:34rem"><div class="eyebrow">Your contact at ' + esc(loc.territory) + "</div>" + (ct.name ? '<h2 class="h3">' + esc(ct.name) + "</h2>" : "") + (ct.role ? '<p class="muted">' + esc(ct.role) + "</p>" : "") +
+        (ct.name || ct.phone || ct.email || ct.web ? '<section class="panel sky" style="max-width:34rem"><div class="eyebrow">' + esc(t("Your contact at {territory}")) + "</div>" + (ct.name ? '<h2 class="h3">' + esc(ct.name) + "</h2>" : "") + (ct.role ? '<p class="muted">' + esc(ct.role) + "</p>" : "") +
           "<p>" + [ct.phone, ct.email, ct.web].filter(Boolean).map(esc).join("<br>") + "</p>" + (ct === C.contact ? note(ct.check) : "") + "</section>" : ""),
       init: function (root) {
         var form = $("#lead", root);
@@ -1075,6 +1164,14 @@
     return out;
   }
 
+  function langPicker() {
+    var opts = [{ code: "en", name: "English" }].concat(I18N.langs);
+    return '<label class="field"><span class="lab">Kiosk language (visitor screens)</span><select id="st-loc-lang">' + opts.map(function (l) {
+      var part = l.count && l.count < I18N.total ? " (" + Math.round(100 * l.count / I18N.total) + "% translated)" : "";
+      return '<option value="' + l.code + '"' + (l.code === loc.lang ? " selected" : "") + ">" + esc(l.name + part) + "</option>";
+    }).join("") + '</select><span class="muted small">Translations are drafts: have a native speaker check them before a show. This staff panel stays in English.</span></label>';
+  }
+
   function openStaff() {
     var st = $("#staff");
     Store.all().then(function (leads) {
@@ -1100,7 +1197,7 @@
         '<div class="field"><span class="lab">Animation</span><button class="check" type="button" id="st-motion" role="checkbox" aria-checked="' + (settings.motion === "always") + '"><span class="box">' + I.check + "</span><span>Animate diagrams even when the iPad's Reduce Motion is on</span></button></div>" +
         '</div><div class="row"><button class="btn primary" type="button" id="st-save">Save settings</button><button class="btn" type="button" id="st-attract">Start attract screen</button></div></section>' +
         '<section class="panel" id="st-loc"><h2 class="h3">Localization</h2><p class="muted small">For subsidiaries using this kiosk: set your own point of contact, and the subsidiary name that replaces \u201cHellma USA\u201d on the request form, consent text and About page. Saved on this iPad only.</p><div class="cols2">' +
-        LOC_FIELDS.map(function (f) { return '<label class="field"><span class="lab">' + esc(f[1]) + '</span><input type="text" id="st-loc-' + f[0] + '" value="' + esc(loc[f[0]]) + '" placeholder="' + esc(f[2]) + '" autocomplete="off" autocorrect="off" spellcheck="false"' + (f[0] === "email" || f[0] === "web" ? ' autocapitalize="off"' : "") + (f[0] === "email" ? ' inputmode="email"' : f[0] === "phone" ? ' inputmode="tel"' : "") + "></label>"; }).join("") +
+        langPicker() + LOC_FIELDS.map(function (f) { return '<label class="field"><span class="lab">' + esc(f[1]) + '</span><input type="text" id="st-loc-' + f[0] + '" value="' + esc(loc[f[0]]) + '" placeholder="' + esc(f[2]) + '" autocomplete="off" autocorrect="off" spellcheck="false"' + (f[0] === "email" || f[0] === "web" ? ' autocapitalize="off"' : "") + (f[0] === "email" ? ' inputmode="email"' : f[0] === "phone" ? ' inputmode="tel"' : "") + "></label>"; }).join("") +
         '</div><div class="row"><button class="btn primary" type="button" id="st-loc-save">Save localization</button><button class="btn" type="button" id="st-loc-reset">Reset to ' + esc(locDefaults().territory) + " defaults</button></div></section>" +
         '<section class="panel"><h2 class="h3">This iPad</h2><div class="cols3">' +
         '<div class="stat"><span class="l">Opened as</span><span class="n" style="font-size:1.15rem">' + (standalone() ? "Home Screen app" : "Browser tab") + "</span></div>" +
@@ -1136,15 +1233,20 @@
       $("#st-close", st).onclick = function () { st.hidden = true; };
       function refreshScreen() { if (!$("#shell").hidden && S.stack.length) render(S.stack[S.stack.length - 1], {}); }
       $("#st-loc-save", st).onclick = function () {
-        var next = {}; LOC_FIELDS.forEach(function (f) { next[f[0]] = $("#st-loc-" + f[0], st).value.trim(); });
+        var next = { lang: $("#st-loc-lang", st).value }; LOC_FIELDS.forEach(function (f) { next[f[0]] = $("#st-loc-" + f[0], st).value.trim(); });
         if (!next.territory) { toast("Enter a subsidiary name, for example Hellma UK."); $("#st-loc-territory", st).focus(); return; }
         if (next.email && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(next.email)) { toast("Check the contact email address."); $("#st-loc-email", st).focus(); return; }
+        var langChanged = next.lang !== LANG;
         Object.assign(loc, next);
-        var ok = LS.set("hk.locale", loc); refreshScreen();
+        var ok = LS.set("hk.locale", loc);
+        if (ok && langChanged) { toast("Language saved. Restarting the kiosk…"); setTimeout(function () { location.reload(); }, 900); return; }
+        refreshScreen();
         toast(ok ? "Localization saved on this iPad." : "Couldn't save on this iPad. Storage may be full or blocked.");
       };
       $("#st-loc-reset", st).onclick = function () {
         LS.del("hk.locale"); Object.assign(loc, locDefaults());
+        if (LANG !== "en") { toast("Localization reset. Restarting the kiosk…"); setTimeout(function () { location.reload(); }, 900); return; }
+        $("#st-loc-lang", st).value = "en";
         LOC_FIELDS.forEach(function (f) { $("#st-loc-" + f[0], st).value = loc[f[0]]; });
         refreshScreen(); toast("Localization reset to " + loc.territory + " defaults.");
       };

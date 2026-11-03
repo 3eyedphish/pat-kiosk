@@ -1,0 +1,1235 @@
+0001	Hellma Process Analytics
+0002	*Higher pressures are possible but cannot be certified because of testing limitations.
+0003	High precision in spectro-optics
+0004	For dedicated spectroscopy applications
+0005	Process Analytical Technology
+0006	Measure inside your process, in real time.
+0007	Immersion probes, flow cells and complete PAT solutions from Hellma.
+0008	Welded metal seals
+0009	Rated up to 400 °C and 250 bar*.
+0010	Excalibur HD probes and flow cells for harsh process conditions.
+0011	Hellma Solutions
+0012	From feasibility study to validated method.
+0013	Consulting, sensors, chemometrics, integration and service.
+0014	Applications
+0015	From whiskey barrels to polymer extruders.
+0016	See where Hellma probes measure, industry by industry.
+0017	Probe finder
+0018	Find the right probe for your process.
+0019	Filter by measurement principle, temperature and pressure.
+0020	Spectroscopy, right in your process
+0021	Tap a topic to explore probes, flow cells and PAT solutions.
+0022	Find your probe
+0023	Set your process conditions and see which probes and flow cells fit.
+0024	Process interfaces
+0025	Probes & flow cells
+0026	Every model with full specifications
+0027	Measurement principles
+0028	How each probe measures, animated
+0029	Sealing technology
+0030	Why welded metal seals last
+0031	Retractable housings
+0032	Clean and swap probes while running
+0033	Multiplexers
+0034	One spectrometer, many measuring points
+0035	PAT solutions
+0036	Sensors, custom systems and services
+0037	Case studies
+0038	Water in solvents, precious-metals refining
+0039	Learn
+0040	What is PAT?
+0041	Offline, atline, online, inline
+0042	Industries, techniques and examples
+0043	About Hellma
+0044	Since 1922, family owned
+0045	Hellma process interfaces bring the light path into the process: immersion probes for vessels and pipes, flow cells for sample streams. Choose by measurement principle first, then by temperature, pressure and materials.
+0046	Transmission probes and flow cells. The measuring gap works like the path length of a cuvette. Standard ratings reach 400 °C and 250 bar*, and the HY 25 is 3-A certified for hygienic processes.
+0047	Transflection probes. Light crosses the sample, reflects off a mirror and crosses it again. Brazed versions reach 300 °C and 300 bar.
+0048	ATR probes with a three-bounce sapphire element, for an extremely short path length. Brazed versions reach 300 °C and 100 bar.
+0049	Reflection probes that collect diffusely reflected light, in contact or at a distance. Brazed versions reach 300 °C and 100 bar.
+0050	Custom-built probe pairs that thread into standard melt-pressure ports on polymer extruders, for transmission or diffuse reflection. Rated up to 300 °C and 750 bar.
+0051	Fluorescence probes for liquids in the UV/VIS range, with quartz glass optics.
+0052	Ask our team for Espada specifications and availability.
+0053	Raman probes with exchangeable optics and filters, optimized for maximum Raman signal. The Tidus Lumio adds an integrated laser and an ATEX-compliant version.
+0054	Ask our team for Tidus specifications and availability.
+0055	Extremely precise
+0056	Extremely precise transmission probe for UV-Vis and NIR, sealed with Kalrez O-rings. Installs as an immersion probe or in a flow-through setup.
+0057	Spectral range
+0058	UV-Vis 210/240–1000 nm · NIR 400–2300 nm
+0059	Path length
+0060	1, 2, 5, 10 and 20 mm
+0061	Body material
+0062	Stainless steel 1.4571 (316Ti), Hastelloy C-22
+0063	Optical material
+0064	Quartz, sapphire
+0065	Sealing
+0066	Kalrez O-rings (6230, 6375, 6380, 8085)
+0067	Immersion depth
+0068	100–940 mm, or flow-through setup
+0069	Temperature
+0070	Up to 260 °C (500 °F)
+0071	Pressure
+0072	Up to 40 bar (~580 psi)
+0073	Heavy duty
+0074	Heavy-duty transmission probe with welded metal seals for high temperature, high pressure and aggressive media.
+0075	UV 240–800 nm · VIS 400–2000 nm · NIR 800–2500 nm
+0076	2, 3, 4, 5 and 10 mm
+0077	Stainless steel 1.4435/1.4404 (316L), Hastelloy C-22, Hastelloy C-276
+0078	Sapphire
+0079	100–940 mm
+0080	−30 °C to 400 °C (−22 °F to 750 °F)
+0081	Up to 250 bar* (~3600 psi)
+0082	3-A certified
+0083	Hygienic transmission probe for food, dairy and pharmaceutical liquids. Soldered sapphire windows make it maintenance-free, and it can be cleaned in place (CIP and SIP) without interrupting the process.
+0084	VIS–NIR 400–2300 nm
+0085	1 mm (±0.025 mm)
+0086	Stainless steel 316L, electropolished
+0087	Sapphire, soldered in (gold-tin)
+0088	Process connection
+0089	2-inch sanitary fitting (DN50, DIN 32676)
+0090	38–75 mm · 25 mm diameter
+0091	Up to 140 °C (284 °F) at the process connection
+0092	Up to 16 bar (~230 psi)
+0093	Hygiene
+0094	3-A certified · CIP and SIP capable · autoclavable with protective cap
+0095	Fat, protein, water and lactose in dairy; other hygienic food and pharma liquids
+0096	Quartz glass optics
+0097	Fluorescence immersion probe for liquids in the UV and VIS. Mirrors give the excitation light a second pass and send downward emission back to the collection fiber, for a strong signal.
+0098	Measuring principle
+0099	Fluorescence, collected at 90° with mirrors
+0100	Wavelength range
+0101	UV, VIS
+0102	Quartz glass
+0103	Sample
+0104	Liquids
+0105	Temperature and pressure
+0106	Ask us
+0107	For gases
+0108	Raman process probe for gas analysis, for example natural gas in pipelines. A special reflector amplifies the Raman signal, so low gas concentrations are measured reliably with the low laser power that explosive gases allow.
+0109	Raman
+0110	Excitation
+0111	Standard Raman spectrometer with a temperature-stabilized 785 nm laser, connected by optical fiber
+0112	Hazardous areas
+0113	Probe and spectrometer are separated, which allows ATEX-compliant operation
+0114	Signal
+0115	Special reflector amplifies the Raman signal for low concentrations
+0116	Construction
+0117	High-quality materials for high pressure and chemical resistance
+0118	Tidus Flex family
+0119	Modular design with three measuring heads (quartz or glass optics) for gases, liquids and solids
+0120	Integrated laser
+0121	Raman process probe with its own integrated laser light source. The ATEX-compliant version measures in hazardous areas with an ATEX-capable VIS spectrometer, or with a standard spectrometer outside the zone. A non-ATEX version is also available.
+0122	Raman, direct backscatter
+0123	Light source
+0124	ATEX-compliant version; non-ATEX version available
+0125	Spectrometer
+0126	Works with almost any Raman spectrometer
+0127	Process interface
+0128	Several configurations available
+0129	Optics
+0130	Exchangeable optics and filters
+0131	Inline flow cell with welded metal seals. Path lengths run from 2 mm up to 2 m for weakly absorbing streams.
+0132	2, 5, 10 mm and 100–2000 mm
+0133	Stainless steel 1.4435/1.4404 (316L), Hastelloy C-276
+0134	−30 °C to 300 °C (−22 °F to 570 °F)
+0135	Compact block flow cell with welded metal seals and short path lengths from 0.5 mm.
+0136	0.5, 1, 2, 3, 5 and 10 mm
+0137	Stainless steel 1.4435/1.4404 (316L)
+0138	Up to 200 bar (~2900 psi)
+0139	Variable path
+0140	Flow cell with fixed or variable path length. A thermocouple and heating cartridge are available.
+0141	0.5, 1, 2, 3, 5 and 10 mm, or variable
+0142	Stainless steel 1.4435/1.4404 (316L), Hastelloy C-276 (2.4819)
+0143	Kalrez
+0144	5 °C to 180 °C (40 °F to 350 °F)
+0145	Up to 30 bar (~435 psi)
+0146	Options
+0147	Thermocouple and heating cartridge
+0148	Transflection probe with interchangeable inserts for highly reproducible path lengths. Mini versions come in 6, 4 and 3 mm diameters.
+0149	Kalrez O-rings (4079, 6230, 6375) or brazed (hard soldered: Ag, Cu, Ti)
+0150	Rating with O-rings
+0151	Up to 260 °C (500 °F) · 40 bar (~580 psi)
+0152	Rating, brazed
+0153	Up to 300 °C (572 °F) · 300 bar (~4350 psi)
+0154	Three-bounce ATR probe for media that absorb too strongly for a transmission gap.
+0155	UV-Vis 240–1000 nm · NIR 400–2300 nm
+0156	Measuring element
+0157	3-bounce attenuated total reflection (ATR)
+0158	Stainless steel 1.4571 (316Ti), Titanium Grade 2
+0159	Kalrez O-rings (4079, 6375) or brazed (hard soldered: Ag, Cu, Ti)
+0160	100–640 mm, or flow-through setup
+0161	Up to 300 °C (572 °F) · 100 bar (~1450 psi)
+0162	Contact-free
+0163	Diffuse reflection probe in anodized aluminum. It measures from 25 to 100 mm away, without touching the sample.
+0164	NIR 400–2300 nm
+0165	Working distance
+0166	25–100 mm
+0167	Anodized aluminum
+0168	SF-5
+0169	Epoxy glue or hard soldered (Ag, Cu, Ti)
+0170	100–640 mm
+0171	Up to 100 °C (212 °F)
+0172	Atmospheric
+0173	Reflection probe in stainless steel, Hastelloy or titanium, measuring in contact or at 2 mm.
+0174	Contact or 2 mm
+0175	Stainless steel 1.4435/1.4404 (316L), Hastelloy C-22, Titanium Grade 2
+0176	EPDM, Kalrez O-ring (6221) or brazed (hard soldered: Ag, Cu, Ti)
+0177	Up to 120 °C (248 °F) · 16 bar (~230 psi)
+0178	Fits melt-pressure ports
+0179	For in-line measurement in polymer extruders under extreme conditions. The probes have the same dimensions as standard melt-pressure sensors (for example Dynisco), so they thread into existing ports.
+0180	Transmission with two opposed heads, or diffuse reflection
+0181	1, 2, 5 or 10 mm, set by head length and bore
+0182	Barrel material
+0183	Titanium
+0184	Sapphire windows soldered into the barrel
+0185	Up to 300 °C (572 °F)
+0186	Up to 750 bar (~10,900 psi), custom built
+0187	Fits
+0188	Threaded ports for melt-pressure sensors, also in rheometers
+0189	Light travels through an optical fiber to a collimator, either in the measuring head or at the back of the probe.
+0190	It crosses the measuring gap once and interacts with the medium on the way.
+0191	Comparable to measuring in a cuvette: the measuring gap equals the cuvette's path length.
+0192	Low stray light, because the light passes through the sample only once.
+0193	Light travels through an optical fiber to the measuring head, is collimated and passes through a window.
+0194	It crosses the measuring gap, reflects off a mirror and crosses the medium a second time.
+0195	Interchangeable inserts give highly reproducible, variable path lengths.
+0196	Mini-diameter probes: 6, 4 and 3 mm.
+0197	Attenuated total reflection
+0198	Light travels through the fiber to the ATR prism.
+0199	It reflects off the prism surfaces. At each reflection an evanescent field penetrates a tiny distance into the medium, which absorbs specific wavelengths.
+0200	Extremely short path length, for strongly absorbing liquids and pastes.
+0201	Sealing by brazing is possible.
+0202	Light travels down the outer fibers of a bundle and is focused onto the sample, in contact or up to 100 mm away.
+0203	The sample scatters the light in all directions: diffuse reflection.
+0204	The center fiber collects part of that light and carries it to the spectrometer.
+0205	Hygienic design is possible.
+0206	Contact-free measurement.
+0207	Excitation light travels down one fiber. A mirror turns it 90° so it crosses the measuring gap.
+0208	Fluorescent molecules in the sample absorb it and emit light at longer wavelengths, in all directions.
+0209	A mirror at the far side of the gap sends the excitation light back for a second pass, which generates more fluorescence.
+0210	The collection fiber sits at 90° to the excitation beam. Emission heading away from it hits a mirror at the bottom of the gap and is reflected back up to the fiber.
+0211	The right-angle geometry keeps excitation light out of the collection path, so the background stays low.
+0212	Two mirrors double the excitation pass and recover downward emission, for more signal.
+0213	Quartz glass optics for the UV/VIS range.
+0214	Laser light travels down the probe. A beam splitter turns it onto the optical axis and it is focused on the sample.
+0215	Almost all of the scattered light comes back at the laser wavelength. A tiny fraction is shifted by the molecules' vibrations: the Raman signal.
+0216	The Raman light returns along the same path (direct backscatter). It passes the beam splitter, and a filter removes what is left of the laser line before the collection fiber.
+0217	Exchangeable optics and filters.
+0218	Optics optimized for maximum Raman signal.
+0219	A large measuring spot focused on the sample from several centimeters away.
+0220	The seal between window and body decides the temperature, pressure and chemicals a probe can handle, and how long it lasts. Hellma offers all three approaches.
+0221	Allows monolithic measuring heads for higher transmission
+0222	Less expensive
+0223	Chemically resistant elastomers deform at high temperatures
+0224	Requires regular servicing
+0225	Limited temperature and pressure capability
+0226	High temperature and pressure setups
+0227	Low-expansion metals are subject to chemical attack
+0228	Chemically resistant brazes use brittle alloys that crack on expansion
+0229	Sapphire window
+0230	Gold or PTFE coated Waspaloy C-ring
+0231	Hastelloy sleeve
+0232	Electron-beam weld
+0233	Temperature rating up to
+0234	Pressure rating up to
+0235	Extreme chemical resistance
+0236	Insensitive to thermal shock
+0237	Virtually indestructible
+0238	A retractable housing lets process engineers replace, clean or calibrate optical and other inline sensors without interrupting production.
+0239	Why retract a probe?
+0240	Maintenance is often annual, with a limited time window.
+0241	O-ring seals need regular servicing.
+0242	Fouling builds up on the window.
+0243	New or replacement sensors can be prepared and swapped in.
+0244	Retractable housings with Knick
+0245	Automated cleaning of the spectroscopic system without pulling the probe by hand.
+0246	Exchange or remove the probe while the process is running.
+0247	Lock-gate sealing.
+0248	Works with Excalibur XP and Falcata XP probes.
+0249	Images courtesy of Knick
+0250	Manual, semi-automated and fully automated versions
+0251	Plug-and-play: one central multi-plug carries every connection and check value
+0252	Modular: materials, sensor assemblies, media connections and drive
+0253	Ceramic chambers with rotational sealing: two ceramic discs, no O-rings
+0254	Universal chemical compatibility, high chemical and temperature robustness, extreme hardness, sterilizable
+0255	All chambers can be flushed; wetted parts in stainless steel, Hastelloy or titanium
+0256	Hygienic version available
+0257	Drive unit comes off without special tools; immersion tube removes with a bayonet coupling; simple O-ring replacement
+0258	Double seal between calibration chamber and immersion tube, so process medium and compressed air stay separated
+0259	Immersion tube in 1.4571, 1.4435, Hastelloy, PVDF, PVDF HD, PEEK or PEEK HD
+0260	Sensor is not fixed to the armature
+0261	Cleaning inside the calibration chamber
+0262	New sensor holder clamp keeps the fibers from twisting during movement
+0263	Cyclone cleaning
+0264	Traditional rinsing leaves a shadow on the side of the window facing away from the nozzle. Cyclone rinsing routes the cleaning medium tangentially, so it swirls around the whole sensor.
+0265	Probe Retraction Mechanism (PRM) for Excalibur HD
+0266	Heavy-duty bearing structure
+0267	Lead screw or pneumatic actuation
+0268	Optional clean-out chamber
+0269	Lead screw
+0270	Conax fitting
+0271	Flush chamber
+0272	Ball valve
+0273	Pipe flange
+0274	Solvent fitting
+0275	Reaction vessel
+0276	A multiplexer connects one spectrometer to several probes or flow cells and switches between them, so one analyzer covers many measuring points.
+0277	Factory control room
+0278	The process control system (PCS) receives results over TCP/IP or a fieldbus.
+0279	Analyzer cabinet
+0280	Spectrometer, spectrometer PC and multiplexer sit in a shelter with air conditioning and purging where needed.
+0281	Process
+0282	Optical fibers run from the multiplexer channels to the probes and flow cells in the plant.
+0283	“Double side” fiber optical connectors
+0284	SMA or FC connectors for probes or cells (channels)
+0285	Power supply connector
+0286	Data interfaces: RS-232, RS-422/485
+0287	Hellma Solutions provides spectroscopic process analytical technology. Smart sensors and analysis give a detailed view into complex manufacturing processes, for more efficient production across many industries.
+0288	Better process control
+0289	Higher product quality
+0290	Higher output
+0291	Improved production efficiency
+0292	Less scrap and by-products
+0293	Reduced energy use
+0294	Increased process safety
+0295	Higher process transparency
+0296	Analysis of reaction processes
+0297	Time saving
+0298	NIR miniature spectrometer combined with a probe for precise measurements, for example in the chemical and pharmaceutical industries, or with a hygienic probe for the food industry.
+0299	NIR miniature spectrometer combined with a probe for harsh conditions: chemical resistance, pressure, temperature and optional ATEX. For the chemical and petrochemical industries.
+0300	MIR sensor combined with an ATR probe for dedicated applications with strongly absorbing media, for example in petrochemicals and paints and coatings.
+0301	How can Hellma Solutions tailor technology to your needs?
+0302	We develop a specific solution and adapt the sensor, instrumentation or software where necessary.
+0303	Starting from existing technology, we develop and adapt every component the application requires.
+0304	Application analysis
+0305	Quick check
+0306	Consulting
+0307	Solution development
+0308	Integration
+0309	From the analytical need to a plan: which measurement, where in the process, and what it takes to qualify it.
+0310	Instrument performance is tested in advance with your process samples, including interfering factors and sample handling.
+0311	Calibration models are developed, validated and updated over the life of the method.
+0312	Spectrometer, measuring cell, software and plant interfaces are brought together in your process.
+0313	NIR and MIR sensors that combine a miniature spectrometer with a Hellma probe.
+0314	Dedicated systems developed for a specific application.
+0315	PAT stands for Process Analytical Technology: the tools and methods manufacturers use to monitor and control production in real time. Instead of checking quality only at the end, PAT checks it throughout production so you can adjust immediately.
+0316	Hours to days
+0317	A sample is taken to a laboratory. Results arrive after the process has moved on.
+0318	Minutes to hours
+0319	A sample is taken and measured on an analyzer next to the line.
+0320	Seconds to minutes
+0321	Part of the stream is diverted through a bypass, measured automatically and can be returned to the process.
+0322	Seconds
+0323	The probe sits directly in the process stream. Nothing is removed, and results arrive continuously.
+0324	Real-time data on critical process parameters (CPPs) and their effect on critical quality attributes (CQAs) shows where problems come from.
+0325	Deviations are detected early and corrected immediately, reducing errors and rejects.
+0326	Optimized processes use resources better and reduce rework, scrap and waste.
+0327	Rapid feedback on process and product quality shortens development and time to market.
+0328	Real-time monitoring keeps quality consistent and the process running reliably without interruption.
+0329	Regulators such as the FDA promote PAT. It helps demonstrate consistently high product quality.
+0330	Variations that threaten quality or safety are caught in real time, reducing the risk of quality issues, recalls and penalties.
+0331	Vibration, temperature swings and dirt can affect the spectroscopic measurement.
+0332	Many processes have a large number of variables and interactions.
+0333	UV, VIS, NIR, MIR and Raman each suit different measurement tasks.
+0334	Implementing spectroscopic methods in industrial processes can involve considerable cost.
+0335	Accurate spectra need the right reference data to build a reliable model.
+0336	Industries such as pharma and food have special safety and compliance requirements.
+0337	Water in solvents
+0338	How a PAT project runs, using a real example: measuring water impurities in a solvent after distillation, in a GMP and ATEX environment.
+0339	less process time for the step
+0340	less energy for the step
+0341	3 a day
+0342	batches targeted, up from two
+0343	Start with the analytical need
+0344	Solvent leaves a distillation process and collects in a tank. Water content must be checked before the batch can be released.
+0345	Test it before you buy it
+0346	Instrument performance is tested in advance.
+0347	Spectroscopy sees the whole matrix (the process sample), not only the analyte.
+0348	Interfering factors, matrix effects, sample handling and preparation are investigated.
+0349	Suitable chemometric methods are selected.
+0350	Outliers can be synthesized if needed and built into the models.
+0351	The reference analysis and its overall error strongly influence the accuracy of the spectroscopic method.
+0352	Choose spectrometer and measuring cell
+0353	21 CFR Part 11 software
+0354	Works with the chosen chemometric software
+0355	Connects to higher-level process software that links all PAT analyzers
+0356	Accurate enough to measure the impurity in the process
+0357	Measuring cell: Excalibur HD flow cell
+0358	ATEX Zone 1
+0359	FDA certified materials possible
+0360	Connect the data
+0361	Spectrometer software runs the chemometric model.
+0362	Higher-level process software links all PAT analyzers.
+0363	Results go to the programmable logic controller (PLC).
+0364	FDA 21 CFR Part 11 compliant.
+0365	Talk to the plant
+0366	Analog 4–20 mA (e.g. Beckhoff)
+0367	Modbus TCP
+0368	PROFIBUS
+0369	PROFINET
+0370	OPC UA
+0371	Install across the ATEX boundary
+0372	The Excalibur HD flow cell sits on the collection tank inside the ATEX area. Optical fibers carry the light to the spectrometer outside it.
+0373	Build and maintain the calibration
+0374	Tap each phase to see how the calibration grows over time.
+0375	The real calibration: NIR prediction of water in the solvent against the reference (PLS model).
+0376	Method development with internal validation.
+0377	Independent samples confirm the model.
+0378	Additional calibration and validation samples test the model over time and update it when needed.
+0379	Train the people who run it
+0380	Spectrometer software
+0381	Training during implementation of the solution
+0382	Chemometric software
+0383	In-house training
+0384	Online training
+0385	Keep it running
+0386	Annual spectrometer maintenance
+0387	Chemometric adjustment at different times of the year
+0388	Support with GMP documentation, URS and validation concept
+0389	The measuring cell itself is maintenance-free.
+0390	Qualify it step by step
+0391	The V-model pairs each design step on the left with a test on the right. Tap a stage.
+0392	The user's requirements and wishes are described.
+0393	Requirements are translated into functions, then into technical designs and plans.
+0394	Confirms the design meets every requirement before anything is built or installed, avoiding costly changes later.
+0395	The system is tested at the factory before shipping.
+0396	The system is tested again after delivery, on site.
+0397	Verifies the system is installed correctly and meets the technical specifications.
+0398	Tests that the system performs its specified functions correctly in operation.
+0399	Checks that the system delivers the required performance under real operating conditions.
+0400	Metrological solutions using atline, online or inline spectroscopy pay off in many industries. Browse by industry or by technique, or open a case study.
+0401	Follow drug release, drying and purification in real time and release batches under GMP.
+0402	Follow nutrients and metabolites in the bioreactor, and the product through purification.
+0403	Follow reactions, purity and composition directly in the line, from polyols and phosgene to precious metals.
+0404	Measure water in crude oil, sulfur in marine fuel and gas composition under pressure, with ATEX-ready cells and probes.
+0405	Follow polymerization from monomer to polymer, from the reactor to the extruder.
+0406	Turn spectra into L*a*b* color values, control resin pre-polymers and check BPA-free can coatings.
+0407	Check oils, fruit content and composition in the line, to hygienic standards.
+0408	Measure fat, protein, water and lactose from milk intake to recombination, with a 3-A certified probe.
+0409	Follow what the barrel adds while the spirit matures.
+0410	Measure moisture, protein, starch and ash for precision farming.
+0411	Monitor nitrates, sulfates and H₂S, and spot impurities by fluorescence.
+0412	Ultraviolet and visible spectroscopy
+0413	Useful for molecules with double or triple bonds.
+0414	Conjugated double bonds shift absorption toward the visible. That is what makes a solution colored.
+0415	Transition metals absorb light very strongly.
+0416	Color can be calculated from the spectrum as L*a*b* values.
+0417	HPLC-UV and HPLC-DAD are the most common UV-Vis applications overall, mostly in the lab.
+0418	Schematic: acetone and toluene, after NIST Chemistry WebBook spectra.
+0419	Near- and mid-infrared spectroscopy
+0420	Vibrational spectra give each molecule a unique fingerprint.
+0421	NIR is the more widely used in process.
+0422	Overtones and combinations of C–H, O–H and N–H vibrations fall in the NIR.
+0423	Approximate NIR band positions by functional group. Tap a group to highlight its bands.
+0424	Raman spectroscopy
+0425	A laser excites the sample. A tiny part of the scattered light is shifted by molecular vibrations, giving each compound a unique fingerprint.
+0426	No water signal, which overlays many NIR signals in wet or biochemical processes such as fermentation.
+0427	Measures gases that NIR cannot see, such as oxygen and nitrogen.
+0428	Several components at once, qualitative and quantitative, with no sample preparation.
+0429	Schematic: approximate Raman shifts of natural-gas components.
+0430	Fluorescence spectroscopy
+0431	A molecule absorbs light at one wavelength (excitation) and emits light at a longer one (emission).
+0432	Very sensitive, so traces show up, for example impurities in wastewater.
+0433	Schematic excitation and emission spectra.
+0434	A vivid example: scheelite
+0435	The mineral scheelite (CaWO₄) fluoresces blue, with a maximum near 440 nm from tungstate. Where molybdenum replaces tungsten, a yellow band near 540 nm appears; a shoulder near 570 nm comes from Dy³⁺. Other common impurities are Tb³⁺, Sm³⁺ and Pr³⁺. Not a process application, but it shows how sensitive fluorescence is.
+0436	A complete PAT project in ten steps. About 30 % less process time.
+0437	Single-use UV flow cell, with Sartorius
+0438	Cast quartz made a precision part cheap enough for single use.
+0439	Expandable polystyrene at Versalis
+0440	Inline end point instead of a blocked reactor.
+0441	Oleochemicals at IOI Oleo
+0442	Acid and OH number in the reactor at up to 245 °C.
+0443	Fruit content at Schwarzwaldmilch
+0444	An inline model replaces the Brix lab check.
+0445	BPA-free can coatings at AkzoNobel
+0446	Residual monomers tracked in a sticky polymerization.
+0447	Precious-metals refining
+0448	Why a strongly absorbing process moved from transflection to ATR.
+0449	Tablet dissolution testing
+0450	Automated drug-release tests with immersion probes, without sampling.
+0451	Dissolution tests show how fast and how completely a tablet releases its active ingredient. Optical immersion probes measure the release directly in the test vessel.
+0452	The task
+0453	The pharmacopoeias (EP, USP, JP) prescribe the procedure: six tablets, several test intervals. Manual sampling, filtering and photometry are labor-intensive and prone to error, and new dosage forms keep adding samples.
+0454	Measured in the vessel
+0455	Probes connected to a spectrometer by optical fibers sit in the paddle stirrer next to the dissolving tablet. As the active ingredient dissolves, its absorption rises until the tablet has fully dissolved and the curve levels off. With several vessels, a multiplexer connects all probes to one spectrometer.
+0456	Faster with robotics
+0457	A robotic arm can move the probe from vessel to vessel, rinsing and drying it in between, for very short measurement intervals.
+0458	Which probe
+0459	The Excalibur Lab, with its monolithic quartz measuring head, has proven itself here. For narrow vessels with small lids, the slim Falcata Lab with interchangeable path-length tips fits better.
+0460	Why it pays
+0461	Unlike HPLC, no filters, tubing or consumables are needed, and rinsing and drying the probe avoids carryover between samples.
+0462	Absorption spectrum of an active ingredient as it is released into the buffer.
+0463	Absorbance over time: it rises until the tablet has fully dissolved.
+0464	Active-ingredient concentration
+0465	Release profile
+0467	Spray drying: residual moisture in an API
+0468	NIR through a sight glass replaces Karl Fischer sampling.
+0469	Spray drying turns a solution of active ingredient and excipients into powder, in less than a second per droplet. The residual moisture of that powder has to stay within tight limits.
+0470	Why moisture matters
+0471	Too much residual moisture makes the powder clump and hurts flowability, yield and ultimately the drug's performance. Particle size and morphology, which shape the release profile, are set in the same step.
+0472	The old way
+0473	Karl Fischer titration needs samples taken and analyzed by hand in the lab. By the time a result comes back, the dryer has moved on.
+0474	Measured without contact
+0475	A Gladius XP 25 reflection probe coupled to an FT-NIR spectrometer looks at the powder through a sight glass. Water content is measured continuously and logged in a GxP-compliant data historian, with regular lab tests as a safety net.
+0476	Result
+0477	The inline NIR values match the Karl Fischer reference throughout the run, and deviations from the target are caught as they start.
+0478	The Gladius XP 25 measures the spray-dried powder through a sight glass.
+0479	Water content during spray drying: inline NIR (orange) and Karl Fischer titration (grey).
+0480	Residual moisture
+0482	Filter dryer end point
+0483	Diffuse reflectance NIR shows when the product is dry.
+0484	Filter dryers wash and dry pharmaceutical product before blending and tableting. Drying for a fixed time, or stopping to pull a sample, gives no continuous view of the moisture.
+0485	Measured in the bowl
+0486	Diffuse reflectance probes sit in measurement ports in the dryer bowl, placed to suit its size, and connect to an FT-NIR spectrometer by optical fibers. The NIR light penetrates 2–3 mm into the product.
+0487	Keeping the tip clean
+0488	Product can build up on the probe tip, and the probe would then keep measuring the same material. Probes with a software-controlled purge blow the tip clear at regular intervals.
+0489	Calibration
+0490	Spectra taken during drying are matched to samples analyzed by loss on drying or Karl Fischer titration. A PLS model then reports moisture or solvent content in real time.
+0491	Based on Bruker Optics application note AF 505, Filter Drier Endpoint Analysis using FT-NIR Spectroscopy.
+0492	Moisture
+0493	Residual solvent
+0494	Purification: end point by a marker
+0495	Follow an invisible impurity through one the UV can see.
+0496	In a filter-cake wash, an impurity is washed out until the wash solvent falls below a set limit. The impurity that matters can't be seen spectroscopically, only by gas chromatography.
+0497	The problem
+0498	Gas chromatography is too slow for a continuous end-point decision, so the wash runs on lab results that arrive late.
+0499	A marker that is visible
+0500	A second impurity, present in much smaller amounts but visible in the UV, washes out of the filter cake along with it. Following its decrease in the wash solvent tracks the wash online.
+0501	Where to measure
+0502	Depending on the plant, a transmission probe goes directly into the reactor or a flow cell into a bypass. The compact Excalibur Lab FFV flow cell suits this task.
+0503	The state of the wash is known in real time, the end point is found precisely, and close monitoring supports GMP compliance.
+0504	Filter-cake wash: wash liquor runs through the cake until the impurity is gone.
+0505	Impurity content (dots, by GC) and UV absorbance at 300 nm (line) fall together during the wash.
+0506	UV marker in the wash solvent
+0507	Wash end point
+0508	Bioprocesses: nutrients and metabolites
+0509	NIR in the bioreactor follows glucose and metabolites in real time.
+0510	Cell cultures and microbes make biopharmaceuticals, and also amino acids, antibiotics, bioethanol, beer, yeast and organic acids. The living process changes fast, and its variables depend on each other.
+0511	The challenge
+0512	Fermentation is often still followed through growth models, turbidity and other indirect measurements that need manual samples. Fast, interdependent reactions call for real-time measurement that does not disturb the cells.
+0513	Measured in the bioreactor
+0514	An Excalibur XP 20 immersion probe with a 2 mm path length sits in the bioreactor and connects through light guides to an NIR spectrometer. It follows nutrients such as glucose that the cells take up and the metabolites they release. The monolithic sapphire head minimizes carryover and adhesion, and a quick-change fitting makes the probe easy to swap for cleaning.
+0515	Hygienic option
+0516	Where deposits and biofouling are a risk, the 3-A certified Excalibur HY 25 has a hemispherical head, no dead volume and only smooth, electropolished surfaces, so germs have nowhere to settle.
+0517	More insight
+0518	The continuous data feed trend models that predict how the reaction will go. Electrical impedance, which counts living cells, complements the spectroscopy.
+0519	An immersion probe measures directly in the bioreactor.
+0520	Glucose
+0521	Metabolites
+0522	A cast quartz flow cell for the BioPAT® Spectro UV single-use sensor.
+0523	Sartorius
+0524	Sartorius developed a single-use inline sensor that measures biomolecule concentration by UV spectroscopy during chromatographic purification. Its core is a quartz flow cell from Hellma.
+0525	Why single use
+0526	Biopharmaceuticals such as monoclonal antibodies are made in single-use bioreactors of up to 2,000 liters and purified in single-use tubing sets. Inline UV sensors watch each purification step without manual samples, so the sensor parts that touch the product have to be disposable too.
+0527	Existing single-use UV sensors fell short on dead volume, price-performance and ecological footprint. The quartz part needed a 1 mm gap held to within 0.05 mm, parallel windows of high optical quality and a seal to the plastic body around it, at a cost that suits a disposable part.
+0528	Quartz cold casting
+0529	Hellma's Quartz Cold Casting (QCC) pours a silicon-containing compound into molds at room temperature, cures it and converts it to pure quartz glass. The flow cell comes out monolithic, in one piece, with sealing structures molded in, so many conventional processing steps disappear.
+0530	Into series production
+0531	The project began with a feasibility study after the Sartorius PAT team saw QCC at ACHEMA. Hellma refines, inspects every gap width, packages and qualifies the cells under the PPAP process, so they go straight into the Sartorius sensor.
+0532	The payoff
+0533	Every connection size has the same, precisely known optical path length. That lets spectroscopic methods, not just simple photometry, determine concentration, with minimal dead volume and practically no effect on flow.
+0534	As part of the good cooperation with Hellma, we succeeded in jointly iteratively developing an optical sensor core component from the first draft to series production under the highest quality requirements.
+0535	Dr. Christian Grimm, Head of Product Development Embedded Hardware, Sartorius Stedim Biotech GmbH
+0536	The finished single-use flow cell, cast in one piece of quartz glass.
+0537	First 3-D model of the flow cell.
+0538	First cast prototype.
+0539	Biomolecule concentration
+0540	Impurities during purification
+0541	Precious-metals refining: from dilution to ATR
+0542	Transflection needed a million-fold dilution. ATR did not.
+0543	Transition metals absorb UV-Vis light very strongly. For one refiner, that made a standard measurement almost unworkable until the probe changed.
+0544	A precious-metals refining company measured with a Falcata transflection probe with a 1 mm light path. The samples absorbed so strongly that they had to be diluted by a factor of one million to bring the absorbance into a usable range.
+0545	The fix
+0546	They moved to an ATR probe. ATR has an extremely short path length, so strongly absorbing liquids stay in range, and it worked beautifully.
+0547	Why metals are hard
+0548	Transition metals such as copper, nickel, cobalt, iron, manganese and zinc absorb light very strongly, with bands spread from the UV into the near infrared.
+0549	Transition-metal concentration
+0551	Polyol production
+0552	Water, acid number, viscosity and hydroxyl number, measured at 400 °C.
+0553	Polyols react with isocyanates to make polyurethanes: rigid and flexible foams, adhesives, coatings and elastomers. Their structure decides the properties of the end product.
+0554	Sensitive chemistry
+0555	Polyol synthesis reacts to swings in temperature, pressure and reaction time. Raw-material variations and side reactions show up as color deviations or uneven viscosity, and lab samples come back too late to steer the batch.
+0556	A probe for 400 °C
+0557	The Excalibur HD FPT probe uses metal seals, a sapphire window and light guides in place of internal optical fibers, so it measures reliably at the 400 °C this process needs. The wear-free seals make it maintenance-free.
+0558	From spectra to numbers
+0559	Hellma Solutions tests process samples in its application lab, pre-processes the spectra mathematically to remove unrelated variation, and builds a validated chemometric model for each parameter.
+0560	More polyols
+0561	The term also covers sugar alcohols, made by hydrogenating sugars, where NIR follows the same kinds of parameters.
+0562	Water
+0563	Keeps the reaction under control
+0564	Viscosity
+0565	Shapes the processing properties
+0566	Acid number
+0567	The share of acidic impurities
+0568	Hydroxyl number
+0569	Crucial for the product's reactivity
+0570	NIR spectra of polyol samples with different parameter values, measured with the Excalibur HD FPT.
+0571	Acid and OH number in the reactor, at up to 245 °C.
+0572	IOI Oleo
+0573	IOI Oleo in Hamburg makes oleochemical specialties from plant-based raw materials: active ingredients and excipients for pharmaceuticals, emollients for cosmetics and esters for food.
+0574	Natural raw materials vary
+0575	Rapeseed, sunflower, soybean and palm oil change with each harvest. Oils and fats also react with oxygen in the air, so the reaction is measured directly in the closed vessel.
+0576	Tough conditions
+0577	The probes face up to 245 °C, agitator vibration and pressure swings in 24-hour batch operation. Fatty acids, glycerol, propylene glycol, tetra-n-butyl titanate and butanediol must all be monitored to keep contaminants below EU limits.
+0578	The setup
+0579	Excalibur HD FPT transmission probes sit directly in the reaction vessels and connect over 30–50 m of fiber to one spectrometer through a multiplexer, so acid number and OH number are followed along the whole process chain.
+0580	Why the FPT
+0581	Hollow light guides instead of glass fibers handle very high and very low temperatures. Gold-coated metal seals and sapphire windows replace elastomers, and a second barrier with a nitrogen charge reduces the risk of leaks, so maintenance intervals get much longer.
+0582	Knowing the exact state of the reaction ends batches on time, shortens run times and replaces lab sampling.
+0583	NIR spectra of coconut oil: pure (green) and contaminated (yellow, red).
+0584	Probe in the reactor, connected to the spectrometer.
+0585	OH number
+0586	State of reaction
+0587	Contamination
+0588	Phosgene for polyurethane
+0589	Gas purity checked inline, in a flow cell built for toxic gases.
+0590	Phosgene (COCl₂) is a highly toxic gas and a key raw material: it turns amines into the isocyanates TDI and MDI, which react with polyols to make polyurethane.
+0591	Why purity matters
+0592	Moisture and other impurities in the gas are very costly in later process steps. Polycarbonate, for example, needs phosgene with at most 250 ppm carbon tetrachloride, or the clear plastic discolors.
+0593	Why online
+0594	Gas chromatography limits continuous monitoring. Spectroscopic probes and cells measure directly in the gas stream, in real time. Because the gases are toxic and flammable, nothing may leak.
+0595	The flow cell
+0596	The Excalibur HD FCP, built from standard Swagelok parts, measures in transmission along the pipe axis. Path lengths of up to 2 m reach impurities in the ppt range. The optical fingers are filled with nitrogen: the slight overpressure and a second barrier keep the medium and moisture out.
+0597	Built for it
+0598	Metal seals and sapphire optics make the stainless-steel cell maintenance-free and good for 250 bar* and 300 °C. It can be used in ATEX zones 1, 2, 21 and 22, inline or atline in a bypass cabinet next to the spectrometer.
+0599	Measuring interface on the gas line.
+0600	Excalibur HD FCP with standard Swagelok parts, for path lengths up to 2 m.
+0601	Impurities in the process gas
+0602	Acrylic acid: dewatering end point
+0603	A brazed titanium Falcata keeps measuring where acrylic acid crystallizes and polymerizes.
+0604	Acrylic acid and acrylate esters are key monomers for superabsorbent polymers, dispersions, coatings, adhesives and sealants. They are made from propene by two-step gas-phase oxidation.
+0605	Where NIR measures
+0606	In the azeotropic distillation column, water is removed with a carrier such as toluene or isobutylbenzene. NIR follows the water content in the liquid phase to find the end point of dehydration, so the acid meets specification for final purification. Tight control improves stability, energy efficiency and throughput.
+0607	A hard place to measure
+0608	Acrylic acid can crystallize as it cools, and the crystals damage and harden seals. High-purity acid also tends to polymerize spontaneously when temperature or pressure shift, leaving polymer on the optics. Traces of polymer and inhibitor make the liquid slightly turbid.
+0609	The probe
+0610	The Falcata XP transflection probe gives stable signals in highly absorbent, slightly turbid liquids. Its windows are brazed directly into a titanium housing: no elastomer seals, and no gaps or dead spaces where polymer can build up. It fits Knick Ceramat and SensoGate retractable housings.
+0611	Proven
+0612	The Falcata XP has been tested under industrial conditions in acrylic acid production at a major European plant.
+0613	NIR measuring points in the acrylic acid process: water removal and final cleaning.
+0614	Water content
+0615	Dehydration end point
+0617	Many measuring points, one spectrometer
+0618	A multiplexer serves up to 16 points in a multi-stage plant.
+0619	Plastics, medicines and foods often come from multi-stage processes with measuring points spread across reactors and lines: polymerization, solvent recovery, additive dosing, fiber spinning.
+0620	The cost problem
+0621	A spectrometer at every point drives up investment, and calibrating, running and maintaining many instruments takes much more work.
+0622	The solution
+0623	The Hellma FMX multiplexer connects up to 16 probes or flow cells to one spectrometer. A high-precision stepper motor moves a retroreflector that couples the light into each channel through collimator lenses. The channels are separated so no light crosses over, and switching takes less than a second.
+0624	Easy to extend
+0625	The FMX is modular, so channels can be added later up to full capacity. It connects to the process control system over RS232 or RS422 with the supplied software, and switches in both directions as standard.
+0626	Payback
+0627	Cost per measuring point drops sharply, and a multiplexer can pay for itself from just two measuring points.
+0628	Three process streams, one spectrometer: the multiplexer replaces the extra instruments.
+0629	Cost per measuring point with and without the FMX multiplexer.
+0630	Reaction progress at every stage
+0631	In situ fluorescence in the reaction vessel
+0632	A Hellma fluorescence probe brings the fluorometer to the reaction.
+0633	Pulling samples from a running reaction is slow, can be hazardous, and can change temperature, pressure or volatile content, so the data lag behind and may be off. A fiber-optic fluorescence probe measures in place instead.
+0634	A Hellma fluorescence probe (661.057-UV) sits in the reaction vessel. Its fiber-optic cables match the F-3000 coupler of a HORIBA Fluorolog-3 fluorometer, so pipetting, mixing, heating, cleaning and the fume hood all drop out.
+0635	The example
+0636	A pyrene-based nickel complex was titrated with NaOH. Excited at 340 nm, it emits at 375 and 395 nm under acidic conditions. As the pH rises, that fluorescence drops through photoinduced electron transfer, and a broad excimer band appears near 480 nm.
+0637	Hellma fiber-optic fluorescence probe 661.057-UV.
+0638	Fluorescence spectra of the nickel complex as the pH rises; excitation at 340 nm. Data: HORIBA Scientific.
+0639	Based on HORIBA Scientific technical note FL-34, Liquid in situ Fluorescence Measurements.
+0640	Fluorescence intensity
+0641	Reaction progress
+0643	Natural gas composition
+0644	Raman and NIR resolve the mixture in the pipeline.
+0645	Natural gas is mostly methane and is traded on its energy value. That value depends on the exact mix of hydrocarbons, which varies with where the gas was extracted, so it is analyzed at several points on its way to the customer.
+0646	Why not gas chromatography
+0647	GC separates many components and traces, but carrier and calibration gases make it expensive, and the lag between sampling and result means deviations are found late.
+0648	Hard conditions
+0649	Pipelines run at around 80 bar to raise energy density, so the measurement has to withstand the pressure. Because the gas is explosive, laser power is strictly limited, and detection has to be sensitive enough to work with little of it.
+0650	Raman in the pipeline
+0651	The Tidus Flex Gas probe connects by optical fibers to a standard Raman spectrometer with a temperature-stabilized 785 nm laser. Keeping the spectrometer away from the probe allows ATEX-compliant operation. A special reflector boosts the Raman signal for low gas concentrations, and the system reports each gas concentration every minute.
+0652	Raman and NIR together
+0653	Raman tells the hydrocarbons apart even at low concentrations, and it sees oxygen and nitrogen, which NIR cannot. NIR absorption complements it for the hydrocarbons, CO₂ and H₂S. The same Raman approach works for biogas and biomethane before feed-in.
+0654	Schematic NIR absorption of natural gas, 1000–2200 nm.
+0655	Methane
+0656	Ethane, propane, butane
+0657	CO₂
+0658	Raman only
+0659	Ar, He, Ne, Xe
+0660	Trace
+0661	O₂ and N₂ (Raman)
+0663	Water in crude oil
+0664	NIR measures the water-in-liquid ratio right at the pipeline.
+0665	To get the most out of an oil field, producers watch water and gas content continuously. Over-pumping dilutes the stream and lowers the yield; knowing the water content lets them tune pumping so more oil comes up in the same time.
+0666	Why it is difficult
+0667	Solids, gas fraction and salinity fluctuate, the oil is viscous and conditions vary widely. Phase-separation methods are often imprecise, lab analysis is slow, and equipment at the pipeline must meet the ATEX directive 2014/34/EU.
+0668	How NIR helps
+0669	Crude oil and water absorb near-infrared light very differently. The signal comes from the water itself, not the dissolved salts, so water-in-liquid-ratio (WLR) sensors based on an NIR transmission cell work in real time, unaffected by emulsions or salinity, without large phase-separation systems.
+0670	Three designs, all metal-sealed
+0671	The Excalibur HD Flange cell mounts directly in the main pipeline, and its welded sapphire optics cannot be misadjusted. With CE certification to the Pressure Equipment Directive 2014/68/EU it can go into ATEX zones 1, 2, 21 and 22 and into pressure vessels without acceptance tests. The compact Excalibur HD FCP suits smaller pipes, and the Excalibur HD FPT probe fits an existing flange and adds a second barrier.
+0672	Excalibur HD Flange measurement cell.
+0673	Crude oil sample.
+0674	Water-in-liquid ratio (WLR)
+0675	Sulfur in marine fuel
+0676	Online NIR helps ships stay within sulfur-oxide limits.
+0677	Most large ships burn bunker fuel, a cheap heavy residue from refining. Its sulfur content becomes sulfur oxides in the exhaust, and much stricter limits for ships have applied since 2020.
+0678	The fuel's composition varies from tank to tank and even within a tank, and can change during storage. Sticky particles foul pipes and instruments, and undetected deposits can damage the engine. Occasional manual samples are not precise enough.
+0679	Measured in the fuel line
+0680	A spectrometer with an Excalibur HD FCP flow cell in the heated fuel supply to the engine measures the fuel's components continuously, so the engine can be controlled and the limits kept at all times.
+0681	Built for the engine room
+0682	Metal seals make the cell resistant to pressure and temperature, the stainless-steel housing allows use in explosive areas, and sapphire optics resist particle adhesion. The exchangeable center part takes an H-cell for 2–10 mm path lengths or Swagelok T-pieces for 10 cm to 2 m.
+0683	Example NIR absorption spectrum of heavy fuel oil.
+0684	Excalibur HD FCP with H-cell center part.
+0685	Sulfur content
+0686	Fuel components
+0687	Bead size and conversion followed inline, so the batch ends on time.
+0688	Versalis
+0689	Versalis makes expandable polystyrene (EPS) beads by suspension polymerization in Mantova, Italy. Two things decide quality and yield: how far the styrene has converted to polymer, and how big the beads have grown.
+0690	The process
+0691	In the second reactor, a 1:1 water–styrene mixture is heated to 90 °C and stirred so the monomer forms beads. At 70–75 % conversion the temperature rises to 123 °C and calcium phosphate keeps the beads from sticking. The batch takes four hours; later, pentane and steam expand the beads up to 50 times.
+0692	Why the end point matters
+0693	Miss it, and the beads clump into a large ball that blocks the reactor outlet, or even the whole plant, and the cleanup costs a six-figure sum. Until now, operators pulled samples and judged bead size against a light beam.
+0694	Measured in the reactor
+0695	A Gladius XP reflection probe on the side of the reactor measures in contact with the suspension without disturbing its flow. As styrene converts, the transmission falls. The data show when to add dispersant to steer bead growth, and the reaction ends automatically once the beads reach their size. The installation meets ATEX Zone 2 IIB T3.
+0696	Up to one hundred polymerization cycles run in the same reactor without cleaning the probe. Ring-shaped illumination fibers keep stray light low, and the hygienic design cleans without disassembly.
+0697	Monomer to polymer
+0698	Many monomers have a UV signal from their double bonds, and the NIR spectrum follows the conversion. The same approach applies to PMMA, a shatter-resistant alternative to glass, and to PET for beverage and food containers.
+0699	Spectra during polymerization: start (blue), during (green) and end (red).
+0700	Gladius XP installed on the reactor at Versalis.
+0701	Monomer conversion
+0702	Bead size
+0703	Reaction end point
+0704	POM: methanol in real time
+0705	NIR replaces a 45-minute GC loop in polyoxymethylene production.
+0706	Polyoxymethylene (POM) goes into gear wheels, housings, coffee machines, zippers and toothbrushes. Its production uses several reactants, solvents and additives that must stay within a narrow range.
+0707	Formaldehyde is first converted to trioxane, purified and depolymerized again, then polymerized with an amine catalyst at low temperature. That needs very pure starting material and the complete exclusion of water.
+0708	Methanol was checked by gas chromatography several times a day. With transport to the lab, a result took about 45 minutes while the reaction carried on. A wrong composition can trigger unwanted polymerization, downtime and damage worth millions, at outputs of up to 300 tonnes a day.
+0709	Optical immersion probes and an NIR spectrometer (800–2,500 nm) record the composition every few seconds or minutes, visible directly in the control room. A sieve around the measuring head, in the wake of the flow, steers solid clumps around the optics. Lab GC checks continue at intervals as an extra safeguard.
+0710	Methanol concentration over time, measured by NIR during POM production.
+0711	Methanol
+0712	Reactant and solvent composition
+0713	Pre-polymers for coatings and resins
+0714	NCO, residual monomer and moisture in sticky resins, with in-process probe cleaning.
+0715	Polyester and alkyd resins are high-performance binders for paints, coatings and varnishes. The pre-polymers formed during their synthesis need a precisely controlled reactivity.
+0716	What to watch
+0717	Within a single batch, both the chemistry and the physical properties of the reaction mass change. NCO content, temperature, viscosity, residual monomer and moisture all need reliable monitoring, and the end point accurate control.
+0718	The problem with sticky media
+0719	Viscous, adhesive polymer builds up on probe windows, distorts the signal and causes drift, so conventional probes need frequent maintenance.
+0720	Probe plus retractable housing
+0721	A Falcata XP 12 transflection probe with interchangeable path-length tips measures transparent to slightly turbid media in seconds. Mounted in a Knick Ceramat retractable housing, it moves into a separate chamber for cleaning, reference measurements and calibration. Two ceramic discs seal the chamber from the process, and a cyclonic rinse flows all around the probe.
+0722	No process interruption or reactor draining for cleaning, reliable data even with fouling media, and less waste.
+0723	Knick Ceramat: the probe retracts into a chamber for rinsing and referencing while the process runs.
+0724	NCO content
+0725	Residual monomer
+0726	Residual monomers tracked in a sticky polymerization, with in-process probe cleaning.
+0727	AkzoNobel
+0728	AkzoNobel's Accelshield 300 coats the inside of two-piece aluminium beverage cans without bisphenols, styrene or PFAS. Polymerization creates its binder.
+0729	Why it matters
+0730	After the European Food Safety Authority's 2023 re-evaluation of bisphenol A, its use in food-contact packaging is banned or restricted in the EU. Only fully converted polymers meet the requirements, so residual monomers such as acrylates and styrenes must be measured during polymerization, continuously and fast.
+0731	A sticky medium
+0732	The reaction mass is highly viscous and sticky. Polymer can cling to or harden on the window and distort the signal, so the probe has to be cleaned during the process without losing the measurement.
+0733	A Falcata XP transflection probe measures the polymerization status in seconds. It sits in a Knick SensoGate retractable housing: in clean-in-place mode the probe is cleaned, referenced, serviced or removed while the process keeps running.
+0734	Deviations are caught and corrected immediately, rejects and material losses fall, and product quality stays consistently high.
+0735	Falcata XP in a Knick SensoGate retractable housing on the reactor.
+0736	Residual monomers
+0737	Polymerization status
+0738	Paint color from the spectrum
+0739	L*a*b* values calculated from UV-Vis spectra.
+0740	A UV-Vis spectrum holds everything needed to calculate a paint's color as L*a*b* values.
+0741	Reading L*a*b*
+0742	L* runs from dark (0) to light (100). a* runs from green (negative) to red (positive). b* runs from blue (negative) to yellow (positive). Try it with the sliders.
+0743	When TiO₂ takes over
+0744	TiO₂, a common white additive, takes over the signal at low dye concentrations. A blue paint with four times less pigment reads almost white: L* rises from 91.0 to 99.6.
+0745	Paints, measured
+0746	Blue
+0747	Red
+0748	Yellow
+0749	Blue, standard vs. 4× less pigment
+0750	Blue, standard
+0751	Blue, 4× less pigment
+0752	Measured in cooperation with Mettler Toledo
+0753	L* lightness
+0754	a* green–red
+0755	b* blue–yellow
+0756	Pigment level
+0757	Edible oil in chocolate
+0758	Iodine value measured inline with a 3-A hygienic probe.
+0759	In chocolate and chocolate-flavored foods, edible oil can replace part of the cocoa butter. Its fatty-acid makeup shapes creaminess, texture, viscosity and shelf life.
+0760	Iodine value
+0761	The iodine value tells how many grams of iodine 100 g of fat absorbs, which reflects its unsaturated fatty acids. Oil with a low iodine value is mostly saturated and makes chocolate hard at room temperature; a high value keeps spreads creamy.
+0762	Before it reaches the cocoa mass
+0763	Lab samples take time and trained staff, and the process runs on while results wait. The equipment must also meet strict hygiene rules and must not affect the product.
+0764	An Excalibur HY 25 (3-A) hygienic immersion probe connects by fiber to a VIS-NIR diode-array spectrometer. The chemometric model uses the whole spectrum, which makes it robust. Samples cluster at iodine values between 30 and 60, and spectra that look like outliers stay in the model because they carry process information.
+0765	Real-time values go straight to the process control system, recipes are met, ingredients are used optimally, and the system can be extended to more parameters.
+0766	NIR spectra of edible oil from a VIS-NIR diode-array spectrometer.
+0767	Calibration: NIR prediction against the reference iodine value.
+0768	Iodine values of the calibration samples.
+0769	Milk: from intake to recombination
+0770	Fat, protein, water and lactose, measured with a 3-A probe.
+0771	Raw milk changes with season, region and even from cow to cow. Dairies check it at delivery, separate it into cream and skim milk, and recombine the two to the exact fat content each product needs.
+0772	Hygiene first
+0773	In the US, milk processing must meet the 3-A sanitary standards, and Europe's EHEDG guidelines build on them. Instruments in contact with the product must rule out contamination and cross-contamination, and costly ingredients like fat and protein should be dosed precisely.
+0774	Excalibur HY 25 (3-A) hygienic immersion probes coupled to an FT-NIR spectrometer report fat, protein, water and lactose from several key positions to the process control system at short intervals. Deviations are corrected within minutes instead of waiting for the lab.
+0775	Why this probe
+0776	It can touch the product directly, is 3-A certified, and cleans and sterilizes in place (CIP and SIP) without stopping production. Its precise path length makes results reproducible and methods easy to transfer between probes and measuring points.
+0777	Beyond dairy
+0778	The same setup measures unsaturated fatty acids, sugar in juices, and vitamins or concentrates in other food and pharmaceutical processes.
+0779	Hygienic probe in a dairy line.
+0780	Fat
+0781	Protein
+0782	Lactose
+0783	An inline model checks the yogurt-to-fruit ratio before filling.
+0784	Schwarzwaldmilch
+0785	The Freiburg dairy Schwarzwaldmilch checks every fruit yogurt again after the fruit preparation is added and before filling. The ratio of yogurt to fruit sets the taste, the declared minimum fruit content and the ingredient cost.
+0786	Why it varies
+0787	Fruit sugar changes with variety and ripeness, and fruit preparations change in storage. Container changes and pump stops and restarts shift the mixing ratio.
+0788	Random samples were checked in the lab through the Brix value (refractive index). That is slow, and as a measure of fruit content it is unreliable, which can mean waste.
+0789	Building the model
+0790	Hellma Solutions measured product samples in the Hellma application lab over a longer period and built calibration models for the different fruit yogurts. The models were then run on a spectrometer and brought into the process in several steps.
+0791	Measured inline
+0792	Because of yogurt's optical properties, a reflectance measurement fits best. A Gladius XP reflection probe, hygienic enough for food production, measures the yogurt in the line. Updating the model over time follows the process in ever more detail.
+0793	Fruit content over time: the start of production, a system stop and a container change show up at once.
+0794	The installation at Schwarzwaldmilch.
+0795	From lab analysis to calibration model to process control.
+0796	Yogurt-to-fruit ratio
+0797	Whiskey maturing in the barrel
+0798	Measure what the wood adds, right in the barrel.
+0799	Wood dissolving into the spirit adds impurities that show up in the UV-Vis signal.
+0800	Measured in place
+0801	The concentration of those impurities can be measured directly in the barrel.
+0802	Impurities from dissolved wood
+0803	Fruit sorting
+0804	Light scattered off the fruit reveals what the eye can't see.
+0805	Light scattered off the fruit tells a sorter about its inside as well as its surface.
+0806	One scan, five answers
+0807	The scattered light determines sugar content, bruising, dryness, acidity and blight.
+0808	Sugar
+0809	Bruising
+0810	Dryness
+0811	Acidity
+0812	Blight
+0813	Agriculture and dairy
+0814	Moisture, protein, starch, ash, fats and sugars.
+0815	NIR measures the composition of crops and dairy products quickly, without chemicals.
+0816	Precision farming
+0817	Moisture, protein, starch and ash.
+0818	Dairy
+0819	Fats and sugars.
+0820	Starch
+0821	Ash
+0822	Fats
+0823	Sugars
+0824	Water and wastewater monitoring
+0825	Nitrates, sulfates, H₂S and impurities.
+0826	UV-Vis watches dissolved nitrates, sulfates and H₂S. Fluorescence picks up impurities in wastewater.
+0827	Nitrates
+0828	Sulfates
+0829	Impurities (fluorescence)
+0830	Hellma enables you to perform molecular spectroscopy in the laboratory and in the process, efficiently and at the highest level.
+0831	Founded
+0832	Employees
+0833	Production sites
+0834	Sales subsidiaries
+0835	Generation family ownership
+0836	Müllheim, Germany
+0837	Hellma GmbH & Co. KG
+0838	Analytics and Solutions
+0839	Jena & Eisenach, Germany
+0840	Hellma Materials GmbH
+0841	Photonics
+0842	Trollhättan, Sweden
+0843	Hellma Materials Sweden AB
+0844	New Iberia, Louisiana, USA
+0845	CVD Ceramics Inc.
+0846	Germany
+0847	Benelux
+0848	France
+0849	Italy
+0850	Switzerland
+0851	UK
+0852	Asia
+0853	USA / Canada
+0854	Request information
+0855	Leave your details and our team will follow up after the show.
+0856	Excalibur transmission probes & flow cells
+0857	Falcata transflection probes
+0858	Katana ATR probes
+0859	Gladius reflection probes
+0860	Polymer extruder probes
+0861	Espada fluorescence probes
+0862	Tidus Raman probes
+0863	Spectroscopy sensors (NIR, MIR)
+0864	Custom solution development
+0865	PAT consulting, feasibility & chemometrics
+0866	Help with an application
+0867	Datasheet
+0868	Quotation
+0869	Call from a specialist
+0870	Feasibility study
+0871	Visit or demo
+0872	{territory} may contact me about this request.
+0873	Your details are stored on this device only until our team collects them after the show.
+0874	(dichroic)
+0875	* Required
+0876	0–0.2 %  ·  Raman only
+0877	1 mm light path
+0878	1st overtones
+0879	2nd overtones
+0880	3rd overtones
+0881	= path length
+0882	ATEX area
+0883	ATR principle
+0884	ATR: light reflects three times inside a sapphire element touching the medium
+0885	Absorbance
+0886	Acetone
+0887	Acetone and toluene UV spectra
+0888	Acids, esters
+0889	Acrylic acid
+0890	Advantages
+0891	After: online
+0892	Alcohols
+0893	All applications
+0894	Amides
+0895	Amines
+0896	Any
+0897	Applications ·
+0898	Approximate NIR band positions by functional group
+0899	Approximate Raman shifts of natural-gas components
+0900	ArCH
+0901	ArOH
+0902	Aromatic C–H
+0903	Atm.
+0904	Auto-cycle
+0905	Back
+0906	Batch waits for the result
+0907	Beam splitter
+0908	Before: offline
+0909	Bioprocesses
+0910	Blue sample
+0911	Both
+0912	Both Ceramat and Sensogate
+0913	Bottom mirror
+0914	By industry
+0915	By technique
+0916	C=O, CHO
+0917	CONH₂, CONHR
+0918	CVD Ceramics Inc. · Photonics
+0919	Calibration, external validation and revalidation over time
+0920	Carbonyl, aldehyde
+0921	Carbon–carbon
+0922	Case study
+0923	Case study ·
+0924	Case study · Hellma Solutions
+0925	Ceramat and Sensogate
+0926	Challenges
+0927	Characteristic mixture. O₂ and N₂ are only visible to Raman.
+0928	City, state or country
+0929	Clean, calibrate and swap probes while the process runs
+0930	Clear all filters
+0931	Collection fiber
+0932	Collection tank
+0933	Color
+0934	Combinations
+0935	Company
+0936	Connections
+0937	Contact or
+0938	Control room
+0939	Custom
+0940	Custom built
+0941	Custom development
+0942	Customer: AkzoNobel
+0943	Customer: IOI Oleo
+0944	Customer: Sartorius
+0945	Customer: Schwarzwaldmilch
+0946	Customer: Versalis
+0947	Diffuse reflection
+0948	Direct backscatter:
+0949	Discuss a similar application
+0950	Discuss your application
+0951	Distillation
+0952	Done
+0953	Email
+0954	Emission
+0955	Enlarge
+0956	Espada probes
+0957	Espada ·
+0958	Espada · Fluorescence
+0959	Evanescent field at
+0960	Every Hellma probe sends light into the process and returns it to the spectrometer. What differs is the path the light takes.
+0961	Examples
+0962	Excalibur probes
+0963	Excalibur ·
+0964	Excalibur · Transmission
+0965	Excitation and emission spectra
+0966	Excitation fiber
+0967	Falcata probes
+0968	Falcata ·
+0969	Falcata · Transflection
+0970	Feasibility, models, integration
+0971	Filter blocks
+0972	Filter with the probe finder
+0973	First name
+0974	Flow cell in the ATEX area, spectrometer outside it
+0975	Fluorescence principle
+0976	Fluorescence: a mirror turns the excitation across the gap and a second mirror sends it back; emission is collected at a right angle, and a bottom mirror returns downward emission to the fiber
+0977	Focused
+0978	For Excalibur HD
+0979	From raw material to complete solution
+0980	Gladius probes
+0981	Gladius ·
+0982	Gladius · Reflection
+0983	Hellma Excalibur HD
+0984	Hellma GmbH & Co. KG · Analytics and Solutions
+0985	Hellma Materials Sweden AB · Photonics
+0986	Hellma worldwide
+0987	Highest ratings with brazed seals
+0988	Home
+0989	How atr works
+0990	How fluorescence works
+0991	How it works
+0992	How raman works
+0993	How reflection works
+0994	How the light meets your sample
+0995	How transflection works
+0996	How transmission works
+0997	I'm interested in
+0998	Illumination fibers
+0999	Industry
+1000	Installation
+1001	Intensity
+1002	Job title
+1003	Katana probes
+1004	Katana ·
+1005	Katana · ATR
+1006	Keep exploring
+1007	Lab
+1008	Lamp
+1009	Laser
+1010	Last name
+1011	Light crosses
+1012	Match a probe to your process
+1013	Max. pressure
+1014	Max. temperature
+1015	Measurement principle
+1016	Measurement principles ·
+1017	Measuring gap
+1018	Measuring position
+1019	Medium, temperature, pressure, what you want to measure
+1020	Methine
+1021	Methyl
+1022	Methylene
+1023	Milk
+1024	Mirror
+1025	Mirror returns
+1026	Mirror turns
+1027	MoO₄ ~540
+1028	Molecular spectroscopy, in the lab and in the process
+1029	More Fluorescence applications
+1030	More NIR / MIR applications
+1031	More Raman applications
+1032	More UV-Vis applications
+1033	Multiplexer
+1034	Multiplexer switching between four measuring points
+1035	Natural gas NIR absorption
+1036	Natural gas composition ranges
+1037	Non-ATEX area
+1038	Not sure? See how each principle works
+1039	Offline lab sample versus online measurement on the collection tank
+1040	Offline, atline, online and inline measuring positions
+1041	Offline: sample to the lab
+1042	Online: Excalibur flow cell
+1043	Optical fiber through the wall
+1044	Optical fibers
+1045	Overview
+1046	PAT from first question to service
+1047	POH
+1048	POM
+1049	PRM for Excalibur HD
+1050	Parts
+1051	Phenols
+1052	Phone
+1053	Point 1
+1054	Point 2
+1055	Point 3
+1056	Point 4
+1057	Polymer extruder probes ·
+1058	Polymer extruder probes · Transmission
+1059	Prism turns the light
+1060	Probe Retraction Mechanism
+1061	Probe in a vessel or pipe
+1062	Probes and principles to look at
+1063	Probes in this story
+1064	Probes to look at
+1065	Process pressure up to
+1066	Process spectroscopy
+1067	Process temperature up to
+1068	Production line
+1069	Project steps
+1070	Purification
+1071	RCOOH, RCOOR
+1072	RNH₂, RNHR′
+1073	ROH
+1074	Raman light to
+1075	Raman principle
+1076	Raman shift (cm⁻¹)
+1077	Raman: laser light and the Raman signal travel the same path to and from the sample (direct backscatter); a beam splitter and filter separate them
+1078	Ratings are the highest per model; some need brazed seals.
+1079	Read
+1080	Real-time batch release
+1081	Reflection principle
+1082	Reflection: light from the outer fibers is focused on the sample; the center fiber collects the diffusely reflected light
+1083	Request sent
+1084	Results
+1085	Retractable housings ·
+1086	Roadmap
+1087	Sample in the
+1088	Sapphire ATR element
+1089	Scheelite fluorescence
+1090	See the case studies
+1091	Send request
+1092	Sensors
+1093	Services
+1094	Speed of result
+1095	Spray drying
+1096	Start
+1097	TCP/IP · fieldbus
+1098	Tap the drawing to enlarge it
+1099	Tell us about your process (optional)
+1100	Tell us about your process. Probes and flow cells that can't handle it drop out.
+1101	Temp.
+1102	Temperature and pressure ratings on request
+1103	The seal decides how hard a probe can work
+1104	Thiols
+1105	Tidus probes
+1106	Tidus ·
+1107	Tidus · Raman
+1108	Toluene
+1109	Touch to explore
+1110	Transflection needed a million-fold dilution; ATR stays in range
+1111	Transflection principle
+1112	Transflection: light crosses the gap, reflects off a mirror and crosses again
+1113	Transmission principle
+1114	Transmission: light crosses the measuring gap once
+1115	UV-Vis · NIR
+1116	Up to 16 points, one spectrometer
+1117	Used in
+1118	Wavelength (nm)
+1119	Welded metal seal, exploded view
+1120	Welded metal seal, section
+1121	What is measured
+1122	What would help?
+1123	Where Hellma probes measure
+1124	Window
+1125	Works with
+1126	Yellow sample
+1127	Your request is saved. Our team will be in touch after the show.
+1128	blue
+1129	bypass loop
+1130	concentration
+1131	custom built
+1132	dark
+1133	dilute 1 : 1,000,000
+1134	each of 3 bounces
+1135	far off scale
+1136	flow cell
+1137	green
+1138	hydrocarbons
+1139	in range
+1140	in the stream
+1141	light
+1142	measuring gap
+1143	measuring spot
+1144	next to the line
+1145	one shared path
+1146	other
+1147	red
+1148	returns emission
+1149	sample to the lab
+1150	the gap twice
+1151	the laser line
+1152	the light
+1153	the light 90°
+1154	the spectrometer
+1155	time
+1156	tiny penetration depth
+1157	usable
+1158	with brazed seals
+1159	yellow
+1160	“As part of the good cooperation with Hellma, we succeeded in jointly iteratively developing an optical sensor core component from the first draft to series production under the highest quality requirements.”
+1161	{territory} founded
+1162	Your contact at {territory}
+1163	Thank you, {name}.
+1164	Step {n} of {total}
+1165	{n} example
+1166	{n} examples
+1167	All {n} probes and flow cells
+1168	{n} of {total} match
+1169	Office
+1176	Immersion probe
+1177	Hygienic immersion probe
+1178	Fluorescence immersion probe
+1179	Raman process probe
+1180	Raman probe
+1181	Flow cell
+1182	Probe
+1183	Custom probe pair
+1184	Transmission
+1185	Transflection
+1186	Reflection
+1187	Fluorescence
+1188	Elastomeric seals (O-rings)
+1189	Gold or silver alloy braze
+1192	FMX multiplexer
+1193	Double-sided: the light from the lamp and the signal returning from the probe to the detector are switched at the same time.
+1194	Customized solutions
+1195	Technology adaption
+1196	PAT consulting
+1197	Feasibility studies
+1198	Chemometric service
+1199	Solution integration
+1200	Spectroscopy sensors
+1201	Offline
+1202	Atline
+1203	Online
+1204	Inline
+1205	Process understanding
+1206	Quality control
+1207	Lower production costs
+1208	Faster development
+1209	Continuous production
+1210	Regulatory compliance
+1211	Risk reduction
+1212	Interferences
+1213	Process complexity
+1214	Choice of method
+1215	Cost and investment
+1216	Safety and compliance
+1217	Feasibility
+1218	Hardware
+1219	Software
+1220	Data Connection Protocols
+1221	Model development
+1222	External validation
+1223	Revalidation
+1224	Training
+1225	Service
+1226	Qualification
+1227	User requirement specification (URS)
+1228	Design specification (DS)
+1229	Design qualification (DQ)
+1230	Factory acceptance test (FAT)
+1231	Site acceptance test (SAT)
+1232	Installation qualification (IQ)
+1233	Operational qualification (OQ)
+1234	Performance qualification (PQ)
+1235	Pharmaceutical
+1236	Biotechnology
+1237	Chemistry
+1238	Oil, gas & petrochemistry
+1239	Polymers
+1240	Paints & coatings
+1241	Food
+1242	Beverages
+1243	Agriculture
+1244	Water & wastewater
+1245	Raw materials
+1246	Components
+1247	Laboratory & process spectroscopy
+1248	Spectroscopy solutions
+1249	up to 100 mm
