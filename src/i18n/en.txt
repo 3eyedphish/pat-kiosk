@@ -1234,3 +1234,167 @@
 1248	Spectroscopy solutions
 1249	up to 100 mm
 1250	at 90°
+1251	Configurator
+1252	Build your probe or flow cell, option by option
+1253	Configure your probe or flow cell
+1254	Pick a model, then choose each option. Options that don't fit together adjust automatically, and the ratings update as you go.
+1255	Configure this model
+1256	Immersion probes
+1257	Flow cells
+1258	Configuration code
+1259	Ratings for this configuration, from Hellma's configuration table. Your quotation confirms the final ratings.
+1260	Add to my request
+1261	Added to your request. You can add more configurations or send the request now.
+1262	Start over
+1263	Choose another model
+1264	Model details
+1265	Also changes
+1266	Adjusted to fit:
+1267	Fixed for this model
+1268	Tap a range, then set the exact depth.
+1269	with flange
+1270	without flange
+1271	plus path length
+1272	Vacuum-rated
+1273	No ATEX version
+1274	ATEX Zone 1 version available
+1275	ATEX Zone 2 version available
+1276	ATEX version on request
+1277	Your configurations
+1278	Remove
+1279	Window material
+1280	Window seal
+1281	Pressure rating
+1282	Optical connection
+1283	Light guide
+1284	Additional functions
+1285	Cell body
+1286	Cell-to-optics seal
+1287	Mounting
+1288	Fits pipe flange
+1289	Inner diameter
+1290	Purging
+1291	12 mm (1/2 in) diameter
+1292	20 mm (3/4 in) diameter
+1293	25 mm (1 in) diameter
+1294	6 mm (1/4 in) diameter
+1295	Hygienic, 3-A certified, 25 mm diameter
+1296	Heavy duty, welded metal seals, 25 mm diameter
+1297	Heavy duty, welded metal seals, 1.02 in (26 mm) diameter
+1298	Contact-free diffuse reflection, 30 mm (1.25 in) diameter
+1299	Inline flow cell, welded metal seals
+1300	Compact block flow cell, welded metal seals
+1301	Flow cell with fixed or variable path length
+1302	Flow cell that mounts between two pipe flanges
+1303	NIR, 7×200 µm / 1×600 µm fibers
+1304	NIR, 7×400 µm / 1×600 µm fibers
+1305	NIR, 7×600 µm / 7×600 µm fibers
+1306	UV-Vis, 7×200 µm / 1×600 µm fibers
+1307	UV-Vis, 7×400 µm / 1×600 µm fibers
+1308	UV-Vis, 7×600 µm / 7×600 µm fibers
+1309	NIR, bundle of 78 fibers
+1310	UV-Vis, low solarization
+1311	Contact
+1312	Variable
+1313	Set of path length tips
+1314	O-ring sealed probes only
+1315	Preset to 5 ± 0.05 mm
+1316	SF-5 glass
+1317	Stainless steel 1.4571 (316Ti)
+1318	Titanium Grade 2
+1319	Aluminum
+1320	Kalrez 4079 O-ring
+1321	Kalrez 6221 O-ring
+1322	Kalrez 6230 O-ring
+1323	Kalrez 6375 O-ring
+1324	Kalrez 6380 O-ring
+1325	Kalrez 7075 O-ring
+1326	EPDM O-ring
+1327	Not autoclavable
+1328	Brazed (Ag, Cu, Ti)
+1329	Titanium body and sapphire window
+1330	Soft soldered (Au, Sn)
+1331	Welded metal seal, gold-coated C-ring
+1332	Welded metal seal, PTFE-coated C-ring
+1333	Welded metal seal, platinum-coated C-ring
+1334	Epoxy glued
+1335	Welded
+1336	Swagelok fitting
+1337	No flange
+1338	EN 1092-1 flange DN 25 PN 40
+1339	EN 1092-1 flange DN 40 PN 40
+1340	EN 1092-1 flange DN 50 PN 16
+1341	EN 1092-1 flange DN 50 PN 40
+1342	EN 1092-1 flange DN 80 PN 16
+1343	EN 1092-1 flange DN 80 PN 40
+1344	ASME B16.5 flange NPS 1 Class 150 RF
+1345	ASME B16.5 flange NPS 1.5 Class 150 RF
+1346	ASME B16.5 flange NPS 2 Class 150 RF
+1347	ASME B16.5 flange NPS 1 Class 300 RF
+1348	ASME B16.5 flange NPS 1.5 Class 300 RF
+1349	ASME B16.5 flange NPS 2 Class 300 RF
+1350	JIS B 2220 flange 10K 20A
+1351	GOST 12815-80 flange DN 25, 4 MPa
+1352	Ingold fitting
+1353	PG 13.5 thread
+1354	Varivent type N
+1355	Clamp fitting DIN 32676, DN 50 (2 in)
+1356	Flange to your specification
+1357	Up to 200 mm diameter and 24 mm thick
+1358	Your own blind flange, with material certificate
+1359	Up to 10 bar
+1360	Up to 16 bar
+1361	Up to 20 bar
+1362	Up to 30 bar
+1363	Up to 40 bar
+1364	Up to 100 bar
+1365	Up to 160 bar
+1366	Up to 200 bar
+1367	Up to 250 bar*
+1368	Atmospheric pressure
+1369	2 m fiber cable, stainless steel sleeve, F-SMA plug
+1370	F-SMA sockets, ATEX PMA housing (NW 23)
+1371	2 m fiber cables, PE coated, 2 F-SMA plugs, PMA housing (NW 23)
+1372	2 m fiber cables, stainless steel sleeve, 2 F-SMA plugs, ATEX PMA housing (NW 23)
+1373	2 m fiber cables, stainless steel sleeve, 2 FC/PC plugs, ATEX PMA housing (NW 23)
+1374	F-SMA sockets, hygienic connector for 1 in hose
+1375	F-SMA sockets, NEMA 4 conduit housing (3/4 in NPT female)
+1376	FC/PC sockets, NEMA 4 conduit housing (3/4 in NPT female)
+1377	FC/PC sockets, 4-port NEMA 4 conduit housing (3/4 in NPT female)
+1378	F-SMA sockets, 1 in NPT male thread
+1379	FC/PC sockets, 1 in NPT male thread
+1380	FC/PC sockets, ATEX PMA housing (NW 23)
+1381	F-SMA sockets, ATEX PMA housing (NW 17)
+1382	2 m fiber cable, stainless steel sleeve, F-SMA plug, ATEX PMA housing (NW 17)
+1383	F-SMA sockets, conduit connection (3/4 in NPT male)
+1384	FC/PC sockets, conduit connection (3/4 in NPT male)
+1385	F-SMA sockets, conduit connection (1 in NPT male)
+1386	FC/PC sockets, conduit connection (1 in NPT male)
+1387	Standard glass fiber
+1388	High-temperature glass fiber
+1389	None
+1390	Internal purging of the probe body
+1391	Internal purging, delivered filled with nitrogen
+1392	Filled with inert gas (N2, 4 bar)
+1393	Filled with inert gas (N2)
+1394	External flushing of the measuring area
+1395	Internal purging and external flushing
+1396	Internal purging and steam jacket
+1397	Steam jacket
+1398	Block with built-in windows, welded process connections
+1399	Welded process connections
+1400	Screwed-in process connections
+1401	Swagelok cross, 3/4 in
+1402	Two Swagelok tees, 3/4 in
+1403	Optics built into the cell body
+1404	Collimator fingers with windows
+1405	1/4 in Swagelok
+1406	3/8 in Swagelok
+1407	1/2 in Swagelok
+1408	3/4 in Swagelok
+1409	No base
+1410	Base plate
+1411	Prepared for a cartridge heater and thermocouple
+1412	Heater and thermocouple ordered separately
+1413	45 mm flange body with cooling fins
+1414	Fiber or light guide

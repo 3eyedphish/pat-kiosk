@@ -1168,3 +1168,167 @@
 1248	Soluzioni spettroscopiche
 1249	fino a 100 mm
 1250	a 90°
+1251	Configuratore
+1252	Componi la tua sonda o cella, opzione per opzione
+1253	Configura la tua sonda o cella a flusso
+1254	Scegli un modello, poi ogni opzione. Le opzioni incompatibili si adattano automaticamente e i limiti si aggiornano man mano.
+1255	Configura questo modello
+1256	Sonde a immersione
+1257	Celle a flusso
+1258	Codice di configurazione
+1259	Limiti di questa configurazione, dalla tabella di configurazione Hellma. L’offerta conferma i valori definitivi.
+1260	Aggiungi alla mia richiesta
+1261	Aggiunto alla richiesta. Puoi aggiungere altre configurazioni o inviare la richiesta ora.
+1262	Ricomincia
+1263	Scegli un altro modello
+1264	Dettagli del modello
+1265	Cambia anche
+1266	Adattato:
+1267	Fisso per questo modello
+1268	Tocca un intervallo, poi imposta la profondità esatta.
+1269	con flangia
+1270	senza flangia
+1271	più cammino ottico
+1272	Adatto al vuoto
+1273	Nessuna versione ATEX
+1274	Disponibile versione ATEX zona 1
+1275	Disponibile versione ATEX zona 2
+1276	Versione ATEX su richiesta
+1277	Le tue configurazioni
+1278	Rimuovi
+1279	Materiale della finestra
+1280	Tenuta della finestra
+1281	Pressione nominale
+1282	Connessione ottica
+1283	Guida di luce
+1284	Funzioni aggiuntive
+1285	Corpo della cella
+1286	Tenuta cella–ottica
+1287	Montaggio
+1288	Per flangia di tubazione
+1289	Diametro interno
+1290	Spurgo
+1291	Diametro 12 mm (1/2")
+1292	Diametro 20 mm (3/4")
+1293	Diametro 25 mm (1")
+1294	Diametro 6 mm (1/4")
+1295	Igienica, certificata 3-A, diametro 25 mm
+1296	Heavy duty, guarnizioni metalliche saldate, diametro 25 mm
+1297	Heavy duty, guarnizioni metalliche saldate, diametro 26 mm (1,02")
+1298	Riflessione diffusa senza contatto, diametro 30 mm (1,25")
+1299	Cella a flusso in linea, guarnizioni metalliche saldate
+1300	Cella a flusso compatta a blocco, guarnizioni metalliche saldate
+1301	Cella a flusso con cammino ottico fisso o variabile
+1302	Cella a flusso da montare tra due flange di tubazione
+1303	NIR, fibre 7×200 µm / 1×600 µm
+1304	NIR, fibre 7×400 µm / 1×600 µm
+1305	NIR, fibre 7×600 µm / 7×600 µm
+1306	UV-Vis, fibre 7×200 µm / 1×600 µm
+1307	UV-Vis, fibre 7×400 µm / 1×600 µm
+1308	UV-Vis, fibre 7×600 µm / 7×600 µm
+1309	NIR, fascio di 78 fibre
+1310	UV-Vis, bassa solarizzazione
+1311	Contatto
+1312	Variabile
+1313	Set di puntali per cammino ottico
+1314	Solo sonde con O-ring
+1315	Preimpostato a 5 ± 0,05 mm
+1316	Vetro SF-5
+1317	Acciaio inox 1.4571 (316Ti)
+1318	Titanio grado 2
+1319	Alluminio
+1320	O-ring Kalrez 4079
+1321	O-ring Kalrez 6221
+1322	O-ring Kalrez 6230
+1323	O-ring Kalrez 6375
+1324	O-ring Kalrez 6380
+1325	O-ring Kalrez 7075
+1326	O-ring EPDM
+1327	Non autoclavabile
+1328	Brasato (Ag, Cu, Ti)
+1329	Corpo in titanio e finestra in zaffiro
+1330	Saldato a stagno (Au, Sn)
+1331	Guarnizione metallica saldata, anello a C dorato
+1332	Guarnizione metallica saldata, anello a C rivestito in PTFE
+1333	Guarnizione metallica saldata, anello a C platinato
+1334	Incollato con epossidica
+1335	Saldato
+1336	Raccordo Swagelok
+1337	Senza flangia
+1338	Flangia EN 1092-1 DN 25 PN 40
+1339	Flangia EN 1092-1 DN 40 PN 40
+1340	Flangia EN 1092-1 DN 50 PN 16
+1341	Flangia EN 1092-1 DN 50 PN 40
+1342	Flangia EN 1092-1 DN 80 PN 16
+1343	Flangia EN 1092-1 DN 80 PN 40
+1344	Flangia ASME B16.5 NPS 1 Class 150 RF
+1345	Flangia ASME B16.5 NPS 1.5 Class 150 RF
+1346	Flangia ASME B16.5 NPS 2 Class 150 RF
+1347	Flangia ASME B16.5 NPS 1 Class 300 RF
+1348	Flangia ASME B16.5 NPS 1.5 Class 300 RF
+1349	Flangia ASME B16.5 NPS 2 Class 300 RF
+1350	Flangia JIS B 2220 10K 20A
+1351	Flangia GOST 12815-80 DN 25, 4 MPa
+1352	Attacco Ingold
+1353	Filettatura PG 13,5
+1354	Varivent tipo N
+1355	Attacco clamp DIN 32676, DN 50 (2")
+1356	Flangia su vostra specifica
+1357	Fino a 200 mm di diametro e 24 mm di spessore
+1358	La vostra flangia cieca, con certificato del materiale
+1359	Fino a 10 bar
+1360	Fino a 16 bar
+1361	Fino a 20 bar
+1362	Fino a 30 bar
+1363	Fino a 40 bar
+1364	Fino a 100 bar
+1365	Fino a 160 bar
+1366	Fino a 200 bar
+1367	Fino a 250 bar*
+1368	Pressione atmosferica
+1369	Cavo in fibra 2 m, guaina inox, spina F-SMA
+1370	Prese F-SMA, custodia PMA ATEX (NW 23)
+1371	Cavi in fibra 2 m, rivestiti in PE, 2 spine F-SMA, custodia PMA (NW 23)
+1372	Cavi in fibra 2 m, guaina inox, 2 spine F-SMA, custodia PMA ATEX (NW 23)
+1373	Cavi in fibra 2 m, guaina inox, 2 spine FC/PC, custodia PMA ATEX (NW 23)
+1374	Prese F-SMA, attacco igienico per tubo flessibile 1"
+1375	Prese F-SMA, custodia NEMA 4 per conduit (3/4" NPT femmina)
+1376	Prese FC/PC, custodia NEMA 4 per conduit (3/4" NPT femmina)
+1377	Prese FC/PC, custodia NEMA 4 a 4 porte per conduit (3/4" NPT femmina)
+1378	Prese F-SMA, filettatura maschio 1" NPT
+1379	Prese FC/PC, filettatura maschio 1" NPT
+1380	Prese FC/PC, custodia PMA ATEX (NW 23)
+1381	Prese F-SMA, custodia PMA ATEX (NW 17)
+1382	Cavo in fibra 2 m, guaina inox, spina F-SMA, custodia PMA ATEX (NW 17)
+1383	Prese F-SMA, attacco per conduit (3/4" NPT maschio)
+1384	Prese FC/PC, attacco per conduit (3/4" NPT maschio)
+1385	Prese F-SMA, attacco per conduit (1" NPT maschio)
+1386	Prese FC/PC, attacco per conduit (1" NPT maschio)
+1387	Fibra di vetro standard
+1388	Fibra di vetro per alte temperature
+1389	Nessuna
+1390	Spurgo interno del corpo sonda
+1391	Spurgo interno, fornita riempita di azoto
+1392	Riempita di gas inerte (N2, 4 bar)
+1393	Riempita di gas inerte (N2)
+1394	Lavaggio esterno dell’area di misura
+1395	Spurgo interno e lavaggio esterno
+1396	Spurgo interno e camicia di vapore
+1397	Camicia di vapore
+1398	Blocco con finestre integrate, attacchi al processo saldati
+1399	Attacchi al processo saldati
+1400	Attacchi al processo avvitati
+1401	Croce Swagelok, 3/4"
+1402	Due raccordi a T Swagelok, 3/4"
+1403	Ottica integrata nel corpo della cella
+1404	Dita collimatrici con finestre
+1405	Swagelok 1/4"
+1406	Swagelok 3/8"
+1407	Swagelok 1/2"
+1408	Swagelok 3/4"
+1409	Senza base
+1410	Piastra di base
+1411	Predisposta per cartuccia riscaldante e termocoppia
+1412	Riscaldatore e termocoppia da ordinare a parte
+1413	Corpo flangia 45 mm con alette di raffreddamento
+1414	Fibra o guida di luce

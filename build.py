@@ -92,7 +92,7 @@ def build():
     assets = pick_assets()
     built = datetime.datetime.now().strftime("%Y-%m-%d %H:%M")
     css, content, diagrams, app = read("styles.css"), read("content.js"), read("diagrams.js"), read("app.js")
-    content = content + "\n" + i18n_js()
+    content = content + "\n" + read("configurator.js") + "\n" + i18n_js()
     logo = logo_svg(assets["L1"])
 
     def page(asset_map, mode, extra_boot=None, extra_head=""):

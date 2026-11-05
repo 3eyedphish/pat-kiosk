@@ -1183,3 +1183,167 @@
 1248	Spectroscopische oplossingen
 1249	tot 100 mm
 1250	onder 90°
+1251	Configurator
+1252	Stel uw sonde of doorstroomcel samen, optie voor optie
+1253	Configureer uw sonde of doorstroomcel
+1254	Kies een model en daarna elke optie. Opties die niet samengaan passen zich automatisch aan en de grenswaarden worden direct bijgewerkt.
+1255	Dit model configureren
+1256	Dompelsondes
+1257	Doorstroomcellen
+1258	Configuratiecode
+1259	Grenswaarden van deze configuratie volgens de configuratietabel van Hellma. Uw offerte bevestigt de definitieve waarden.
+1260	Toevoegen aan mijn aanvraag
+1261	Toegevoegd aan uw aanvraag. U kunt meer configuraties toevoegen of de aanvraag nu versturen.
+1262	Opnieuw beginnen
+1263	Ander model kiezen
+1264	Modeldetails
+1265	Wijzigt ook
+1266	Aangepast:
+1267	Vast voor dit model
+1268	Tik op een bereik en stel daarna de exacte diepte in.
+1269	met flens
+1270	zonder flens
+1271	plus weglengte
+1272	Vacuümbestendig
+1273	Geen ATEX-uitvoering
+1274	ATEX-uitvoering voor zone 1 leverbaar
+1275	ATEX-uitvoering voor zone 2 leverbaar
+1276	ATEX-uitvoering op aanvraag
+1277	Uw configuraties
+1278	Verwijderen
+1279	Venstermateriaal
+1280	Vensterafdichting
+1281	Drukklasse
+1282	Optische aansluiting
+1283	Lichtgeleider
+1284	Extra functies
+1285	Celbehuizing
+1286	Afdichting cel–optiek
+1287	Montage
+1288	Past op leidingflens
+1289	Binnendiameter
+1290	Spoeling
+1291	12 mm (1/2") diameter
+1292	20 mm (3/4") diameter
+1293	25 mm (1") diameter
+1294	6 mm (1/4") diameter
+1295	Hygiënisch, 3-A-gecertificeerd, 25 mm diameter
+1296	Heavy duty, gelaste metalen afdichtingen, 25 mm diameter
+1297	Heavy duty, gelaste metalen afdichtingen, 26 mm (1,02") diameter
+1298	Contactloze diffuse reflectie, 30 mm (1,25") diameter
+1299	Inline-doorstroomcel, gelaste metalen afdichtingen
+1300	Compacte blok-doorstroomcel, gelaste metalen afdichtingen
+1301	Doorstroomcel met vaste of variabele weglengte
+1302	Doorstroomcel voor montage tussen twee leidingflenzen
+1303	NIR, vezels 7×200 µm / 1×600 µm
+1304	NIR, vezels 7×400 µm / 1×600 µm
+1305	NIR, vezels 7×600 µm / 7×600 µm
+1306	UV-Vis, vezels 7×200 µm / 1×600 µm
+1307	UV-Vis, vezels 7×400 µm / 1×600 µm
+1308	UV-Vis, vezels 7×600 µm / 7×600 µm
+1309	NIR, bundel van 78 vezels
+1310	UV-Vis, weinig solarisatie
+1311	Contact
+1312	Variabel
+1313	Set weglengte-tips
+1314	Alleen sondes met O-ringafdichting
+1315	Vooraf ingesteld op 5 ± 0,05 mm
+1316	SF-5-glas
+1317	Roestvast staal 1.4571 (316Ti)
+1318	Titanium graad 2
+1319	Aluminium
+1320	O-ring Kalrez 4079
+1321	O-ring Kalrez 6221
+1322	O-ring Kalrez 6230
+1323	O-ring Kalrez 6375
+1324	O-ring Kalrez 6380
+1325	O-ring Kalrez 7075
+1326	O-ring EPDM
+1327	Niet autoclaveerbaar
+1328	Hardgesoldeerd (Ag, Cu, Ti)
+1329	Titanium behuizing en saffiervenster
+1330	Zachtgesoldeerd (Au, Sn)
+1331	Gelaste metalen afdichting, verguld C-ring
+1332	Gelaste metalen afdichting, PTFE-gecoat C-ring
+1333	Gelaste metalen afdichting, geplatineerd C-ring
+1334	Met epoxy verlijmd
+1335	Gelast
+1336	Swagelok-koppeling
+1337	Zonder flens
+1338	EN 1092-1-flens DN 25 PN 40
+1339	EN 1092-1-flens DN 40 PN 40
+1340	EN 1092-1-flens DN 50 PN 16
+1341	EN 1092-1-flens DN 50 PN 40
+1342	EN 1092-1-flens DN 80 PN 16
+1343	EN 1092-1-flens DN 80 PN 40
+1344	ASME B16.5-flens NPS 1 Class 150 RF
+1345	ASME B16.5-flens NPS 1.5 Class 150 RF
+1346	ASME B16.5-flens NPS 2 Class 150 RF
+1347	ASME B16.5-flens NPS 1 Class 300 RF
+1348	ASME B16.5-flens NPS 1.5 Class 300 RF
+1349	ASME B16.5-flens NPS 2 Class 300 RF
+1350	JIS B 2220-flens 10K 20A
+1351	GOST 12815-80-flens DN 25, 4 MPa
+1352	Ingold-aansluiting
+1353	Schroefdraad PG 13,5
+1354	Varivent type N
+1355	Clampaansluiting DIN 32676, DN 50 (2")
+1356	Flens volgens uw specificatie
+1357	Tot 200 mm diameter en 24 mm dik
+1358	Uw eigen blindflens, met materiaalcertificaat
+1359	Tot 10 bar
+1360	Tot 16 bar
+1361	Tot 20 bar
+1362	Tot 30 bar
+1363	Tot 40 bar
+1364	Tot 100 bar
+1365	Tot 160 bar
+1366	Tot 200 bar
+1367	Tot 250 bar*
+1368	Atmosferische druk
+1369	Glasvezelkabel 2 m, rvs-mantel, F-SMA-stekker
+1370	F-SMA-bussen, ATEX PMA-behuizing (NW 23)
+1371	Glasvezelkabels 2 m, PE-mantel, 2 F-SMA-stekkers, PMA-behuizing (NW 23)
+1372	Glasvezelkabels 2 m, rvs-mantel, 2 F-SMA-stekkers, ATEX PMA-behuizing (NW 23)
+1373	Glasvezelkabels 2 m, rvs-mantel, 2 FC/PC-stekkers, ATEX PMA-behuizing (NW 23)
+1374	F-SMA-bussen, hygiënische aansluiting voor 1"-slang
+1375	F-SMA-bussen, NEMA 4-installatiebehuizing (3/4" NPT binnendraad)
+1376	FC/PC-bussen, NEMA 4-installatiebehuizing (3/4" NPT binnendraad)
+1377	FC/PC-bussen, NEMA 4-installatiebehuizing met 4 poorten (3/4" NPT binnendraad)
+1378	F-SMA-bussen, 1" NPT buitendraad
+1379	FC/PC-bussen, 1" NPT buitendraad
+1380	FC/PC-bussen, ATEX PMA-behuizing (NW 23)
+1381	F-SMA-bussen, ATEX PMA-behuizing (NW 17)
+1382	Glasvezelkabel 2 m, rvs-mantel, F-SMA-stekker, ATEX PMA-behuizing (NW 17)
+1383	F-SMA-bussen, installatieaansluiting (3/4" NPT buitendraad)
+1384	FC/PC-bussen, installatieaansluiting (3/4" NPT buitendraad)
+1385	F-SMA-bussen, installatieaansluiting (1" NPT buitendraad)
+1386	FC/PC-bussen, installatieaansluiting (1" NPT buitendraad)
+1387	Standaard glasvezel
+1388	Hogetemperatuur-glasvezel
+1389	Geen
+1390	Interne spoeling van de sondebehuizing
+1391	Interne spoeling, geleverd gevuld met stikstof
+1392	Gevuld met inert gas (N2, 4 bar)
+1393	Gevuld met inert gas (N2)
+1394	Externe spoeling van het meetgebied
+1395	Interne en externe spoeling
+1396	Interne spoeling en stoommantel
+1397	Stoommantel
+1398	Blok met ingebouwde vensters, gelaste procesaansluitingen
+1399	Gelaste procesaansluitingen
+1400	Ingeschroefde procesaansluitingen
+1401	Swagelok-kruisstuk, 3/4"
+1402	Twee Swagelok-T-stukken, 3/4"
+1403	Optiek ingebouwd in de celbehuizing
+1404	Collimatorvingers met vensters
+1405	Swagelok 1/4"
+1406	Swagelok 3/8"
+1407	Swagelok 1/2"
+1408	Swagelok 3/4"
+1409	Zonder voetplaat
+1410	Voetplaat
+1411	Voorbereid voor verwarmingspatroon en thermokoppel
+1412	Verwarming en thermokoppel apart te bestellen
+1413	Flensbehuizing 45 mm met koelribben
+1414	Vezel of lichtgeleider

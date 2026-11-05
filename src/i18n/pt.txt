@@ -1180,3 +1180,167 @@
 1248	Soluções espectroscópicas
 1249	até 100 mm
 1250	a 90°
+1251	Configurador
+1252	Monte sua sonda ou célula, opção por opção
+1253	Configure sua sonda ou célula de fluxo
+1254	Escolha um modelo e depois cada opção. Opções incompatíveis se ajustam automaticamente e os limites são atualizados à medida que você avança.
+1255	Configurar este modelo
+1256	Sondas de imersão
+1257	Células de fluxo
+1258	Código de configuração
+1259	Limites desta configuração, conforme a tabela de configuração da Hellma. Sua cotação confirma os valores finais.
+1260	Adicionar à minha solicitação
+1261	Adicionado à sua solicitação. Você pode adicionar mais configurações ou enviar a solicitação agora.
+1262	Recomeçar
+1263	Escolher outro modelo
+1264	Detalhes do modelo
+1265	Também altera
+1266	Ajustado:
+1267	Fixo para este modelo
+1268	Toque em uma faixa e ajuste a profundidade exata.
+1269	com flange
+1270	sem flange
+1271	mais caminho óptico
+1272	Adequado para vácuo
+1273	Sem versão ATEX
+1274	Versão ATEX zona 1 disponível
+1275	Versão ATEX zona 2 disponível
+1276	Versão ATEX sob consulta
+1277	Suas configurações
+1278	Remover
+1279	Material da janela
+1280	Vedação da janela
+1281	Pressão nominal
+1282	Conexão óptica
+1283	Guia de luz
+1284	Funções adicionais
+1285	Corpo da célula
+1286	Vedação célula–óptica
+1287	Montagem
+1288	Para flange de tubulação
+1289	Diâmetro interno
+1290	Purga
+1291	Diâmetro 12 mm (1/2")
+1292	Diâmetro 20 mm (3/4")
+1293	Diâmetro 25 mm (1")
+1294	Diâmetro 6 mm (1/4")
+1295	Higiênica, certificada 3-A, diâmetro 25 mm
+1296	Heavy duty, vedações metálicas soldadas, diâmetro 25 mm
+1297	Heavy duty, vedações metálicas soldadas, diâmetro 26 mm (1,02")
+1298	Reflexão difusa sem contato, diâmetro 30 mm (1,25")
+1299	Célula de fluxo em linha, vedações metálicas soldadas
+1300	Célula de fluxo compacta em bloco, vedações metálicas soldadas
+1301	Célula de fluxo com caminho óptico fixo ou variável
+1302	Célula de fluxo montada entre dois flanges de tubulação
+1303	NIR, fibras 7×200 µm / 1×600 µm
+1304	NIR, fibras 7×400 µm / 1×600 µm
+1305	NIR, fibras 7×600 µm / 7×600 µm
+1306	UV-Vis, fibras 7×200 µm / 1×600 µm
+1307	UV-Vis, fibras 7×400 µm / 1×600 µm
+1308	UV-Vis, fibras 7×600 µm / 7×600 µm
+1309	NIR, feixe de 78 fibras
+1310	UV-Vis, baixa solarização
+1311	Contato
+1312	Variável
+1313	Jogo de pontas de caminho óptico
+1314	Somente sondas com o-ring
+1315	Pré-ajustado em 5 ± 0,05 mm
+1316	Vidro SF-5
+1317	Aço inoxidável 1.4571 (316Ti)
+1318	Titânio grau 2
+1319	Alumínio
+1320	O-ring Kalrez 4079
+1321	O-ring Kalrez 6221
+1322	O-ring Kalrez 6230
+1323	O-ring Kalrez 6375
+1324	O-ring Kalrez 6380
+1325	O-ring Kalrez 7075
+1326	O-ring EPDM
+1327	Não autoclavável
+1328	Brasado (Ag, Cu, Ti)
+1329	Corpo de titânio e janela de safira
+1330	Solda branda (Au, Sn)
+1331	Vedação metálica soldada, anel C dourado
+1332	Vedação metálica soldada, anel C revestido de PTFE
+1333	Vedação metálica soldada, anel C platinado
+1334	Colado com epóxi
+1335	Soldado
+1336	Conexão Swagelok
+1337	Sem flange
+1338	Flange EN 1092-1 DN 25 PN 40
+1339	Flange EN 1092-1 DN 40 PN 40
+1340	Flange EN 1092-1 DN 50 PN 16
+1341	Flange EN 1092-1 DN 50 PN 40
+1342	Flange EN 1092-1 DN 80 PN 16
+1343	Flange EN 1092-1 DN 80 PN 40
+1344	Flange ASME B16.5 NPS 1 Class 150 RF
+1345	Flange ASME B16.5 NPS 1.5 Class 150 RF
+1346	Flange ASME B16.5 NPS 2 Class 150 RF
+1347	Flange ASME B16.5 NPS 1 Class 300 RF
+1348	Flange ASME B16.5 NPS 1.5 Class 300 RF
+1349	Flange ASME B16.5 NPS 2 Class 300 RF
+1350	Flange JIS B 2220 10K 20A
+1351	Flange GOST 12815-80 DN 25, 4 MPa
+1352	Conexão Ingold
+1353	Rosca PG 13,5
+1354	Varivent tipo N
+1355	Conexão clamp DIN 32676, DN 50 (2")
+1356	Flange conforme sua especificação
+1357	Até 200 mm de diâmetro e 24 mm de espessura
+1358	Seu próprio flange cego, com certificado de material
+1359	Até 10 bar
+1360	Até 16 bar
+1361	Até 20 bar
+1362	Até 30 bar
+1363	Até 40 bar
+1364	Até 100 bar
+1365	Até 160 bar
+1366	Até 200 bar
+1367	Até 250 bar*
+1368	Pressão atmosférica
+1369	Cabo de fibra de 2 m, capa de aço inox, plugue F-SMA
+1370	Soquetes F-SMA, invólucro PMA ATEX (NW 23)
+1371	Cabos de fibra de 2 m, revestidos de PE, 2 plugues F-SMA, invólucro PMA (NW 23)
+1372	Cabos de fibra de 2 m, capa de aço inox, 2 plugues F-SMA, invólucro PMA ATEX (NW 23)
+1373	Cabos de fibra de 2 m, capa de aço inox, 2 plugues FC/PC, invólucro PMA ATEX (NW 23)
+1374	Soquetes F-SMA, conexão higiênica para mangueira de 1"
+1375	Soquetes F-SMA, invólucro NEMA 4 para eletroduto (3/4" NPT fêmea)
+1376	Soquetes FC/PC, invólucro NEMA 4 para eletroduto (3/4" NPT fêmea)
+1377	Soquetes FC/PC, invólucro NEMA 4 de 4 portas para eletroduto (3/4" NPT fêmea)
+1378	Soquetes F-SMA, rosca macho 1" NPT
+1379	Soquetes FC/PC, rosca macho 1" NPT
+1380	Soquetes FC/PC, invólucro PMA ATEX (NW 23)
+1381	Soquetes F-SMA, invólucro PMA ATEX (NW 17)
+1382	Cabo de fibra de 2 m, capa de aço inox, plugue F-SMA, invólucro PMA ATEX (NW 17)
+1383	Soquetes F-SMA, conexão para eletroduto (3/4" NPT macho)
+1384	Soquetes FC/PC, conexão para eletroduto (3/4" NPT macho)
+1385	Soquetes F-SMA, conexão para eletroduto (1" NPT macho)
+1386	Soquetes FC/PC, conexão para eletroduto (1" NPT macho)
+1387	Fibra de vidro padrão
+1388	Fibra de vidro de alta temperatura
+1389	Nenhuma
+1390	Purga interna do corpo da sonda
+1391	Purga interna, entregue preenchida com nitrogênio
+1392	Preenchida com gás inerte (N2, 4 bar)
+1393	Preenchida com gás inerte (N2)
+1394	Lavagem externa da área de medição
+1395	Purga interna e lavagem externa
+1396	Purga interna e camisa de vapor
+1397	Camisa de vapor
+1398	Bloco com janelas integradas, conexões ao processo soldadas
+1399	Conexões ao processo soldadas
+1400	Conexões ao processo rosqueadas
+1401	Cruzeta Swagelok, 3/4"
+1402	Dois tês Swagelok, 3/4"
+1403	Óptica integrada ao corpo da célula
+1404	Dedos colimadores com janelas
+1405	Swagelok 1/4"
+1406	Swagelok 3/8"
+1407	Swagelok 1/2"
+1408	Swagelok 3/4"
+1409	Sem base
+1410	Placa de base
+1411	Preparada para cartucho de aquecimento e termopar
+1412	Aquecedor e termopar pedidos separadamente
+1413	Corpo de flange de 45 mm com aletas de resfriamento
+1414	Fibra ou guia de luz

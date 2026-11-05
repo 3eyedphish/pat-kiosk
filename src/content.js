@@ -12,7 +12,7 @@
 window.KIOSK = {
   meta: {
     title: "Hellma Process Analytics",
-    version: "0.8.1 (Flemish)",
+    version: "0.9.0 (configurator)",
     source: "20250428_HellmaUSA_PAT.pptx; HellmaUSA_2025_Applications_for_CPACT_webinar.pptx; 661.920 information sheet",
   },
 
@@ -52,6 +52,7 @@ window.KIOSK = {
         brand: "analytics", title: "Process interfaces",
         tiles: [
           { route: "line/process-interfaces", img: "P3", title: "Probes & flow cells", sub: "Every model with full specifications" },
+          { route: "configure", img: "P1", title: "Configurator", sub: "Build your probe or flow cell, option by option" },
           { route: "principles", svg: "principle", title: "Measurement principles", sub: "How each probe measures, animated" },
           { route: "sealing", img: "S3", title: "Sealing technology", sub: "Why welded metal seals last" },
           { route: "retractables", img: "R4", title: "Retractable housings", sub: "Clean and swap probes while running" },
@@ -1133,6 +1134,40 @@ window.KIOSK = {
   },
 
   /* ---------- About ---------- */
+  /* ---------- Probe and flow cell configurator ----------
+   * The options, codes and limits come from src/configurator.js, generated from Hellma's FOS_Configurations.xlsx
+   * (tools/make_configurator.py). This block is only the wording around it. No prices are shown. */
+  configurator: {
+    eyebrow: "Configurator",
+    title: "Configure your probe or flow cell",
+    intro: "Pick a model, then choose each option. Options that don't fit together adjust automatically, and the ratings update as you go.",
+    cta: "Configure this model",
+    probes: "Immersion probes",
+    cells: "Flow cells",
+    showCode: true,
+    codeLabel: "Configuration code",
+    ratingNote: "Ratings for this configuration, from Hellma's configuration table. Your quotation confirms the final ratings.",
+    addLabel: "Add to my request",
+    added: "Added to your request. You can add more configurations or send the request now.",
+    restart: "Start over",
+    other: "Choose another model",
+    product: "Model details",
+    alsoChanges: "Also changes",
+    adjusted: "Adjusted to fit:",
+    fixedTitle: "Fixed for this model",
+    depthHint: "Tap a range, then set the exact depth.",
+    depthFlange: "with flange",
+    depthNoFlange: "without flange",
+    depthPlusPath: "plus path length",
+    vacuum: "Vacuum-rated",
+    atexNone: "No ATEX version",
+    atex1: "ATEX Zone 1 version available",
+    atex2: "ATEX Zone 2 version available",
+    atexAsk: "ATEX version on request",
+    yours: "Your configurations",
+    remove: "Remove",
+  },
+
   about: {
     promise: "Hellma enables you to perform molecular spectroscopy in the laboratory and in the process, efficiently and at the highest level.",
     group: [

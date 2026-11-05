@@ -1170,3 +1170,167 @@
 1249	jusqu’à 100 mm
 1021	Méthyle
 1250	à 90°
+1251	Configurateur
+1252	Composez votre sonde ou cellule, option par option
+1253	Configurez votre sonde ou cellule à circulation
+1254	Choisissez un modèle, puis chaque option. Les options incompatibles s’ajustent automatiquement et les limites se mettent à jour au fur et à mesure.
+1255	Configurer ce modèle
+1256	Sondes à immersion
+1257	Cellules à circulation
+1258	Code de configuration
+1259	Limites de cette configuration, d’après la table de configuration Hellma. Votre offre confirme les valeurs définitives.
+1260	Ajouter à ma demande
+1261	Ajouté à votre demande. Vous pouvez ajouter d’autres configurations ou envoyer la demande maintenant.
+1262	Recommencer
+1263	Choisir un autre modèle
+1264	Détails du modèle
+1265	Modifie aussi
+1266	Ajusté pour compatibilité :
+1267	Fixé pour ce modèle
+1268	Touchez une plage, puis réglez la profondeur exacte.
+1269	avec bride
+1270	sans bride
+1271	plus trajet optique
+1272	Résiste au vide
+1273	Pas de version ATEX
+1274	Version ATEX zone 1 disponible
+1275	Version ATEX zone 2 disponible
+1276	Version ATEX sur demande
+1277	Vos configurations
+1278	Retirer
+1279	Matériau de la fenêtre
+1280	Étanchéité de la fenêtre
+1281	Pression nominale
+1282	Raccordement optique
+1283	Guide de lumière
+1284	Fonctions supplémentaires
+1285	Corps de cellule
+1286	Étanchéité cellule–optique
+1287	Montage
+1288	Pour bride de tuyauterie
+1289	Diamètre intérieur
+1290	Purge
+1291	Diamètre 12 mm (1/2")
+1292	Diamètre 20 mm (3/4")
+1293	Diamètre 25 mm (1")
+1294	Diamètre 6 mm (1/4")
+1295	Hygiénique, certifiée 3-A, diamètre 25 mm
+1296	Heavy duty, joints métalliques soudés, diamètre 25 mm
+1297	Heavy duty, joints métalliques soudés, diamètre 26 mm (1,02")
+1298	Réflexion diffuse sans contact, diamètre 30 mm (1,25")
+1299	Cellule à circulation en ligne, joints métalliques soudés
+1300	Cellule à circulation compacte en bloc, joints métalliques soudés
+1301	Cellule à circulation à trajet optique fixe ou variable
+1302	Cellule à circulation montée entre deux brides de tuyauterie
+1303	NIR, fibres 7×200 µm / 1×600 µm
+1304	NIR, fibres 7×400 µm / 1×600 µm
+1305	NIR, fibres 7×600 µm / 7×600 µm
+1306	UV-Vis, fibres 7×200 µm / 1×600 µm
+1307	UV-Vis, fibres 7×400 µm / 1×600 µm
+1308	UV-Vis, fibres 7×600 µm / 7×600 µm
+1309	NIR, faisceau de 78 fibres
+1310	UV-Vis, faible solarisation
+1311	Contact
+1312	Variable
+1313	Jeu d’embouts de trajet optique
+1314	Sondes à joint torique uniquement
+1315	Préréglé à 5 ± 0,05 mm
+1316	Verre SF-5
+1317	Acier inoxydable 1.4571 (316Ti)
+1318	Titane grade 2
+1319	Aluminium
+1320	Joint torique Kalrez 4079
+1321	Joint torique Kalrez 6221
+1322	Joint torique Kalrez 6230
+1323	Joint torique Kalrez 6375
+1324	Joint torique Kalrez 6380
+1325	Joint torique Kalrez 7075
+1326	Joint torique EPDM
+1327	Non autoclavable
+1328	Brasé (Ag, Cu, Ti)
+1329	Corps en titane et fenêtre en saphir
+1330	Brasé tendre (Au, Sn)
+1331	Joint métallique soudé, anneau en C doré
+1332	Joint métallique soudé, anneau en C revêtu PTFE
+1333	Joint métallique soudé, anneau en C platiné
+1334	Collé à l’époxy
+1335	Soudé
+1336	Raccord Swagelok
+1337	Sans bride
+1338	Bride EN 1092-1 DN 25 PN 40
+1339	Bride EN 1092-1 DN 40 PN 40
+1340	Bride EN 1092-1 DN 50 PN 16
+1341	Bride EN 1092-1 DN 50 PN 40
+1342	Bride EN 1092-1 DN 80 PN 16
+1343	Bride EN 1092-1 DN 80 PN 40
+1344	Bride ASME B16.5 NPS 1 Class 150 RF
+1345	Bride ASME B16.5 NPS 1.5 Class 150 RF
+1346	Bride ASME B16.5 NPS 2 Class 150 RF
+1347	Bride ASME B16.5 NPS 1 Class 300 RF
+1348	Bride ASME B16.5 NPS 1.5 Class 300 RF
+1349	Bride ASME B16.5 NPS 2 Class 300 RF
+1350	Bride JIS B 2220 10K 20A
+1351	Bride GOST 12815-80 DN 25, 4 MPa
+1352	Raccord Ingold
+1353	Filetage PG 13,5
+1354	Varivent type N
+1355	Raccord clamp DIN 32676, DN 50 (2")
+1356	Bride selon votre spécification
+1357	Jusqu’à 200 mm de diamètre et 24 mm d’épaisseur
+1358	Votre propre bride pleine, avec certificat matière
+1359	Jusqu’à 10 bar
+1360	Jusqu’à 16 bar
+1361	Jusqu’à 20 bar
+1362	Jusqu’à 30 bar
+1363	Jusqu’à 40 bar
+1364	Jusqu’à 100 bar
+1365	Jusqu’à 160 bar
+1366	Jusqu’à 200 bar
+1367	Jusqu’à 250 bar*
+1368	Pression atmosphérique
+1369	Câble à fibre 2 m, gaine inox, fiche F-SMA
+1370	Embases F-SMA, boîtier PMA ATEX (NW 23)
+1371	Câbles à fibre 2 m, gaine PE, 2 fiches F-SMA, boîtier PMA (NW 23)
+1372	Câbles à fibre 2 m, gaine inox, 2 fiches F-SMA, boîtier PMA ATEX (NW 23)
+1373	Câbles à fibre 2 m, gaine inox, 2 fiches FC/PC, boîtier PMA ATEX (NW 23)
+1374	Embases F-SMA, raccord hygiénique pour flexible 1"
+1375	Embases F-SMA, boîtier NEMA 4 pour conduit (3/4" NPT femelle)
+1376	Embases FC/PC, boîtier NEMA 4 pour conduit (3/4" NPT femelle)
+1377	Embases FC/PC, boîtier NEMA 4 à 4 ports pour conduit (3/4" NPT femelle)
+1378	Embases F-SMA, filetage mâle 1" NPT
+1379	Embases FC/PC, filetage mâle 1" NPT
+1380	Embases FC/PC, boîtier PMA ATEX (NW 23)
+1381	Embases F-SMA, boîtier PMA ATEX (NW 17)
+1382	Câble à fibre 2 m, gaine inox, fiche F-SMA, boîtier PMA ATEX (NW 17)
+1383	Embases F-SMA, raccord de conduit (3/4" NPT mâle)
+1384	Embases FC/PC, raccord de conduit (3/4" NPT mâle)
+1385	Embases F-SMA, raccord de conduit (1" NPT mâle)
+1386	Embases FC/PC, raccord de conduit (1" NPT mâle)
+1387	Fibre de verre standard
+1388	Fibre de verre haute température
+1389	Aucune
+1390	Purge interne du corps de sonde
+1391	Purge interne, livrée remplie d’azote
+1392	Remplie de gaz inerte (N2, 4 bar)
+1393	Remplie de gaz inerte (N2)
+1394	Rinçage externe de la zone de mesure
+1395	Purge interne et rinçage externe
+1396	Purge interne et chemise de vapeur
+1397	Chemise de vapeur
+1398	Bloc à fenêtres intégrées, raccords procédé soudés
+1399	Raccords procédé soudés
+1400	Raccords procédé vissés
+1401	Croix Swagelok, 3/4"
+1402	Deux tés Swagelok, 3/4"
+1403	Optique intégrée au corps de cellule
+1404	Doigts collimateurs avec fenêtres
+1405	Swagelok 1/4"
+1406	Swagelok 3/8"
+1407	Swagelok 1/2"
+1408	Swagelok 3/4"
+1409	Sans socle
+1410	Plaque de base
+1411	Préparée pour une cartouche chauffante et un thermocouple
+1412	Cartouche et thermocouple à commander séparément
+1413	Corps de bride 45 mm avec ailettes de refroidissement
+1414	Fibre ou guide de lumière

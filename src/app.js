@@ -247,7 +247,7 @@
   var S;
   function freshSession() {
     S = {
-      stack: [], viewed: [], form: null,
+      stack: [], viewed: [], form: null, configs: [], cfg: null, cfOpen: null,
       finder: { principle: "any", format: "any", range: "any", temp: 0, pres: 0 },
       mux: { ch: 0, auto: true },
     };
@@ -371,6 +371,12 @@
       (f.maxT == null ? '<span class="pnote">Temperature and pressure ratings on request</span>' : '<div class="meter"><span>Temp.</span><span class="bar"><i style="width:' + tw + '%"></i>' + (req.temp ? '<u style="left:' + Math.round(req.temp / 400 * 100) + '%"></u>' : "") + '</span><span class="v">' + fmtT(f.maxT) + "</span></div>" +
       '<div class="meter"><span>Pressure</span><span class="bar"><i style="width:' + pw + '%"></i>' + (req.pres ? '<u style="left:' + Math.round(req.pres / 250 * 100) + '%"></u>' : "") + '</span><span class="v">' + fmtP(f.maxP) + (f.pStar ? "*" : "") + "</span></div>" +
       (pn ? '<span class="pnote">' + pn + "</span>" : "")) + "</div></button>";
+  }
+  /* Configurator entry for a product page: one button per configurable model of that product */
+  function cfLinks(pid) {
+    var ms = (window.KIOSK_CONFIG ? window.KIOSK_CONFIG.models : []).filter(function (m) { return m.product === pid; });
+    if (!ms.length) return "";
+    return '<button class="btn" type="button" data-go="configure' + (ms.length === 1 ? "/" + ms[0].id : "") + '">' + esc(C.configurator.cta) + "</button>";
   }
   function mini(o) {
     var vis = o.svg ? '<div class="stage svgthumb">' + o.svg + "</div>" : stage(o.img, "", o.title);
@@ -530,7 +536,7 @@
         '<div class="rating"><span class="k">Spectral range</span><span class="n" style="font-size:1.2rem">' + spectral + "</span></div></div>" +
         specs + foot(p.foot) +
         '<div class="row"><button class="btn primary" type="button" data-req="' + p.family + '">' + I.mail + "Request information</button>" +
-        '<button class="btn" type="button" data-go="principles/' + fam.principle + '">How ' + esc(pr.name.toLowerCase()) + " works</button></div>" +
+        '<button class="btn" type="button" data-go="principles/' + fam.principle + '">How ' + esc(pr.name.toLowerCase()) + " works</button>" + cfLinks(id) + "</div>" +
         (fits ? '<div style="display:grid;gap:.6rem"><div class="eyebrow">Works with</div><div class="minis">' + fits + "</div></div>" : "") +
         "</div></div>",
       init: function (root) {
@@ -989,7 +995,7 @@
     return {
       crumb: crumb("Request information"), noCta: true,
       html: pageHead(loc.territory, L.title, esc(L.sub)) +
-        '<form class="form" id="lead" novalidate autocomplete="off">' + fields + ints + reqs +
+        '<form class="form" id="lead" novalidate autocomplete="off">' + fields + cfYours() + ints + reqs +
         '<div class="field full"><label for="f-msg">Tell us about your process (optional)</label><textarea id="f-msg" name="msg" placeholder="Medium, temperature, pressure, what you want to measure">' + esc(F.v.msg || "") + "</textarea></div>" +
         '<div class="field full"><button class="check" type="button" id="f-consent" role="checkbox" aria-checked="' + F.consent + '"><span class="box">' + I.check + "</span><span>" + esc(tx(L.consent)) + '<br><span class="muted small">' + esc(L.privacy) + '</span></span></button><span class="msg" id="consent-msg"></span></div>' +
         '<div class="field full"><div class="row"><button class="btn primary" type="submit" style="min-width:14rem">' + I.mail + 'Send request</button><span class="muted small">* Required</span></div></div></form>' +
@@ -1003,6 +1009,7 @@
         });
         $$("[data-int]", form).forEach(function (b) { b.onclick = function () { var k = b.dataset.int, i = F.interests.indexOf(k); if (i >= 0) F.interests.splice(i, 1); else F.interests.push(k); b.setAttribute("aria-pressed", i < 0); }; });
         $$("[data-rq]", form).forEach(function (b) { b.onclick = function () { var k = b.dataset.rq, i = F.requests.indexOf(k); if (i >= 0) F.requests.splice(i, 1); else F.requests.push(k); b.setAttribute("aria-pressed", i < 0); }; });
+        $$("[data-cfdel]", form).forEach(function (b) { b.onclick = function () { S.configs.splice(Number(b.dataset.cfdel), 1); render(current, { keepScroll: true }); }; });
         var cons = $("#f-consent", form);
         cons.onclick = function () { F.consent = !F.consent; cons.setAttribute("aria-checked", F.consent); cons.classList.remove("err"); $("#consent-msg", form).textContent = ""; };
         form.addEventListener("submit", function (e) {
@@ -1022,6 +1029,7 @@
             first: v.first, last: v.last, company: v.company, title: v.title, email: v.email, phone: v.phone, location: v.loc,
             interests: F.interests.map(function (k) { var o = C.leadForm.interests.filter(function (i) { return i.id === k; })[0]; return o ? o.label : k; }),
             requests: F.requests.slice(), message: ($("#f-msg", form).value || "").trim(), consent: true, viewed: S.viewed.slice(),
+            configs: (S.configs || []).map(function (c) { return c.text; }),
           };
           Store.add(lead).then(function (ok) {
             if (!ok) toast("This request could not be saved on the device. Please tell a member of staff.", 6000);
@@ -1044,6 +1052,278 @@
       },
     };
   };
+
+  /* ---------------- Configurator ----------------
+   * Data: window.KIOSK_CONFIG (src/configurator.js, generated from Hellma's FOS_Configurations.xlsx).
+   * A configuration is { model, sel: { codePosition: optionCode }, depth: mm }. Combination rules come as
+   * "if position X is one of these codes, position Y must be one of those". When a choice breaks a rule,
+   * the other choice is moved to the model's standard option (or the first one that fits). */
+  var CF = window.KIOSK_CONFIG || { models: [], groups: {}, rules: [] };
+  var CC = C.configurator;
+  function cfModel(id) { return CF.models.filter(function (m) { return m.id === id; })[0]; }
+  function cfGroups(m) {
+    return (CF.groups[m.sheet] || []).map(function (g) {
+      var opts = g.options.filter(function (o) { return o.m.indexOf(m.id) >= 0; });
+      return { pos: g.pos, len: g.len, key: g.key, title: g.title, auto: !!g.auto, depth: !!g.depth, options: opts };
+    }).filter(function (g) { return g.options.length; });
+  }
+  function cfRules(m) { return CF.rules.filter(function (r) { return r.sheet === m.sheet && (!r.m || r.m.indexOf(m.id) >= 0); }); }
+  function cfOpt(g, code) { return g.options.filter(function (o) { return o.c === code; })[0]; }
+  function cfDepthOk(o, mm) { return mm >= o.min && mm <= o.max; }
+  function cfBroken(rules, sel) {
+    for (var i = 0; i < rules.length; i++) {
+      var r = rules[i];
+      if (r.i[1].indexOf(sel[r.i[0]]) >= 0 && r.n[1].indexOf(sel[r.n[0]]) < 0) return r;
+    }
+    return null;
+  }
+  function cfBaseCode(m, g) { return m.base.substr(g.pos - 1, g.len); }
+  /* Put every choice in a valid state; the position in `locked` is never changed */
+  function cfFix(m, cfg, locked) {
+    var gs = cfGroups(m), rules = cfRules(m), byPos = {};
+    gs.forEach(function (g) { byPos[g.pos] = g; });
+    var done = {}; if (locked != null) done[locked] = 1; /* positions already settled in this pass are not moved again */
+    for (var n = 0; n < 24; n++) {
+      var r = cfBroken(rules, cfg.sel);
+      if (!r) break;
+      var target = !done[r.n[0]] ? r.n[0] : !done[r.i[0]] ? r.i[0] : null;
+      if (target == null || !byPos[target]) break;
+      done[target] = 1;
+      var g = byPos[target], cands = g.options.map(function (o) { return o.c; });
+      var std = g.depth ? null : cfBaseCode(m, g);
+      if (std && cands.indexOf(std) > 0) { cands.splice(cands.indexOf(std), 1); cands.unshift(std); }
+      if (g.depth) { /* keep the depth as close as possible to the current value */
+        cands.sort(function (a, b) {
+          function dist(c) { var o = cfOpt(g, c); return cfg.depth < o.min ? o.min - cfg.depth : cfg.depth > o.max ? cfg.depth - o.max : 0; }
+          return dist(a) - dist(b);
+        });
+      }
+      /* prefer an option that breaks nothing else; otherwise one that at least settles this rule (the loop fixes the rest) */
+      var pick = null, fallback = null, mine = rules.filter(function (x) { return x.i[0] === target || x.n[0] === target; });
+      for (var k = 0; k < cands.length && !pick; k++) {
+        var test = {}; for (var p in cfg.sel) test[p] = cfg.sel[p];
+        test[target] = cands[k];
+        if (!cfBroken(mine, test)) pick = cands[k];
+        else if (!fallback && !cfBroken([r], test)) fallback = cands[k];
+      }
+      pick = pick || fallback;
+      if (!pick) break;
+      cfg.sel[target] = pick;
+      if (g.depth) { var o = cfOpt(g, pick); cfg.depth = Math.min(o.max, Math.max(o.min, cfg.depth)); }
+    }
+    return cfg;
+  }
+  function cfNew(m) {
+    var cfg = { model: m.id, sel: {}, depth: 0 };
+    cfGroups(m).forEach(function (g) {
+      if (g.depth) {
+        cfg.depth = parseInt(cfBaseCode(m, g), 10) || 0;
+        var hit = g.options.filter(function (o) { return cfDepthOk(o, cfg.depth); });
+        cfg.sel[g.pos] = (hit[0] || g.options[0]).c;
+      } else {
+        var code = cfBaseCode(m, g);
+        cfg.sel[g.pos] = cfOpt(g, code) ? code : g.options[0].c;
+      }
+    });
+    /* a depth that sits in two ranges (with and without flange): take the one that fits the process connection */
+    return cfFix(m, cfg, null);
+  }
+  function cfClone(cfg) { return { model: cfg.model, sel: JSON.parse(JSON.stringify(cfg.sel)), depth: cfg.depth }; }
+  /* What else changes if this option is picked */
+  function cfPreview(m, cfg, pos, code) {
+    var test = cfClone(cfg); test.sel[pos] = code;
+    cfFix(m, test, pos);
+    var out = [];
+    cfGroups(m).forEach(function (g) { if (g.pos !== pos && test.sel[g.pos] !== cfg.sel[g.pos] && !g.auto) out.push(g.title); });
+    return out;
+  }
+  function cfCode(m, cfg) {
+    var chars = m.base.split("");
+    cfGroups(m).forEach(function (g) {
+      var v = g.depth ? ("000" + Math.round(cfg.depth)).slice(-3) : cfg.sel[g.pos];
+      for (var i = 0; i < g.len; i++) chars[g.pos - 1 + i] = v.charAt(i);
+    });
+    return chars.join("");
+  }
+  function cfDepthText(o, mm) {
+    return (mm != null ? mm : o.min === o.max ? o.min : o.min + "–" + o.max) + " mm" + (o.plusPath ? " + " + CC.depthPlusPath : "");
+  }
+  function cfValue(g, cfg, en) {
+    var o = cfOpt(g, cfg.sel[g.pos]), W = en ? C_EN.configurator : CC;
+    if (!o) return "";
+    if (g.depth) return cfg.depth + " mm" + (o.plusPath ? " + " + W.depthPlusPath : "") +
+      (o.flange === true ? " (" + W.depthFlange + ")" : o.flange === false ? " (" + W.depthNoFlange + ")" : "");
+    return o.l;
+  }
+  function cfRating(m, cfg) {
+    var t0 = m.t[0], t1 = m.t[1], p1 = null, vac = true, atex = m.atex === "n" ? 9 : 0, weld = false, hasP = false;
+    cfGroups(m).forEach(function (g) {
+      var o = cfOpt(g, cfg.sel[g.pos]); if (!o) return;
+      var L = o.lim || {};
+      if (L.t0 != null && (t0 == null || L.t0 > t0)) t0 = L.t0;
+      if (L.t1 != null && (t1 == null || L.t1 < t1)) t1 = L.t1;
+      if (L.p1 != null && (p1 == null || L.p1 < p1)) p1 = L.p1;
+      if (L.p0 != null && L.p0 >= 0) vac = false;
+      if (g.key === "pressure") { hasP = true; if (!(L.p0 < 0)) vac = false; }
+      if (o.atex === 9) atex = 9; else if (o.atex === 2 && atex !== 9) atex = 2;
+      if (o.foot === "weld") weld = true;
+    });
+    if (!hasP) { p1 = p1 == null ? m.p[1] : p1; if (!(m.p[0] < 0)) vac = false; }
+    var atexText = atex === 9 ? CC.atexNone : atex === 2 ? CC.atex2 : m.atex === "j" ? CC.atex1 : CC.atexAsk;
+    return { t0: t0, t1: t1, p1: p1, vac: vac && p1 > 0, weld: weld && p1 === 250, atex: atexText };
+  }
+  function fahr(c) { return Math.round(c * 9 / 5 + 32); }
+  function psi(b) { return Math.round(b * 14.5038 / 10) * 10; }
+  function cfSummaryLines(m, cfg) { /* English, for the lead record */
+    return cfGroups(m).map(function (g) { return [g.title, cfValue(g, cfg, true)]; });
+  }
+  function cfRecord(m, cfg) {
+    var r = cfRating(m, cfg);
+    return {
+      model: m.name, code: cfCode(m, cfg), lines: cfSummaryLines(m, cfg),
+      text: m.name + " " + cfCode(m, cfg) + " (" + cfSummaryLines(m, cfg).map(function (l) { return l[0] + ": " + l[1]; }).join("; ") + ")",
+      rating: (r.t0 != null ? r.t0 + " to " + r.t1 + " °C" : "") + (r.p1 != null ? ", " + (r.p1 ? "up to " + r.p1 + " bar" + (r.weld ? "*" : "") : "atmospheric") : ""),
+    };
+  }
+  function cfImg(m) { return m.img; }
+  function cfCard(m) {
+    return '<button class="pcard cfcard" type="button" data-go="configure/' + m.id + '">' + stage(cfImg(m), "", m.name) +
+      '<div class="body"><div class="nm"><b>' + esc(m.name) + "</b><span>" + esc(m.sub) + "</span></div>" +
+      '<div class="row" style="gap:.35rem"><span class="tag">' + esc(C.principles[m.principle].name) + "</span></div></div></button>";
+  }
+  SCREENS.configure = function (id) {
+    if (id && cfModel(id)) return cfBuilder(cfModel(id));
+    var probes = CF.models.filter(function (m) { return m.kind === "probe"; }), cells = CF.models.filter(function (m) { return m.kind === "cell"; });
+    return {
+      crumb: crumb(CC.eyebrow),
+      html: pageHead(CC.eyebrow, CC.title, esc(CC.intro), "analytics") +
+        '<section style="display:grid;gap:.9rem"><h2 class="h2">' + esc(CC.probes) + '</h2><div class="results">' + probes.map(cfCard).join("") + "</div></section>" +
+        '<section style="display:grid;gap:.9rem"><h2 class="h2">' + esc(CC.cells) + '</h2><div class="results">' + cells.map(cfCard).join("") + "</div></section>",
+    };
+  };
+  function cfBuilder(m) {
+    if (!S.cfg || S.cfg.model !== m.id) S.cfg = cfNew(m);
+    var cfg = S.cfg, gs = cfGroups(m);
+    var steps = gs.filter(function (g) { return !g.auto && g.options.length > 1; });
+    var fixed = gs.filter(function (g) { return g.auto || g.options.length < 2; });
+    if (S.cfOpen == null || S.cfOpenModel !== m.id) { S.cfOpen = steps.length ? steps[0].pos : null; S.cfOpenModel = m.id; }
+    if (S.viewed.indexOf(m.name) < 0) S.viewed.push(m.name);
+
+    function optBtn(g, o) {
+      var on = cfg.sel[g.pos] === o.c, also = on ? [] : cfPreview(m, cfg, g.pos, o.c);
+      return '<button class="cfopt" type="button" data-pos="' + g.pos + '" data-code="' + esc(o.c) + '" aria-pressed="' + on + '">' +
+        '<span class="radio"></span><span class="tx"><b>' + (g.depth ? esc(cfDepthText(o)) : T(o.l)) + "</b>" +
+        (g.depth && o.flange != null ? "<small>" + esc(o.flange ? CC.depthFlange : CC.depthNoFlange) + "</small>" : "") +
+        (o.d ? "<small>" + T(o.d) + "</small>" : "") +
+        (also.length ? '<small class="also">' + esc(t(CC.alsoChanges) + ": " + also.map(function (x) { return t(x); }).join(", ")) + "</small>" : "") + "</span></button>";
+    }
+    function depthTuner(g) {
+      var o = cfOpt(g, cfg.sel[g.pos]);
+      if (!o || o.min === o.max) return "";
+      return '<div class="cfdepth"><span class="muted small">' + esc(CC.depthHint) + '</span><div class="row" style="gap:.5rem">' +
+        ["-10", "-1"].map(function (d) { return '<button class="btn sm" type="button" data-dd="' + d + '">' + d.replace("-", "−") + "</button>"; }).join("") +
+        '<span class="num cfdv">' + cfg.depth + " mm</span>" +
+        ["+1", "+10"].map(function (d) { return '<button class="btn sm" type="button" data-dd="' + d + '">' + d + "</button>"; }).join("") + "</div>" +
+        '<input class="cfrange" type="range" min="' + o.min + '" max="' + o.max + '" step="1" value="' + cfg.depth + '" aria-label="' + esc(g.title) + '"></div>';
+    }
+    function stepHtml(g, i) {
+      var open = S.cfOpen === g.pos;
+      return '<section class="cfstep' + (open ? " open" : "") + '" data-step="' + g.pos + '">' +
+        '<button class="cfhead" type="button" data-open="' + g.pos + '"><span class="n">' + (i + 1) + '</span><span class="tt"><span class="lab">' + esc(g.title) + "</span>" +
+        '<b class="val">' + T(cfValue(g, cfg)) + '</b></span><span class="chev">' + arrowSm() + "</span></button>" +
+        (open ? '<div class="cfbody">' + '<div class="cfopts">' + g.options.map(function (o) { return optBtn(g, o); }).join("") + "</div>" + (g.depth ? depthTuner(g) : "") + "</div>" : "") +
+        "</section>";
+    }
+    function summary() {
+      var r = cfRating(m, cfg), code = cfCode(m, cfg);
+      var tTxt = r.t0 != null ? r.t0 + "–" + r.t1 + "<small>°C</small>" : "–";
+      var pTxt = r.p1 == null ? "–" : r.p1 ? r.p1 + "<small>bar" + (r.weld ? "*" : "") + "</small>" : "Atm.";
+      return '<div class="cfsum panel sky">' +
+        '<div class="cfsum-top">' + stage(cfImg(m), "cfthumb", m.name) + '<div><div class="eyebrow">' + esc(CC.eyebrow) + '</div><h2 class="h2">' + esc(m.name) + '</h2><p class="muted small">' + esc(m.sub) + "</p></div></div>" +
+        (CC.showCode ? '<div class="cfcode"><span class="k">' + esc(CC.codeLabel) + '</span><span class="code">' + esc(code) + "</span></div>" : "") +
+        '<div class="ratings cfrat"><div class="rating"><span class="k">Temperature</span><span class="n">' + tTxt + '</span><span class="nt">' + (r.t0 != null ? fahr(r.t0) + "–" + fahr(r.t1) + " °F" : "") + "</span></div>" +
+        '<div class="rating"><span class="k">Max. pressure</span><span class="n">' + pTxt + '</span><span class="nt">' + (r.p1 ? "~" + psi(r.p1) + " psi" : "") + (r.vac ? " · " + esc(CC.vacuum) : "") + "</span></div></div>" +
+        '<p class="small cfatex">' + esc(r.atex) + "</p>" +
+        '<p class="foot">' + esc(CC.ratingNote) + "</p>" + (r.weld ? foot("weld") : "") +
+        '<div class="row"><button class="btn primary" type="button" id="cf-add">' + I.mail + esc(CC.addLabel) + "</button>" +
+        '<button class="btn" type="button" id="cf-reset">' + esc(CC.restart) + "</button></div>" +
+        '<div class="row" style="gap:1.2rem">' + (m.product && C.products[m.product] ? '<button class="linkish small" type="button" data-go="product/' + m.product + '">' + esc(CC.product) + " " + arrowSm() + "</button>" : "") +
+        '<button class="linkish small" type="button" data-go="configure">' + esc(CC.other) + " " + arrowSm() + "</button></div>" +
+        "</div>";
+    }
+    /* portrait: a slim bar that stays at the top while the visitor scrolls through the choices */
+    function bar() {
+      var r = cfRating(m, cfg);
+      return (CC.showCode ? '<span class="code">' + esc(cfCode(m, cfg)) + "</span>" : "<b>" + esc(m.name) + "</b>") +
+        '<span class="num">' + (r.t0 != null ? r.t0 + "–" + r.t1 + " °C" : "") + (r.p1 != null ? " · " + (r.p1 ? r.p1 + " bar" + (r.weld ? "*" : "") : "Atm.") : "") + "</span>";
+    }
+    var fixedHtml = fixed.length ? '<div class="cffixed"><div class="eyebrow">' + esc(CC.fixedTitle) + '</div><table class="specs"><tbody>' +
+      fixed.map(function (g) { return "<tr><th>" + esc(g.title) + "</th><td>" + T(cfValue(g, cfg)) + "</td></tr>"; }).join("") + "</tbody></table></div>" : "";
+    return {
+      crumb: crumb(CC.eyebrow, m.name),
+      html: '<div class="cfg"><div class="cfsteps"><div class="cfbar" id="cf-bar">' + bar() + "</div>" + pageHead(CC.eyebrow, m.name, esc(m.sub)) + steps.map(stepHtml).join("") + fixedHtml + "</div>" +
+        '<aside class="cfside" id="cf-side">' + summary() + "</aside></div>",
+      init: function (root) {
+        function redraw() { steady(function () { render(current, { keepScroll: true }); }); }
+        $$("[data-open]", root).forEach(function (b) {
+          b.onclick = function () { var p = Number(b.dataset.open); S.cfOpen = S.cfOpen === p ? null : p; redraw(); };
+        });
+        $$(".cfopt", root).forEach(function (b) {
+          b.onclick = function () {
+            var pos = Number(b.dataset.pos), code = b.dataset.code, before = cfClone(cfg);
+            var g = steps.filter(function (x) { return x.pos === pos; })[0];
+            cfg.sel[pos] = code;
+            if (g && g.depth) { var o = cfOpt(g, code); if (!cfDepthOk(o, cfg.depth)) cfg.depth = o.min === o.max ? o.min : Math.min(o.max, Math.max(o.min, cfg.depth)); }
+            cfFix(m, cfg, pos);
+            var changed = gs.filter(function (x) { return x.pos !== pos && !x.auto && before.sel[x.pos] !== cfg.sel[x.pos]; });
+            if (changed.length) toast(t(CC.adjusted) + " " + changed.map(function (x) { return t(x.title) + " → " + t(cfValue(x, cfg)); }).join(", "), 5000);
+            /* move on to the next choice, except for a depth range, which still needs its exact value */
+            var o2 = g && g.depth ? cfOpt(g, code) : null;
+            if (!(o2 && o2.min !== o2.max)) {
+              var idx = steps.map(function (x) { return x.pos; }).indexOf(pos);
+              S.cfOpen = idx >= 0 && idx < steps.length - 1 ? steps[idx + 1].pos : null;
+            }
+            redraw();
+            requestAnimationFrame(function () { var el = S.cfOpen != null && $('[data-step="' + S.cfOpen + '"]', view); if (el && el.getBoundingClientRect().bottom > view.clientHeight) el.scrollIntoView({ block: "nearest", behavior: "smooth" }); });
+          };
+        });
+        var dg = steps.filter(function (x) { return x.depth; })[0];
+        function setDepth(v) {
+          var o = cfOpt(dg, cfg.sel[dg.pos]); cfg.depth = Math.min(o.max, Math.max(o.min, Math.round(v)));
+          var dv = $(".cfdv", root); if (dv) dv.textContent = cfg.depth + " mm";
+          var rg = $(".cfrange", root); if (rg) rg.value = cfg.depth;
+          var val = $('[data-step="' + dg.pos + '"] .val', root); if (val) val.textContent = cfValue(dg, cfg);
+          $("#cf-side", root).innerHTML = summary(); $("#cf-bar", root).innerHTML = bar(); bindSide();
+        }
+        $$("[data-dd]", root).forEach(function (b) { b.onclick = function () { setDepth(cfg.depth + Number(b.dataset.dd)); }; });
+        var rg = $(".cfrange", root); if (rg) rg.addEventListener("input", function () { setDepth(Number(rg.value)); });
+        function bindSide() {
+          $("#cf-reset", root).onclick = function () { S.cfg = cfNew(m); S.cfOpen = steps.length ? steps[0].pos : null; redraw(); };
+          $("#cf-add", root).onclick = function () {
+            var rec = cfRecord(m, cfg);
+            S.configs = S.configs || [];
+            if (!S.configs.some(function (x) { return x.text === rec.text; })) S.configs.push(rec);
+            if (!S.form) S.form = { v: {}, interests: [], requests: [], consent: false };
+            if (S.form.interests.indexOf(m.family) < 0) S.form.interests.push(m.family);
+            if (S.form.requests.indexOf("Quotation") < 0) S.form.requests.push("Quotation");
+            toast(t(CC.added), 3500);
+            openForm(m.family);
+          };
+        }
+        bindSide();
+      },
+    };
+  }
+  /* Configurations the visitor added, shown on the request form */
+  function cfYours() {
+    var list = S.configs || [];
+    if (!list.length) return "";
+    return '<div class="field full"><span class="lab">' + esc(CC.yours) + '</span><div class="cflist">' + list.map(function (r, i) {
+      return '<div class="cfitem"><div><b>' + esc(r.model) + "</b>" + (CC.showCode ? ' <span class="code small">' + esc(r.code) + "</span>" : "") +
+        '<span class="muted small">' + esc(r.lines.slice(0, 5).map(function (l) { return l[1]; }).join(" · ")) + "</span></div>" +
+        '<button class="linkish small" type="button" data-cfdel="' + i + '">' + esc(CC.remove) + "</button></div>";
+    }).join("") + "</div></div>";
+  }
 
   /* ---------------- Global taps ---------------- */
   app.addEventListener("click", function (e) {
@@ -1130,13 +1410,13 @@
   }
 
   function csvOf(leads) {
-    var cols = ["Date", "Time", "Event", "Subsidiary", "First name", "Last name", "Company", "Job title", "Email", "Phone", "Location", "Interested in", "Requests", "Message", "Products viewed", "Consent"];
+    var cols = ["Date", "Time", "Event", "Subsidiary", "First name", "Last name", "Company", "Job title", "Email", "Phone", "Location", "Interested in", "Requests", "Message", "Products viewed", "Configurations", "Consent"];
     function q(v) { v = String(v == null ? "" : v); return /[",\n;]/.test(v) ? '"' + v.replace(/"/g, '""') + '"' : v; }
     var rows = leads.slice().sort(function (a, b) { return a.ts - b.ts; }).map(function (l) {
       var d = new Date(l.ts);
       var date = d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0");
       var time = String(d.getHours()).padStart(2, "0") + ":" + String(d.getMinutes()).padStart(2, "0");
-      return [date, time, l.event, l.territory || "", l.first, l.last, l.company, l.title, l.email, l.phone, l.location, (l.interests || []).join("; "), (l.requests || []).join("; "), l.message, (l.viewed || []).join("; "), l.consent ? "Yes" : "No"].map(q).join(",");
+      return [date, time, l.event, l.territory || "", l.first, l.last, l.company, l.title, l.email, l.phone, l.location, (l.interests || []).join("; "), (l.requests || []).join("; "), l.message, (l.viewed || []).join("; "), (l.configs || []).join(" | "), l.consent ? "Yes" : "No"].map(q).join(",");
     });
     return "﻿" + cols.join(",") + "\n" + rows.join("\n") + "\n";
   }

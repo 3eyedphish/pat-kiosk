@@ -1166,3 +1166,167 @@
 1249	bis 100 mm
 1097	TCP/IP · Feldbus
 1250	unter 90°
+1251	Konfigurator
+1252	Sonde oder Durchflussküvette Schritt für Schritt zusammenstellen
+1253	Konfigurieren Sie Ihre Sonde oder Durchflussküvette
+1254	Wählen Sie ein Modell und dann jede Option. Was nicht zusammenpasst, wird automatisch angepasst, und die Grenzwerte werden laufend aktualisiert.
+1255	Dieses Modell konfigurieren
+1256	Tauchsonden
+1257	Durchflussküvetten
+1258	Konfigurationscode
+1259	Grenzwerte dieser Konfiguration laut Hellma-Konfigurationstabelle. Die endgültigen Werte bestätigt Ihr Angebot.
+1260	Zu meiner Anfrage hinzufügen
+1261	Zu Ihrer Anfrage hinzugefügt. Sie können weitere Konfigurationen hinzufügen oder die Anfrage jetzt senden.
+1262	Neu beginnen
+1263	Anderes Modell wählen
+1264	Modelldetails
+1265	Ändert auch
+1266	Angepasst:
+1267	Bei diesem Modell festgelegt
+1268	Bereich antippen, dann die genaue Tiefe einstellen.
+1269	mit Flansch
+1270	ohne Flansch
+1271	plus Schichtdicke
+1272	Vakuumfest
+1273	Keine ATEX-Ausführung
+1274	ATEX-Ausführung für Zone 1 erhältlich
+1275	ATEX-Ausführung für Zone 2 erhältlich
+1276	ATEX-Ausführung auf Anfrage
+1277	Ihre Konfigurationen
+1278	Entfernen
+1279	Fensterwerkstoff
+1280	Fensterdichtung
+1281	Druckstufe
+1282	Optischer Anschluss
+1283	Lichtleiter
+1284	Zusatzfunktionen
+1285	Zellkörper
+1286	Dichtung Zelle–Optik
+1287	Montage
+1288	Passend für Rohrflansch
+1289	Innendurchmesser
+1290	Spülung
+1291	12 mm (1/2") Durchmesser
+1292	20 mm (3/4") Durchmesser
+1293	25 mm (1") Durchmesser
+1294	6 mm (1/4") Durchmesser
+1295	Hygienisch, 3-A-zertifiziert, 25 mm Durchmesser
+1296	Heavy Duty, verschweißte Metalldichtungen, 25 mm Durchmesser
+1297	Heavy Duty, verschweißte Metalldichtungen, 26 mm (1,02") Durchmesser
+1298	Berührungslose diffuse Reflexion, 30 mm (1,25") Durchmesser
+1299	Inline-Durchflussküvette, verschweißte Metalldichtungen
+1300	Kompakte Block-Durchflussküvette, verschweißte Metalldichtungen
+1301	Durchflussküvette mit fester oder variabler Schichtdicke
+1302	Durchflussküvette zum Einbau zwischen zwei Rohrflansche
+1303	NIR, Fasern 7×200 µm / 1×600 µm
+1304	NIR, Fasern 7×400 µm / 1×600 µm
+1305	NIR, Fasern 7×600 µm / 7×600 µm
+1306	UV-Vis, Fasern 7×200 µm / 1×600 µm
+1307	UV-Vis, Fasern 7×400 µm / 1×600 µm
+1308	UV-Vis, Fasern 7×600 µm / 7×600 µm
+1309	NIR, Bündel aus 78 Fasern
+1310	UV-Vis, solarisationsarm
+1311	Kontakt
+1312	Variabel
+1313	Satz Schichtdicken-Spitzen
+1314	Nur für Sonden mit O-Ring-Dichtung
+1315	Voreingestellt auf 5 ± 0,05 mm
+1316	SF-5-Glas
+1317	Edelstahl 1.4571 (316Ti)
+1318	Titan Grad 2
+1319	Aluminium
+1320	O-Ring Kalrez 4079
+1321	O-Ring Kalrez 6221
+1322	O-Ring Kalrez 6230
+1323	O-Ring Kalrez 6375
+1324	O-Ring Kalrez 6380
+1325	O-Ring Kalrez 7075
+1326	O-Ring EPDM
+1327	Nicht autoklavierbar
+1328	Hartgelötet (Ag, Cu, Ti)
+1329	Titankörper und Saphirfenster
+1330	Weichgelötet (Au, Sn)
+1331	Verschweißte Metalldichtung, vergoldeter C-Ring
+1332	Verschweißte Metalldichtung, PTFE-beschichteter C-Ring
+1333	Verschweißte Metalldichtung, platinierter C-Ring
+1334	Epoxid-verklebt
+1335	Verschweißt
+1336	Swagelok-Verschraubung
+1337	Ohne Flansch
+1338	EN 1092-1 Flansch DN 25 PN 40
+1339	EN 1092-1 Flansch DN 40 PN 40
+1340	EN 1092-1 Flansch DN 50 PN 16
+1341	EN 1092-1 Flansch DN 50 PN 40
+1342	EN 1092-1 Flansch DN 80 PN 16
+1343	EN 1092-1 Flansch DN 80 PN 40
+1344	ASME B16.5 Flansch NPS 1 Class 150 RF
+1345	ASME B16.5 Flansch NPS 1.5 Class 150 RF
+1346	ASME B16.5 Flansch NPS 2 Class 150 RF
+1347	ASME B16.5 Flansch NPS 1 Class 300 RF
+1348	ASME B16.5 Flansch NPS 1.5 Class 300 RF
+1349	ASME B16.5 Flansch NPS 2 Class 300 RF
+1350	JIS B 2220 Flansch 10K 20A
+1351	GOST 12815-80 Flansch DN 25, 4 MPa
+1352	Ingold-Stutzen
+1353	Gewinde PG 13,5
+1354	Varivent Typ N
+1355	Clamp-Anschluss DIN 32676, DN 50 (2")
+1356	Flansch nach Ihrer Vorgabe
+1357	Bis 200 mm Durchmesser und 24 mm Dicke
+1358	Ihr eigener Blindflansch, mit Materialzeugnis
+1359	Bis 10 bar
+1360	Bis 16 bar
+1361	Bis 20 bar
+1362	Bis 30 bar
+1363	Bis 40 bar
+1364	Bis 100 bar
+1365	Bis 160 bar
+1366	Bis 200 bar
+1367	Bis 250 bar*
+1368	Atmosphärendruck
+1369	2 m Lichtleiter, Edelstahlmantel, F-SMA-Stecker
+1370	F-SMA-Buchsen, ATEX-PMA-Gehäuse (NW 23)
+1371	2 m Lichtleiter, PE-ummantelt, 2 F-SMA-Stecker, PMA-Gehäuse (NW 23)
+1372	2 m Lichtleiter, Edelstahlmantel, 2 F-SMA-Stecker, ATEX-PMA-Gehäuse (NW 23)
+1373	2 m Lichtleiter, Edelstahlmantel, 2 FC/PC-Stecker, ATEX-PMA-Gehäuse (NW 23)
+1374	F-SMA-Buchsen, hygienischer Anschluss für 1"-Schlauch
+1375	F-SMA-Buchsen, NEMA-4-Installationsgehäuse (3/4" NPT innen)
+1376	FC/PC-Buchsen, NEMA-4-Installationsgehäuse (3/4" NPT innen)
+1377	FC/PC-Buchsen, NEMA-4-Installationsgehäuse mit 4 Ports (3/4" NPT innen)
+1378	F-SMA-Buchsen, 1" NPT Außengewinde
+1379	FC/PC-Buchsen, 1" NPT Außengewinde
+1380	FC/PC-Buchsen, ATEX-PMA-Gehäuse (NW 23)
+1381	F-SMA-Buchsen, ATEX-PMA-Gehäuse (NW 17)
+1382	2 m Lichtleiter, Edelstahlmantel, F-SMA-Stecker, ATEX-PMA-Gehäuse (NW 17)
+1383	F-SMA-Buchsen, Installationsanschluss (3/4" NPT außen)
+1384	FC/PC-Buchsen, Installationsanschluss (3/4" NPT außen)
+1385	F-SMA-Buchsen, Installationsanschluss (1" NPT außen)
+1386	FC/PC-Buchsen, Installationsanschluss (1" NPT außen)
+1387	Standard-Glasfaser
+1388	Hochtemperatur-Glasfaser
+1389	Keine
+1390	Innenspülung des Sondenkörpers
+1391	Innenspülung, bei Lieferung mit Stickstoff gefüllt
+1392	Mit Schutzgas gefüllt (N2, 4 bar)
+1393	Mit Schutzgas gefüllt (N2)
+1394	Außenspülung des Messbereichs
+1395	Innen- und Außenspülung
+1396	Innenspülung und Dampfmantel
+1397	Dampfmantel
+1398	Block mit integrierten Fenstern, verschweißte Prozessanschlüsse
+1399	Verschweißte Prozessanschlüsse
+1400	Eingeschraubte Prozessanschlüsse
+1401	Swagelok-Kreuzstück, 3/4"
+1402	Zwei Swagelok-T-Stücke, 3/4"
+1403	Optik im Zellkörper integriert
+1404	Kollimatorfinger mit Fenstern
+1405	Swagelok 1/4"
+1406	Swagelok 3/8"
+1407	Swagelok 1/2"
+1408	Swagelok 3/4"
+1409	Ohne Grundplatte
+1410	Grundplatte
+1411	Vorbereitet für Heizpatrone und Thermoelement
+1412	Heizpatrone und Thermoelement separat bestellen
+1413	45 mm Flanschkörper mit Kühlrippen
+1414	Glasfaser oder Lichtleiter

@@ -1170,3 +1170,167 @@
 1248	Soluciones espectroscópicas
 1249	hasta 100 mm
 1250	a 90°
+1251	Configurador
+1252	Arme su sonda o celda, opción por opción
+1253	Configure su sonda o celda de flujo
+1254	Elija un modelo y luego cada opción. Las opciones incompatibles se ajustan automáticamente y los límites se actualizan sobre la marcha.
+1255	Configurar este modelo
+1256	Sondas de inmersión
+1257	Celdas de flujo
+1258	Código de configuración
+1259	Límites de esta configuración, según la tabla de configuración de Hellma. Su cotización confirma los valores finales.
+1260	Añadir a mi solicitud
+1261	Añadido a su solicitud. Puede añadir más configuraciones o enviar la solicitud ahora.
+1262	Empezar de nuevo
+1263	Elegir otro modelo
+1264	Detalles del modelo
+1265	También cambia
+1266	Ajustado:
+1267	Fijo para este modelo
+1268	Toque un rango y ajuste la profundidad exacta.
+1269	con brida
+1270	sin brida
+1271	más paso óptico
+1272	Apto para vacío
+1273	Sin versión ATEX
+1274	Versión ATEX zona 1 disponible
+1275	Versión ATEX zona 2 disponible
+1276	Versión ATEX bajo pedido
+1277	Sus configuraciones
+1278	Quitar
+1279	Material de la ventana
+1280	Sellado de la ventana
+1281	Presión nominal
+1282	Conexión óptica
+1283	Guía de luz
+1284	Funciones adicionales
+1285	Cuerpo de la celda
+1286	Sellado celda–óptica
+1287	Montaje
+1288	Para brida de tubería
+1289	Diámetro interior
+1290	Purga
+1291	Diámetro 12 mm (1/2")
+1292	Diámetro 20 mm (3/4")
+1293	Diámetro 25 mm (1")
+1294	Diámetro 6 mm (1/4")
+1295	Higiénica, certificada 3-A, diámetro 25 mm
+1296	Heavy duty, sellos metálicos soldados, diámetro 25 mm
+1297	Heavy duty, sellos metálicos soldados, diámetro 26 mm (1,02")
+1298	Reflexión difusa sin contacto, diámetro 30 mm (1,25")
+1299	Celda de flujo en línea, sellos metálicos soldados
+1300	Celda de flujo compacta en bloque, sellos metálicos soldados
+1301	Celda de flujo con paso óptico fijo o variable
+1302	Celda de flujo que se monta entre dos bridas de tubería
+1303	NIR, fibras 7×200 µm / 1×600 µm
+1304	NIR, fibras 7×400 µm / 1×600 µm
+1305	NIR, fibras 7×600 µm / 7×600 µm
+1306	UV-Vis, fibras 7×200 µm / 1×600 µm
+1307	UV-Vis, fibras 7×400 µm / 1×600 µm
+1308	UV-Vis, fibras 7×600 µm / 7×600 µm
+1309	NIR, haz de 78 fibras
+1310	UV-Vis, baja solarización
+1311	Contacto
+1312	Variable
+1313	Juego de puntas de paso óptico
+1314	Solo sondas con junta tórica
+1315	Preajustado a 5 ± 0,05 mm
+1316	Vidrio SF-5
+1317	Acero inoxidable 1.4571 (316Ti)
+1318	Titanio grado 2
+1319	Aluminio
+1320	Junta tórica Kalrez 4079
+1321	Junta tórica Kalrez 6221
+1322	Junta tórica Kalrez 6230
+1323	Junta tórica Kalrez 6375
+1324	Junta tórica Kalrez 6380
+1325	Junta tórica Kalrez 7075
+1326	Junta tórica EPDM
+1327	No autoclavable
+1328	Soldadura fuerte (Ag, Cu, Ti)
+1329	Cuerpo de titanio y ventana de zafiro
+1330	Soldadura blanda (Au, Sn)
+1331	Sello metálico soldado, anillo en C dorado
+1332	Sello metálico soldado, anillo en C recubierto de PTFE
+1333	Sello metálico soldado, anillo en C platinado
+1334	Pegado con epoxi
+1335	Soldado
+1336	Racor Swagelok
+1337	Sin brida
+1338	Brida EN 1092-1 DN 25 PN 40
+1339	Brida EN 1092-1 DN 40 PN 40
+1340	Brida EN 1092-1 DN 50 PN 16
+1341	Brida EN 1092-1 DN 50 PN 40
+1342	Brida EN 1092-1 DN 80 PN 16
+1343	Brida EN 1092-1 DN 80 PN 40
+1344	Brida ASME B16.5 NPS 1 Class 150 RF
+1345	Brida ASME B16.5 NPS 1.5 Class 150 RF
+1346	Brida ASME B16.5 NPS 2 Class 150 RF
+1347	Brida ASME B16.5 NPS 1 Class 300 RF
+1348	Brida ASME B16.5 NPS 1.5 Class 300 RF
+1349	Brida ASME B16.5 NPS 2 Class 300 RF
+1350	Brida JIS B 2220 10K 20A
+1351	Brida GOST 12815-80 DN 25, 4 MPa
+1352	Conexión Ingold
+1353	Rosca PG 13,5
+1354	Varivent tipo N
+1355	Conexión clamp DIN 32676, DN 50 (2")
+1356	Brida según su especificación
+1357	Hasta 200 mm de diámetro y 24 mm de espesor
+1358	Su propia brida ciega, con certificado de material
+1359	Hasta 10 bar
+1360	Hasta 16 bar
+1361	Hasta 20 bar
+1362	Hasta 30 bar
+1363	Hasta 40 bar
+1364	Hasta 100 bar
+1365	Hasta 160 bar
+1366	Hasta 200 bar
+1367	Hasta 250 bar*
+1368	Presión atmosférica
+1369	Cable de fibra de 2 m, funda de acero inoxidable, conector F-SMA
+1370	Conectores hembra F-SMA, carcasa PMA ATEX (NW 23)
+1371	Cables de fibra de 2 m, recubiertos de PE, 2 conectores F-SMA, carcasa PMA (NW 23)
+1372	Cables de fibra de 2 m, funda de acero inoxidable, 2 conectores F-SMA, carcasa PMA ATEX (NW 23)
+1373	Cables de fibra de 2 m, funda de acero inoxidable, 2 conectores FC/PC, carcasa PMA ATEX (NW 23)
+1374	Conectores hembra F-SMA, conexión higiénica para manguera de 1"
+1375	Conectores hembra F-SMA, carcasa NEMA 4 para conduit (3/4" NPT hembra)
+1376	Conectores hembra FC/PC, carcasa NEMA 4 para conduit (3/4" NPT hembra)
+1377	Conectores hembra FC/PC, carcasa NEMA 4 de 4 puertos para conduit (3/4" NPT hembra)
+1378	Conectores hembra F-SMA, rosca macho 1" NPT
+1379	Conectores hembra FC/PC, rosca macho 1" NPT
+1380	Conectores hembra FC/PC, carcasa PMA ATEX (NW 23)
+1381	Conectores hembra F-SMA, carcasa PMA ATEX (NW 17)
+1382	Cable de fibra de 2 m, funda de acero inoxidable, conector F-SMA, carcasa PMA ATEX (NW 17)
+1383	Conectores hembra F-SMA, conexión para conduit (3/4" NPT macho)
+1384	Conectores hembra FC/PC, conexión para conduit (3/4" NPT macho)
+1385	Conectores hembra F-SMA, conexión para conduit (1" NPT macho)
+1386	Conectores hembra FC/PC, conexión para conduit (1" NPT macho)
+1387	Fibra de vidrio estándar
+1388	Fibra de vidrio de alta temperatura
+1389	Ninguna
+1390	Purga interna del cuerpo de la sonda
+1391	Purga interna, entregada llena de nitrógeno
+1392	Llena de gas inerte (N2, 4 bar)
+1393	Llena de gas inerte (N2)
+1394	Lavado externo de la zona de medición
+1395	Purga interna y lavado externo
+1396	Purga interna y camisa de vapor
+1397	Camisa de vapor
+1398	Bloque con ventanas integradas, conexiones al proceso soldadas
+1399	Conexiones al proceso soldadas
+1400	Conexiones al proceso roscadas
+1401	Cruz Swagelok, 3/4"
+1402	Dos tes Swagelok, 3/4"
+1403	Óptica integrada en el cuerpo de la celda
+1404	Dedos colimadores con ventanas
+1405	Swagelok 1/4"
+1406	Swagelok 3/8"
+1407	Swagelok 1/2"
+1408	Swagelok 3/4"
+1409	Sin base
+1410	Placa base
+1411	Preparada para cartucho calefactor y termopar
+1412	Calefactor y termopar se piden por separado
+1413	Cuerpo de brida de 45 mm con aletas de refrigeración
+1414	Fibra o guía de luz
