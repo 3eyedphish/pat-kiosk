@@ -188,7 +188,7 @@ body.review .lowres-note { display: block; }
 .pcard .nm { display: grid; gap: .05rem; }
 .pcard .nm b { font-weight: 500; font-size: 1.15rem; }
 .pcard .nm span { font-size: .8rem; color: var(--grey-7); }
-.meter { display: grid; grid-template-columns: 3.6rem 1fr 4.6rem; gap: .5rem; align-items: center; font-size: .8rem; color: var(--grey-7); }
+.meter { display: grid; grid-template-columns: 3.6rem 1fr 5.2rem; gap: .5rem; align-items: center; font-size: .8rem; color: var(--grey-7); }
 .meter .bar { position: relative; height: .42rem; border-radius: 99px; background: var(--grey-1); overflow: visible; }
 .meter .bar i { position: absolute; left: 0; top: 0; bottom: 0; border-radius: 99px; background: linear-gradient(90deg, var(--sky-3), var(--blue)); }
 .meter .bar u { position: absolute; top: -.25rem; bottom: -.25rem; width: 2px; background: var(--warn); text-decoration: none; }
@@ -676,3 +676,5 @@ button.tag { cursor: pointer; }
 }
 .cfopt .onreq { display: inline-block; justify-self: start; margin-top: .2rem; padding: .05rem .45rem; border-radius: 999px; background: var(--grey-1, #eef1f5); color: var(--grey-6, #4a5568); font-size: .72rem; font-weight: 600; letter-spacing: .02em; }
 .cfsum .onreqnote { color: var(--grey-6, #4a5568); }
+.meter .v .imp { display: block; font-size: .72rem; color: var(--grey-6, #5a6472); white-space: nowrap; }
+.meter .v { white-space: nowrap; }

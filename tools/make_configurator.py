@@ -25,7 +25,7 @@ MODELS = {
         ("C", "Excalibur XP 25", "excalibur", "transmission", "P1", "excalibur-xp", "25 mm (1 in) diameter"),
         ("E", "Excalibur HY 25", "excalibur", "transmission", "P18", "excalibur-hy", "Hygienic, 3-A certified, 25 mm diameter"),
         ("F", "Excalibur HD FPT 25", "excalibur", "transmission", "P2", "excalibur-hd", "Heavy duty, welded metal seals, 25 mm diameter"),
-        ("G", "Excalibur HD FPT 26", "excalibur", "transmission", "P2", "excalibur-hd", "Heavy duty, welded metal seals, 1.02 in (26 mm) diameter"),
+        ("G", "Excalibur HD FPT 26", "excalibur", "transmission", "P2", "excalibur-hd", "Heavy duty, welded metal seals, 26 mm (1.02 in) diameter"),
         ("Q", "Falcata XP 6", "falcata", "transflection", "P6", "falcata-xp", "6 mm (1/4 in) diameter"),
         ("R", "Falcata XP 12", "falcata", "transflection", "P6", "falcata-xp", "12 mm (1/2 in) diameter"),
         ("AC", "Katana XP 6", "katana", "atr", "P7", "katana-xp", "6 mm (1/4 in) diameter"),

@@ -144,12 +144,58 @@
       if (w > room && room > 20) el.style.fontSize = Math.max(9, fs * room / w).toFixed(1) + "px";
     } catch (e) { }
   }
+  /* ---------------- Units: metric first, US customary in parentheses after ----------------
+     Runs on every visible text node (after translation). Wavelengths (nm, µm) stay metric only.
+     A value already followed by an imperial value in parentheses is left alone. */
+  var U_NUM = "[−-]?\\d+(?:[.,]\\d+)?";
+  var U_SP = "[ \\u00a0]";
+  var U_LIST = U_NUM + "(?:(?:,? (?:and|or|und|oder|et|ou|e|o|y|en|of)|,|–|-| to | bis | à | a | tot | até )" + U_SP + "*" + U_NUM + ")*";
+  var U_RE = new RegExp("(^|[^\\w.,±/])(" + U_LIST + ")" + U_SP + "?(°C|bar|mm|cm|m)(?![\\w²³])(\\*?)", "g");
+  var U_HAS = /^[  ]*\([  ]*[~≈±]?[  ]*[−-]?\d[\d.,\/  –-]*[  ]?(?:in|ft|°F|psi|")/;
+  function uFmt(x, unit, comma) {
+    var a = Math.abs(x), s;
+    if (unit === "°F") s = String(Math.round(x));
+    else if (unit === "psi") s = String(a < 100 ? Math.round(x) : Math.round(x / 10) * 10);
+    else s = String(+x.toFixed(a < 0.01 ? 3 : a < 1 ? 2 : a < 10 ? 1 : 0));
+    s = s.replace(/^-/, "−");
+    return comma ? s.replace(".", ",") : s;
+  }
+  function uConv(v, unit) {
+    return unit === "°C" ? [v * 9 / 5 + 32, "°F"] : unit === "bar" ? [v * 14.5038, "psi"] : unit === "mm" ? [v / 25.4, "in"] : unit === "cm" ? [v / 2.54, "in"] : [v * 3.28084, "ft"];
+  }
+  function units(s) {
+    if (!/\d/.test(s)) return s;
+    /* a tolerance written "1 mm (±0.025 mm)" or "5 ± 0.05 mm" */
+    s = s.replace(/(\d+(?:[.,]\d+)?)[  ]?mm[  ]?\(±[  ]?(\d+(?:[.,]\d+)?)[  ]?mm\)/g, function (m, a, b) {
+      var c = (a + b).indexOf(",") >= 0; return a + " mm ±" + b + " mm (" + uFmt(parseFloat(a.replace(",", ".")) / 25.4, "in", c) + " ±" + uFmt(parseFloat(b.replace(",", ".")) / 25.4, "in", c) + " in)";
+    });
+    s = s.replace(/(\d+(?:[.,]\d+)?)[  ]?±[  ]?(\d+(?:[.,]\d+)?)[  ]?mm(?![  ]*\()/g, function (m, a, b) {
+      var c = a.indexOf(",") >= 0; return m + " (" + uFmt(parseFloat(a.replace(",", ".")) / 25.4, "in", c) + " ± " + uFmt(parseFloat(b.replace(",", ".")) / 25.4, "in", c) + " in)";
+    });
+    return s.replace(U_RE, function (m, pre, list, unit, star, off, all) {
+      var rest = all.slice(off + m.length);
+      if (U_HAS.test(rest) || /\($/.test(pre) && /^\s*\)/.test(rest) && /(in|ft|°F|psi|")[  ]*\($/.test(all.slice(0, off + pre.length))) return m;
+      if (/±[  ]*$/.test(all.slice(0, off + pre.length))) return m;
+      if (/^[ \u00a0]*±/.test(rest)) return m;
+      /* "−30 °C to 400 °C (−22 °F to 750 °F)": the range already has its imperial pair */
+      var tail = rest.match(new RegExp("^" + U_SP + "*(?:to|–|-|bis|à|a|tot|até)" + U_SP + "*" + U_NUM + U_SP + "?" + unit + "\\*?"));
+      if (tail && U_HAS.test(rest.slice(tail[0].length))) return m;
+      var comma = /\d,\d/.test(list) && !/\d, \d/.test(list), out = "", re = new RegExp(U_NUM, "g"), last = 0, k, unit2;
+      while ((k = re.exec(list))) {
+        var v = parseFloat(k[0].replace("−", "-").replace(",", ".")), cv = uConv(v, unit);
+        out += list.slice(last, k.index) + uFmt(cv[0], cv[1], comma); unit2 = cv[1]; last = k.index + k[0].length;
+      }
+      out += list.slice(last);
+      return m + " (" + out + " " + unit2 + ")";
+    });
+  }
   var WROTE = window.WeakMap ? new WeakMap() : null;
   function trNode(n) {
     if (n.nodeType === 3) {
       if (inStaff(n.parentElement)) return;
       if (WROTE && WROTE.get(n) === n.nodeValue) return; /* our own output: never translate it twice */
       var r = trText(n.nodeValue);
+      if (!(n.parentElement && n.parentElement.closest && n.parentElement.closest(".code, .nounits, input, textarea"))) r = units(r != null ? r : n.nodeValue);
       if (r != null && r !== n.nodeValue) { n.nodeValue = r; if (WROTE) WROTE.set(n, r); if (n.parentElement && n.parentElement.tagName.toLowerCase() === "text") fitSvgText(n.parentElement); }
       return;
     }
@@ -159,7 +205,7 @@
     for (var c = n.firstChild; c; c = c.nextSibling) trNode(c);
   }
   setLang(loc.lang);
-  if (LANG !== "en" && window.MutationObserver) {
+  if (window.MutationObserver) { /* translation (when not English) and imperial units (always) */
     new MutationObserver(function (muts) {
       muts.forEach(function (m) {
         if (m.type === "childList") Array.prototype.forEach.call(m.addedNodes, trNode);
@@ -368,8 +414,8 @@
     return '<button class="pcard" type="button" data-go="product/' + id + '">' + stage(p.img, "", p.name) +
       '<div class="body"><div class="nm"><b>' + esc(p.name) + "</b><span>" + esc(p.type) + "</span></div>" +
       '<div class="row" style="gap:.35rem"><span class="tag">' + esc(pr.name) + "</span>" + (f.custom ? '<span class="tag">Custom</span>' : "") + f.ranges.map(function (r) { return '<span class="tag">' + RANGE_LABEL[r] + "</span>"; }).join("") + "</div>" +
-      (f.maxT == null ? '<span class="pnote">Temperature and pressure ratings on request</span>' : '<div class="meter"><span>Temp.</span><span class="bar"><i style="width:' + tw + '%"></i>' + (req.temp ? '<u style="left:' + Math.round(req.temp / 400 * 100) + '%"></u>' : "") + '</span><span class="v">' + fmtT(f.maxT) + "</span></div>" +
-      '<div class="meter"><span>Pressure</span><span class="bar"><i style="width:' + pw + '%"></i>' + (req.pres ? '<u style="left:' + Math.round(req.pres / 250 * 100) + '%"></u>' : "") + '</span><span class="v">' + fmtP(f.maxP) + (f.pStar ? "*" : "") + "</span></div>" +
+      (f.maxT == null ? '<span class="pnote">Temperature and pressure ratings on request</span>' : '<div class="meter"><span>Temp.</span><span class="bar"><i style="width:' + tw + '%"></i>' + (req.temp ? '<u style="left:' + Math.round(req.temp / 400 * 100) + '%"></u>' : "") + '</span><span class="v nounits">' + fmtT(f.maxT) + '<small class="imp">(' + fahr(f.maxT) + " °F)</small></span></div>" +
+      '<div class="meter"><span>Pressure</span><span class="bar"><i style="width:' + pw + '%"></i>' + (req.pres ? '<u style="left:' + Math.round(req.pres / 250 * 100) + '%"></u>' : "") + '</span><span class="v nounits">' + fmtP(f.maxP) + (f.pStar ? "*" : "") + (f.maxP > 0 ? '<small class="imp">(' + psi(f.maxP) + " psi)</small>" : "") + "</span></div>" +
       (pn ? '<span class="pnote">' + pn + "</span>" : "")) + "</div></button>";
   }
   /* Configurator entry for a product page: one button per configurable model of that product */
@@ -460,8 +506,8 @@
     };
   };
 
-  var TEMP_OPTS = [[0, "Any"], [100, "100 °C", "212 °F"], [150, "150 °C", "302 °F"], [250, "250 °C", "482 °F"], [300, "300 °C", "572 °F"], [400, "400 °C", "752 °F"]];
-  var PRES_OPTS = [[0, "Any"], [10, "10 bar", "145 psi"], [30, "30 bar", "435 psi"], [100, "100 bar", "1450 psi"], [250, "250 bar", "3626 psi"]];
+  var TEMP_OPTS = [[0, "Any"], [100, "100 °C"], [150, "150 °C"], [250, "250 °C"], [300, "300 °C"], [400, "400 °C"]];
+  var PRES_OPTS = [[0, "Any"], [10, "10 bar"], [30, "30 bar"], [100, "100 bar"], [250, "250 bar"]];
   SCREENS.finder = function () {
     function chips(key, opts) {
       return '<div class="row">' + opts.map(function (o) {
@@ -531,8 +577,8 @@
         '<div class="pinfo"><div class="row" style="gap:.5rem"><span class="eyebrow">' + esc(fam.name) + " · " + esc(pr.name) + "</span></div>" +
         '<h1 class="h1">' + esc(p.name) + '</h1><div class="row" style="gap:.4rem"><span class="tag solid">' + esc(p.type) + "</span>" + (p.badge ? '<span class="tag">' + esc(p.badge) + "</span>" : "") + "</div>" +
         '<p class="lead">' + esc(p.summary) + "</p>" + note(p.check) +
-        '<div class="ratings"><div class="rating"><span class="k">Max. temperature</span><span class="n">' + (f.maxT == null ? '<span style="font-size:1.2rem">Ask us</span>' : f.maxT + "<small>°C</small>") + "</span>" + (tNote ? '<span class="nt">' + tNote + "</span>" : "") + "</div>" +
-        '<div class="rating"><span class="k">Max. pressure</span><span class="n">' + (f.maxP == null ? '<span style="font-size:1.2rem">Ask us</span>' : f.maxP ? f.maxP + "<small>bar" + (f.pStar ? "*" : "") + "</small>" : "Atm.") + "</span>" + (pNote ? '<span class="nt">' + pNote + "</span>" : "") + "</div>" +
+        '<div class="ratings"><div class="rating"><span class="k">Max. temperature</span><span class="n">' + (f.maxT == null ? '<span style="font-size:1.2rem">Ask us</span>' : f.maxT + "<small>°C</small>") + "</span>" + (f.maxT != null ? '<span class="nt">(' + fahr(f.maxT) + " °F)</span>" : "") + (tNote ? '<span class="nt">' + tNote + "</span>" : "") + "</div>" +
+        '<div class="rating"><span class="k">Max. pressure</span><span class="n">' + (f.maxP == null ? '<span style="font-size:1.2rem">Ask us</span>' : f.maxP ? f.maxP + "<small>bar" + (f.pStar ? "*" : "") + "</small>" : "Atm.") + "</span>" + (f.maxP ? '<span class="nt">(' + psi(f.maxP) + " psi)</span>" : "") + (pNote ? '<span class="nt">' + pNote + "</span>" : "") + "</div>" +
         '<div class="rating"><span class="k">Spectral range</span><span class="n" style="font-size:1.2rem">' + spectral + "</span></div></div>" +
         specs + foot(p.foot) +
         '<div class="row"><button class="btn primary" type="button" data-req="' + p.family + '">' + I.mail + "Request information</button>" +
@@ -1155,7 +1201,7 @@
     var o = cfOpt(g, cfg.sel[g.pos]), W = en ? C_EN.configurator : CC;
     if (!o) return "";
     if (g.depth) return cfg.depth + " mm" + (o.plusPath ? " " + W.depthPlusPath : "") +
-      (o.flange === true ? " (" + W.depthFlange + ")" : o.flange === false ? " (" + W.depthNoFlange + ")" : "");
+      (o.flange === true ? ", " + W.depthFlange : o.flange === false ? ", " + W.depthNoFlange : "");
     return o.l;
   }
   function cfRating(m, cfg) {
@@ -1245,8 +1291,8 @@
       return '<div class="cfsum panel sky">' +
         '<div class="cfsum-top">' + stage(cfImg(m), "cfthumb", m.name) + '<div><div class="eyebrow">' + esc(CC.eyebrow) + '</div><h2 class="h2">' + esc(m.name) + '</h2><p class="muted small">' + esc(m.sub) + "</p></div></div>" +
         (CC.showCode ? '<div class="cfcode"><span class="k">' + esc(CC.codeLabel) + '</span><span class="code">' + esc(code) + "</span></div>" : "") +
-        '<div class="ratings cfrat"><div class="rating"><span class="k">Temperature</span><span class="n">' + tTxt + '</span><span class="nt">' + (r.t0 != null ? fahr(r.t0) + "–" + fahr(r.t1) + " °F" : "") + "</span></div>" +
-        '<div class="rating"><span class="k">Max. pressure</span><span class="n">' + pTxt + '</span><span class="nt">' + (r.p1 ? "~" + psi(r.p1) + " psi" : "") + (r.vac ? " · " + esc(CC.vacuum) : "") + "</span></div></div>" +
+        '<div class="ratings cfrat"><div class="rating"><span class="k">Temperature</span><span class="n">' + tTxt + '</span><span class="nt">' + (r.t0 != null ? "(" + fahr(r.t0) + "–" + fahr(r.t1) + " °F)" : "") + "</span></div>" +
+        '<div class="rating"><span class="k">Max. pressure</span><span class="n">' + pTxt + '</span><span class="nt">' + (r.p1 ? "(" + psi(r.p1) + " psi)" : "") + (r.vac ? " · " + esc(CC.vacuum) : "") + "</span></div></div>" +
         '<p class="small cfatex">' + esc(r.atex) + "</p>" +
         (cfAnyQ(m, cfg) ? '<p class="small onreqnote">' + esc(CC.onReqNote) + "</p>" : "") +
         '<p class="foot">' + esc(CC.ratingNote) + "</p>" + (r.weld ? foot("weld") : "") +
