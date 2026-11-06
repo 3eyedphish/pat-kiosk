@@ -1334,3 +1334,25 @@
 1412	Calefactor y termopar se piden por separado
 1413	Cuerpo de brida de 45 mm con aletas de refrigeración
 1414	Fibra o guía de luz
+1415	Bajo pedido
+1416	Incluye opciones bajo pedido. Nuestro equipo confirma la disponibilidad con su cotización.
+1417	Hasta 300 bar
+1418	Cables de fibra de 2 m, recubiertos de PE, 14 conectores F-SMA, carcasa PMA (NW 23)
+1419	Cables de fibra de 2 m, funda de acero inoxidable, 14 conectores F-SMA, carcasa PMA ATEX (NW 23)
+1420	Cables de fibra de 5 m, funda de acero inoxidable, 2 conectores F-SMA, carcasa PMA ATEX (NW 23)
+1421	Según su especificación
+1422	Mecanismo de retracción, relleno de gas inerte (N2, 4 bar)
+1423	Ninguno (solo cuerpo de celda)
+1424	Dedo individual
+1425	Paso óptico definido por la instalación
+1426	Dedo individual (sin cuerpo de celda)
+1427	Repuesto
+1428	Solo cuerpo de celda (sin dedos ópticos)
+1429	Como en el cuerpo de celda
+1430	Para un dedo individual
+1431	Conectores F-SMA, carcasa PMA ATEX (NW 29, rosca macho M32)
+1432	Conectores FC/PC, carcasa PMA ATEX (NW 29, rosca macho M32)
+1433	Hasta 200 mm de diámetro; la presión nominal debe coincidir con la brida
+1434	Brida suministrada por usted
+1435	Hasta 255 mm de diámetro
+1436	Cuerpo de brida de 45 mm

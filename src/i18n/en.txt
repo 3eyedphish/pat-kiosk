@@ -1398,3 +1398,25 @@
 1412	Heater and thermocouple ordered separately
 1413	45 mm flange body with cooling fins
 1414	Fiber or light guide
+1415	On request
+1416	Includes options on request. Our team confirms availability with your quotation.
+1417	Up to 300 bar
+1418	2 m fiber cables, PE coated, 14 F-SMA plugs, PMA housing (NW 23)
+1419	2 m fiber cables, stainless steel sleeve, 14 F-SMA plugs, ATEX PMA housing (NW 23)
+1420	5 m fiber cables, stainless steel sleeve, 2 F-SMA plugs, ATEX PMA housing (NW 23)
+1421	To your specification
+1422	Retraction mechanism and back filled with inert gas (N2, 4 bar)
+1423	None (cell body only)
+1424	Single finger
+1425	Path length set by the installation
+1426	Single finger (without cell body)
+1427	Spare or replacement part
+1428	Cell body only (no optical fingers)
+1429	As on the cell body
+1430	For a single finger
+1431	F-SMA sockets, ATEX PMA housing (NW 29, M32 male thread)
+1432	FC/PC sockets, ATEX PMA housing (NW 29, M32 male thread)
+1433	Up to 200 mm diameter; pressure rating must match the flange
+1434	Flange you provide
+1435	Up to 255 mm diameter
+1436	45 mm flange body

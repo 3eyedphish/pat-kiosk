@@ -1347,3 +1347,25 @@
 1412	Verwarming en thermokoppel apart te bestellen
 1413	Flensbehuizing 45 mm met koelribben
 1414	Vezel of lichtgeleider
+1415	Op aanvraag
+1416	Bevat opties op aanvraag. Ons team bevestigt de beschikbaarheid met uw offerte.
+1417	Tot 300 bar
+1418	Glasvezelkabels van 2 m, PE-mantel, 14 F-SMA-stekkers, PMA-behuizing (NW 23)
+1419	Glasvezelkabels van 2 m, rvs-mantel, 14 F-SMA-stekkers, ATEX-PMA-behuizing (NW 23)
+1420	Glasvezelkabels van 5 m, rvs-mantel, 2 F-SMA-stekkers, ATEX-PMA-behuizing (NW 23)
+1421	Volgens uw specificatie
+1422	Terugtrekmechanisme, gevuld met inert gas (N2, 4 bar)
+1423	Geen (alleen celhuis)
+1424	Enkele vinger
+1425	Weglengte bepaald door de inbouw
+1426	Enkele vinger (zonder celhuis)
+1427	Reserveonderdeel
+1428	Alleen celhuis (zonder optische vingers)
+1429	Zoals op het celhuis
+1430	Voor een enkele vinger
+1431	F-SMA-aansluitingen, ATEX-PMA-behuizing (NW 29, M32-buitendraad)
+1432	FC/PC-aansluitingen, ATEX-PMA-behuizing (NW 29, M32-buitendraad)
+1433	Tot 200 mm diameter; de drukklasse moet bij de flens passen
+1434	Door u geleverde flens
+1435	Tot 255 mm diameter
+1436	Flenshuis 45 mm

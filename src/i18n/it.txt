@@ -1332,3 +1332,25 @@
 1412	Riscaldatore e termocoppia da ordinare a parte
 1413	Corpo flangia 45 mm con alette di raffreddamento
 1414	Fibra o guida di luce
+1415	Su richiesta
+1416	Include opzioni su richiesta. Il nostro team conferma la disponibilità con l’offerta.
+1417	Fino a 300 bar
+1418	Cavi in fibra da 2 m, rivestiti in PE, 14 connettori F-SMA, custodia PMA (NW 23)
+1419	Cavi in fibra da 2 m, guaina in acciaio inox, 14 connettori F-SMA, custodia PMA ATEX (NW 23)
+1420	Cavi in fibra da 5 m, guaina in acciaio inox, 2 connettori F-SMA, custodia PMA ATEX (NW 23)
+1421	Secondo le vostre specifiche
+1422	Meccanismo di retrazione, riempito di gas inerte (N2, 4 bar)
+1423	Nessuno (solo corpo cella)
+1424	Dito singolo
+1425	Cammino ottico definito dall’installazione
+1426	Dito singolo (senza corpo cella)
+1427	Ricambio
+1428	Solo corpo cella (senza dita ottiche)
+1429	Come sul corpo cella
+1430	Per un dito singolo
+1431	Prese F-SMA, custodia PMA ATEX (NW 29, filettatura maschio M32)
+1432	Prese FC/PC, custodia PMA ATEX (NW 29, filettatura maschio M32)
+1433	Fino a 200 mm di diametro; la pressione nominale deve corrispondere alla flangia
+1434	Flangia fornita da voi
+1435	Fino a 255 mm di diametro
+1436	Corpo flangia da 45 mm

@@ -61,17 +61,12 @@ GROUPS = {
                (17, 1, "extra", "Additional functions")],
 }
 # Display order above; the code position (first number) places each choice in the configuration code.
-AUTO = {("flange", 11)}  # set by another choice; shown in the summary, not as a step
+AUTO = set()  # (kind, pos) set by another choice; shown in the summary, not as a step
 
 # Options left out on purpose: (kind, pos, code): reason
-SKIP = {
-    ("probe", 12, "E"): "300 bar: the kiosk rates welded metal seals 250 bar* (confirmed decision)",
-    ("cell", 4, "X"): "single finger without body is a spare part",
-    ("cell", 5, "0"): "cell body only is a spare part", ("cell", 8, "0"): "spare part", ("cell", 9, "0"): "spare part",
-    ("cell", 10, "000"): "single finger only", ("cell", 13, "Z"): "cell body only", ("cell", 14, "A"): "single finger only",
-    ("cell", 17, "C"): "workbook: only with cell body A, which the FFV does not offer",
-    ("flange", 11, "063"): "ASME 2.5 in flange is not offered for this cell",
-}
+# Evan, 2026-11-06: offer every option the workbook lists; unclear ones are marked "on request".
+SKIP = {("cell", 17, "C"): "workbook: only with cell body A, which the FFV does not offer"}
+QFORCE = {("probe", 13, "d219")}  # row 219: label says with flange, rule column says no flange
 
 L = {}
 def lab(kind, pos, code, label, detail=None):
@@ -172,6 +167,26 @@ for c, v in [("L", "EN 1092-1 DN 40 PN 40"), ("C", "EN 1092-1 DN 50 PN 40"), ("D
 for c, v in [("041", "40.9 mm"), ("050", "49.5 mm"), ("053", "52.5 mm"), ("062", "61.5 mm"), ("094", "94.0 mm")]:
     lab("flange", 11, c, v)
 lab("flange", 16, "N", "None"); lab("flange", 17, "N", "None")
+# options added 2026-11-06 (all workbook options)
+lab("probe", 12, "E", "Up to 300 bar", "200 °C: 275 bar · 300 °C: 230 bar · 400 °C: 200 bar")
+lab("probe", 9, "L", "2 m fiber cables, PE coated, 14 F-SMA plugs, PMA housing (NW 23)")
+lab("probe", 9, "M", "2 m fiber cables, stainless steel sleeve, 14 F-SMA plugs, ATEX PMA housing (NW 23)")
+lab("probe", 9, "Q", "5 m fiber cables, stainless steel sleeve, 2 F-SMA plugs, ATEX PMA housing (NW 23)")
+lab("probe", 9, "Z", "To your specification")
+lab("cell", 13, "S", "F-SMA sockets, ATEX PMA housing (NW 29, M32 male thread)")
+lab("cell", 13, "T", "FC/PC sockets, ATEX PMA housing (NW 29, M32 male thread)")
+lab("cell", 4, "X", "Single finger (without cell body)", "Spare or replacement part")
+lab("cell", 10, "000", "Single finger", "Path length set by the installation")
+lab("cell", 14, "A", "As on the cell body", "For a single finger")
+lab("cell", 5, "0", "Cell body only (no optical fingers)", "Spare or replacement part")
+lab("cell", 8, "0", "None (cell body only)"); lab("cell", 9, "0", "None (cell body only)"); lab("cell", 13, "Z", "None (cell body only)")
+for c, v in [("B", "EN 1092-1 DN 25 PN 40"), ("R", "EN 1092-1 DN 100 PN 40"), ("1", "ASME B16.5 NPS 2.5 Class 300"), ("W", "ASME B16.5 NPS 3 Class 300"), ("X", "ASME B16.5 NPS 4 Class 300")]:
+    lab("flange", 10, c, v)
+lab("flange", 10, "Y", "Flange to your specification", "Up to 200 mm diameter; pressure rating must match the flange")
+lab("flange", 10, "Z", "Flange you provide", "Up to 255 mm diameter")
+lab("flange", 11, "063", "62.7 mm")
+lab("flange", 3, "A", "45 mm flange body")
+lab("flange", 16, "Y", "Internal purging of the probe body")
 
 # Combination rules, from the workbook's restriction notes. if (pos in codes) then need (pos in codes). m = only for these models.
 def R(kind, ifp, ifc, needp, needc, models=None):
@@ -191,6 +206,11 @@ RULES = [
     R("cell", 4, "T", 10, ["M01", "M02", "M05", "M10", "M15", "M20"]),
     R("flange", 10, "L", 11, ["050"]), R("flange", 10, "C", 11, ["062"]), R("flange", 10, "D", 11, ["094"]),
     R("flange", 10, "FN", 11, ["041"]), R("flange", 10, "HO", 11, ["053"]),
+    # spare parts on the FCP/FFV sheet: a single finger, or a cell body without fingers
+    R("cell", 4, "X", 10, ["000"]), R("cell", 10, "000", 4, "X"), R("cell", 14, "A", 4, "X"),
+    R("cell", 5, "0", 8, "0"), R("cell", 5, "0", 9, "0"), R("cell", 5, "0", 13, "Z"),
+    R("cell", 8, "0", 5, "0"), R("cell", 9, "0", 5, "0"), R("cell", 13, "Z", 5, "0"),
+    R("cell", 5, "0", 4, [c for c in "ACDST"]),
 ]
 
 def clean(s):
@@ -215,12 +235,15 @@ def main(path, out):
                 for d in sheet["depth"]:
                     ms = [n for c, n in sheet["models"].items() if c in d["marks"]]
                     mine = [m["id"] for m in models if m["sheet"] == kind and m["col"] in d["marks"]]
-                    if not mine or d["row"] == 219: continue  # row 219: label says with flange, rule says no flange
+                    if not mine: continue
                     txt = d["en"]
                     nums = [int(x) for x in re.findall(r"(\d+) mm", txt)]
                     lo, hi = (nums[0], nums[1]) if "to" in txt else (nums[0], nums[0])
                     flange = True if "with flange" in txt else False if "no flange" in txt else None
                     o = dict(c="d%d" % d["row"], min=lo, max=hi, flange=flange, m=mine)
+                    q = [m["id"] for m in models if m["sheet"] == kind and d["marks"].get(m["col"]) == "Q"]
+                    if (kind, pos, o["c"]) in QFORCE: q = mine
+                    if q: o["q"] = q
                     if "+ optical path" in txt: o["plusPath"] = True
                     g["options"].append(o)
             else:
@@ -246,7 +269,9 @@ def main(path, out):
                     if lim: opt["lim"] = lim
                     if o["atex"] is not None and int(o["atex"]) in (2, 9): opt["atex"] = int(o["atex"])
                     opt["m"] = mine
-                    if key == "pressure" and o["code"] == "D" and kind == "probe": opt["foot"] = "weld"
+                    q = [m["id"] for m in models if m["sheet"] == kind and o["marks"].get(m["col"]) == "Q" and m["base"][pos - 1:pos - 1 + ln] != o["code"]]
+                    if q: opt["q"] = q
+                    if key == "pressure" and (pmax or 0) >= 250: opt["foot"] = "weld"
                     g["options"].append(opt)
             if g["options"]: glist.append(g)
         groups[kind] = glist

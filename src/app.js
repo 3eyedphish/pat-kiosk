@@ -1078,6 +1078,8 @@
     return null;
   }
   function cfBaseCode(m, g) { return m.base.substr(g.pos - 1, g.len); }
+  function cfQ(m, o) { return !!(o && o.q && o.q.indexOf(m.id) >= 0); } /* listed in the workbook, availability to be confirmed */
+  function cfAnyQ(m, cfg) { return cfGroups(m).some(function (g) { return cfQ(m, cfOpt(g, cfg.sel[g.pos])); }); }
   /* Put every choice in a valid state; the position in `locked` is never changed */
   function cfFix(m, cfg, locked) {
     var gs = cfGroups(m), rules = cfRules(m), byPos = {};
@@ -1090,6 +1092,7 @@
       if (target == null || !byPos[target]) break;
       done[target] = 1;
       var g = byPos[target], cands = g.options.map(function (o) { return o.c; });
+      cands.sort(function (a, b) { return cfQ(m, cfOpt(g, a)) - cfQ(m, cfOpt(g, b)); }); /* confirmed options first */
       var std = g.depth ? null : cfBaseCode(m, g);
       if (std && cands.indexOf(std) > 0) { cands.splice(cands.indexOf(std), 1); cands.unshift(std); }
       if (g.depth) { /* keep the depth as close as possible to the current value */
@@ -1146,12 +1149,12 @@
     return chars.join("");
   }
   function cfDepthText(o, mm) {
-    return (mm != null ? mm : o.min === o.max ? o.min : o.min + "–" + o.max) + " mm" + (o.plusPath ? " + " + CC.depthPlusPath : "");
+    return (mm != null ? mm : o.min === o.max ? o.min : o.min + "–" + o.max) + " mm" + (o.plusPath ? " " + CC.depthPlusPath : "");
   }
   function cfValue(g, cfg, en) {
     var o = cfOpt(g, cfg.sel[g.pos]), W = en ? C_EN.configurator : CC;
     if (!o) return "";
-    if (g.depth) return cfg.depth + " mm" + (o.plusPath ? " + " + W.depthPlusPath : "") +
+    if (g.depth) return cfg.depth + " mm" + (o.plusPath ? " " + W.depthPlusPath : "") +
       (o.flange === true ? " (" + W.depthFlange + ")" : o.flange === false ? " (" + W.depthNoFlange + ")" : "");
     return o.l;
   }
@@ -1170,12 +1173,12 @@
     });
     if (!hasP) { p1 = p1 == null ? m.p[1] : p1; if (!(m.p[0] < 0)) vac = false; }
     var atexText = atex === 9 ? CC.atexNone : atex === 2 ? CC.atex2 : m.atex === "j" ? CC.atex1 : CC.atexAsk;
-    return { t0: t0, t1: t1, p1: p1, vac: vac && p1 > 0, weld: weld && p1 === 250, atex: atexText };
+    return { t0: t0, t1: t1, p1: p1, vac: vac && p1 > 0, weld: weld && p1 >= 250, atex: atexText };
   }
   function fahr(c) { return Math.round(c * 9 / 5 + 32); }
   function psi(b) { return Math.round(b * 14.5038 / 10) * 10; }
   function cfSummaryLines(m, cfg) { /* English, for the lead record */
-    return cfGroups(m).map(function (g) { return [g.title, cfValue(g, cfg, true)]; });
+    return cfGroups(m).map(function (g) { return [g.title, cfValue(g, cfg, true) + (cfQ(m, cfOpt(g, cfg.sel[g.pos])) ? " (on request)" : "")]; });
   }
   function cfRecord(m, cfg) {
     var r = cfRating(m, cfg);
@@ -1215,6 +1218,7 @@
         '<span class="radio"></span><span class="tx"><b>' + (g.depth ? esc(cfDepthText(o)) : T(o.l)) + "</b>" +
         (g.depth && o.flange != null ? "<small>" + esc(o.flange ? CC.depthFlange : CC.depthNoFlange) + "</small>" : "") +
         (o.d ? "<small>" + T(o.d) + "</small>" : "") +
+        (cfQ(m, o) ? '<small class="onreq">' + esc(CC.onReq) + "</small>" : "") +
         (also.length ? '<small class="also">' + esc(t(CC.alsoChanges) + ": " + also.map(function (x) { return t(x); }).join(", ")) + "</small>" : "") + "</span></button>";
     }
     function depthTuner(g) {
@@ -1244,6 +1248,7 @@
         '<div class="ratings cfrat"><div class="rating"><span class="k">Temperature</span><span class="n">' + tTxt + '</span><span class="nt">' + (r.t0 != null ? fahr(r.t0) + "–" + fahr(r.t1) + " °F" : "") + "</span></div>" +
         '<div class="rating"><span class="k">Max. pressure</span><span class="n">' + pTxt + '</span><span class="nt">' + (r.p1 ? "~" + psi(r.p1) + " psi" : "") + (r.vac ? " · " + esc(CC.vacuum) : "") + "</span></div></div>" +
         '<p class="small cfatex">' + esc(r.atex) + "</p>" +
+        (cfAnyQ(m, cfg) ? '<p class="small onreqnote">' + esc(CC.onReqNote) + "</p>" : "") +
         '<p class="foot">' + esc(CC.ratingNote) + "</p>" + (r.weld ? foot("weld") : "") +
         '<div class="row"><button class="btn primary" type="button" id="cf-add">' + I.mail + esc(CC.addLabel) + "</button>" +
         '<button class="btn" type="button" id="cf-reset">' + esc(CC.restart) + "</button></div>" +

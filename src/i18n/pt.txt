@@ -1344,3 +1344,25 @@
 1412	Aquecedor e termopar pedidos separadamente
 1413	Corpo de flange de 45 mm com aletas de resfriamento
 1414	Fibra ou guia de luz
+1415	Sob consulta
+1416	Inclui opções sob consulta. Nossa equipe confirma a disponibilidade com sua cotação.
+1417	Até 300 bar
+1418	Cabos de fibra de 2 m, revestidos de PE, 14 conectores F-SMA, invólucro PMA (NW 23)
+1419	Cabos de fibra de 2 m, capa de aço inoxidável, 14 conectores F-SMA, invólucro PMA ATEX (NW 23)
+1420	Cabos de fibra de 5 m, capa de aço inoxidável, 2 conectores F-SMA, invólucro PMA ATEX (NW 23)
+1421	Conforme sua especificação
+1422	Mecanismo de retração, preenchido com gás inerte (N2, 4 bar)
+1423	Nenhum (somente corpo da célula)
+1424	Dedo individual
+1425	Caminho óptico definido pela instalação
+1426	Dedo individual (sem corpo da célula)
+1427	Peça de reposição
+1428	Somente corpo da célula (sem dedos ópticos)
+1429	Como no corpo da célula
+1430	Para um dedo individual
+1431	Soquetes F-SMA, invólucro PMA ATEX (NW 29, rosca macho M32)
+1432	Soquetes FC/PC, invólucro PMA ATEX (NW 29, rosca macho M32)
+1433	Até 200 mm de diâmetro; a pressão nominal deve corresponder ao flange
+1434	Flange fornecido por você
+1435	Até 255 mm de diâmetro
+1436	Corpo de flange de 45 mm

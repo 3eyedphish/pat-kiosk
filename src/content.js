@@ -12,7 +12,7 @@
 window.KIOSK = {
   meta: {
     title: "Hellma Process Analytics",
-    version: "0.9.0 (configurator)",
+    version: "0.9.1 (all configurator options)",
     source: "20250428_HellmaUSA_PAT.pptx; HellmaUSA_2025_Applications_for_CPACT_webinar.pptx; 661.920 information sheet",
   },
 
@@ -1164,6 +1164,8 @@ window.KIOSK = {
     atex1: "ATEX Zone 1 version available",
     atex2: "ATEX Zone 2 version available",
     atexAsk: "ATEX version on request",
+    onReq: "On request",
+    onReqNote: "Includes options on request. Our team confirms availability with your quotation.",
     yours: "Your configurations",
     remove: "Remove",
   },

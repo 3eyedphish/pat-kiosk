@@ -1334,3 +1334,25 @@
 1412	Cartouche et thermocouple à commander séparément
 1413	Corps de bride 45 mm avec ailettes de refroidissement
 1414	Fibre ou guide de lumière
+1415	Sur demande
+1416	Comprend des options sur demande. Notre équipe confirme leur disponibilité avec votre offre.
+1417	Jusqu’à 300 bar
+1418	Câbles à fibres de 2 m, gaine PE, 14 fiches F-SMA, boîtier PMA (NW 23)
+1419	Câbles à fibres de 2 m, gaine inox, 14 fiches F-SMA, boîtier PMA ATEX (NW 23)
+1420	Câbles à fibres de 5 m, gaine inox, 2 fiches F-SMA, boîtier PMA ATEX (NW 23)
+1421	Selon votre spécification
+1422	Mécanisme de rétraction, rempli de gaz inerte (N2, 4 bar)
+1423	Aucun (corps de cellule seul)
+1424	Doigt seul
+1425	Trajet optique défini par l’installation
+1426	Doigt seul (sans corps de cellule)
+1427	Pièce de rechange
+1428	Corps de cellule seul (sans doigts optiques)
+1429	Comme sur le corps de cellule
+1430	Pour un doigt seul
+1431	Embases F-SMA, boîtier PMA ATEX (NW 29, filetage mâle M32)
+1432	Embases FC/PC, boîtier PMA ATEX (NW 29, filetage mâle M32)
+1433	Jusqu’à 200 mm de diamètre ; la pression nominale doit correspondre à la bride
+1434	Bride fournie par vos soins
+1435	Jusqu’à 255 mm de diamètre
+1436	Corps de bride 45 mm

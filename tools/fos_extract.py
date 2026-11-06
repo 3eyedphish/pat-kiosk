@@ -19,6 +19,17 @@ def num(v):
     m = re.match(r"\s*(-?\d+(?:[.,]\d+)?)", str(v))
     return float(m.group(1).replace(",", ".")) if m else None
 
+def mark_of(mk, cellfill, rowfill):
+    """'S' standard, 'V' offered, 'Q' listed in the workbook but not a clear yes (on request), None = not offered.
+    Q covers orange fills ('can be built, not in the configurator') and the marks '?', 'E', 'EH' and annotated marks.
+    Red fills ('cannot be built') and '-' stay out."""
+    if not mk or mk == "-" or cellfill == RED or rowfill == RED: return None
+    if ok_mark(mk):
+        if cellfill == ORANGE or rowfill == ORANGE: return "Q"
+        return "S" if mk in ("S", "WS") else "V"
+    if mk in ("?", "E", "EH") or mk.startswith("?") or mk.startswith("V (") or mk.startswith("S ("): return "Q"
+    return None
+
 def ok_mark(mk):
     """S = standard, V = variant, W/WS as marked in the workbook, or another model's code (E2, F2, K2 ...) = offered.
     Anything else ('-', '?', 'E', 'EH', notes) = not offered in the configurator."""
@@ -70,9 +81,8 @@ def extract(path):
                 for m in cfg["models"]:
                     c = ws[m + str(r)]
                     mk = str(c.value if c.value is not None else "").strip()
-                    if not ok_mark(mk): continue
-                    if fill(c) in (ORANGE, RED) or rowfill in (ORANGE, RED): continue
-                    marks[m] = "S" if mk in ("S", "WS") else "V"
+                    k = mark_of(mk, fill(c), rowfill)
+                    if k: marks[m] = k
                 # an unmarked option is still returned: a model's base configuration may use it
                 groups.setdefault(pos, []).append(dict(row=r, code=code, en=str(en).strip(), de=str(ws[cfg["de"] + str(r)].value or "").strip(),
                     tmin=num(ws[cfg["t"][0] + str(r)].value), tmax=num(ws[cfg["t"][1] + str(r)].value),
@@ -87,8 +97,8 @@ def extract(path):
                 marks = {}
                 for m in cfg["models"]:
                     c = ws[m + str(r)]; mk = str(c.value if c.value is not None else "").strip()
-                    if not ok_mark(mk) or fill(c) in (ORANGE, RED): continue
-                    marks[m] = "S" if mk == "S" else "V"
+                    k = mark_of(mk, fill(c), fill(ws[cfg["en"] + str(r)]))
+                    if k: marks[m] = k
                 depth.append(dict(row=r, en=str(en).strip(), marks=marks, rule=str(ws["BV%d" % r].value or "").strip()))
         out[kind] = dict(models=models, groups=groups, depth=depth)
     return over, out

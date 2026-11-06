@@ -1330,3 +1330,25 @@
 1412	Heizpatrone und Thermoelement separat bestellen
 1413	45 mm Flanschkörper mit Kühlrippen
 1414	Glasfaser oder Lichtleiter
+1415	Auf Anfrage
+1416	Enthält Optionen auf Anfrage. Unser Team bestätigt die Verfügbarkeit mit Ihrem Angebot.
+1417	Bis 300 bar
+1418	2 m Lichtwellenleiter, PE-ummantelt, 14 F-SMA-Stecker, PMA-Gehäuse (NW 23)
+1419	2 m Lichtwellenleiter, Edelstahlschutzschlauch, 14 F-SMA-Stecker, ATEX-PMA-Gehäuse (NW 23)
+1420	5 m Lichtwellenleiter, Edelstahlschutzschlauch, 2 F-SMA-Stecker, ATEX-PMA-Gehäuse (NW 23)
+1421	Nach Ihrer Vorgabe
+1422	Rückzugmechanik, mit Schutzgas gefüllt (N2, 4 bar)
+1423	Keine (nur Zellkörper)
+1424	Einzelner Finger
+1425	Schichtdicke ergibt sich aus dem Einbau
+1426	Einzelner Finger (ohne Zellkörper)
+1427	Ersatzteil
+1428	Nur Zellkörper (ohne optische Finger)
+1429	Wie am Zellkörper
+1430	Für einen einzelnen Finger
+1431	F-SMA-Buchsen, ATEX-PMA-Gehäuse (NW 29, M32-Außengewinde)
+1432	FC/PC-Buchsen, ATEX-PMA-Gehäuse (NW 29, M32-Außengewinde)
+1433	Bis 200 mm Durchmesser; die Druckstufe muss zum Flansch passen
+1434	Von Ihnen beigestellter Flansch
+1435	Bis 255 mm Durchmesser
+1436	45-mm-Flanschkörper
